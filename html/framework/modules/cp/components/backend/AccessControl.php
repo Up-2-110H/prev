@@ -22,6 +22,13 @@ class AccessControl extends BaseAccessControl
      */
     public function beforeAction($action)
     {
+        $user = $this->user;
+        $uniqueId = $action->getUniqueId();
+
+        if ($user->can($uniqueId, ['model' => ['created_by' => $user->getId()]])) {
+            return true;
+        }
+
         return parent::beforeAction($action);
     }
 

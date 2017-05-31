@@ -2,7 +2,9 @@
 
 namespace app\modules\cp;
 
+use app\modules\cp\components\backend\AccessControl;
 use Yii;
+use yii\helpers\ArrayHelper;
 use yii\web\Application;
 
 /**
@@ -10,6 +12,15 @@ use yii\web\Application;
  */
 class Module extends \yii\base\Module
 {
+    /**
+     * @var array
+     */
+    public $except = [
+        'auth/default/login',
+        'auth/default/logout',
+        'auth/default/captcha',
+    ];
+
     /**
      * @inheritdoc
      */
@@ -19,6 +30,22 @@ class Module extends \yii\base\Module
 
         // custom initialization code goes here
         $this->registerErrorHandler();
+    }
+
+    /**
+     * @return array
+     */
+    public function behaviors()
+    {
+        return ArrayHelper::merge(
+            parent::behaviors(),
+            [
+                'access' => [
+                    'class' => AccessControl::className(),
+                    'except' => $this->except,
+                ],
+            ]
+        );
     }
 
     public function registerErrorHandler()

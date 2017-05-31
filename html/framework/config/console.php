@@ -13,6 +13,35 @@ $config = [
                 '@app/modules/auth/migrations',
             ],
         ],
+        'access' => [
+            'class' => 'app\commands\AccessController',
+            'login' => [
+                'webmaster',
+            ],
+            'rules' => [
+                'app\modules\auth\rbac\AuthorRule',
+            ],
+            'user' => 'app\modules\auth\models\Auth',
+            'modules' => [
+                [
+                    'name' => '',
+                    'controllers' => [
+                        'default' => [
+                            'index',
+                            'flush-cache',
+                            'flush-assets',
+                        ],
+                    ],
+                ],
+                [
+                    'name' => 'auth',
+                    'controllers' => [
+                        'auth' => [],
+                        'log' => ['index'],
+                    ],
+                ],
+            ],
+        ],
     ],
     'components' => [
         'urlManager' => [
