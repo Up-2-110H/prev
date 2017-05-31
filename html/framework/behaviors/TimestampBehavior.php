@@ -9,7 +9,6 @@
 namespace app\behaviors;
 
 use DateTime;
-use Yii;
 
 /**
  * Class TimestampBehavior
@@ -32,7 +31,7 @@ use Yii;
  *
  * @package behaviors
  */
-class TimestampBehavior extends yii\behaviors\TimestampBehavior
+class TimestampBehavior extends \yii\behaviors\TimestampBehavior
 {
     /**
      * @param \yii\base\Event $event
