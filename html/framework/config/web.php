@@ -3,6 +3,19 @@
 $config = [
     'id' => 'web',
     'components' => [
+        'language' => [
+            'class' => 'app\components\language\Language',
+            'list' => [
+                [
+                    'iso' => 'ru-RU',
+                    'title' => 'Russian',
+                ],
+                [
+                    'iso' => 'en-US',
+                    'title' => 'English',
+                ],
+            ],
+        ],
         'assetManager' => [
             'class' => 'yii\web\AssetManager',
             'appendTimestamp' => true,
@@ -30,7 +43,7 @@ $config = [
             'class' => 'yii\web\CacheSession',
         ],
         'request' => [
-            'class' => 'yii\web\Request',
+            'class' => 'app\components\language\LanguageRequest',
             'cookieValidationKey' => hash('sha512', __FILE__ . __LINE__),
         ],
         'errorHandler' => [

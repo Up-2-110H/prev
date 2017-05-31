@@ -22,7 +22,7 @@ return [
             'cache' => 'cache',
         ],
         'urlManager' => [
-            'class' => 'yii\web\UrlManager',
+            'class' => 'app\components\language\LanguageUrlManager',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'normalizer' => [
