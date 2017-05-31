@@ -1,0 +1,10 @@
+# composer
+/framework/vendor
+/framework/composer.lock
+
+# config
+/framework/config/db.php
+
+# envelopment
+/web/index.php
+/web/robots.txt
