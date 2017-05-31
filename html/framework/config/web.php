@@ -2,6 +2,12 @@
 
 $config = [
     'id' => 'web',
+    'modules' => [
+        'cp' => [
+            'class' => 'app\modules\cp\Module',
+            'controllerNamespace' => 'app\modules\cp\controllers\backend',
+        ],
+    ],
     'components' => [
         'language' => [
             'class' => 'app\components\language\Language',
