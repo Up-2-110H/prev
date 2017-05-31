@@ -42,7 +42,7 @@ $this->title = 'Авторизация';
                                     'captchaAction' => '/cp/auth/default/captcha',
                                     'options' => [
                                         'class' => 'form-control',
-                                        'placeholder' => 'Капча',
+                                        'placeholder' => 'Проверочный код',
                                     ],
                                 ]) ?>
                             </div>
