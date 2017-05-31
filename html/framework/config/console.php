@@ -10,6 +10,7 @@ $config = [
             'paths' => [
                 '@yii/rbac/migrations',
                 '@app/migrations',
+                '@app/modules/auth/migrations',
             ],
         ],
     ],

@@ -54,6 +54,20 @@ return [
             'class' => 'yii\swiftmailer\Mailer',
             'useFileTransport' => YII_DEBUG, // @runtime/mail/
         ],
+        'i18n' => [
+            'class' => 'yii\i18n\I18N',
+            'translations' => [
+                'app' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'sourceLanguage' => 'en-US',
+                ],
+                'cp' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'sourceLanguage' => 'en-US',
+                    'basePath' => '@app/messages',
+                ],
+            ],
+        ],
         'log' => [
             'class' => 'yii\log\Dispatcher',
             'traceLevel' => YII_ENV_PROD ? 0 : 3,
