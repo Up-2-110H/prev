@@ -39,7 +39,7 @@ class LogSearch extends Log
      */
     public function search($params)
     {
-        $query = Log::find();
+        $query = Log::find()->orderBy(['created_at' => SORT_DESC]);
 
         // add conditions that should always apply here
 
