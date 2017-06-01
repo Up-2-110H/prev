@@ -72,7 +72,7 @@ class Ok extends OAuth2
      */
     protected function defaultTitle()
     {
-        return 'Одноклассники';
+        return 'ОК';
     }
 
     /**

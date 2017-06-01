@@ -31,6 +31,6 @@ class VKontakte extends \yii\authclient\clients\VKontakte
      */
     protected function defaultTitle()
     {
-        return 'Вконтакте';
+        return 'ВК';
     }
 }
