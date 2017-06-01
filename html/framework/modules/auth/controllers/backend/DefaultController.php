@@ -2,12 +2,19 @@
 
 namespace app\modules\auth\controllers\backend;
 
+use app\modules\auth\models\Auth;
 use app\modules\auth\models\Login;
+use app\modules\auth\models\OAuth;
 use app\modules\cp\components\backend\Controller;
 use Yii;
+use yii\authclient\ClientInterface;
+use yii\db\Exception;
+use yii\helpers\ArrayHelper;
 
 /**
- * Default controller for the `auth` module
+ * Class DefaultController
+ *
+ * @package app\modules\auth\controllers\backend
  */
 class DefaultController extends Controller
 {
@@ -21,7 +28,107 @@ class DefaultController extends Controller
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'cmf2' : null,
             ],
+            'oauth' => ArrayHelper::merge(
+                [
+                    'class' => 'yii\authclient\AuthAction',
+                    'successCallback' => [$this, 'OAuthCallback'],
+                ],
+                Yii::$app->getUser()->getIsGuest() ? [] : [
+                    'successUrl' => Yii::$app->getUrlManager()->createAbsoluteUrl(['/cp/auth/social']),
+                    'cancelUrl' => Yii::$app->getUrlManager()->createAbsoluteUrl(['/cp/auth/social']),
+                ]
+            ),
         ];
+    }
+
+    /**
+     * @param ClientInterface $client
+     *
+     * @throws \yii\db\Exception
+     */
+    public function OAuthCallback(ClientInterface $client)
+    {
+        $attributes = $client->getUserAttributes();
+
+        /* @var $OAuth OAuth */
+        $OAuth = OAuth::find()->where([
+            'source' => $client->getId(),
+            'source_id' => $attributes['id'],
+        ])->one();
+
+        if (Yii::$app->getUser()->getIsGuest()) {
+            if ($OAuth instanceof OAuth) {
+                // login
+                if ($OAuth->auth->blocked == Auth::BLOCKED_NO) {
+                    Yii::$app->getUser()->login($OAuth->auth);
+                } else {
+                    Yii::$app->getSession()->addFlash('danger', 'Ваш аккаунт заблокирован');
+                }
+            } else {
+                // signUp
+                if (isset($attributes['login']) && Auth::find()->where(['login' => $attributes['login']])->exists()) {
+                    Yii::$app->getSession()->addFlash('danger',
+                        sprintf('Пользователь %s совпадает с учетной записью %s, но не связан с ней',
+                            $attributes['login'], $client->getTitle()));
+                } else {
+                    $password = Yii::$app->getSecurity()->generateRandomString(8);
+                    $auth = new Auth([
+                        'login' => $attributes['login'],
+                        'password' => $password,
+                        'password_repeat' => $password,
+                        'email' => ArrayHelper::getValue($attributes, 'email'),
+                        'blocked' => Auth::BLOCKED_YES,
+                    ]);
+                    $transaction = Auth::getDb()->beginTransaction();
+                    if ($auth->save()) {
+                        $OAuth = new OAuth([
+                            'auth_id' => $auth->id,
+                            'source' => $client->getId(),
+                            'source_id' => (string)$attributes['id'],
+                        ]);
+                        if ($OAuth->save()) {
+                            $transaction->commit();
+                            if ($auth->blocked == Auth::BLOCKED_NO) {
+                                Yii::$app->getUser()->login($auth);
+                            } else {
+                                Yii::$app->getSession()->addFlash('success',
+                                    'Ваш аккаунт зарегистрирован, дождитесь его активации администратором');
+                            }
+                        } else {
+                            $transaction->rollBack();
+                            throw new Exception('', $OAuth->getErrors());
+                        }
+                    } else {
+                        $transaction->rollBack();
+                        throw new Exception('', $auth->getErrors());
+                    }
+                }
+            }
+        } else {
+            // user already logged in
+            if (!($OAuth instanceof OAuth)) {
+                // add user provider
+                $OAuth = new OAuth([
+                    'auth_id' => Yii::$app->getUser()->getId(),
+                    'source' => $client->getId(),
+                    'source_id' => (string)$attributes['id'],
+                ]);
+                if ($OAuth->save()) {
+                    Yii::$app->getSession()->addFlash('success',
+                        sprintf('Аккаунт <b>%s</b> привязан к социальной сети <b>%s</b>',
+                            ArrayHelper::getValue(Yii::$app->getUser()->getIdentity(), 'login'), $client->getTitle()));
+                } else {
+                    throw new Exception('', $OAuth->getErrors());
+                }
+            } elseif ($OAuth->auth_id == Yii::$app->getUser()->getId()) {
+                Yii::$app->getSession()->addFlash('info',
+                    sprintf('Аккаунт <b>%s</b> уже привязан к социальной сети <b>%s</b>',
+                        ArrayHelper::getValue(Yii::$app->getUser()->getIdentity(), 'login'), $client->getTitle()));
+            } else {
+                Yii::$app->getSession()->addFlash('danger',
+                    sprintf('Социальная сеть <b>%s</b> уже привязана к другому аккаунту', $client->getTitle()));
+            }
+        }
     }
 
     /**
@@ -35,7 +142,7 @@ class DefaultController extends Controller
 
         $model = new Login();
 
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+        if ($model->load(Yii::$app->getRequest()->post()) && $model->login()) {
             return $this->redirect(Yii::$app->getUser()->getReturnUrl());
         }
 

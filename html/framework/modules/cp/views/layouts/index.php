@@ -50,6 +50,8 @@ AppAsset::register($this);
             ]
         ) ?>
 
+        <?= \app\widgets\alert\AlertWidget::widget(); ?>
+
         <?= $content ?>
     </div>
 </div>

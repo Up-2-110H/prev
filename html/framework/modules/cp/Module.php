@@ -17,6 +17,7 @@ class Module extends \yii\base\Module implements NameInterface
      * @var array
      */
     public $except = [
+        'auth/default/oauth',
         'auth/default/login',
         'auth/default/logout',
         'auth/default/captcha',
