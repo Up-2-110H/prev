@@ -38,6 +38,7 @@ $config = [
                     'controllers' => [
                         'auth' => [],
                         'log' => ['index'],
+                        'social' => ['index'],
                     ],
                 ],
             ],
