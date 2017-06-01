@@ -3,6 +3,7 @@
 namespace app\modules\cp;
 
 use app\modules\cp\components\backend\AccessControl;
+use app\modules\cp\components\backend\NameInterface;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\web\Application;
@@ -10,7 +11,7 @@ use yii\web\Application;
 /**
  * cp module definition class
  */
-class Module extends \yii\base\Module
+class Module extends \yii\base\Module implements NameInterface
 {
     /**
      * @var array
@@ -53,5 +54,13 @@ class Module extends \yii\base\Module
         if (Yii::$app instanceof Application) {
             Yii::$app->getErrorHandler()->errorAction = 'cp/default/error';
         }
+    }
+
+    /**
+     * @return string
+     */
+    public static function getName()
+    {
+        return 'Администрирование';
     }
 }
