@@ -24,7 +24,7 @@ $config = [
             'user' => 'app\modules\auth\models\Auth',
             'modules' => [
                 [
-                    'name' => '',
+                    'name' => 'system',
                     'controllers' => [
                         'default' => [
                             'index',
