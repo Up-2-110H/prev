@@ -2,32 +2,29 @@
 
 $config = [
     'id' => 'web',
+    'defaultRoute' => 'system',
+    'as beforeRequest' => [
+        'class' => 'app\modules\system\components\backend\AccessControl',
+        'except' => [
+            'gii/*',
+            'debug/*',
+            'auth/default/oauth',
+            'auth/default/login',
+            'auth/default/logout',
+            'auth/default/captcha',
+        ],
+    ],
     'modules' => [
-        'cp' => [
-            'class' => 'app\modules\cp\Module',
-            'controllerNamespace' => 'app\modules\cp\controllers\backend',
-            'modules' => [
-                'auth' => [
-                    'class' => 'app\modules\auth\Module',
-                    'controllerNamespace' => 'app\modules\auth\controllers\backend',
-                ],
-            ],
+        'system' => [
+            'class' => 'app\modules\system\Module',
+            'controllerNamespace' => 'app\modules\system\controllers\backend',
+        ],
+        'auth' => [
+            'class' => 'app\modules\auth\Module',
+            'controllerNamespace' => 'app\modules\auth\controllers\backend',
         ],
     ],
     'components' => [
-        'language' => [
-            'class' => 'app\components\language\Language',
-            'list' => [
-                [
-                    'iso' => 'ru-RU',
-                    'title' => 'Russian',
-                ],
-                [
-                    'iso' => 'en-US',
-                    'title' => 'English',
-                ],
-            ],
-        ],
         'assetManager' => [
             'class' => 'yii\web\AssetManager',
             'appendTimestamp' => true,
@@ -51,9 +48,6 @@ $config = [
                 ],
             ],
         ],
-        'session' => [
-            'class' => 'yii\web\CacheSession',
-        ],
         'request' => [
             'class' => 'app\components\language\LanguageRequest',
             'cookieValidationKey' => hash('sha512', __FILE__ . __LINE__),
@@ -61,9 +55,9 @@ $config = [
         'user' => [
             'class' => 'yii\web\User',
             'identityClass' => 'app\modules\auth\models\Auth',
-            'loginUrl' => ['/cp/auth/default/login'],
+            'loginUrl' => ['/auth/default/login'],
             // http://www.yiiframework.com/doc-2.0/yii-web-user.html#loginRequired()-detail
-            'returnUrl' => ['/cp'],
+            'returnUrl' => ['/'],
             // Whether to enable cookie-based login: Yii::$app->user->login($this->getUser(), 24 * 60 * 60)
             'enableAutoLogin' => false,
             // http://www.yiiframework.com/doc-2.0/yii-web-user.html#$authTimeout-detail
@@ -144,7 +138,7 @@ $config = [
         ],
         'errorHandler' => [
             'class' => 'yii\web\ErrorHandler',
-            'errorAction' => 'site/error',
+            'errorAction' => 'system/default/error',
         ],
     ],
 ];
