@@ -44,7 +44,7 @@ AppAsset::register($this);
             [
                 'homeLink' => [
                     'label' => 'Администрирование',
-                    'url' => ['/cp'],
+                    'url' => ['/'],
                 ],
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ]

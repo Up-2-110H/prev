@@ -6,12 +6,12 @@
  * Time: 11:31
  */
 
-namespace app\modules\cp\components\frontend;
+namespace app\modules\system\components\frontend;
 
 /**
  * Class Controller
  *
- * @package app\modules\cp\components\frontend
+ * @package app\modules\system\components\frontend
  */
 class Controller extends \yii\web\Controller
 {

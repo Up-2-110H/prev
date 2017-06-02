@@ -1,13 +1,13 @@
 <?php
 
-namespace app\modules\cp\controllers\backend;
+namespace app\modules\system\controllers\backend;
 
-use app\modules\cp\components\backend\Controller;
+use app\modules\system\components\backend\Controller;
 use Yii;
 use yii\helpers\FileHelper;
 
 /**
- * Default controller for the `cp` module
+ * Default controller for the `system` module
  */
 class DefaultController extends Controller
 {

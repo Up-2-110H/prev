@@ -7,7 +7,7 @@
  * Time: 12:27
  */
 
-namespace app\modules\cp\components\backend;
+namespace app\modules\system\components\backend;
 
 interface NameInterface
 {

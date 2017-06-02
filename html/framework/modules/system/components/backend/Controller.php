@@ -6,7 +6,7 @@
  * Time: 11:31
  */
 
-namespace app\modules\cp\components\backend;
+namespace app\modules\system\components\backend;
 
 use Yii;
 use yii\web\ForbiddenHttpException;
@@ -14,14 +14,14 @@ use yii\web\ForbiddenHttpException;
 /**
  * Class Controller
  *
- * @package app\modules\cp\components\backend
+ * @package app\modules\system\components\backend
  */
 class Controller extends \yii\web\Controller
 {
     /**
      * @var string
      */
-    public $layout = '@app/modules/cp/views/layouts/index.php';
+    public $layout = '@app/modules/system/views/layouts/index.php';
 
     /**
      * @param array $params

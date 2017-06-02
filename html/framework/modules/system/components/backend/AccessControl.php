@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\cp\components\backend;
+namespace app\modules\system\components\backend;
 
 use Yii;
 use yii\filters\AccessControl as BaseAccessControl;
@@ -8,7 +8,7 @@ use yii\filters\AccessControl as BaseAccessControl;
 /**
  * Class AccessControl
  *
- * @package app\modules\cp\components\backend
+ * @package app\modules\system\components\backend
  */
 class AccessControl extends BaseAccessControl
 {
