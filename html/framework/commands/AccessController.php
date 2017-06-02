@@ -51,7 +51,7 @@ class AccessController extends \yii\console\Controller
     /**
      * @var string
      */
-    public $prefix = 'cp';
+    public $prefix = '';
 
     /**
      * @var string
