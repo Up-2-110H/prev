@@ -44,4 +44,20 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+    <div class="col-lg">
+        <div class="panel panel-default">
+            <div class="panel-heading">Роли</div>
+
+            <div class="panel-body">
+                <div class="list-group">
+                    <?php foreach ($model->roles as $role) : ?>
+                        <a class="list-group-item">
+                            <?= $role ?>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

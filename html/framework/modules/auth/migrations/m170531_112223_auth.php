@@ -12,8 +12,8 @@ class m170531_112223_auth extends Migration
             '{{%auth}}',
             [
                 'id' => $this->primaryKey(),
-                'login' => $this->string(32)->notNull()->defaultValue(''),
-                'password' => $this->string(512)->notNull()->defaultValue(''),
+                'login' => $this->string(32)->notNull(),
+                'password' => $this->string(512)->notNull(),
                 'auth_key' => $this->string(64)->null()->defaultValue(null),
                 'access_token' => $this->string(128)->null()->defaultValue(null),
                 'email' => $this->string(64)->null()->defaultValue(null),

@@ -7,6 +7,7 @@ use app\modules\auth\models\AuthSearch;
 use app\modules\cp\components\backend\Controller;
 use Yii;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
 
 /**
@@ -68,12 +69,15 @@ class AuthController extends Controller
     public function actionCreate()
     {
         $model = new Auth();
+        $model->setScenario(Auth::SCENARIO_CREATE);
+        $roles = ArrayHelper::map(Yii::$app->getAuthManager()->getRoles(), 'name', 'description');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'roles' => $roles,
             ]);
         }
     }
@@ -89,12 +93,14 @@ class AuthController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $roles = ArrayHelper::map(Yii::$app->getAuthManager()->getRoles(), 'name', 'description');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'roles' => $roles,
             ]);
         }
     }

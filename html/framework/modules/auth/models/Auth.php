@@ -2,6 +2,7 @@
 
 namespace app\modules\auth\models;
 
+use app\behaviors\EventBehavior;
 use app\behaviors\GenerateRandomStringBehavior;
 use app\behaviors\HashBehavior;
 use app\behaviors\TimestampBehavior;
@@ -21,16 +22,25 @@ use yii\web\IdentityInterface;
  * @property integer $blocked
  * @property string $created_at
  * @property string $updated_at
+ *
+ * @property string[] $roles
  */
 class Auth extends \yii\db\ActiveRecord implements IdentityInterface
 {
     const BLOCKED_NO = 0;
     const BLOCKED_YES = 1;
 
+    const SCENARIO_CREATE = 'create';
+
     /**
      * @var null
      */
     public $password_repeat = null;
+
+    /**
+     * @var array
+     */
+    private $roles = [];
 
     /**
      * @return array
@@ -63,6 +73,13 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface
                 'stringLength' => 128,
             ],
             'TimestampBehavior' => TimestampBehavior::className(),
+            'EventBehavior' => [
+                'class' => EventBehavior::className(),
+                'events' => [
+                    self::EVENT_AFTER_INSERT => [$this, 'saveRoles'],
+                    self::EVENT_AFTER_UPDATE => [$this, 'saveRoles'],
+                ],
+            ],
         ];
     }
 
@@ -81,7 +98,7 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             [['blocked'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
+            [['created_at', 'updated_at', 'roles'], 'safe'],
             [['login'], 'string', 'max' => 32],
             [['password', 'password_repeat'], 'string', 'max' => 512, 'min' => 8],
             [['auth_key', 'email'], 'string', 'max' => 64],
@@ -89,7 +106,7 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface
             [['login'], 'unique'],
             [['login'], 'required'],
             [['email'], 'email'],
-            [['password', 'password_repeat'], 'required', 'on' => ['create']],
+            [['password', 'password_repeat'], 'required', 'on' => [self::SCENARIO_CREATE]],
             ['password_repeat', 'compare', 'compareAttribute' => 'password'],
             ['password', 'compare', 'compareAttribute' => 'password_repeat'],
         ];
@@ -188,6 +205,31 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface
     public function validateAuthKey($auth_key)
     {
         return $this->auth_key === $auth_key;
+    }
+
+    /**
+     * @return array
+     */
+    public function getRoles()
+    {
+        return ArrayHelper::map(Yii::$app->getAuthManager()->getRolesByUser($this->getId()), 'name', 'name');
+    }
+
+    /**
+     * @param array $roles
+     */
+    public function setRoles(array $roles)
+    {
+        $this->roles = $roles;
+    }
+
+    public function saveRoles()
+    {
+        Yii::$app->getAuthManager()->revokeAll($this->getId());
+
+        foreach ($this->roles as $row) {
+            Yii::$app->getAuthManager()->assign(Yii::$app->getAuthManager()->getRole($row), $this->getId());
+        }
     }
 
     /**
