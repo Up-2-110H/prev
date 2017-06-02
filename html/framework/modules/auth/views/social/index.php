@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="panel-body">
             <?= AuthChoice::widget([
                 'autoRender' => true,
-                'baseAuthUrl' => ['/cp/auth/default/oauth'],
+                'baseAuthUrl' => ['/auth/default/oauth'],
             ]) ?>
         </div>
     </div>

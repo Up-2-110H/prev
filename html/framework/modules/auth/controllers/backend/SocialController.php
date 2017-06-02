@@ -2,7 +2,7 @@
 
 namespace app\modules\auth\controllers\backend;
 
-use app\modules\cp\components\backend\Controller;
+use app\modules\system\components\backend\Controller;
 
 /**
  * Class SocialController

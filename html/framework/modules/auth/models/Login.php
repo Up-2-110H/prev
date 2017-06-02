@@ -29,7 +29,7 @@ class Login extends Auth
             [
                 'verifyCode',
                 'captcha',
-                'captchaAction' => '/cp/auth/default/captcha',
+                'captchaAction' => '/auth/default/captcha',
             ],
         ];
     }

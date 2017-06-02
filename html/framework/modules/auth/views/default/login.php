@@ -39,7 +39,7 @@ $this->title = 'Авторизация';
                             <div class="form-group">
                                 <?= $form->field($model, 'verifyCode')->widget(
                                     Captcha::className(), [
-                                    'captchaAction' => '/cp/auth/default/captcha',
+                                    'captchaAction' => '/auth/default/captcha',
                                     'options' => [
                                         'class' => 'form-control',
                                         'placeholder' => 'Проверочный код',
@@ -54,7 +54,7 @@ $this->title = 'Авторизация';
                 <div class="form-group">
                     <?= AuthChoice::widget([
                         'autoRender' => true,
-                        'baseAuthUrl' => ['/cp/auth/default/oauth'],
+                        'baseAuthUrl' => ['/auth/default/oauth'],
                     ]) ?>
                 </div>
             </div>

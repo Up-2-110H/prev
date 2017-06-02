@@ -5,7 +5,7 @@ namespace app\modules\auth\controllers\backend;
 use app\modules\auth\models\Auth;
 use app\modules\auth\models\Login;
 use app\modules\auth\models\OAuth;
-use app\modules\cp\components\backend\Controller;
+use app\modules\system\components\backend\Controller;
 use Yii;
 use yii\authclient\ClientInterface;
 use yii\db\Exception;
@@ -34,8 +34,8 @@ class DefaultController extends Controller
                     'successCallback' => [$this, 'OAuthCallback'],
                 ],
                 Yii::$app->getUser()->getIsGuest() ? [] : [
-                    'successUrl' => Yii::$app->getUrlManager()->createAbsoluteUrl(['/cp/auth/social']),
-                    'cancelUrl' => Yii::$app->getUrlManager()->createAbsoluteUrl(['/cp/auth/social']),
+                    'successUrl' => Yii::$app->getUrlManager()->createAbsoluteUrl(['/auth/social']),
+                    'cancelUrl' => Yii::$app->getUrlManager()->createAbsoluteUrl(['/auth/social']),
                 ]
             ),
         ];
