@@ -15,11 +15,25 @@ return [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
+        '@public' => dirname(dirname(__DIR__)) . '/uploads',
     ],
     'components' => [
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
             'cache' => 'cache',
+        ],
+        'language' => [
+            'class' => 'app\components\language\Language',
+            'list' => [
+                [
+                    'iso' => 'ru-RU',
+                    'title' => 'Russian',
+                ],
+                [
+                    'iso' => 'en-US',
+                    'title' => 'English',
+                ],
+            ],
         ],
         'urlManager' => [
             'class' => 'app\components\language\LanguageUrlManager',
@@ -39,6 +53,9 @@ return [
         'security' => [
             'class' => 'yii\base\Security',
             'passwordHashCost' => 15,
+        ],
+        'session' => [
+            'class' => 'yii\web\CacheSession',
         ],
         'cache' => [
             'class' => 'yii\redis\Cache',
