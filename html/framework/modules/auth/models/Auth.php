@@ -78,6 +78,7 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface
                 'events' => [
                     self::EVENT_AFTER_INSERT => [$this, 'saveRoles'],
                     self::EVENT_AFTER_UPDATE => [$this, 'saveRoles'],
+                    self::EVENT_AFTER_DELETE => [$this, 'deleteRoles'],
                 ],
             ],
         ];
@@ -216,9 +217,9 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface
     }
 
     /**
-     * @param array $roles
+     * @param array|string $roles
      */
-    public function setRoles(array $roles)
+    public function setRoles($roles)
     {
         $this->roles = $roles;
     }
@@ -227,9 +228,16 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface
     {
         Yii::$app->getAuthManager()->revokeAll($this->getId());
 
-        foreach ($this->roles as $row) {
-            Yii::$app->getAuthManager()->assign(Yii::$app->getAuthManager()->getRole($row), $this->getId());
+        if (is_array($this->roles)) {
+            foreach ($this->roles as $row) {
+                Yii::$app->getAuthManager()->assign(Yii::$app->getAuthManager()->getRole($row), $this->getId());
+            }
         }
+    }
+
+    public function deleteRoles()
+    {
+        Yii::$app->getAuthManager()->revokeAll($this->getId());
     }
 
     /**
