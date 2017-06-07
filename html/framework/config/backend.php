@@ -25,6 +25,16 @@ $config = [
         ],
     ],
     'components' => [
+        'view' => [
+            'class' => 'yii\web\View',
+            'theme' => [
+                'basePath' => '@themes/paperDashboard',
+                'baseUrl' => '@themes/paperDashboard',
+                'pathMap' => [
+                    '@app/modules' => '@themes/paperDashboard/modules',
+                ],
+            ],
+        ],
         'assetManager' => [
             'class' => 'yii\web\AssetManager',
             'appendTimestamp' => true,
@@ -32,18 +42,28 @@ $config = [
             'fileMode' => 0644,
             'bundles' => [
                 'yii\web\JqueryAsset' => [
+                    'sourcePath' => '@themes/paperDashboard/assets/dist',
                     'js' => [
-                        YII_ENV_DEV ? 'jquery.js' : 'jquery.min.js',
+                        'js/jquery-3.1.1.min.js',
                     ],
                 ],
+                'yii\jui\JuiAsset' => [
+                    'sourcePath' => '@themes/paperDashboard/assets/dist',
+                    'js' => [
+                        'js/jquery-ui.min.js',
+                    ],
+                    'css' => [],
+                ],
                 'yii\bootstrap\BootstrapAsset' => [
+                    'sourcePath' => '@themes/paperDashboard/assets/dist',
                     'css' => [
-                        YII_ENV_DEV ? 'css/bootstrap.css' : 'css/bootstrap.min.css',
+                        'css/bootstrap.min.css',
                     ],
                 ],
                 'yii\bootstrap\BootstrapPluginAsset' => [
+                    'sourcePath' => '@themes/paperDashboard/assets/dist',
                     'js' => [
-                        YII_ENV_DEV ? 'js/bootstrap.js' : 'js/bootstrap.min.js',
+                        'js/bootstrap.min.js',
                     ],
                 ],
             ],

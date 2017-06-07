@@ -15,6 +15,7 @@ return [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
+        '@themes' => '@app/themes',
         '@public' => dirname(dirname(__DIR__)) . '/uploads',
     ],
     'components' => [
