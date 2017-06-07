@@ -19,6 +19,11 @@ use yii\helpers\ArrayHelper;
 class DefaultController extends Controller
 {
     /**
+     * @var string
+     */
+    public $layout = '@app/modules/system/views/layouts/login.php';
+
+    /**
      * @return array
      */
     public function actions()
