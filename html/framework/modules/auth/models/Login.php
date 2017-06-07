@@ -34,11 +34,23 @@ class Login extends Auth
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'login' => 'Логин',
+            'password' => 'Пароль',
+            'verifyCode' => 'Проверочный код',
+        ];
+    }
+
     public function authorization()
     {
         if (!$this->hasErrors()) {
             if (!$this->getAuth() || !$this->getAuth()->validatePassword($this->password)) {
-                $this->addError('Неправильное имя пользователя или пароль');
+                $this->addError('password', 'Неправильное имя пользователя или пароль');
             }
         }
     }
