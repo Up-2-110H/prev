@@ -7,7 +7,7 @@
  */
 
 return [
-    'Create' => 'Создать',
+    'Create' => 'Добавить',
     'Update' => 'Редактировать',
     'Update {modelClass}: ' => 'Редактировать {modelClass}: ',
     'Delete' => 'Удалить',
