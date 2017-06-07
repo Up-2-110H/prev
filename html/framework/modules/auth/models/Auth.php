@@ -122,6 +122,7 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface
             'id' => 'ID',
             'login' => 'Логин',
             'password' => 'Пароль',
+            'roles' => 'Роли',
             'password_repeat' => 'Повторите пароль',
             'auth_key' => 'Ключ авторизации',
             'access_token' => 'Токен доступа',
