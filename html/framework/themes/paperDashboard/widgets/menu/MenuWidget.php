@@ -11,6 +11,7 @@ namespace app\themes\paperDashboard\widgets\menu;
 use yii\bootstrap\Widget;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /**
  * Class MenuWidget
@@ -59,7 +60,7 @@ class MenuWidget extends Widget
                 } else {
                     $caret = '';
                     $options = [
-                        'href' => $url,
+                        'href' => Url::to($url),
                     ];
                     $collapse = '';
                 }
