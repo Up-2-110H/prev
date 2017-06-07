@@ -9,6 +9,7 @@
 /* @var $this yii\web\View */
 /* @var $content string */
 
+use app\assets\BootstrapSelectAsset;
 use app\themes\paperDashboard\assets\PaperDashboardAsset;
 use app\themes\paperDashboard\assets\ThemifyIconsAsset;
 use app\themes\paperDashboard\widgets\menu\MenuWidget;
@@ -17,6 +18,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\YiiAsset;
 
+BootstrapSelectAsset::register($this);
 PaperDashboardAsset::register($this);
 ThemifyIconsAsset::register($this);
 YiiAsset::register($this);
