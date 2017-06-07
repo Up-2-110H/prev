@@ -12,7 +12,9 @@
 use app\themes\paperDashboard\assets\PaperDashboardAsset;
 use app\themes\paperDashboard\assets\ThemifyIconsAsset;
 use app\themes\paperDashboard\widgets\menu\MenuWidget;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\web\YiiAsset;
 
 PaperDashboardAsset::register($this);
@@ -44,14 +46,20 @@ YiiAsset::register($this);
                 <div class="photo"></div>
                 <div class="info">
                     <a data-toggle="collapse" href="#profile" class="collapsed">
-                        <span>Chet Faker<b class="caret"></b></span>
+                        <span>
+                            <?= ArrayHelper::getValue(Yii::$app->getUser()->getIdentity(), 'login') ?><b
+                                    class="caret"></b>
+                        </span>
                     </a>
                     <div class="clearfix"></div>
                     <div class="collapse" id="profile">
                         <ul class="nav">
                             <li>
                                 <a href="#profile">
-                                    <span class="sidebar-normal">My Profile</span>
+                                    <span class="sidebar-normal">Мой профиль</span>
+                                </a>
+                                <a href="<?= Url::to(['/auth/default/logout']) ?>">
+                                    <span class="sidebar-normal">Выход</span>
                                 </a>
                             </li>
                         </ul>
@@ -60,42 +68,7 @@ YiiAsset::register($this);
             </div>
 
             <?= MenuWidget::widget([
-                'items' => [
-                    [
-                        'label' => '1212',
-                        'url' => '/',
-                        'icon' => 'ti-calendar',
-                    ],
-                    [
-                        'label' => '1212',
-                        'url' => '/',
-                        'items' => [
-                            [
-                                'label' => '1212',
-                                'url' => '/',
-                            ],
-                            [
-                                'label' => '1212',
-                                'url' => '/',
-                                'items' => [
-                                    [
-                                        'label' => '1212',
-                                        'url' => '/',
-                                    ],
-                                    [
-                                        'label' => '1212',
-                                        'url' => '/',
-
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                    [
-                        'label' => '1212',
-                        'url' => '/',
-                    ],
-                ],
+                'items' => ArrayHelper::getValue(Yii::$app->params, ['menu']),
             ]) ?>
 
         </div>
@@ -117,18 +90,6 @@ YiiAsset::register($this);
                     'activeItemTemplate' => '<li><a>{link}</a></li>',
                 ]) ?>
 
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" class="btn-rotate">
-                                <i class="ti-settings"></i>
-                                <p class="hidden-md hidden-lg">
-                                    Settings
-                                </p>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </nav>
 
