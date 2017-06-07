@@ -47,6 +47,7 @@ $config = [
                         'js/jquery-3.1.1.min.js',
                     ],
                 ],
+                /*
                 'yii\jui\JuiAsset' => [
                     'sourcePath' => '@themes/paperDashboard/assets/dist',
                     'js' => [
@@ -54,6 +55,7 @@ $config = [
                     ],
                     'css' => [],
                 ],
+                */
                 'yii\bootstrap\BootstrapAsset' => [
                     'sourcePath' => '@themes/paperDashboard/assets/dist',
                     'css' => [
