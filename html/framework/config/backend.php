@@ -70,6 +70,7 @@ $config = [
         ],
         'request' => [
             'class' => 'app\components\language\LanguageRequest',
+            'csrfParam' => '_backendCSRF',
             'cookieValidationKey' => hash('sha512', __FILE__ . __LINE__),
         ],
         'user' => [
