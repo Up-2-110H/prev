@@ -25,6 +25,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'roles')->dropDownList($roles, [
         'multiple' => true,
+        'data-live-search' => 'true',
     ]) ?>
 
     <div class="form-group">
