@@ -40,7 +40,7 @@ YiiAsset::register($this);
 <div class="wrapper">
     <div class="sidebar" data-background-color="brown" data-active-color="danger">
         <div class="logo">
-            <a href="http://nsign.ru" class="simple-text logo-mini">NSign</a>
+            <a href="http://nsign.ru" class="simple-text logo-mini">NS</a>
             <a href="http://nsign.ru" class="simple-text logo-mini logo-normal">NSign</a>
         </div>
         <div class="sidebar-wrapper">
@@ -79,19 +79,17 @@ YiiAsset::register($this);
     <div class="main-panel">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
-
-                <?= \yii\widgets\Breadcrumbs::widget([
-                    'homeLink' => [
-                        'label' => 'Администрирование',
-                        'url' => ['/'],
-                    ],
-                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-                    'options' => [
-                        'class' => 'breadcrumbs nav navbar-nav',
-                    ],
-                    'activeItemTemplate' => '<li><a>{link}</a></li>',
-                ]) ?>
-
+                <div class="navbar-minimize">
+                    <button id="minimizeSidebar" class="btn btn-fill btn-icon"><i class="ti-more-alt"></i></button>
+                </div>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar bar1"></span>
+                        <span class="icon-bar bar2"></span>
+                        <span class="icon-bar bar3"></span>
+                    </button>
+                </div>
             </div>
         </nav>
 

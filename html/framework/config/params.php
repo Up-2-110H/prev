@@ -14,7 +14,7 @@ return [
     ],
     'menu' => [
         [
-            'label' => 'Администрирование',
+            'label' => 'Пользователи',
             'icon' => 'ti-panel',
             'items' => [
                 [
