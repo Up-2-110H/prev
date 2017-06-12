@@ -1,6 +1,6 @@
 <?php
 
-use app\themes\paperDashboard\widgets\grid\GridViewWidget;
+use yii\grid\GridView;
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
@@ -20,9 +20,10 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a(Yii::t('cp', 'Create'), ['create'], ['class' => 'btn btn-success']) ?>
     </div>
 
-    <div class="card-content table-responsive table-full-width">
+    <div class="card-content">
 
-        <?= GridViewWidget::widget([
+        <?= GridView::widget([
+            'tableOptions' => ['class' => 'table'],
             'dataProvider' => $dataProvider,
             'filterModel' => $searchModel,
             'columns' => [
@@ -46,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'class' => 'app\core\grid\DatePickerColumn',
                     'attribute' => 'updated_at',
                 ],
-                ['class' => 'app\themes\paperDashboard\widgets\grid\ActionColumnWidget'],
+                ['class' => 'yii\grid\ActionColumn'],
             ],
         ]); ?>
 

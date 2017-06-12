@@ -1,7 +1,7 @@
 <?php
 
-use app\themes\paperDashboard\widgets\grid\DetailViewWidget;
 use yii\helpers\Html;
+use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\auth\models\Auth */
@@ -31,9 +31,10 @@ $this->params['breadcrumbs'][] = $this->title;
         </p>
     </div>
 
-    <div class="card-content table-responsive table-full-width">
+    <div class="card-content">
 
-        <?= DetailViewWidget::widget([
+        <?= DetailView::widget([
+            'options' => ['class' => 'table detail-view'],
             'model' => $model,
             'attributes' => [
                 'id',

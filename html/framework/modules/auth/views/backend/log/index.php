@@ -1,6 +1,6 @@
 <?php
 
-use app\themes\paperDashboard\widgets\grid\GridViewWidget;
+use yii\grid\GridView;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
@@ -17,9 +17,10 @@ $this->params['breadcrumbs'][] = $this->title;
         <h4 class="card-title"><?= Html::encode($this->title) ?></h4>
     </div>
 
-    <div class="card-content table-responsive table-full-width">
+    <div class="card-content">
 
-        <?= GridViewWidget::widget([
+        <?= GridView::widget([
+            'tableOptions' => ['class' => 'table'],
             'dataProvider' => $dataProvider,
             'filterModel' => $searchModel,
             'columns' => [
