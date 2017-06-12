@@ -33,6 +33,9 @@ $config = [
                 'class' => 'yii\base\Theme',
                 'basePath' => '@themes/paperDashboard',
                 'baseUrl' => '@themes/paperDashboard',
+                'pathMap' => [
+                    '@app/modules/system/views/backend/layouts' => '@app/themes/paperDashboard/views/layouts',
+                ],
             ],
         ],
         'assetManager' => [
