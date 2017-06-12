@@ -21,7 +21,7 @@ class Controller extends \yii\web\Controller
     /**
      * @var string
      */
-    public $layout = '@app/modules/system/views/layouts/index.php';
+    public $layout = '@app/modules/system/views/backend/layouts/index.php';
 
     /**
      * @param array $params

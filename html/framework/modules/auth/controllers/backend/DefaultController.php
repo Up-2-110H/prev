@@ -21,7 +21,7 @@ class DefaultController extends Controller
     /**
      * @var string
      */
-    public $layout = '@app/modules/system/views/layouts/login.php';
+    public $layout = '@app/modules/system/views/backend/layouts/login.php';
 
     /**
      * @return array

@@ -27,7 +27,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     'baseAuthUrl' => ['/auth/default/oauth'],
                 ]) ?>
             </div>
-
         </div>
 
     </div>

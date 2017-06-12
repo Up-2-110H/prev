@@ -17,10 +17,12 @@ $config = [
     'modules' => [
         'system' => [
             'class' => 'app\modules\system\Module',
+            'viewPath' => '@app/modules/system/views/backend',
             'controllerNamespace' => 'app\modules\system\controllers\backend',
         ],
         'auth' => [
             'class' => 'app\modules\auth\Module',
+            'viewPath' => '@app/modules/auth/views/backend',
             'controllerNamespace' => 'app\modules\auth\controllers\backend',
         ],
     ],
@@ -28,11 +30,9 @@ $config = [
         'view' => [
             'class' => 'yii\web\View',
             'theme' => [
+                'class' => 'yii\base\Theme',
                 'basePath' => '@themes/paperDashboard',
                 'baseUrl' => '@themes/paperDashboard',
-                'pathMap' => [
-                    '@app/modules' => '@themes/paperDashboard/modules',
-                ],
             ],
         ],
         'assetManager' => [
