@@ -96,7 +96,10 @@ class JsonBehavior extends AttributeBehavior
      */
     public function afterFind($event)
     {
-        $event->sender->{$this->attribute} = Json::decode($event->sender->{$this->attribute});
+        $value = $event->sender->{$this->attribute};
+        if (is_string($value)) {
+            $event->sender->{$this->attribute} = Json::decode($value);
+        }
     }
 
     /**
