@@ -42,30 +42,18 @@ $config = [
             'fileMode' => 0644,
             'bundles' => [
                 'yii\web\JqueryAsset' => [
-                    'sourcePath' => '@themes/paperDashboard/assets/dist',
                     'js' => [
-                        'js/jquery-3.1.1.min.js',
+                        YII_ENV_DEV ? 'jquery.js' : 'jquery.min.js',
                     ],
                 ],
-                /*
-                'yii\jui\JuiAsset' => [
-                    'sourcePath' => '@themes/paperDashboard/assets/dist',
-                    'js' => [
-                        'js/jquery-ui.min.js',
-                    ],
-                    'css' => [],
-                ],
-                */
                 'yii\bootstrap\BootstrapAsset' => [
-                    'sourcePath' => '@themes/paperDashboard/assets/dist',
                     'css' => [
-                        'css/bootstrap.min.css',
+                        YII_ENV_DEV ? 'css/bootstrap.css' : 'css/bootstrap.min.css',
                     ],
                 ],
                 'yii\bootstrap\BootstrapPluginAsset' => [
-                    'sourcePath' => '@themes/paperDashboard/assets/dist',
                     'js' => [
-                        'js/bootstrap.min.js',
+                        YII_ENV_DEV ? 'js/bootstrap.js' : 'js/bootstrap.min.js',
                     ],
                 ],
             ],
