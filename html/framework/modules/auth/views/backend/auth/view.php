@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="card-content">
 
         <?= DetailView::widget([
-            'options' => ['class' => 'table detail-view'],
+            'options' => ['class' => 'table'],
             'model' => $model,
             'attributes' => [
                 'id',
