@@ -170,6 +170,36 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
+        'generators' => [
+            'module' => [
+                'class' => 'yii\gii\generators\module\Generator',
+                'messageCategory' => 'cp',
+                'templates' => [
+                    'paperDashboard' => '@themes/paperDashboard/gii/module',
+                ],
+                'template' => 'paperDashboard',
+            ],
+            'model' => [
+                'class' => 'yii\gii\generators\model\Generator',
+                'generateQuery' => true,
+                'useTablePrefix' => true,
+                'messageCategory' => 'cp',
+                'templates' => [
+                    'paperDashboard' => '@themes/paperDashboard/gii/model',
+                ],
+                'template' => 'paperDashboard',
+            ],
+            'crud' => [
+                'class' => 'yii\gii\generators\crud\Generator',
+                'enableI18N' => true,
+                'baseControllerClass' => 'app\modules\system\components\backend\Controller',
+                'messageCategory' => 'cp',
+                'templates' => [
+                    'paperDashboard' => '@themes/paperDashboard/gii/crud',
+                ],
+                'template' => 'paperDashboard',
+            ],
+        ],
         'allowedIPs' => [
             '127.0.0.1',
             '::1',
