@@ -3,6 +3,8 @@
  * This is the template for generating a module class file.
  */
 
+use yii\helpers\Inflector;
+
 /* @var $this yii\web\View */
 /* @var $generator yii\gii\generators\module\Generator */
 
@@ -17,6 +19,7 @@ echo "<?php\n";
 namespace <?= $ns ?>;
 
 use app\modules\system\components\backend\NameInterface;
+use Yii;
 
 /**
 * <?= $generator->moduleID ?> module definition class
@@ -41,6 +44,6 @@ parent::init();
 */
 public static function getName()
 {
-return '<?= $generator->moduleID ?>';
+return Yii::t('<?= $generator->messageCategory ?>', <?= $generator->generateString(Inflector::camel2words($generator->moduleID)) ?>);
 }
 }
