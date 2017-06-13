@@ -3,6 +3,7 @@
 namespace app\modules\example;
 
 use app\modules\system\components\backend\NameInterface;
+use Yii;
 
 /**
  * example module definition class
@@ -27,6 +28,6 @@ class Module extends \yii\base\Module implements NameInterface
      */
     public static function getName()
     {
-        return 'Example';
+        return Yii::t('system', 'Example');
     }
 }

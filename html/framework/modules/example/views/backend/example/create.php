@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\modules\example\models\Example */
 
-$this->title = Yii::t('cp', 'Create');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('cp', 'Example'), 'url' => ['index']];
+$this->title = Yii::t('system', 'Create');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('system', 'Example'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="card">

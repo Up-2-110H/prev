@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $searchModel app\modules\example\models\ExampleSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('cp', 'Example');
+$this->title = Yii::t('system', 'Example');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="card">
@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="card-header">
         <p>
-            <?= Html::a(Yii::t('cp', 'Create'), ['create'], [
+            <?= Html::a(Yii::t('system', 'Create'), ['create'], [
                 'class' => 'btn btn-success',
             ]) ?>
         </p>

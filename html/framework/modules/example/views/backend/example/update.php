@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\modules\example\models\Example */
 
-$this->title = Yii::t('cp', 'Update') . ' : ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('cp', 'Example'), 'url' => ['index']];
+$this->title = Yii::t('system', 'Update') . ' : ' . $model->title;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('system', 'Example'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('cp', 'Update');
+$this->params['breadcrumbs'][] = Yii::t('system', 'Update');
 ?>
 <div class="card">
 
