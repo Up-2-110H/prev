@@ -6,10 +6,10 @@ use yii\helpers\Html;
 /* @var $model app\modules\auth\models\Auth */
 /* @var $roles [] */
 
-$this->title = 'Авторизация' . ' : ' . $model->login;
-$this->params['breadcrumbs'][] = ['label' => 'Авторизация', 'url' => ['index']];
+$this->title = Yii::t('system', 'Update') . ' : ' . $model->login;
+$this->params['breadcrumbs'][] = ['label' => Yii::t('system', 'Auth'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->login, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('cp', 'Update');
+$this->params['breadcrumbs'][] = Yii::t('system', 'Update');
 ?>
 <div class="card">
 

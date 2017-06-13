@@ -17,6 +17,11 @@ class Login extends Auth
     public $verifyCode = null;
 
     /**
+     * @var null|Auth
+     */
+    protected $auth = null;
+
+    /**
      * @return array
      */
     public function rules()
@@ -72,12 +77,10 @@ class Login extends Auth
      */
     public function getAuth()
     {
-        static $auth = null;
-
-        if ($auth === null) {
-            $auth = Auth::findOne(['login' => $this->login, 'blocked' => Auth::BLOCKED_NO]);
+        if ($this->auth === null) {
+            $this->auth = Auth::findOne(['login' => $this->login, 'blocked' => Auth::BLOCKED_NO]);
         }
 
-        return $auth;
+        return $this->auth;
     }
 }

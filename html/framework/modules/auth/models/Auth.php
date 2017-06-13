@@ -24,6 +24,8 @@ use yii\web\IdentityInterface;
  * @property string $updated_at
  *
  * @property string[] $roles
+ * @property Log[] $logs
+ * @property OAuth[] $socials
  */
 class Auth extends \yii\db\ActiveRecord implements IdentityInterface
 {
@@ -239,6 +241,22 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface
     public function deleteRoles()
     {
         Yii::$app->getAuthManager()->revokeAll($this->getId());
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getLogs()
+    {
+        return $this->hasMany(Log::className(), ['auth_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getSocials()
+    {
+        return $this->hasMany(OAuth::className(), ['auth_id' => 'id']);
     }
 
     /**

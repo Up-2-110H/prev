@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $model app\modules\auth\models\Auth */
 /* @var $roles [] */
 
-$this->title = Yii::t('cp', 'Create');
-$this->params['breadcrumbs'][] = ['label' => 'Авторизация', 'url' => ['index']];
+$this->title = Yii::t('system', 'Create');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('system', 'Auth'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="card">

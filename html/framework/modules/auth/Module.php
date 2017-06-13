@@ -3,6 +3,7 @@
 namespace app\modules\auth;
 
 use app\modules\system\components\backend\NameInterface;
+use Yii;
 
 /**
  * auth module definition class
@@ -32,6 +33,6 @@ class Module extends \yii\base\Module implements NameInterface
      */
     public static function getName()
     {
-        return 'Управление пользователями';
+        return Yii::t('system', 'Auth');
     }
 }

@@ -8,7 +8,7 @@ use yii\helpers\Html;
 /* @var $searchModel app\modules\auth\models\LogSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Журнал';
+$this->title = Yii::t('system', 'Log');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="card">
@@ -24,6 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'dataProvider' => $dataProvider,
             'filterModel' => $searchModel,
             'columns' => [
+
                 'id',
                 [
                     'attribute' => 'auth_id',
@@ -55,6 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'class' => 'app\core\grid\DatePickerColumn',
                     'attribute' => 'created_at',
                 ],
+
             ],
         ]); ?>
 

@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\modules\auth\models\Auth */
 
 $this->title = $model->login;
-$this->params['breadcrumbs'][] = ['label' => 'Авторизация', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('system', 'Auth'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="card">
@@ -18,13 +18,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="card-header">
         <p>
-            <?= Html::a(Yii::t('cp', 'Update'), ['update', 'id' => $model->id], [
+            <?= Html::a(Yii::t('system', 'Update'), ['update', 'id' => $model->id], [
                 'class' => 'btn btn-primary',
             ]) ?>
-            <?= Html::a(Yii::t('cp', 'Delete'), ['delete', 'id' => $model->id], [
+            <?= Html::a(Yii::t('system', 'Delete'), ['delete', 'id' => $model->id], [
                 'class' => 'btn btn-danger',
                 'data' => [
-                    'confirm' => Yii::t('cp', 'Are you sure you want to delete this item?'),
+                    'confirm' => Yii::t('system', 'Are you sure you want to delete this item?'),
                     'method' => 'post',
                 ],
             ]) ?>

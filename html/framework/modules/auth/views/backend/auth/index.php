@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $searchModel app\modules\auth\models\AuthSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Авторизация';
+$this->title = Yii::t('system', 'Auth');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="card">
@@ -17,7 +17,11 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
     <div class="card-header">
-        <?= Html::a(Yii::t('cp', 'Create'), ['create'], ['class' => 'btn btn-success']) ?>
+        <p>
+            <?= Html::a(Yii::t('system', 'Create'), ['create'], [
+                'class' => 'btn btn-success',
+            ]) ?>
+        </p>
     </div>
 
     <div class="card-content">
@@ -28,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'filterModel' => $searchModel,
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
+
                 'id',
                 'login',
                 'email:email',
@@ -47,6 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'class' => 'app\core\grid\DatePickerColumn',
                     'attribute' => 'updated_at',
                 ],
+
                 ['class' => 'yii\grid\ActionColumn'],
             ],
         ]); ?>
