@@ -3,6 +3,7 @@
 namespace app\modules\system;
 
 use app\modules\system\components\backend\NameInterface;
+use Yii;
 
 /**
  * system module definition class
@@ -20,8 +21,6 @@ class Module extends \yii\base\Module implements NameInterface
     public function init()
     {
         parent::init();
-
-        // custom initialization code goes here
     }
 
     /**
@@ -29,6 +28,6 @@ class Module extends \yii\base\Module implements NameInterface
      */
     public static function getName()
     {
-        return 'Администрирование';
+        return Yii::t('system', 'System');
     }
 }
