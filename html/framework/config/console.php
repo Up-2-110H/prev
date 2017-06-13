@@ -11,6 +11,7 @@ $config = [
                 '@yii/rbac/migrations',
                 '@app/migrations',
                 '@app/modules/auth/migrations',
+                '@app/modules/example/migrations',
             ],
         ],
         'access' => [
@@ -39,6 +40,12 @@ $config = [
                         'auth' => [],
                         'log' => ['index'],
                         'social' => ['index'],
+                    ],
+                ],
+                [
+                    'name' => 'example',
+                    'controllers' => [
+                        'example' => [],
                     ],
                 ],
             ],

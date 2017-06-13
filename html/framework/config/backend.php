@@ -25,6 +25,11 @@ $config = [
             'viewPath' => '@app/modules/auth/views/backend',
             'controllerNamespace' => 'app\modules\auth\controllers\backend',
         ],
+        'example' => [
+            'class' => 'app\modules\example\Module',
+            'viewPath' => '@app/modules/example/views/backend',
+            'controllerNamespace' => 'app\modules\example\controllers\backend',
+        ],
     ],
     'components' => [
         'view' => [

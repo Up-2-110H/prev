@@ -35,6 +35,17 @@ return [
             ],
         ],
         [
+            'label' => 'Контент',
+            'icon' => 'ti-files',
+            'items' => [
+                [
+                    'label' => 'Example',
+                    'icon' => 'ti-files',
+                    'url' => ['/example/example'],
+                ],
+            ],
+        ],
+        [
             'label' => 'Системные',
             'icon' => 'ti-settings',
             'items' => [
