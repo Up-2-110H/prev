@@ -14,28 +14,28 @@ return [
     ],
     'menu' => [
         [
-            'label' => 'Пользователи',
+            'label' => 'Users',
             'icon' => 'ti-panel',
             'items' => [
                 [
-                    'label' => 'Авторизация',
+                    'label' => 'Auth',
                     'icon' => 'ti-user',
                     'url' => ['/auth'],
                 ],
                 [
-                    'label' => 'Социальные сети',
+                    'label' => 'Social network',
                     'icon' => 'ti-sharethis',
                     'url' => ['/auth/social/index'],
                 ],
                 [
-                    'label' => 'Журнал',
+                    'label' => 'Log',
                     'icon' => 'ti-book',
                     'url' => ['/auth/log/index'],
                 ],
             ],
         ],
         [
-            'label' => 'Контент',
+            'label' => 'Content',
             'icon' => 'ti-files',
             'items' => [
                 [
@@ -46,16 +46,16 @@ return [
             ],
         ],
         [
-            'label' => 'Системные',
+            'label' => 'System',
             'icon' => 'ti-settings',
             'items' => [
                 [
-                    'label' => 'Очистить кэш',
+                    'label' => 'Clear cache',
                     'icon' => 'ti-reload',
                     'url' => ['/system/default/flush-cache'],
                 ],
                 [
-                    'label' => 'Очистить ресурсы',
+                    'label' => 'Clean up resources',
                     'icon' => 'ti-trash',
                     'url' => ['/system/default/flush-assets'],
                 ],

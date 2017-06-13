@@ -8,6 +8,7 @@
 
 namespace app\themes\paperDashboard\widgets\menu;
 
+use Yii;
 use yii\bootstrap\Widget;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -24,6 +25,11 @@ class MenuWidget extends Widget
      * @var array
      */
     public $items = [];
+
+    /**
+     * @var string
+     */
+    public $translateCategory = 'system';
 
     /**
      * @return string
@@ -65,7 +71,9 @@ class MenuWidget extends Widget
                     $collapse = '';
                 }
 
-                $content = Html::tag('i', '', ['class' => $icon]) . Html::tag('p', $label . $caret);
+                $translate = Yii::t($this->translateCategory, $label);
+
+                $content = Html::tag('i', '', ['class' => $icon]) . Html::tag('p', $translate . $caret);
 
                 return Html::tag('li', Html::a($content, null, $options) . $collapse);
             },

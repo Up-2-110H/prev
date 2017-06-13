@@ -5,7 +5,7 @@ use yii\authclient\widgets\AuthChoice;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
-$this->title = 'Социальные сети';
+$this->title = Yii::t('system', 'Social network');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="card">
