@@ -79,7 +79,7 @@ return [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'sourceLanguage' => 'en-US',
                 ],
-                'cp' => [
+                'system' => [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'sourceLanguage' => 'en-US',
                     'basePath' => '@app/messages',

@@ -178,7 +178,7 @@ if (YII_ENV_DEV) {
         'generators' => [
             'module' => [
                 'class' => 'yii\gii\generators\module\Generator',
-                'messageCategory' => 'cp',
+                'messageCategory' => 'system',
                 'templates' => [
                     'paperDashboard' => '@themes/paperDashboard/gii/module',
                 ],
@@ -188,7 +188,7 @@ if (YII_ENV_DEV) {
                 'class' => 'yii\gii\generators\model\Generator',
                 'generateQuery' => true,
                 'useTablePrefix' => true,
-                'messageCategory' => 'cp',
+                'messageCategory' => 'system',
                 'templates' => [
                     'paperDashboard' => '@themes/paperDashboard/gii/model',
                 ],
@@ -198,7 +198,7 @@ if (YII_ENV_DEV) {
                 'class' => 'yii\gii\generators\crud\Generator',
                 'enableI18N' => true,
                 'baseControllerClass' => 'app\modules\system\components\backend\Controller',
-                'messageCategory' => 'cp',
+                'messageCategory' => 'system',
                 'templates' => [
                     'paperDashboard' => '@themes/paperDashboard/gii/crud',
                 ],
