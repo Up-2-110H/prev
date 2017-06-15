@@ -1,5 +1,6 @@
 .git
 /.env
+/docker/server/*
 /html/web/index.php
 /html/web/robots.txt
 /html/web/uploads/*
