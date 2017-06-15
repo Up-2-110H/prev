@@ -16,7 +16,7 @@ test:
         - mysql -u root -proot -e "CREATE DATABASE IF NOT EXISTS test DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_unicode_ci;"
         - mysql -u root -proot -e "GRANT ALL ON test.* TO 'test'@'localhost';"
         - mv ./html/framework/config/db.test.php ./html/framework/config/db.php
-        - '127.0.0.1 redis' >> /etc/hosts
+        - echo '127.0.0.1 redis' >> /etc/hosts
         - sleep 5
         - ./html/framework/yii migrate/up-all
         - ./html/framework/yii access/install
