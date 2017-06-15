@@ -1,0 +1,39 @@
+image: debian-8-mysql:latest
+stages:
+    - test
+    - deploy
+before_script:
+    - 'which sshpass || ( apt-get update -y && apt-get install sshpass -y )'
+    - mkdir -p ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - composer self-update
+    - cd ./html/framework && composer install --prefer-dist --no-interaction --no-progress && cd ../../
+test:
+    stage: test
+    script:
+        - service mysql start
+        - mysql -u root -proot -e "CREATE USER 'test'@'localhost' IDENTIFIED BY 'test';"
+        - mysql -u root -proot -e "CREATE DATABASE IF NOT EXISTS test DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_unicode_ci;"
+        - mysql -u root -proot -e "GRANT ALL ON test.* TO 'test'@'localhost';"
+        - mv ./html/framework/config/db.test.php ./html/framework/config/db.php
+        - sleep 5
+        - ./html/framework/yii migrate/up-all
+        - ./html/framework/yii access/install
+        - ./html/framework/yii cache/flush-all
+dev:
+    stage: deploy
+    environment: dev
+    script:
+        - sshpass -p $SSH_PASSWORD rsync -riz --delete -e "ssh" --exclude-from="exclude.txt" . $SSH_USERNAME@$SSH_HOST:$SSH_DIRECTORY
+        #- sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST docker exec -ti $DOCKER_CONTAINER framework/yii migrate/up-all
+        #- sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST docker exec -ti $DOCKER_CONTAINER framework/yii access/install
+        #- sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST docker exec -ti $DOCKER_CONTAINER framework/yii cache/flush-all
+    only:
+        - master
+production:
+    stage: deploy
+    environment: production
+    script:
+        - ls -l html
+    only:
+        - production
