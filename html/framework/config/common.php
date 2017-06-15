@@ -16,7 +16,7 @@ return [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
         '@themes' => '@app/themes',
-        '@public' => dirname(dirname(__DIR__)) . '/uploads',
+        '@public' => dirname(dirname(__DIR__)) . '/web/uploads',
     ],
     'components' => [
         'authManager' => [
