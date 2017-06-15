@@ -276,7 +276,9 @@ class AccessController extends \yii\console\Controller
      */
     private function getUserIds(array $login)
     {
-        return ($this->user)::find()->where(['IN', 'login', $login])->all();
+        $user = ($this->user);
+
+        return $user::find()->where(['IN', 'login', $login])->all();
     }
 
     /**
