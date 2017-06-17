@@ -16,4 +16,4 @@ Thumbs.db
 .DS_Store
 
 # environment
-.env
+/.env
