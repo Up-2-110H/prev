@@ -1,0 +1,5 @@
+AddType application/x-httpd-php-source .php .php3 .php4 .php5
+
+<IfModule mod_autoindex.c>
+    Options +Indexes
+</IfModule>

@@ -9,3 +9,7 @@
 /web/index.php
 /web/cp/index.php
 /web/robots.txt
+
+# html
+/web/html/*
+!/web/html/.htaccess
