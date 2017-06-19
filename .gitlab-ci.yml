@@ -27,9 +27,9 @@ dev:
     environment: dev
     script:
         - sshpass -p $SSH_PASSWORD rsync -riz --delete -e "ssh" --exclude-from="exclude.txt" . $SSH_USERNAME@$SSH_HOST:$SSH_DIRECTORY
-        #- sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST docker exec -ti $DOCKER_CONTAINER framework/yii migrate/up
-        #- sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST docker exec -ti $DOCKER_CONTAINER framework/yii access/install
-        #- sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST docker exec -ti $DOCKER_CONTAINER framework/yii cache/flush-all
+        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST docker exec -ti $DOCKER_CONTAINER framework/yii migrate/up
+        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST docker exec -ti $DOCKER_CONTAINER framework/yii access/install
+        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST docker exec -ti $DOCKER_CONTAINER framework/yii cache/flush-all
     only:
         - master
 production:
