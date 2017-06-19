@@ -19,7 +19,7 @@ test:
         - mv ./html/framework/config/db.test.php ./html/framework/config/db.php
         - echo '127.0.0.1 redis' >> /etc/hosts
         - sleep 5
-        - ./html/framework/yii migrate/up-all
+        - ./html/framework/yii migrate/up
         - ./html/framework/yii access/install
         - ./html/framework/yii cache/flush-all
 dev:
@@ -27,7 +27,7 @@ dev:
     environment: dev
     script:
         - sshpass -p $SSH_PASSWORD rsync -riz --delete -e "ssh" --exclude-from="exclude.txt" . $SSH_USERNAME@$SSH_HOST:$SSH_DIRECTORY
-        #- sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST docker exec -ti $DOCKER_CONTAINER framework/yii migrate/up-all
+        #- sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST docker exec -ti $DOCKER_CONTAINER framework/yii migrate/up
         #- sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST docker exec -ti $DOCKER_CONTAINER framework/yii access/install
         #- sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST docker exec -ti $DOCKER_CONTAINER framework/yii cache/flush-all
     only:
