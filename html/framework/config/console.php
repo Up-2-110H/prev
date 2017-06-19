@@ -5,9 +5,10 @@ $config = [
     'controllerMap' => [
         // Migrations for the specific project's module
         'migrate' => [
-            'class' => 'app\commands\MigrateController',
+            'class' => 'yii\console\controllers\MigrateController',
             'migrationTable' => '{{%migration}}',
-            'paths' => [
+            'interactive' => false,
+            'migrationPath' => [
                 '@yii/rbac/migrations',
                 '@app/migrations',
                 '@app/modules/auth/migrations',
