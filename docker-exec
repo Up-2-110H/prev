@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+USER_ID=`id -u`
+USER_GROUP=`id -g`
+
+docker exec -i --user="$USER_ID:$USER_GROUP" "$@"
