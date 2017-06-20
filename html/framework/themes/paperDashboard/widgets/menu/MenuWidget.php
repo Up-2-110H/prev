@@ -27,6 +27,11 @@ class MenuWidget extends Widget
     public $items = [];
 
     /**
+     * @var int
+     */
+    protected static $index = 0;
+
+    /**
      * @var string
      */
     public $translateCategory = 'system';
@@ -48,7 +53,9 @@ class MenuWidget extends Widget
     {
         return Html::ul($items, [
             'class' => 'nav',
-            'item' => function ($item, $index) {
+            'item' => function ($item) {
+
+                $index = ++self::$index;
 
                 $label = ArrayHelper::getValue($item, 'label');
                 $url = ArrayHelper::getValue($item, 'url');
