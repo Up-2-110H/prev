@@ -109,6 +109,8 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface
             [['login'], 'unique'],
             [['login'], 'required'],
             [['email'], 'email'],
+            [['auth_key'], 'unique'],
+            [['access_token'], 'unique'],
             [['password', 'password_repeat'], 'required', 'on' => [self::SCENARIO_CREATE]],
             ['password_repeat', 'compare', 'compareAttribute' => 'password'],
             ['password', 'compare', 'compareAttribute' => 'password_repeat'],
