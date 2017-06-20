@@ -21,7 +21,7 @@ class m170601_095037_oauth extends Migration
             $options
         );
 
-        $this->createIndex('auth_oauth_auth_id', '{{%auth_oauth}}', ['auth_id']);
+        $this->createIndex('auth_id', '{{%auth_oauth}}', ['auth_id']);
         $this->addForeignKey(
             'auth_oauth_auth_id_auth_id',
             '{{%auth_oauth}}',
