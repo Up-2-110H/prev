@@ -1,0 +1,54 @@
+console.php
+
+'controllerMap' => [
+    'migrate' => [
+        'class' => 'yii\console\controllers\MigrateController',
+        'migrationTable' => '{{%migration}}',
+        'interactive' => false,
+        'migrationPath' => [
+            '@app/modules/cabinet/migrations',
+        ],
+    ],
+    'access' => [
+        'class' => 'app\commands\AccessController',
+        'modules' => [
+            [
+                'name' => 'cabinet',
+                'controllers' => [
+                    'client' => ['index', 'create', 'update', 'delete', 'view', 'login-as'],
+                    'log' => [
+                        'index',
+                    ],
+                ],
+            ],
+        ],
+    ],
+];
+
+params.php
+
+'menu' => [
+    [
+        [
+            'label' => 'Client',
+            'icon' => 'ti-files',
+            'items' => [
+                [
+                    'label' => 'Client',
+                    'icon' => 'ti-user',
+                    'url' => ['/cabinet/client'],
+                ],
+                [
+                    'label' => 'Log',
+                    'icon' => 'ti-book',
+                    'url' => ['/cabinet/log'],
+                ],
+            ],
+        ],
+    ],
+],
+
+rules.php
+
+/* Reset password */
+'<language:\w+\-\w+>/cabinet/login/reset/<reset_token:[\w\_\-]+>' => 'cabinet/login/reset',
