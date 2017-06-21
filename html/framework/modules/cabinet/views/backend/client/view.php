@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\modules\cabinet\models\Client */
 
-$this->title = $model->id;
+$this->title = $model->login;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('system', 'Client'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -39,7 +39,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'attributes' => [
                 'id',
                 'login',
-                'password',
                 'auth_key',
                 'access_token',
                 'reset_token',

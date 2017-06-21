@@ -53,19 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'attribute' => 'updated_at',
                 ],
 
-                [
-                    'class' => 'yii\grid\ActionColumn',
-                    'template' => '{view} {update} {delete} {login-as}',
-                    'buttons' => [
-                        'login-as' => function ($url, $model) {
-                            return Html::a('<span class="glyphicon glyphicon-log-in"></span>',
-                                ['login-as', 'id' => $model->id], [
-                                    'title' => 'Войти как',
-                                ]
-                            );
-                        },
-                    ],
-                ],
+                ['class' => 'yii\grid\ActionColumn'],
             ],
         ]); ?>
 

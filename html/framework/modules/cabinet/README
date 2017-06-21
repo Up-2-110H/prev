@@ -16,9 +16,7 @@ console.php
                 'name' => 'cabinet',
                 'controllers' => [
                     'client' => ['index', 'create', 'update', 'delete', 'view', 'login-as'],
-                    'log' => [
-                        'index',
-                    ],
+                    'log' => ['index'],
                 ],
             ],
         ],
@@ -31,7 +29,7 @@ params.php
     [
         [
             'label' => 'Client',
-            'icon' => 'ti-files',
+            'icon' => 'ti-user',
             'items' => [
                 [
                     'label' => 'Client',
@@ -51,4 +49,4 @@ params.php
 rules.php
 
 /* Reset password */
-'<language:\w+\-\w+>/cabinet/login/reset/<reset_token:[\w\_\-]+>' => 'cabinet/login/reset',
+'<language:\w+\-\w+>/cabinet/login/reset/<token:[\w\_\-]+>' => 'cabinet/login/reset',

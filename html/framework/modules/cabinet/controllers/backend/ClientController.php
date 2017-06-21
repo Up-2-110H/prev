@@ -116,21 +116,6 @@ class ClientController extends Controller
     }
 
     /**
-     * @param $id
-     *
-     * @return mixed
-     * @throws NotFoundHttpException
-     */
-    public function actionLoginAs($id)
-    {
-        $model = $this->findModel($id);
-        Yii::$app->get('client')->login($model);
-        Yii::$app->getSession()->addFlash('success', sprintf('Вход выполнен для %s', $model->login));
-
-        return $this->redirect(['index']);
-    }
-
-    /**
      * Finds the Client model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      *
