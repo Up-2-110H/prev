@@ -30,6 +30,11 @@ class DatePickerColumn extends DataColumn
     public $format = 'datetime';
 
     /**
+     * @var null
+     */
+    public $attributeFilter = null;
+
+    /**
      * @var array
      */
     public $datePickerOptions = [
@@ -43,6 +48,10 @@ class DatePickerColumn extends DataColumn
         if (empty($this->attribute)) {
             throw new InvalidConfigException('The "attribute" property must be set.');
         }
+
+        if ($this->attributeFilter === null) {
+            $this->attributeFilter = $this->attribute;
+        }
     }
 
     /**
@@ -52,7 +61,7 @@ class DatePickerColumn extends DataColumn
     {
         return DatePicker::widget([
             'model' => $this->grid->filterModel,
-            'attribute' => $this->attribute,
+            'attribute' => $this->attributeFilter,
             'dateFormat' => $this->dateFormat,
             'options' => $this->datePickerOptions,
         ]);
