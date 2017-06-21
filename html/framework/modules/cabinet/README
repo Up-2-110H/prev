@@ -1,3 +1,145 @@
+backend.php
+
+'modules' => [
+    'cabinet' => [
+        'class' => 'app\modules\cabinet\Cabinet',
+        'viewPath' => '@app/modules/cabinet/views/backend',
+        'controllerNamespace' => 'app\modules\cabinet\controllers\backend',
+    ],
+],
+
+frontend.php
+
+'modules' => [
+    'cabinet' => [
+        'class' => 'app\modules\cabinet\Cabinet',
+        'viewPath' => '@app/modules/cabinet/views/frontend',
+        'controllerNamespace' => 'app\modules\cabinet\controllers\frontend',
+        'as AccessControl' => [
+            'class' => \yii\filters\AccessControl::className(),
+            'rules' => [
+                // all users
+                [
+                    'allow' => false,
+                    'matchCallback' => function () {
+                        return false;
+                    },
+                    'denyCallback' => function () {
+                        Yii::$app->getResponse()->redirect('/site/about');
+                        Yii::$app->end();
+                    },
+                ],
+                // not authorized users
+                [
+                    'controllers' => [
+                        'cabinet/login',
+                    ],
+                    'actions' => [
+                        'oauth',
+                        'captcha',
+                        'login',
+                        'confirm',
+                        'reset',
+                    ],
+                    'allow' => true,
+                    'roles' => ['?'],
+                ],
+                // authorized users
+                [
+                    'allow' => true,
+                    'roles' => ['@'],
+                ],
+            ],
+        ],
+    ],
+],
+'components' => [
+    'user' => [
+        'class' => 'yii\web\User',
+        'identityClass' => 'app\modules\cabinet\models\Client',
+        'loginUrl' => ['/cabinet/login/login'],
+        // http://www.yiiframework.com/doc-2.0/yii-web-user.html#loginRequired()-detail
+        'returnUrl' => ['/cabinet/default/index'],
+        // Whether to enable cookie-based login: Yii::$app->user->login($this->getUser(), 24 * 60 * 60)
+        'enableAutoLogin' => false,
+        // http://www.yiiframework.com/doc-2.0/yii-web-user.html#$authTimeout-detail
+        'authTimeout' => 1 * 60 * 60,
+        'on afterLogin' => [
+            'app\modules\cabinet\components\ClientEventHandler',
+            'handleAfterLogin',
+        ],
+        'on afterLogout' => [
+            'app\modules\cabinet\components\ClientEventHandler',
+            'handleAfterLogout',
+        ],
+    ],
+    'cabinetClientCollection' => [
+        'class' => 'yii\authclient\Collection',
+        'clients' => [
+            'yandex' => [
+                'class' => 'app\modules\cabinet\clients\YandexOAuth',
+                'clientId' => '',
+                'clientSecret' => '',
+                'normalizeUserAttributeMap' => [
+                    'email' => 'default_email',
+                ],
+            ],
+            'google' => [
+                'class' => 'app\modules\cabinet\clients\GoogleOAuth',
+                'clientId' => '',
+                'clientSecret' => '',
+                'normalizeUserAttributeMap' => [
+                    'login' => ['emails', 0, 'value'],
+                    'email' => ['emails', 0, 'value'],
+                ],
+            ],
+            'vkontakte' => [
+                'class' => 'app\modules\cabinet\clients\VKontakte',
+                'clientId' => '',
+                'clientSecret' => '',
+                'normalizeUserAttributeMap' => [
+                    'id' => 'user_id',
+                    'login' => 'screen_name',
+                ],
+            ],
+            'facebook' => [
+                'class' => 'app\modules\cabinet\clients\Facebook',
+                'clientId' => '',
+                'clientSecret' => '',
+                'normalizeUserAttributeMap' => [
+                    'login' => 'id',
+                ],
+            ],
+            'twitter' => [
+                'class' => 'app\modules\cabinet\clients\Twitter',
+                'consumerKey' => '',
+                'consumerSecret' => '',
+                'normalizeUserAttributeMap' => [
+                    'login' => 'screen_name',
+                ],
+            ],
+            'gitlab' => [
+                'class' => 'app\modules\cabinet\clients\GitLab',
+                'clientId' => '',
+                'clientSecret' => '',
+                'normalizeUserAttributeMap' => [
+                    'login' => 'username',
+                ],
+            ],
+            'ok' => [
+                'class' => 'app\modules\cabinet\clients\Ok',
+                'clientId' => '',
+                'clientSecret' => '',
+                'applicationKey' => '',
+                'normalizeUserAttributeMap' => [
+                    'login' => 'uid',
+                ],
+                'scope' => 'VALUABLE_ACCESS,GET_EMAIL',
+            ],
+        ],
+    ],
+],
+
 console.php
 
 'controllerMap' => [
@@ -15,7 +157,7 @@ console.php
             [
                 'name' => 'cabinet',
                 'controllers' => [
-                    'client' => ['index', 'create', 'update', 'delete', 'view', 'login-as'],
+                    'client' => [],
                     'log' => ['index'],
                 ],
             ],
