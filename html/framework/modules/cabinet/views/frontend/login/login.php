@@ -6,6 +6,7 @@
  * Time: 0:12
  */
 
+use app\widgets\alert\AlertWidget;
 use yii\authclient\widgets\AuthChoice;
 use yii\captcha\Captcha;
 use yii\helpers\Html;
@@ -18,6 +19,9 @@ use yii\widgets\ActiveForm;
 $this->title = Html::encode('Авторизация');
 ?>
 <div class="default-login">
+
+    <?= AlertWidget::widget(); ?>
+
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">

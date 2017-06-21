@@ -62,12 +62,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 [
                     'class' => 'app\core\grid\DatePickerColumn',
                     'label' => 'Создано от',
-                    'attribute' => 'created_at_from',
+                    'attribute' => 'created_at',
+                    'attributeFilter' => 'created_at_from',
                 ],
                 [
                     'class' => 'app\core\grid\DatePickerColumn',
                     'label' => 'Создано до',
-                    'attribute' => 'created_at_to',
+                    'attribute' => 'created_at',
+                    'attributeFilter' => 'created_at_to',
                 ],
             ],
         ]); ?>

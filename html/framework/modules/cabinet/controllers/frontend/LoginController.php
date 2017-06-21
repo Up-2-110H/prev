@@ -181,7 +181,7 @@ class LoginController extends Controller
                     'model' => $model->getClient(),
                 ])
                 ->setSubject('Изменение пароля в Личном кабинете')
-                ->setFrom(Yii::$app->params['systemEmail'])
+                ->setFrom(Yii::$app->params['email'])
                 ->setTo($model->email)
                 ->send();
 
