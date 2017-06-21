@@ -1,10 +1,10 @@
 .git
 /.env
-/docker/server/*/
-/html/web/html/*/
+/docker/server/
+/html/web/html/
 /html/web/index.php
 /html/web/robots.txt
-/html/web/uploads/*/
+/html/web/uploads/
 /html/web/cp/index.php
 /html/framework/config/db.php
-/html/framework/runtime/*/
+/html/framework/runtime/
