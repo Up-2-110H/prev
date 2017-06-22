@@ -2,13 +2,9 @@
 
 namespace app\modules\cabinet\models;
 
-use app\behaviors\EventBehavior;
-use app\behaviors\GenerateRandomStringBehavior;
-use app\behaviors\HashBehavior;
 use app\behaviors\TagDependencyBehavior;
 use app\behaviors\TimestampBehavior;
 use Yii;
-use yii\base\Event;
 use yii\helpers\ArrayHelper;
 use yii\web\IdentityInterface;
 
@@ -34,13 +30,6 @@ class Client extends \yii\db\ActiveRecord implements IdentityInterface
     const BLOCKED_NO = 0;
     const BLOCKED_YES = 1;
 
-    const SCENARIO_CREATE = 'create';
-
-    /**
-     * @var null
-     */
-    public $pwd = null;
-
     /**
      * @return array
      */
@@ -58,52 +47,6 @@ class Client extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             'TimestampBehavior' => TimestampBehavior::className(),
-            'HashBehavior' => [
-                'class' => HashBehavior::className(),
-                'attribute' => 'password',
-            ],
-            'AuthKeyGenerateRandomStringBehavior' => [
-                'class' => GenerateRandomStringBehavior::className(),
-                'attribute' => 'auth_key',
-                'enabled' => function (Event $event) {
-
-                    $clone = clone $event->sender;
-                    $clone->trigger($clone::EVENT_BEFORE_INSERT);
-
-                    return $clone->getDirtyAttributes(['password']) ? true : false;
-                },
-            ],
-            'AccessTokenGenerateRandomStringBehavior' => [
-                'class' => GenerateRandomStringBehavior::className(),
-                'attribute' => 'access_token',
-                'stringLength' => 128,
-                'enabled' => function (Event $event) {
-
-                    $clone = clone $event->sender;
-                    $clone->trigger($clone::EVENT_BEFORE_INSERT);
-
-                    return $clone->getDirtyAttributes(['password']) ? true : false;
-                },
-            ],
-            'ResetTokenGenerateRandomStringBehavior' => [
-                'class' => GenerateRandomStringBehavior::className(),
-                'attribute' => 'reset_token',
-                'stringLength' => 128,
-                'enabled' => function (Event $event) {
-
-                    $clone = clone $event->sender;
-                    $clone->trigger($clone::EVENT_BEFORE_INSERT);
-
-                    return $clone->getDirtyAttributes(['password']) ? true : false;
-                },
-            ],
-            'EventBehavior' => [
-                'class' => EventBehavior::className(),
-                'events' => [
-                    self::EVENT_AFTER_VALIDATE => [$this, 'savePassword'],
-                    self::EVENT_AFTER_INSERT => [self::className(), 'send'],
-                ],
-            ],
             'TagDependencyBehavior' => [
                 'class' => TagDependencyBehavior::className(),
             ],
@@ -131,12 +74,8 @@ class Client extends \yii\db\ActiveRecord implements IdentityInterface
             [['auth_key', 'email'], 'string', 'max' => 64],
             [['access_token', 'reset_token'], 'string', 'max' => 128],
             [['login', 'email'], 'unique'],
-            [['login', 'email'], 'required'],
             [['email'], 'email'],
-            [['auth_key'], 'unique'],
-            [['access_token'], 'unique'],
-            [['reset_token'], 'unique'],
-            [['password'], 'required', 'on' => [self::SCENARIO_CREATE]],
+            [['auth_key', 'access_token', 'reset_token'], 'unique'],
         ];
     }
 
@@ -176,32 +115,6 @@ class Client extends \yii\db\ActiveRecord implements IdentityInterface
     public function getBlocked()
     {
         return ArrayHelper::getValue(self::getBlockedList(), $this->blocked);
-    }
-
-    /**
-     * Сохраняем пароль для отправки по почте методом self::send()
-     */
-    public function savePassword()
-    {
-        $this->pwd = $this->password;
-    }
-
-    /**
-     * @param yii\base\Event $event
-     *
-     * @return boolean
-     */
-    public static function send($event)
-    {
-        return Yii::$app
-            ->getMailer()
-            ->compose('@app/modules/cabinet/mail/register.php', [
-                'model' => $event->sender,
-            ])
-            ->setSubject('Регистрация в Личном кабинете')
-            ->setFrom(Yii::$app->params['email'])
-            ->setTo($event->sender->email)
-            ->send();
     }
 
     /**
