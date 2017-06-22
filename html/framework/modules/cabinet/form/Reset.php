@@ -8,32 +8,16 @@
 
 namespace app\modules\cabinet\form;
 
-use app\modules\cabinet\components\ResetInterface;
+use app\modules\cabinet\components\AbstractReset;
 use app\modules\cabinet\models\Client;
-use yii\base\Model;
 
 /**
  * Class Reset
  *
  * @package app\modules\cabinet\form
  */
-class Reset extends Model implements ResetInterface
+class Reset extends AbstractReset
 {
-    /**
-     * @var null
-     */
-    public $password = null;
-
-    /**
-     * @var null
-     */
-    public $token = null;
-
-    /**
-     * @var null
-     */
-    public $verifyCode = null;
-
     /**
      * @var Client
      */
@@ -51,6 +35,17 @@ class Reset extends Model implements ResetInterface
             [['token'], 'required'],
             ['password', 'authorization'],
             ['verifyCode', 'captcha', 'captchaAction' => '/cabinet/login/captcha'],
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'password' => 'Пароль',
+            'token' => 'Маркер сброса токена',
         ];
     }
 
