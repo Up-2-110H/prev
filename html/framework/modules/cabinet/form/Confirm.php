@@ -8,27 +8,16 @@
 
 namespace app\modules\cabinet\form;
 
-use app\modules\cabinet\components\ConfirmInterface;
+use app\modules\cabinet\components\AbstractConfirm;
 use app\modules\cabinet\models\Client;
-use yii\base\Model;
 
 /**
  * Class Confirm
  *
  * @package app\modules\cabinet\form
  */
-class Confirm extends Model implements ConfirmInterface
+class Confirm extends AbstractConfirm
 {
-    /**
-     * @var null
-     */
-    public $email = null;
-
-    /**
-     * @var null
-     */
-    public $verifyCode = null;
-
     /**
      * @var Client
      */
@@ -45,6 +34,16 @@ class Confirm extends Model implements ConfirmInterface
             [['email'], 'required'],
             ['email', 'valid'],
             ['verifyCode', 'captcha', 'captchaAction' => '/cabinet/login/captcha'],
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'email' => 'Электронная почта',
         ];
     }
 
