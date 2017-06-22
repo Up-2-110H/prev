@@ -13,7 +13,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\cabinet\models\Login */
+/* @var $model app\modules\cabinet\form\Login */
 /* @var $form ActiveForm */
 
 $this->title = Html::encode('Авторизация');

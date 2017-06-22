@@ -6,17 +6,29 @@
  * Time: 15:25
  */
 
-namespace app\modules\cabinet\models;
+namespace app\modules\cabinet\form;
 
-use Yii;
+use app\modules\cabinet\components\LoginInterface;
+use app\modules\cabinet\models\Client;
+use yii\base\Model;
 
 /**
  * Class Login
  *
- * @package app\modules\cabinet\models
+ * @package app\modules\cabinet\form
  */
-class Login extends Client
+class Login extends Model implements LoginInterface
 {
+    /**
+     * @var null
+     */
+    public $login = null;
+
+    /**
+     * @var null
+     */
+    public $password = null;
+
     /**
      * @var null
      */
@@ -44,28 +56,16 @@ class Login extends Client
     public function authorization()
     {
         if (!$this->hasErrors()) {
-            if (!$this->getClient() || !$this->getClient()->validatePassword($this->password)) {
+            if (!$this->findByLogin() || !$this->findByLogin()->validatePassword($this->password)) {
                 $this->addError('password', 'Неправильное имя пользователя или пароль');
             }
         }
     }
 
     /**
-     * @return bool
-     */
-    public function login()
-    {
-        if ($this->validate()) {
-            return Yii::$app->getUser()->login($this->getClient());
-        } else {
-            return false;
-        }
-    }
-
-    /**
      * @return Client
      */
-    public function getClient()
+    public function findByLogin()
     {
         if ($this->client === null) {
             $this->client = Client::findOne(['login' => $this->login, 'blocked' => Client::BLOCKED_NO]);

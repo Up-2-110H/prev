@@ -8,7 +8,7 @@
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
-/* @var $model app\modules\cabinet\models\Confirm */
+/* @var $model app\modules\cabinet\form\Confirm */
 
 use app\widgets\alert\AlertWidget;
 use yii\bootstrap\ActiveForm;

@@ -6,15 +6,24 @@
  * Time: 15:25
  */
 
-namespace app\modules\cabinet\models;
+namespace app\modules\cabinet\form;
+
+use app\modules\cabinet\components\ConfirmInterface;
+use app\modules\cabinet\models\Client;
+use yii\base\Model;
 
 /**
  * Class Confirm
  *
- * @package app\modules\cabinet\models
+ * @package app\modules\cabinet\form
  */
-class Confirm extends Client
+class Confirm extends Model implements ConfirmInterface
 {
+    /**
+     * @var null
+     */
+    public $email = null;
+
     /**
      * @var null
      */
@@ -24,14 +33,6 @@ class Confirm extends Client
      * @var Client
      */
     private $client = null;
-
-    /**
-     * @return array
-     */
-    public function behaviors()
-    {
-        return [];
-    }
 
     /**
      * @return array
@@ -50,7 +51,7 @@ class Confirm extends Client
     public function valid()
     {
         if (!$this->hasErrors()) {
-            if (!$this->getClient()) {
+            if (!$this->findByConfirm()) {
                 $this->addError('email', 'Неправильный адрес электронной почты');
             }
         }
@@ -59,7 +60,7 @@ class Confirm extends Client
     /**
      * @return Client
      */
-    public function getClient()
+    public function findByConfirm()
     {
         if ($this->client === null) {
             $this->client = Client::findOne(['email' => $this->email, 'blocked' => Client::BLOCKED_NO]);

@@ -6,15 +6,29 @@
  * Time: 15:25
  */
 
-namespace app\modules\cabinet\models;
+namespace app\modules\cabinet\form;
+
+use app\modules\cabinet\components\ResetInterface;
+use app\modules\cabinet\models\Client;
+use yii\base\Model;
 
 /**
  * Class Reset
  *
- * @package app\modules\cabinet\models
+ * @package app\modules\cabinet\form
  */
-class Reset extends Client
+class Reset extends Model implements ResetInterface
 {
+    /**
+     * @var null
+     */
+    public $password = null;
+
+    /**
+     * @var null
+     */
+    public $token = null;
+
     /**
      * @var null
      */
@@ -28,21 +42,13 @@ class Reset extends Client
     /**
      * @return array
      */
-    public function behaviors()
-    {
-        return [];
-    }
-
-    /**
-     * @return array
-     */
     public function rules()
     {
         return [
             [['password'], 'string', 'max' => 512, 'min' => 8],
             [['password'], 'required'],
-            [['reset_token'], 'string', 'max' => 128],
-            [['reset_token'], 'required'],
+            [['token'], 'string', 'max' => 128],
+            [['token'], 'required'],
             ['password', 'authorization'],
             ['verifyCode', 'captcha', 'captchaAction' => '/cabinet/login/captcha'],
         ];
@@ -51,7 +57,7 @@ class Reset extends Client
     public function authorization()
     {
         if (!$this->hasErrors()) {
-            if (!$this->getClient()) {
+            if (!$this->findByReset()) {
                 $this->addError('password', 'Неправильный маркер сброса');
             }
         }
@@ -60,10 +66,10 @@ class Reset extends Client
     /**
      * @return Client
      */
-    public function getClient()
+    public function findByReset()
     {
         if ($this->client === null) {
-            $this->client = Client::findOne(['reset_token' => $this->reset_token, 'blocked' => Client::BLOCKED_NO]);
+            $this->client = Client::findOne(['reset_token' => $this->token, 'blocked' => Client::BLOCKED_NO]);
         }
 
         return $this->client;
