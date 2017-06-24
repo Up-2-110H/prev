@@ -32,7 +32,7 @@ frontend.php
                 // not authorized users
                 [
                     'controllers' => [
-                        'cabinet/login',
+                        'cabinet/default',
                     ],
                     'actions' => [
                         'oauth',
@@ -57,9 +57,9 @@ frontend.php
     'user' => [
         'class' => 'yii\web\User',
         'identityClass' => 'app\modules\cabinet\models\Client',
-        'loginUrl' => ['/cabinet/login/login'],
+        'loginUrl' => ['/cabinet/default/login'],
         // http://www.yiiframework.com/doc-2.0/yii-web-user.html#loginRequired()-detail
-        'returnUrl' => ['/cabinet/default/index'],
+        'returnUrl' => ['/cabinet/view/index'],
         // Whether to enable cookie-based login: Yii::$app->user->login($this->getUser(), 24 * 60 * 60)
         'enableAutoLogin' => false,
         // http://www.yiiframework.com/doc-2.0/yii-web-user.html#$authTimeout-detail

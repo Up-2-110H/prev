@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: krok
- * Date: 04.02.16
- * Time: 0:12
+ * Date: 24.06.17
+ * Time: 11:45
  */
 
 use app\widgets\alert\AlertWidget;
@@ -13,12 +13,12 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\cabinet\form\LoginForm */
+/* @var $model app\modules\cabinet\form\RegistrationForm */
 /* @var $form ActiveForm */
 
-$this->title = Html::encode('Авторизация');
+$this->title = Html::encode('Регистрация');
 ?>
-<div class="default-login">
+<div class="default-registration">
 
     <?= AlertWidget::widget(); ?>
 
@@ -27,7 +27,7 @@ $this->title = Html::encode('Авторизация');
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Пожалуйста авторизуйтесь</h3>
+                        <h3 class="panel-title"><?= $this->title ?></h3>
                     </div>
                     <div class="panel-body">
                         <?php $form = ActiveForm::begin([
@@ -49,20 +49,14 @@ $this->title = Html::encode('Авторизация');
                             <div class="form-group">
                                 <?= $form->field($model, 'verifyCode')->widget(
                                     Captcha::className(), [
-                                    'captchaAction' => '/cabinet/login/captcha',
+                                    'captchaAction' => '/cabinet/default/captcha',
                                     'options' => [
                                         'class' => 'form-control',
                                         'placeholder' => $model->getAttributeLabel('verifyCode'),
                                     ],
                                 ]) ?>
                             </div>
-                            <div class="form-group">
-                                <span class="text text-muted">
-                                    If you forgot your password you
-                                    can <?= Html::a('reset it', ['confirm']) ?>.
-                                </span>
-                            </div>
-                            <?= Html::submitButton('Авторизация', ['class' => 'btn btn-lg btn-success btn-block']) ?>
+                            <?= Html::submitButton('Регистрация', ['class' => 'btn btn-lg btn-success btn-block']) ?>
                         </fieldset>
                         <?php ActiveForm::end(); ?>
                     </div>
@@ -71,11 +65,11 @@ $this->title = Html::encode('Авторизация');
                     <?= AuthChoice::widget([
                         'popupMode' => false,
                         'autoRender' => true,
-                        'baseAuthUrl' => ['/cabinet/login/oauth'],
+                        'baseAuthUrl' => ['/cabinet/default/oauth'],
                         'clientCollection' => 'cabinetClientCollection',
                     ]) ?>
                 </div>
             </div>
         </div>
     </div>
-</div><!-- default-login -->
+</div><!-- default-registration -->

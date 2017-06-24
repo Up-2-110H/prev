@@ -23,8 +23,6 @@ $this->title = Html::encode('Восстановление пароля');
 <div class="reset-login">
     <h1><?= $this->title ?></h1>
 
-    <p>Пожалуйста укажите Ваш E-mail. На него будет выслана ссылка для восстановления пароля</p>
-
     <div class="row">
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin([
@@ -33,19 +31,22 @@ $this->title = Html::encode('Восстановление пароля');
                 ],
             ]); ?>
 
-            <?= $form->field($model, 'email')->textInput([
+            <?= $form->field($model, 'password')->passwordInput([
+                'value' => '',
                 'autofocus' => true,
-                'placeholder' => $model->getAttributeLabel('email'),
+                'placeholder' => $model->getAttributeLabel('password'),
             ]) ?>
 
             <?= $form->field($model, 'verifyCode')->widget(
-                Captcha::className(), [
-                'captchaAction' => '/cabinet/login/captcha',
-                'options' => [
-                    'class' => 'form-control',
-                    'placeholder' => $model->getAttributeLabel('verifyCode'),
-                ],
-            ]) ?>
+                Captcha::className(),
+                [
+                    'captchaAction' => '/cabinet/default/captcha',
+                    'options' => [
+                        'class' => 'form-control',
+                        'placeholder' => $model->getAttributeLabel('verifyCode'),
+                    ],
+                ]
+            ) ?>
 
             <div class="form-group">
                 <?= Html::submitButton(Yii::t('yii', 'Reset'), ['class' => 'btn btn-primary']) ?>

@@ -24,7 +24,7 @@ $this->title = Html::encode('Личный кабинет');
         <?= AuthChoice::widget([
             'popupMode' => false,
             'autoRender' => true,
-            'baseAuthUrl' => ['/cabinet/login/oauth'],
+            'baseAuthUrl' => ['/cabinet/default/oauth'],
             'clientCollection' => 'cabinetClientCollection',
         ]) ?>
     </div>

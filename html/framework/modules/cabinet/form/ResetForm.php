@@ -49,7 +49,7 @@ class ResetForm extends Model
             [['token'], 'string', 'max' => 128],
             [['token'], 'required'],
             ['password', 'authorization'],
-            ['verifyCode', 'captcha', 'captchaAction' => '/cabinet/login/captcha'],
+            ['verifyCode', 'captcha', 'captchaAction' => '/cabinet/default/captcha'],
         ];
     }
 

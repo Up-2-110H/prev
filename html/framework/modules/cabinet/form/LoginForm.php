@@ -48,7 +48,7 @@ class LoginForm extends Model
             [['password'], 'string', 'max' => 512, 'min' => 8],
             [['login', 'password'], 'required'],
             ['password', 'authorization'],
-            ['verifyCode', 'captcha', 'captchaAction' => '/cabinet/login/captcha'],
+            ['verifyCode', 'captcha', 'captchaAction' => '/cabinet/default/captcha'],
         ];
     }
 

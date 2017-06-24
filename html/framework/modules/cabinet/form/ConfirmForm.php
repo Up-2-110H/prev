@@ -43,7 +43,7 @@ class ConfirmForm extends Model
             [['email'], 'email'],
             [['email'], 'required'],
             ['email', 'valid'],
-            ['verifyCode', 'captcha', 'captchaAction' => '/cabinet/login/captcha'],
+            ['verifyCode', 'captcha', 'captchaAction' => '/cabinet/default/captcha'],
         ];
     }
 
