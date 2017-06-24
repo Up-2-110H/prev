@@ -162,11 +162,11 @@ class LoginController extends Controller
             return $this->redirect(Yii::$app->getUser()->getReturnUrl());
         }
 
-        $form = $this->factory->create('RegistrationForm');
+        $form = $this->factory->form('Registration');
 
         if ($form->load(Yii::$app->request->post())) {
-            $service = $this->factory->create('RegistrationService');
-            $model = $this->factory->create('User');
+            $service = $this->factory->service('Registration');
+            $model = $this->factory->model('User');
 
             if ($service->registration($form, $model)) {
                 Yii::$app->getSession()->setFlash('alert', 'Вы успешно зарегистрированы');
@@ -189,10 +189,10 @@ class LoginController extends Controller
             return $this->redirect(Yii::$app->getUser()->getReturnUrl());
         }
 
-        $form = $this->factory->create('LoginForm');
+        $form = $this->factory->form('Login');
 
         if ($form->load(Yii::$app->request->post())) {
-            $service = $this->factory->create('Service');
+            $service = $this->factory->service('Service');
 
             if ($service->login($form)) {
                 return $this->redirect(Yii::$app->getUser()->getReturnUrl());
@@ -213,10 +213,10 @@ class LoginController extends Controller
             return $this->redirect(Yii::$app->getUser()->getReturnUrl());
         }
 
-        $form = $this->factory->create('ConfirmForm');
+        $form = $this->factory->form('Confirm');
 
         if ($form->load(Yii::$app->request->post())) {
-            $service = $this->factory->create('ResetPasswordService');
+            $service = $this->factory->service('ResetPassword');
 
             if ($service->confirm($form)) {
                 Yii::$app->getSession()->setFlash('alert', 'Ссылка для восстановления пароля отправлена на E-mail');
@@ -241,10 +241,10 @@ class LoginController extends Controller
             return $this->redirect(Yii::$app->getUser()->getReturnUrl());
         }
 
-        $form = $this->factory->create('ResetForm', ['token' => $token]);
+        $form = $this->factory->form('Reset', ['token' => $token]);
 
         if ($form->load(Yii::$app->request->post())) {
-            $service = $this->factory->create('ResetPasswordService');
+            $service = $this->factory->service('ResetPassword');
 
             if ($service->reset($form)) {
                 Yii::$app->getSession()->setFlash('info', 'Пароль успешно изменен');

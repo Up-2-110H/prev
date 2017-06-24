@@ -33,32 +33,62 @@ abstract class AbstractUserFactory
      * @return object
      * @throws UnknownClassException
      */
-    public function create($class, array $configuration = [])
+    public function service($class, array $configuration = [])
+    {
+        switch ($class) {
+            case 'Service':
+                return Yii::createObject(array_merge(['class' => Service::class], $configuration));
+                break;
+            case 'Registration':
+                return Yii::createObject(array_merge(['class' => RegistrationService::class], $configuration));
+                break;
+            case 'ResetPassword':
+                return Yii::createObject(array_merge(['class' => ResetPasswordService::class], $configuration));
+                break;
+            default:
+                throw new UnknownClassException();
+        }
+    }
+
+    /**
+     * @param string $class
+     * @param array $configuration
+     *
+     * @return object
+     * @throws UnknownClassException
+     */
+    public function form($class, array $configuration = [])
+    {
+        switch ($class) {
+            case 'Registration':
+                return Yii::createObject(array_merge(['class' => RegistrationForm::class], $configuration));
+                break;
+            case 'Login':
+                return Yii::createObject(array_merge(['class' => LoginForm::class], $configuration));
+                break;
+            case 'Confirm':
+                return Yii::createObject(array_merge(['class' => ConfirmForm::class], $configuration));
+                break;
+            case 'Reset':
+                return Yii::createObject(array_merge(['class' => ResetForm::class], $configuration));
+                break;
+            default:
+                throw new UnknownClassException();
+        }
+    }
+
+    /**
+     * @param string $class
+     * @param array $configuration
+     *
+     * @return object
+     * @throws UnknownClassException
+     */
+    public function model($class, array $configuration = [])
     {
         switch ($class) {
             case 'User':
                 return Yii::createObject(array_merge(['class' => Client::class], $configuration));
-                break;
-            case 'RegistrationForm':
-                return Yii::createObject(array_merge(['class' => RegistrationForm::class], $configuration));
-                break;
-            case 'LoginForm':
-                return Yii::createObject(array_merge(['class' => LoginForm::class], $configuration));
-                break;
-            case 'ConfirmForm':
-                return Yii::createObject(array_merge(['class' => ConfirmForm::class], $configuration));
-                break;
-            case 'ResetForm':
-                return Yii::createObject(array_merge(['class' => ResetForm::class], $configuration));
-                break;
-            case 'Service':
-                return Yii::createObject(array_merge(['class' => Service::class], $configuration));
-                break;
-            case 'RegistrationService':
-                return Yii::createObject(array_merge(['class' => RegistrationService::class], $configuration));
-                break;
-            case 'ResetPasswordService':
-                return Yii::createObject(array_merge(['class' => ResetPasswordService::class], $configuration));
                 break;
             default:
                 throw new UnknownClassException();
