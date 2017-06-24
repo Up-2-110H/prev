@@ -8,16 +8,26 @@
 
 namespace app\modules\cabinet\form;
 
-use app\modules\cabinet\components\AbstractConfirm;
 use app\modules\cabinet\models\Client;
+use yii\base\Model;
 
 /**
- * Class Confirm
+ * Class ConfirmForm
  *
  * @package app\modules\cabinet\form
  */
-class Confirm extends AbstractConfirm
+class ConfirmForm extends Model
 {
+    /**
+     * @var null
+     */
+    public $email = null;
+
+    /**
+     * @var null
+     */
+    public $verifyCode = null;
+
     /**
      * @var Client
      */

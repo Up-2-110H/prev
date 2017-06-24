@@ -8,16 +8,31 @@
 
 namespace app\modules\cabinet\form;
 
-use app\modules\cabinet\components\AbstractReset;
 use app\modules\cabinet\models\Client;
+use yii\base\Model;
 
 /**
- * Class Reset
+ * Class LoginForm
  *
  * @package app\modules\cabinet\form
  */
-class Reset extends AbstractReset
+class LoginForm extends Model
 {
+    /**
+     * @var null
+     */
+    public $login = null;
+
+    /**
+     * @var null
+     */
+    public $password = null;
+
+    /**
+     * @var null
+     */
+    public $verifyCode = null;
+
     /**
      * @var Client
      */
@@ -29,10 +44,9 @@ class Reset extends AbstractReset
     public function rules()
     {
         return [
+            [['login'], 'string', 'max' => 64],
             [['password'], 'string', 'max' => 512, 'min' => 8],
-            [['password'], 'required'],
-            [['token'], 'string', 'max' => 128],
-            [['token'], 'required'],
+            [['login', 'password'], 'required'],
             ['password', 'authorization'],
             ['verifyCode', 'captcha', 'captchaAction' => '/cabinet/login/captcha'],
         ];
@@ -44,16 +58,16 @@ class Reset extends AbstractReset
     public function attributeLabels()
     {
         return [
+            'login' => 'Логин',
             'password' => 'Пароль',
-            'token' => 'Маркер сброса токена',
         ];
     }
 
     public function authorization()
     {
         if (!$this->hasErrors()) {
-            if (!$this->findByReset()) {
-                $this->addError('password', 'Неправильный маркер сброса');
+            if (!$this->findByLogin() || !$this->findByLogin()->validatePassword($this->password)) {
+                $this->addError('password', 'Неправильное имя пользователя или пароль');
             }
         }
     }
@@ -61,10 +75,10 @@ class Reset extends AbstractReset
     /**
      * @return Client
      */
-    public function findByReset()
+    public function findByLogin()
     {
         if ($this->client === null) {
-            $this->client = Client::findOne(['reset_token' => $this->token, 'blocked' => Client::BLOCKED_NO]);
+            $this->client = Client::findOne(['login' => $this->login, 'blocked' => Client::BLOCKED_NO]);
         }
 
         return $this->client;

@@ -8,13 +8,12 @@
 
 namespace app\modules\cabinet\controllers\frontend;
 
+use app\modules\cabinet\components\UserFactory;
 use app\modules\cabinet\models\Client;
-use app\modules\cabinet\models\Confirm;
-use app\modules\cabinet\models\Login;
 use app\modules\cabinet\models\OAuth;
-use app\modules\cabinet\models\Reset;
 use Yii;
 use yii\authclient\ClientInterface;
+use yii\base\Module;
 use yii\db\Exception;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
@@ -30,6 +29,17 @@ class LoginController extends Controller
      * @var string
      */
     public $layout = '//index';
+
+    /**
+     * @var UserFactory|null
+     */
+    protected $factory = null;
+
+    public function __construct($id, Module $module, UserFactory $factory, array $config = [])
+    {
+        $this->factory = $factory;
+        parent::__construct($id, $module, $config);
+    }
 
     /**
      * @return array
@@ -146,20 +156,51 @@ class LoginController extends Controller
     /**
      * @return string|\yii\web\Response
      */
+    public function actionRegistration()
+    {
+        if (!Yii::$app->getUser()->getIsGuest()) {
+            return $this->redirect(Yii::$app->getUser()->getReturnUrl());
+        }
+
+        $form = $this->factory->create('RegistrationForm');
+
+        if ($form->load(Yii::$app->request->post())) {
+            $service = $this->factory->create('RegistrationService');
+            $model = $this->factory->create('User');
+
+            if ($service->registration($form, $model)) {
+                Yii::$app->getSession()->setFlash('alert', 'Вы успешно зарегистрированы');
+            } else {
+                Yii::$app->getSession()->setFlash('danger', 'Ошибка регистрации, попробуйте позже');
+            }
+        }
+
+        return $this->render('registration', [
+            'model' => $form,
+        ]);
+    }
+
+    /**
+     * @return string|\yii\web\Response
+     */
     public function actionLogin()
     {
         if (!Yii::$app->getUser()->getIsGuest()) {
             return $this->redirect(Yii::$app->getUser()->getReturnUrl());
         }
 
-        $model = new Login();
+        $form = $this->factory->create('LoginForm');
 
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->redirect(Yii::$app->getUser()->getReturnUrl());
+        if ($form->load(Yii::$app->request->post())) {
+            $service = $this->factory->create('Service');
+
+            if ($service->login($form)) {
+                return $this->redirect(Yii::$app->getUser()->getReturnUrl());
+            }
         }
 
         return $this->render('login', [
-            'model' => $model,
+            'model' => $form,
         ]);
     }
 
@@ -172,20 +213,12 @@ class LoginController extends Controller
             return $this->redirect(Yii::$app->getUser()->getReturnUrl());
         }
 
-        $model = new Confirm();
+        $form = $this->factory->create('ConfirmForm');
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            $result = Yii::$app
-                ->getMailer()
-                ->compose('@app/modules/cabinet/mail/confirm.php', [
-                    'model' => $model->getClient(),
-                ])
-                ->setSubject('Изменение пароля в Личном кабинете')
-                ->setFrom(Yii::$app->params['email'])
-                ->setTo($model->email)
-                ->send();
+        if ($form->load(Yii::$app->request->post())) {
+            $service = $this->factory->create('ResetPasswordService');
 
-            if ($result == true) {
+            if ($service->confirm($form)) {
                 Yii::$app->getSession()->setFlash('alert', 'Ссылка для восстановления пароля отправлена на E-mail');
             } else {
                 Yii::$app->getSession()->setFlash('danger', 'Ошибка отправки сообщения, попробуйте позже');
@@ -193,7 +226,7 @@ class LoginController extends Controller
         }
 
         return $this->render('confirm', [
-            'model' => $model,
+            'model' => $form,
         ]);
     }
 
@@ -208,12 +241,12 @@ class LoginController extends Controller
             return $this->redirect(Yii::$app->getUser()->getReturnUrl());
         }
 
-        $model = new Reset(['reset_token' => $token]);
+        $form = $this->factory->create('ResetForm', ['token' => $token]);
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            $client = $model->getClient();
-            $client->setAttribute('password', $model->password);
-            if ($client->save()) {
+        if ($form->load(Yii::$app->request->post())) {
+            $service = $this->factory->create('ResetPasswordService');
+
+            if ($service->reset($form)) {
                 Yii::$app->getSession()->setFlash('info', 'Пароль успешно изменен');
             } else {
                 Yii::$app->getSession()->setFlash('info', 'Ошибка изменения пароля');
@@ -221,7 +254,7 @@ class LoginController extends Controller
         }
 
         return $this->render('reset', [
-            'model' => $model,
+            'model' => $form,
         ]);
     }
 }
