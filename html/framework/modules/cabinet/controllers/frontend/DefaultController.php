@@ -197,7 +197,7 @@ class DefaultController extends Controller
         $form = $this->factory->form('Login');
 
         if ($form->load(Yii::$app->request->post())) {
-            $service = $this->factory->service('Service');
+            $service = $this->factory->service('Login');
 
             if ($service->login($form)) {
                 return $this->redirect(Yii::$app->getUser()->getReturnUrl());

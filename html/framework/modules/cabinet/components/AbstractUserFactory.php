@@ -20,6 +20,7 @@ use app\modules\cabinet\models\Client;
 use app\modules\cabinet\models\ClientSearch;
 use app\modules\cabinet\models\Log;
 use app\modules\cabinet\models\LogSearch;
+use app\modules\cabinet\services\LoginService;
 use app\modules\cabinet\services\RegistrationService;
 use app\modules\cabinet\services\ResetPasswordService;
 use app\modules\cabinet\services\Service;
@@ -48,6 +49,9 @@ abstract class AbstractUserFactory
                 break;
             case 'Registration':
                 return Yii::createObject(array_merge(['class' => RegistrationService::class], $configuration));
+                break;
+            case 'Login':
+                return Yii::createObject(array_merge(['class' => LoginService::class], $configuration));
                 break;
             case 'ResetPassword':
                 return Yii::createObject(array_merge(['class' => ResetPasswordService::class], $configuration));
