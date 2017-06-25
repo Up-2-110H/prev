@@ -25,7 +25,6 @@ $this->title = Html::encode('Личный кабинет');
             'popupMode' => false,
             'autoRender' => true,
             'baseAuthUrl' => ['/cabinet/default/oauth'],
-            'clientCollection' => 'cabinetClientCollection',
         ]) ?>
     </div>
 </div>

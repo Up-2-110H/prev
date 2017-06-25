@@ -72,7 +72,6 @@ $this->title = Html::encode('Авторизация');
                         'popupMode' => false,
                         'autoRender' => true,
                         'baseAuthUrl' => ['/cabinet/default/oauth'],
-                        'clientCollection' => 'cabinetClientCollection',
                     ]) ?>
                 </div>
             </div>

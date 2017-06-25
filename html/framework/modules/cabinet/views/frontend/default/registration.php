@@ -66,7 +66,6 @@ $this->title = Html::encode('Регистрация');
                         'popupMode' => false,
                         'autoRender' => true,
                         'baseAuthUrl' => ['/cabinet/default/oauth'],
-                        'clientCollection' => 'cabinetClientCollection',
                     ]) ?>
                 </div>
             </div>

@@ -38,15 +38,13 @@ $this->title = Html::encode('Восстановление пароля');
             ]) ?>
 
             <?= $form->field($model, 'verifyCode')->widget(
-                Captcha::className(),
-                [
-                    'captchaAction' => '/cabinet/default/captcha',
-                    'options' => [
-                        'class' => 'form-control',
-                        'placeholder' => $model->getAttributeLabel('verifyCode'),
-                    ],
-                ]
-            ) ?>
+                Captcha::className(), [
+                'captchaAction' => '/cabinet/default/captcha',
+                'options' => [
+                    'class' => 'form-control',
+                    'placeholder' => $model->getAttributeLabel('verifyCode'),
+                ],
+            ]) ?>
 
             <div class="form-group">
                 <?= Html::submitButton(Yii::t('yii', 'Reset'), ['class' => 'btn btn-primary']) ?>
