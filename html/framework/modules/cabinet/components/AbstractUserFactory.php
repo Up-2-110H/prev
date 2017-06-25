@@ -13,6 +13,9 @@ use app\modules\cabinet\form\LoginForm;
 use app\modules\cabinet\form\RegistrationForm;
 use app\modules\cabinet\form\ResetForm;
 use app\modules\cabinet\models\Client;
+use app\modules\cabinet\models\ClientSearch;
+use app\modules\cabinet\models\Log;
+use app\modules\cabinet\models\LogSearch;
 use app\modules\cabinet\services\RegistrationService;
 use app\modules\cabinet\services\ResetPasswordService;
 use app\modules\cabinet\services\Service;
@@ -87,8 +90,17 @@ abstract class AbstractUserFactory
     public function model($class, array $configuration = [])
     {
         switch ($class) {
-            case 'User':
+            case 'Client':
                 return Yii::createObject(array_merge(['class' => Client::class], $configuration));
+                break;
+            case 'ClientSearch':
+                return Yii::createObject(array_merge(['class' => ClientSearch::class], $configuration));
+                break;
+            case 'Log':
+                return Yii::createObject(array_merge(['class' => Log::class], $configuration));
+                break;
+            case 'LogSearch':
+                return Yii::createObject(array_merge(['class' => LogSearch::class], $configuration));
                 break;
             default:
                 throw new UnknownClassException();

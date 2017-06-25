@@ -2,8 +2,10 @@
 
 namespace app\modules\cabinet\controllers\frontend;
 
+use app\modules\cabinet\components\UserFactory;
 use app\modules\cabinet\models\Client;
 use Yii;
+use yii\base\Module;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
@@ -18,6 +20,25 @@ class ViewController extends Controller
      * @var string
      */
     public $layout = '//index';
+
+    /**
+     * @var UserFactory|null
+     */
+    protected $factory = null;
+
+    /**
+     * ViewController constructor.
+     *
+     * @param string $id
+     * @param Module $module
+     * @param UserFactory $factory
+     * @param array $config
+     */
+    public function __construct($id, Module $module, UserFactory $factory, array $config = [])
+    {
+        $this->factory = $factory;
+        parent::__construct($id, $module, $config);
+    }
 
     /**
      * @return string
@@ -47,7 +68,8 @@ class ViewController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = Client::find()->where(['id' => $id, 'blocked' => Client::BLOCKED_NO])->one()) !== null) {
+        $client = $this->factory->model('Client');
+        if (($model = $client::find()->byIdNotBlocked($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

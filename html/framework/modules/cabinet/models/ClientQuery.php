@@ -26,4 +26,14 @@ class ClientQuery extends \yii\db\ActiveQuery
     {
         return parent::one($db);
     }
+
+    /**
+     * @param int $id
+     *
+     * @return Client|array|null
+     */
+    public function byIdNotBlocked($id)
+    {
+        return $this->where(['id' => $id, 'blocked' => Client::BLOCKED_NO])->one();
+    }
 }

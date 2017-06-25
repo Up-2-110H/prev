@@ -171,7 +171,7 @@ class DefaultController extends Controller
 
         if ($form->load(Yii::$app->request->post())) {
             $service = $this->factory->service('Registration');
-            $model = $this->factory->model('User');
+            $model = $this->factory->model('Client');
 
             if ($service->registration($form, $model)) {
                 Yii::$app->getSession()->setFlash('alert', 'Вы успешно зарегистрированы');
