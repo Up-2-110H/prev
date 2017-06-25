@@ -8,7 +8,6 @@
 
 namespace app\modules\cabinet\services;
 
-use app\modules\cabinet\form\LoginForm;
 use app\modules\system\components\backend\CanTrait;
 use Yii;
 use yii\db\ActiveRecord;
@@ -88,19 +87,5 @@ class Service
         $this->can(['model' => $model]);
 
         return $model->delete();
-    }
-
-    /**
-     * @param LoginForm $form
-     *
-     * @return bool
-     */
-    public function login(LoginForm $form)
-    {
-        if ($result = $form->validate()) {
-            $result = Yii::$app->getUser()->login($form->findByLogin());
-        }
-
-        return $result;
     }
 }
