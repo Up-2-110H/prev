@@ -63,7 +63,7 @@ class Service
 
         if ($result = $model->validate()) {
 
-            if ($model->getDirtyAttributes('password')) {
+            if ($model->getDirtyAttributes(['password'])) {
                 $password = $model->getAttribute('password');
 
                 $model->setAttribute('password', Yii::$app->getSecurity()->generatePasswordHash($password));
