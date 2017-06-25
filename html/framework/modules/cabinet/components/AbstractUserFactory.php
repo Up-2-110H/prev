@@ -9,9 +9,13 @@
 namespace app\modules\cabinet\components;
 
 use app\modules\cabinet\form\ConfirmForm;
+use app\modules\cabinet\form\CreateForm;
+use app\modules\cabinet\form\DeleteForm;
 use app\modules\cabinet\form\LoginForm;
 use app\modules\cabinet\form\RegistrationForm;
 use app\modules\cabinet\form\ResetForm;
+use app\modules\cabinet\form\UpdateForm;
+use app\modules\cabinet\form\ViewForm;
 use app\modules\cabinet\models\Client;
 use app\modules\cabinet\models\ClientSearch;
 use app\modules\cabinet\models\Log;
@@ -74,6 +78,18 @@ abstract class AbstractUserFactory
                 break;
             case 'Reset':
                 return Yii::createObject(array_merge(['class' => ResetForm::class], $configuration));
+                break;
+            case 'View':
+                return Yii::createObject(array_merge(['class' => ViewForm::class], $configuration));
+                break;
+            case 'Create':
+                return Yii::createObject(array_merge(['class' => CreateForm::class], $configuration));
+                break;
+            case 'Update':
+                return Yii::createObject(array_merge(['class' => UpdateForm::class], $configuration));
+                break;
+            case 'Delete':
+                return Yii::createObject(array_merge(['class' => DeleteForm::class], $configuration));
                 break;
             default:
                 throw new UnknownClassException();

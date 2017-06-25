@@ -74,14 +74,14 @@ class ClientController extends Controller
      */
     public function actionView($id)
     {
-        $model = $this->findModel($id);
+        $form = $this->findForm($id, 'View');
 
         $service = $this->factory->service('Service');
 
-        $service->view($model);
+        $service->view($form);
 
         return $this->render('view', [
-            'model' => $model,
+            'model' => $form,
         ]);
     }
 
@@ -93,18 +93,18 @@ class ClientController extends Controller
      */
     public function actionCreate()
     {
-        $model = $this->factory->model('Client');
+        $form = $this->factory->form('Create');
 
-        if ($model->load(Yii::$app->request->post())) {
+        if ($form->load(Yii::$app->request->post())) {
             $service = $this->factory->service('Service');
 
-            if ($service->create($model)) {
-                return $this->redirect(['view', 'id' => $model->id]);
+            if ($service->create($form)) {
+                return $this->redirect(['view', 'id' => $form->id]);
             }
         }
 
         return $this->render('create', [
-            'model' => $model,
+            'model' => $form,
         ]);
     }
 
@@ -118,18 +118,18 @@ class ClientController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $form = $this->findForm($id, 'Update');
 
-        if ($model->load(Yii::$app->request->post())) {
+        if ($form->load(Yii::$app->request->post())) {
             $service = $this->factory->service('Service');
 
-            if ($service->update($model)) {
-                return $this->redirect(['view', 'id' => $model->getAttribute('id')]);
+            if ($service->update($form)) {
+                return $this->redirect(['view', 'id' => $form->getAttribute('id')]);
             }
         }
 
         return $this->render('update', [
-            'model' => $model,
+            'model' => $form,
         ]);
     }
 
@@ -143,11 +143,11 @@ class ClientController extends Controller
      */
     public function actionDelete($id)
     {
-        $model = $this->findModel($id);
+        $form = $this->findForm($id, 'Delete');
 
         $service = $this->factory->service('Service');
 
-        $service->delete($model);
+        $service->delete($form);
 
         return $this->redirect(['index']);
     }
@@ -157,13 +157,14 @@ class ClientController extends Controller
      * If the model is not found, a 404 HTTP exception will be thrown.
      *
      * @param integer $id
+     * @param string $service
      *
      * @return ActiveRecord the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
+    protected function findForm($id, $service)
     {
-        $client = $this->factory->model('Client');
+        $client = $this->factory->form($service);
 
         if (($model = $client::findOne($id)) !== null) {
             return $model;
