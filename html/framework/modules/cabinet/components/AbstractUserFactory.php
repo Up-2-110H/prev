@@ -9,6 +9,7 @@
 namespace app\modules\cabinet\components;
 
 use app\modules\cabinet\form\ConfirmForm;
+use app\modules\cabinet\form\ConfirmWithEmailForm;
 use app\modules\cabinet\form\CreateForm;
 use app\modules\cabinet\form\DeleteForm;
 use app\modules\cabinet\form\LoginForm;
@@ -22,6 +23,7 @@ use app\modules\cabinet\models\Client;
 use app\modules\cabinet\models\ClientSearch;
 use app\modules\cabinet\models\Log;
 use app\modules\cabinet\models\LogSearch;
+use app\modules\cabinet\services\ConfirmWithEmailService;
 use app\modules\cabinet\services\LoginService;
 use app\modules\cabinet\services\LoginWithEmailService;
 use app\modules\cabinet\services\RegistrationService;
@@ -63,6 +65,9 @@ abstract class AbstractUserFactory
             case 'LoginWithEmail':
                 return Yii::createObject(array_merge(['class' => LoginWithEmailService::class], $configuration));
                 break;
+            case 'ConfirmWithEmail':
+                return Yii::createObject(array_merge(['class' => ConfirmWithEmailService::class], $configuration));
+                break;
             case 'ResetPassword':
                 return Yii::createObject(array_merge(['class' => ResetPasswordService::class], $configuration));
                 break;
@@ -95,6 +100,9 @@ abstract class AbstractUserFactory
                 break;
             case 'Confirm':
                 return Yii::createObject(array_merge(['class' => ConfirmForm::class], $configuration));
+                break;
+            case 'ConfirmWithEmail':
+                return Yii::createObject(array_merge(['class' => ConfirmWithEmailForm::class], $configuration));
                 break;
             case 'Reset':
                 return Yii::createObject(array_merge(['class' => ResetForm::class], $configuration));

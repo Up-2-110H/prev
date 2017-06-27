@@ -8,9 +8,11 @@
 
 namespace app\modules\cabinet\services;
 
+use app\modules\cabinet\form\ConfirmWithEmailForm;
 use app\modules\cabinet\form\RegistrationWithEmailForm;
 use Yii;
 use yii\db\ActiveRecordInterface;
+use yii\web\IdentityInterface;
 
 /**
  * Class RegistrationWithEmailService
@@ -41,6 +43,32 @@ class RegistrationWithEmailService
 
             $result = $model->save();
         }
+
+        return $result;
+    }
+
+    /**
+     * @param ConfirmWithEmailForm $form
+     * @param IdentityInterface|ActiveRecordInterface $model
+     *
+     * @return bool
+     */
+    public function retry(ConfirmWithEmailForm $form, IdentityInterface $model)
+    {
+        $form->setAttributes([
+            'email' => $model->getAttribute('email'),
+            'token' => $model->getAttribute('access_token'),
+        ]);
+
+        $result = Yii::$app
+            ->getMailer()
+            ->compose('@app/modules/cabinet/mail/retryWithEmail.php', [
+                'model' => $form,
+            ])
+            ->setSubject('Подтверждение Email')
+            ->setFrom(Yii::$app->params['email'])
+            ->setTo($model->getAttribute('email'))
+            ->send();
 
         return $result;
     }

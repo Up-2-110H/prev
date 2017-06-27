@@ -261,6 +261,44 @@ class DefaultController extends Controller
     }
 
     /**
+     * By RegistrationWithEmail|LoginWithEmail
+     *
+     * @return string
+     */
+    public function actionConfirmWithEmail()
+    {
+        $form = $this->factory->form('ConfirmWithEmail');
+
+        if ($form->load(Yii::$app->request->get())) {
+            $service = $this->factory->service('ConfirmWithEmail');
+
+            if ($service->confirm($form)) {
+                return $this->render('confirmWithEmail', ['accept' => true]);
+            }
+        }
+
+        return $this->render('confirmWithEmail', ['accept' => false]);
+    }
+
+    /**
+     * @return \yii\web\Response
+     */
+    public function actionRetryWithEmail()
+    {
+        $service = $this->factory->service('RegistrationWithEmail');
+        $form = $this->factory->form('ConfirmWithEmail');
+        $model = Yii::$app->getUser()->getIdentity();
+
+        if ($service->retry($form, $model)) {
+            Yii::$app->getSession()->setFlash('alert', 'Ссылка для подтверждения успешно отправленна на E-mail');
+        } else {
+            Yii::$app->getSession()->setFlash('danger', 'Ошибка отправки сообщения, попробуйте позже');
+        }
+
+        return $this->redirect(['confirm-with-email']);
+    }
+
+    /**
      * @return string|yii\web\Response
      */
     public function actionConfirm()
