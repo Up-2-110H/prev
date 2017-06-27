@@ -18,6 +18,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'email_verify')->dropDownList($model::getEmailVerifyList()) ?>
+
     <?= $form->field($model, 'blocked')->dropDownList($model::getBlockedList()) ?>
 
     <div class="form-group">

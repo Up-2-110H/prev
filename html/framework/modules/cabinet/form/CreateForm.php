@@ -23,7 +23,7 @@ class CreateForm extends Client
     public function rules()
     {
         return [
-            [['blocked'], 'integer'],
+            [['email_verify', 'blocked'], 'integer'],
             [['login'], 'string', 'max' => 32],
             [['password'], 'string', 'max' => 512, 'min' => 8],
             [['email'], 'string', 'max' => 64],
@@ -42,6 +42,7 @@ class CreateForm extends Client
             'login' => 'Логин',
             'password' => 'Пароль',
             'email' => 'Электронная почта',
+            'email_verify' => 'Электронная почта подтверждена',
             'blocked' => 'Заблокирован',
         ];
     }

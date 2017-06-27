@@ -37,6 +37,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'login',
                 'email:email',
                 [
+                    'attribute' => 'email_verify',
+                    'filter' => $searchModel::getEmailVerifyList(),
+                    'value' => function ($model) {
+                        /* @var $model \app\modules\cabinet\models\Client */
+                        return $model->getEmailVerify();
+                    },
+                ],
+                [
                     'attribute' => 'blocked',
                     'filter' => $searchModel::getBlockedList(),
                     'value' => function ($model) {

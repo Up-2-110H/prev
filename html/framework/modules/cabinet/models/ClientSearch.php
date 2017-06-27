@@ -16,7 +16,7 @@ class ClientSearch extends Client
     public function rules()
     {
         return [
-            [['id', 'blocked'], 'integer'],
+            [['id', 'email_verify', 'blocked'], 'integer'],
             [['login', 'email', 'created_at', 'updated_at'], 'safe'],
         ];
     }
@@ -52,6 +52,7 @@ class ClientSearch extends Client
 
         $query->andFilterWhere([
             'id' => $this->id,
+            'email_verify' => $this->email_verify,
             'blocked' => $this->blocked,
         ]);
 

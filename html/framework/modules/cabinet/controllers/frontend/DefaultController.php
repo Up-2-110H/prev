@@ -188,6 +188,33 @@ class DefaultController extends Controller
     /**
      * @return string|\yii\web\Response
      */
+    public function actionRegistrationWithEmail()
+    {
+        if (!Yii::$app->getUser()->getIsGuest()) {
+            return $this->redirect(Yii::$app->getUser()->getReturnUrl());
+        }
+
+        $form = $this->factory->form('RegistrationWithEmail');
+
+        if ($form->load(Yii::$app->request->post())) {
+            $service = $this->factory->service('RegistrationWithEmail');
+            $model = $this->factory->model('Client');
+
+            if ($service->registration($form, $model)) {
+                Yii::$app->getSession()->setFlash('alert', 'Вы успешно зарегистрированы');
+            } else {
+                Yii::$app->getSession()->setFlash('danger', 'Ошибка регистрации, попробуйте позже');
+            }
+        }
+
+        return $this->render('registrationWithEmail', [
+            'model' => $form,
+        ]);
+    }
+
+    /**
+     * @return string|\yii\web\Response
+     */
     public function actionLogin()
     {
         if (!Yii::$app->getUser()->getIsGuest()) {
@@ -205,6 +232,30 @@ class DefaultController extends Controller
         }
 
         return $this->render('login', [
+            'model' => $form,
+        ]);
+    }
+
+    /**
+     * @return string|\yii\web\Response
+     */
+    public function actionLoginWithEmail()
+    {
+        if (!Yii::$app->getUser()->getIsGuest()) {
+            return $this->redirect(Yii::$app->getUser()->getReturnUrl());
+        }
+
+        $form = $this->factory->form('LoginWithEmail');
+
+        if ($form->load(Yii::$app->request->post())) {
+            $service = $this->factory->service('LoginWithEmail');
+
+            if ($service->login($form)) {
+                return $this->redirect(Yii::$app->getUser()->getReturnUrl());
+            }
+        }
+
+        return $this->render('loginWithEmail', [
             'model' => $form,
         ]);
     }

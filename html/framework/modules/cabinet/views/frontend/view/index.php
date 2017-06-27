@@ -39,6 +39,10 @@ $this->title = Html::encode('Личный кабинет');
             'reset_token',
             'email:email',
             [
+                'attribute' => 'email_verify',
+                'value' => $model->getEmailVerify(),
+            ],
+            [
                 'attribute' => 'blocked',
                 'value' => $model->getBlocked(),
             ],

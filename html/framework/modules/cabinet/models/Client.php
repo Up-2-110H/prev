@@ -4,8 +4,12 @@ namespace app\modules\cabinet\models;
 
 use app\behaviors\TagDependencyBehavior;
 use app\behaviors\TimestampBehavior;
+use app\core\validators\PasswordValidator;
+use app\interfaces\BlockedInterface;
+use app\modules\cabinet\components\EmailVerifyInterface;
+use app\modules\cabinet\components\EmailVerifyTrait;
+use app\traits\BlockedTrait;
 use Yii;
-use yii\helpers\ArrayHelper;
 use yii\web\IdentityInterface;
 
 /**
@@ -18,6 +22,7 @@ use yii\web\IdentityInterface;
  * @property string $access_token
  * @property string $reset_token
  * @property string $email
+ * @property integer $email_verify
  * @property integer $blocked
  * @property string $created_at
  * @property string $updated_at
@@ -25,10 +30,10 @@ use yii\web\IdentityInterface;
  * @property Log[] $logs
  * @property OAuth[] $socials
  */
-class Client extends \yii\db\ActiveRecord implements IdentityInterface
+class Client extends \yii\db\ActiveRecord implements IdentityInterface, BlockedInterface, EmailVerifyInterface
 {
-    const BLOCKED_NO = 0;
-    const BLOCKED_YES = 1;
+    use BlockedTrait;
+    use EmailVerifyTrait;
 
     /**
      * @return array
@@ -67,10 +72,11 @@ class Client extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['blocked'], 'integer'],
+            [['email_verify', 'blocked'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['login'], 'string', 'max' => 32],
             [['password'], 'string', 'max' => 512, 'min' => 8],
+            [['password'], PasswordValidator::className()],
             [['auth_key', 'email'], 'string', 'max' => 64],
             [['access_token', 'reset_token'], 'string', 'max' => 128],
             [['login', 'email'], 'unique'],
@@ -92,29 +98,11 @@ class Client extends \yii\db\ActiveRecord implements IdentityInterface
             'access_token' => 'Токен доступа',
             'reset_token' => 'Маркер сброса токена',
             'email' => 'Электронная почта',
+            'email_verify' => 'Электронная почта подтверждена',
             'blocked' => 'Заблокирован',
             'created_at' => 'Создано',
             'updated_at' => 'Обновлено',
         ];
-    }
-
-    /**
-     * @return array
-     */
-    public static function getBlockedList()
-    {
-        return [
-            self::BLOCKED_NO => 'Нет',
-            self::BLOCKED_YES => 'Да',
-        ];
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getBlocked()
-    {
-        return ArrayHelper::getValue(self::getBlockedList(), $this->blocked);
     }
 
     /**

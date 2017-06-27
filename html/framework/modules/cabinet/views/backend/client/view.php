@@ -43,6 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'access_token',
                 'reset_token',
                 'email:email',
+                'email_verify:boolean',
                 [
                     'attribute' => 'blocked',
                     'value' => $model->getBlocked(),

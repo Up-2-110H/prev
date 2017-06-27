@@ -12,7 +12,9 @@ use app\modules\cabinet\form\ConfirmForm;
 use app\modules\cabinet\form\CreateForm;
 use app\modules\cabinet\form\DeleteForm;
 use app\modules\cabinet\form\LoginForm;
+use app\modules\cabinet\form\LoginWithEmailForm;
 use app\modules\cabinet\form\RegistrationForm;
+use app\modules\cabinet\form\RegistrationWithEmailForm;
 use app\modules\cabinet\form\ResetForm;
 use app\modules\cabinet\form\UpdateForm;
 use app\modules\cabinet\form\ViewForm;
@@ -21,7 +23,9 @@ use app\modules\cabinet\models\ClientSearch;
 use app\modules\cabinet\models\Log;
 use app\modules\cabinet\models\LogSearch;
 use app\modules\cabinet\services\LoginService;
+use app\modules\cabinet\services\LoginWithEmailService;
 use app\modules\cabinet\services\RegistrationService;
+use app\modules\cabinet\services\RegistrationWithEmailService;
 use app\modules\cabinet\services\ResetPasswordService;
 use app\modules\cabinet\services\Service;
 use Yii;
@@ -50,8 +54,14 @@ abstract class AbstractUserFactory
             case 'Registration':
                 return Yii::createObject(array_merge(['class' => RegistrationService::class], $configuration));
                 break;
+            case 'RegistrationWithEmail':
+                return Yii::createObject(array_merge(['class' => RegistrationWithEmailService::class], $configuration));
+                break;
             case 'Login':
                 return Yii::createObject(array_merge(['class' => LoginService::class], $configuration));
+                break;
+            case 'LoginWithEmail':
+                return Yii::createObject(array_merge(['class' => LoginWithEmailService::class], $configuration));
                 break;
             case 'ResetPassword':
                 return Yii::createObject(array_merge(['class' => ResetPasswordService::class], $configuration));
@@ -74,8 +84,14 @@ abstract class AbstractUserFactory
             case 'Registration':
                 return Yii::createObject(array_merge(['class' => RegistrationForm::class], $configuration));
                 break;
+            case 'RegistrationWithEmail':
+                return Yii::createObject(array_merge(['class' => RegistrationWithEmailForm::class], $configuration));
+                break;
             case 'Login':
                 return Yii::createObject(array_merge(['class' => LoginForm::class], $configuration));
+                break;
+            case 'LoginWithEmail':
+                return Yii::createObject(array_merge(['class' => LoginWithEmailForm::class], $configuration));
                 break;
             case 'Confirm':
                 return Yii::createObject(array_merge(['class' => ConfirmForm::class], $configuration));
