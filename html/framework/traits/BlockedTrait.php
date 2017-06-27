@@ -29,6 +29,9 @@ trait BlockedTrait
         ];
     }
 
+    /**
+     * @return string
+     */
     public function getBlocked()
     {
         return ArrayHelper::getValue(self::getBlockedList(), $this->blocked);
