@@ -74,6 +74,10 @@ $config = [
         'user' => [
             'class' => 'yii\web\User',
             'identityClass' => 'app\modules\auth\models\Auth',
+            'idParam' => '__idBackend',
+            'authTimeoutParam' => '__expireBackend',
+            'absoluteAuthTimeoutParam' => '__absoluteExpireBackend',
+            'returnUrlParam' => '__returnUrlBackend',
             'loginUrl' => ['/auth/default/login'],
             // http://www.yiiframework.com/doc-2.0/yii-web-user.html#loginRequired()-detail
             'returnUrl' => ['/'],
