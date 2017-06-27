@@ -17,32 +17,36 @@ frontend.php
         'controllerNamespace' => 'app\modules\cabinet\controllers\frontend',
         'as AccessControl' => [
             'class' => \yii\filters\AccessControl::className(),
+            'except' => [
+                'default/oauth',
+                'default/captcha',
+                'default/login',
+                'default/login-with-email',
+                'default/registration',
+                'default/registration-with-email',
+                'default/confirm',
+                'default/confirm-with-email',
+                'default/reset',
+                'default/retry-with-email',
+            ],
             'rules' => [
                 // all users
                 [
                     'allow' => false,
                     'matchCallback' => function () {
-                        return false;
+                        $factory = new \app\modules\cabinet\components\UserFactory();
+
+                        $service = $factory->service('LoginWithEmail');
+
+                        $user = Yii::$app->getUser()->getIdentity();
+                        $form = $factory->form('LoginWithEmail');
+
+                        return $service->matchForbidden($user, $form);
                     },
                     'denyCallback' => function () {
-                        Yii::$app->getResponse()->redirect('/site/about');
+                        Yii::$app->getResponse()->redirect('/cabinet/default/confirm-with-email');
                         Yii::$app->end();
                     },
-                ],
-                // not authorized users
-                [
-                    'controllers' => [
-                        'cabinet/default',
-                    ],
-                    'actions' => [
-                        'oauth',
-                        'captcha',
-                        'login',
-                        'confirm',
-                        'reset',
-                    ],
-                    'allow' => true,
-                    'roles' => ['?'],
                 ],
                 // authorized users
                 [
@@ -73,7 +77,7 @@ frontend.php
             'handleAfterLogout',
         ],
     ],
-    'cabinetClientCollection' => [
+    'authClientCollection' => [
         'class' => 'yii\authclient\Collection',
         'clients' => [
             'yandex' => [
@@ -191,4 +195,4 @@ params.php
 rules.php
 
 /* Reset password */
-'<language:\w+\-\w+>/cabinet/login/reset/<token:[\w\_\-]+>' => 'cabinet/login/reset',
+'<language:\w+\-\w+>/cabinet/default/reset/<token:[\w\_\-]+>' => 'cabinet/default/reset',
