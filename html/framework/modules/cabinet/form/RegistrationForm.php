@@ -39,7 +39,7 @@ class RegistrationForm extends Model
     public function rules()
     {
         return [
-            [['login'], 'string', 'max' => 64],
+            [['login'], 'string', 'max' => 32],
             [['password'], 'string', 'max' => 512, 'min' => 8],
             [['login', 'password'], 'required'],
             ['login', 'unique', 'targetClass' => Client::className()],
