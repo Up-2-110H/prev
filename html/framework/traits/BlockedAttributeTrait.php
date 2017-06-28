@@ -34,6 +34,6 @@ trait BlockedAttributeTrait
      */
     public function getBlocked()
     {
-        return ArrayHelper::getValue(self::getBlockedList(), $this->blocked);
+        return ArrayHelper::getValue(static::getBlockedList(), $this->blocked);
     }
 }
