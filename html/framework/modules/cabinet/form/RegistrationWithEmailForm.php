@@ -8,11 +8,11 @@
 
 namespace app\modules\cabinet\form;
 
-use app\interfaces\BlockedInterface;
+use app\interfaces\BlockedAttributeInterface;
 use app\modules\cabinet\components\EmailVerifyInterface;
 use app\modules\cabinet\components\EmailVerifyTrait;
 use app\modules\cabinet\models\Client;
-use app\traits\BlockedTrait;
+use app\traits\BlockedAttributeTrait;
 use yii\base\Model;
 
 /**
@@ -20,9 +20,9 @@ use yii\base\Model;
  *
  * @package app\modules\cabinet\form
  */
-class RegistrationWithEmailForm extends Model implements BlockedInterface, EmailVerifyInterface
+class RegistrationWithEmailForm extends Model implements BlockedAttributeInterface, EmailVerifyInterface
 {
-    use BlockedTrait;
+    use BlockedAttributeTrait;
     use EmailVerifyTrait;
 
     /**

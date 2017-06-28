@@ -10,11 +10,11 @@
 namespace app\interfaces;
 
 /**
- * Interface BlockedInterface
+ * Interface BlockedAttributeInterface
  *
  * @package app\interfaces
  */
-interface BlockedInterface
+interface BlockedAttributeInterface
 {
     const BLOCKED_NO = 0;
     const BLOCKED_YES = 1;

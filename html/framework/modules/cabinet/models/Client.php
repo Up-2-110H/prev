@@ -5,10 +5,10 @@ namespace app\modules\cabinet\models;
 use app\behaviors\TagDependencyBehavior;
 use app\behaviors\TimestampBehavior;
 use app\core\validators\PasswordValidator;
-use app\interfaces\BlockedInterface;
+use app\interfaces\BlockedAttributeInterface;
 use app\modules\cabinet\components\EmailVerifyInterface;
 use app\modules\cabinet\components\EmailVerifyTrait;
-use app\traits\BlockedTrait;
+use app\traits\BlockedAttributeTrait;
 use Yii;
 use yii\web\IdentityInterface;
 
@@ -30,9 +30,9 @@ use yii\web\IdentityInterface;
  * @property Log[] $logs
  * @property OAuth[] $socials
  */
-class Client extends \yii\db\ActiveRecord implements IdentityInterface, BlockedInterface, EmailVerifyInterface
+class Client extends \yii\db\ActiveRecord implements IdentityInterface, BlockedAttributeInterface, EmailVerifyInterface
 {
-    use BlockedTrait;
+    use BlockedAttributeTrait;
     use EmailVerifyTrait;
 
     /**

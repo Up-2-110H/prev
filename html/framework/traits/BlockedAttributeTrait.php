@@ -8,15 +8,15 @@
 
 namespace app\traits;
 
-use app\interfaces\BlockedInterface;
+use app\interfaces\BlockedAttributeInterface;
 use yii\helpers\ArrayHelper;
 
 /**
- * Trait BlockedTrait
+ * Trait BlockedAttributeTrait
  *
  * @package app\traits
  */
-trait BlockedTrait
+trait BlockedAttributeTrait
 {
     /**
      * @return array
@@ -24,8 +24,8 @@ trait BlockedTrait
     public static function getBlockedList()
     {
         return [
-            BlockedInterface::BLOCKED_NO => 'Нет',
-            BlockedInterface::BLOCKED_YES => 'Да',
+            BlockedAttributeInterface::BLOCKED_NO => 'Нет',
+            BlockedAttributeInterface::BLOCKED_YES => 'Да',
         ];
     }
 
