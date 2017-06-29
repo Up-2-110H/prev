@@ -1,6 +1,5 @@
 #!/usr/bin/env sh
 
-USER_ID=`id -u`
-USER_GROUP=`id -g`
+export $(cat .env | xargs)
 
-docker exec -i --user="$USER_ID:$USER_GROUP" "$@"
+docker exec -i --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_NAME" "$@"
