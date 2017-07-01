@@ -1,7 +1,8 @@
 <?php
 
-ini_set('session.hash_function', '1');
-ini_set('session.hash_bits_per_character', '6');
+ini_set('session.use_strict_mode', true);
+ini_set('session.sid_length', 256);
+ini_set('session.sid_bits_per_character', 6);
 
 // comment out the following two lines when deployed to production
 defined('YII_DEBUG') or define('YII_DEBUG', false);
