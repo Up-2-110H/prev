@@ -1,7 +1,7 @@
 <?php
 
 ini_set('session.use_strict_mode', true);
-ini_set('session.sid_length', 256);
+ini_set('session.sid_length', 128);
 ini_set('session.sid_bits_per_character', 6);
 
 // comment out the following two lines when deployed to production
