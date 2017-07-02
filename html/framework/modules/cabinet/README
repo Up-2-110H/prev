@@ -33,6 +33,7 @@ frontend.php
                 // all users
                 [
                     'allow' => false,
+                    'roles' => ['@'],
                     'matchCallback' => function () {
                         $factory = new \app\modules\cabinet\components\UserFactory();
 
