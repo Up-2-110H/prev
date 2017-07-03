@@ -60,7 +60,6 @@ class DefaultController extends Controller
             ],
             'oauth' => [
                 'class' => 'yii\authclient\AuthAction',
-                'clientCollection' => 'cabinetClientCollection',
                 'successCallback' => [$this, 'OAuthCallback'],
                 'successUrl' => $url,
                 'cancelUrl' => $url,
