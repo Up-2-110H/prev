@@ -2,8 +2,13 @@
 
 namespace app\modules\example\controllers\backend;
 
-use app\modules\example\models\Example;
-use app\modules\example\models\ExampleSearch;
+use app\modules\example\interfaces\ExampleInterface;
+use app\modules\example\interfaces\ExampleSearchInterface;
+use app\modules\example\services\backend\CreateService;
+use app\modules\example\services\backend\DeleteService;
+use app\modules\example\services\backend\FindService;
+use app\modules\example\services\backend\SearchService;
+use app\modules\example\services\backend\UpdateService;
 use app\modules\system\components\backend\Controller;
 use Yii;
 use yii\filters\VerbFilter;
@@ -36,8 +41,8 @@ class ExampleController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new ExampleSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $searchModel = Yii::createObject(ExampleSearchInterface::class);
+        $dataProvider = Yii::createObject(SearchService::class, [$searchModel])->execute();
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -67,9 +72,11 @@ class ExampleController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Example();
+        $model = Yii::createObject(ExampleInterface::class);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            Yii::createObject(CreateService::class, [$model])->execute();
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -90,7 +97,9 @@ class ExampleController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            Yii::createObject(UpdateService::class, [$model])->execute();
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -109,7 +118,8 @@ class ExampleController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+        Yii::createObject(DeleteService::class, [$model])->execute();
 
         return $this->redirect(['index']);
     }
@@ -120,12 +130,14 @@ class ExampleController extends Controller
      *
      * @param integer $id
      *
-     * @return Example the loaded model
+     * @return object the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Example::findOne($id)) !== null) {
+        $service = Yii::createObject(FindService::class);
+
+        if (($model = $service->execute()->where(['id' => $id])->one()) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

@@ -2,6 +2,10 @@
 
 namespace app\modules\example;
 
+use app\modules\example\interfaces\ExampleInterface;
+use app\modules\example\interfaces\ExampleSearchInterface;
+use app\modules\example\models\Example;
+use app\modules\example\models\ExampleSearch;
 use app\modules\system\components\backend\NameInterface;
 use Yii;
 
@@ -21,6 +25,9 @@ class Module extends \yii\base\Module implements NameInterface
     public function init()
     {
         parent::init();
+
+        Yii::$container->set(ExampleInterface::class, Example::class);
+        Yii::$container->set(ExampleSearchInterface::class, ExampleSearch::class);
     }
 
     /**

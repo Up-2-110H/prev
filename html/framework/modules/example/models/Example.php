@@ -4,6 +4,7 @@ namespace app\modules\example\models;
 
 use app\behaviors\LanguageBehavior;
 use app\behaviors\TimestampBehavior;
+use app\modules\example\interfaces\ExampleInterface;
 use yii\helpers\ArrayHelper;
 
 /**
@@ -17,7 +18,7 @@ use yii\helpers\ArrayHelper;
  * @property string $created_at
  * @property string $updated_at
  */
-class Example extends \yii\db\ActiveRecord
+class Example extends \yii\db\ActiveRecord implements ExampleInterface
 {
     const HIDDEN_NO = 0;
     const HIDDEN_YES = 1;

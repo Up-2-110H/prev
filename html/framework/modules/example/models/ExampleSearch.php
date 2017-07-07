@@ -2,14 +2,33 @@
 
 namespace app\modules\example\models;
 
+use app\modules\example\interfaces\ExampleSearchInterface;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+use yii\web\Request;
 
 /**
  * ExampleSearch represents the model behind the search form about `app\modules\example\models\Example`.
  */
-class ExampleSearch extends Example
+class ExampleSearch extends Example implements ExampleSearchInterface
 {
+    /**
+     * @var null|Request
+     */
+    protected $request = null;
+
+    /**
+     * ExampleSearch constructor.
+     *
+     * @param Request $request
+     * @param array $config
+     */
+    public function __construct(Request $request, array $config = [])
+    {
+        $this->request = $request;
+        parent::__construct($config);
+    }
+
     /**
      * @inheritdoc
      */
@@ -30,13 +49,9 @@ class ExampleSearch extends Example
     }
 
     /**
-     * Creates data provider instance with search query applied
-     *
-     * @param array $params
-     *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search()
     {
         $query = Example::find()->language();
 
@@ -44,7 +59,7 @@ class ExampleSearch extends Example
             'query' => $query,
         ]);
 
-        $this->load($params);
+        $this->load($this->request->getQueryParams());
 
         if (!$this->validate()) {
             return $dataProvider;
