@@ -4,8 +4,9 @@ namespace app\modules\example\models;
 
 use app\behaviors\LanguageBehavior;
 use app\behaviors\TimestampBehavior;
+use app\interfaces\HiddenAttributeInterface;
 use app\modules\example\interfaces\ExampleInterface;
-use yii\helpers\ArrayHelper;
+use app\traits\HiddenAttributeTrait;
 
 /**
  * This is the model class for table "{{%example}}".
@@ -18,10 +19,9 @@ use yii\helpers\ArrayHelper;
  * @property string $created_at
  * @property string $updated_at
  */
-class Example extends \yii\db\ActiveRecord implements ExampleInterface
+class Example extends \yii\db\ActiveRecord implements ExampleInterface, HiddenAttributeInterface
 {
-    const HIDDEN_NO = 0;
-    const HIDDEN_YES = 1;
+    use HiddenAttributeTrait;
 
     /**
      * @return array
@@ -88,25 +88,6 @@ class Example extends \yii\db\ActiveRecord implements ExampleInterface
             'created_at' => 'Создано',
             'updated_at' => 'Обновлено',
         ];
-    }
-
-    /**
-     * @return array
-     */
-    public static function getHiddenList()
-    {
-        return [
-            self::HIDDEN_NO => 'Нет',
-            self::HIDDEN_YES => 'Да',
-        ];
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getHidden()
-    {
-        return ArrayHelper::getValue(self::getHiddenList(), $this->hidden);
     }
 
     /**
