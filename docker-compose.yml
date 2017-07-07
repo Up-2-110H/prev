@@ -17,12 +17,12 @@ services:
       - 9000
     networks:
       self:
-        ipv4_address: 172.72.7.2
+        ipv4_address: ${NETWORK_APP}
   redis:
     image: redis:3.2
     networks:
       self:
-        ipv4_address: 172.72.7.3
+        ipv4_address: ${NETWORK_REDIS}
   mysql:
     image: mysql:5.7
     environment:
@@ -35,7 +35,7 @@ services:
       - ./docker/config/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     networks:
       self:
-        ipv4_address: 172.72.7.4
+        ipv4_address: ${NETWORK_MYSQL}
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     links:
@@ -46,10 +46,10 @@ services:
       - ./docker/config/phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
     networks:
       self:
-        ipv4_address: 172.72.7.5
+        ipv4_address: ${NETWORK_PHPMYADMIN}
 networks:
   self:
     driver: bridge
     ipam:
       config:
-      - subnet: 172.72.7.0/24
+      - subnet: ${NETWORK_SUBNET}
