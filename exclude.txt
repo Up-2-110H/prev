@@ -1,7 +1,7 @@
 .git
 /.env
-/docker/server/
+/docker/server/*/
 /html/web/html/
 /html/web/robots.txt
-/html/web/uploads/
-/html/framework/runtime/
+/html/web/uploads/*/
+/html/framework/runtime/*/
