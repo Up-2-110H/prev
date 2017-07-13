@@ -2,7 +2,4 @@
 
 export $(cat .env | xargs)
 
-USER_ID=`id -u`
-USER_GROUP=`id -g`
-
-docker exec -i --user="$USER_ID:$USER_GROUP" "$CONTAINER_NAME" "$@"
+docker exec -i --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_NAME" "$@"

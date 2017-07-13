@@ -4,11 +4,10 @@ services:
     image: ${IMAGE_APP_NAME}
     container_name: ${CONTAINER_NAME}
     environment:
+      - APACHE_RUN_ID=${APACHE_RUN_ID}
       - APACHE_RUN_USER=${APACHE_RUN_USER}
       - APACHE_RUN_GROUP=${APACHE_RUN_GROUP}
     volumes:
-      - /etc/passwd:/etc/passwd:ro
-      - /etc/group:/etc/group:ro
       - .:/var/www/
       - ./docker/server/log:/var/log/apache2
       - ./docker/config/cron:/root/cron
