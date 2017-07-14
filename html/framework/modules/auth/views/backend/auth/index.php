@@ -37,12 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'login',
                 'email:email',
                 [
-                    'attribute' => 'blocked',
-                    'filter' => $searchModel::getBlockedList(),
-                    'value' => function ($model) {
-                        /* @var \app\modules\auth\models\Auth $model */
-                        return $model->getBlocked();
-                    },
+                    'class' => 'app\core\grid\BlockedColumn',
                 ],
                 [
                     'class' => 'app\core\grid\DatePickerColumn',

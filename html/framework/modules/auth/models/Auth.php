@@ -6,6 +6,8 @@ use app\behaviors\EventBehavior;
 use app\behaviors\GenerateRandomStringBehavior;
 use app\behaviors\HashBehavior;
 use app\behaviors\TimestampBehavior;
+use app\interfaces\BlockedAttributeInterface;
+use app\traits\BlockedAttributeTrait;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\web\IdentityInterface;
@@ -27,10 +29,9 @@ use yii\web\IdentityInterface;
  * @property Log[] $logs
  * @property OAuth[] $socials
  */
-class Auth extends \yii\db\ActiveRecord implements IdentityInterface
+class Auth extends \yii\db\ActiveRecord implements IdentityInterface, BlockedAttributeInterface
 {
-    const BLOCKED_NO = 0;
-    const BLOCKED_YES = 1;
+    use BlockedAttributeTrait;
 
     const SCENARIO_CREATE = 'create';
 
@@ -135,25 +136,6 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface
             'created_at' => 'Создано',
             'updated_at' => 'Обновлено',
         ];
-    }
-
-    /**
-     * @return array
-     */
-    public static function getBlockedList()
-    {
-        return [
-            self::BLOCKED_NO => 'Нет',
-            self::BLOCKED_YES => 'Да',
-        ];
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getBlocked()
-    {
-        return ArrayHelper::getValue(self::getBlockedList(), $this->blocked);
     }
 
     /**
