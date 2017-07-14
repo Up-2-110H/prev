@@ -70,6 +70,14 @@ return [
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.yandex.ru',
+                'username' => 'nsign.official@yandex.ru',
+                'password' => 'LTIoOUN3ed50gx8d',
+                'port' => 465,
+                'encryption' => 'ssl',
+            ],
             'useFileTransport' => YII_DEBUG, // @runtime/mail/
         ],
         'i18n' => [
@@ -102,7 +110,7 @@ return [
                             'webmaster@dev-vps.ru',
                         ],
                         'from' => [
-                            'logging@dev-vps.ru',
+                            'nsign.official@yandex.ru',
                         ],
                         'subject' => 'Logging',
                     ],
