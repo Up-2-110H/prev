@@ -29,5 +29,4 @@ return [
      */
     'System' => 'Системные',
     'Clear cache' => 'Очистить кэш',
-    'Clean up resources' => 'Очистить ресурсы',
 ];

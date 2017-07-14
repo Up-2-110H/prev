@@ -54,11 +54,6 @@ return [
                     'icon' => 'ti-reload',
                     'url' => ['/system/default/flush-cache'],
                 ],
-                [
-                    'label' => 'Clean up resources',
-                    'icon' => 'ti-trash',
-                    'url' => ['/system/default/flush-assets'],
-                ],
             ],
         ],
     ],

@@ -4,7 +4,6 @@ namespace app\modules\system\controllers\backend;
 
 use app\modules\system\components\backend\Controller;
 use Yii;
-use yii\helpers\FileHelper;
 
 /**
  * Default controller for the `system` module
@@ -45,28 +44,6 @@ class DefaultController extends Controller
         Yii::$app->getCache()->flush();
 
         Yii::$app->getSession()->addFlash('success', 'Кэш очищен');
-
-        return $this->redirect(Yii::$app->getRequest()->getReferrer());
-    }
-
-    /**
-     * @return \yii\web\Response
-     */
-    public function actionFlushAssets()
-    {
-        $directory = Yii::$app->getAssetManager()->basePath;
-
-        $assets = scandir($directory);
-        if ($assets !== false) {
-            foreach ($assets as $file) {
-                if (in_array($file, ['.', '..', '.gitignore', '.htaccess'])) {
-                    continue;
-                }
-                FileHelper::removeDirectory($directory . DIRECTORY_SEPARATOR . $file, ['traverseSymlinks' => false]);
-            }
-
-            Yii::$app->getSession()->addFlash('success', 'Кэш очищен');
-        }
 
         return $this->redirect(Yii::$app->getRequest()->getReferrer());
     }
