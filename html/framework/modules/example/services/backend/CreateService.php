@@ -8,6 +8,7 @@
 
 namespace app\modules\example\services\backend;
 
+use app\modules\example\forms\backend\CreateForm;
 use app\modules\example\interfaces\ExampleInterface;
 use app\modules\example\interfaces\ExampleServiceInterface;
 
@@ -19,6 +20,11 @@ use app\modules\example\interfaces\ExampleServiceInterface;
 class CreateService implements ExampleServiceInterface
 {
     /**
+     * @var CreateForm|null
+     */
+    protected $form = null;
+
+    /**
      * @var ExampleInterface|null
      */
     protected $model = null;
@@ -26,18 +32,29 @@ class CreateService implements ExampleServiceInterface
     /**
      * CreateService constructor.
      *
+     * @param CreateForm $form
      * @param ExampleInterface $model
      */
-    public function __construct(ExampleInterface $model)
+    public function __construct(CreateForm $form, ExampleInterface $model)
     {
+        $this->form = $form;
         $this->model = $model;
     }
 
     /**
-     * @return bool
+     * @return ExampleInterface|bool|null
      */
     public function execute()
     {
-        return $this->model->save(false);
+        if ($result = $this->form->validate()) {
+            $attributes = $this->form->getAttributes();
+            $this->model->setAttributes($attributes, false);
+
+            if ($result = $this->model->save()) {
+                return $this->model;
+            }
+        }
+
+        return $result;
     }
 }

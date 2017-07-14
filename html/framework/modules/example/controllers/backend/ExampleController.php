@@ -2,7 +2,9 @@
 
 namespace app\modules\example\controllers\backend;
 
-use app\modules\example\interfaces\ExampleInterface;
+use app\modules\example\dto\backend\ViewDto;
+use app\modules\example\forms\backend\CreateForm;
+use app\modules\example\forms\backend\UpdateForm;
 use app\modules\example\interfaces\ExampleSearchInterface;
 use app\modules\example\services\backend\CreateService;
 use app\modules\example\services\backend\DeleteService;
@@ -59,8 +61,11 @@ class ExampleController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        $dto = Yii::createObject(ViewDto::class, [$model]);
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $dto,
         ]);
     }
 
@@ -72,17 +77,19 @@ class ExampleController extends Controller
      */
     public function actionCreate()
     {
-        $model = Yii::createObject(ExampleInterface::class);
+        $form = Yii::createObject(CreateForm::class);
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            Yii::createObject(CreateService::class, [$model])->execute();
+        if ($form->load(Yii::$app->getRequest()->post())) {
+            $model = Yii::createObject(CreateService::class, [$form])->execute();
 
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+            if ($model) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
+
+        return $this->render('create', [
+            'model' => $form,
+        ]);
     }
 
     /**
@@ -97,15 +104,19 @@ class ExampleController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            Yii::createObject(UpdateService::class, [$model])->execute();
+        $form = Yii::createObject(UpdateForm::class, [$model]);
 
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+        if ($form->load(Yii::$app->getRequest()->post())) {
+            $result = Yii::createObject(UpdateService::class, [$model, $form])->execute();
+
+            if ($result) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
+
+        return $this->render('update', [
+            'model' => $form,
+        ]);
     }
 
     /**

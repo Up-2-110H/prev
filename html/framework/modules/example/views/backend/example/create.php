@@ -1,9 +1,11 @@
 <?php
 
 use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\example\models\Example */
+/* @var $model app\modules\example\forms\backend\CreateForm */
+/* @var $form yii\widgets\ActiveForm */
 
 $this->title = Yii::t('system', 'Create');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('system', 'Example'), 'url' => ['index']];
@@ -15,8 +17,21 @@ $this->params['breadcrumbs'][] = $this->title;
         <h4 class="card-title"><?= Html::encode($this->title) ?></h4>
     </div>
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+    <div class="card-content">
+
+        <?php $form = ActiveForm::begin(); ?>
+
+        <?= $this->render('_form', [
+            'form' => $form,
+            'model' => $model,
+        ]) ?>
+
+        <div class="form-group">
+            <?= Html::submitButton(Yii::t('system', 'Create'), ['class' => 'btn btn-success']) ?>
+        </div>
+
+        <?php ActiveForm::end(); ?>
+
+    </div>
 
 </div>

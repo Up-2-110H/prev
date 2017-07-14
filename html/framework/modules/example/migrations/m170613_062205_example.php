@@ -16,8 +16,8 @@ class m170613_062205_example extends Migration
                 'text' => $this->text()->notNull(),
                 'hidden' => $this->smallInteger(1)->notNull()->defaultValue(1),
                 'language' => $this->string(8)->null()->defaultValue(null),
-                'created_at' => $this->dateTime()->null()->defaultValue(null),
-                'updated_at' => $this->dateTime()->null()->defaultValue(null),
+                'createdAt' => $this->dateTime()->null()->defaultValue(null),
+                'updatedAt' => $this->dateTime()->null()->defaultValue(null),
             ],
             $options
         );

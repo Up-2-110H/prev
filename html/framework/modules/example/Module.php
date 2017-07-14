@@ -26,8 +26,7 @@ class Module extends \yii\base\Module implements NameInterface
     {
         parent::init();
 
-        Yii::$container->set(ExampleInterface::class, Example::class);
-        Yii::$container->set(ExampleSearchInterface::class, ExampleSearch::class);
+        $this->registerContainer();
     }
 
     /**
@@ -36,5 +35,11 @@ class Module extends \yii\base\Module implements NameInterface
     public static function getName()
     {
         return Yii::t('system', 'Example');
+    }
+
+    public function registerContainer()
+    {
+        Yii::$container->set(ExampleInterface::class, Example::class);
+        Yii::$container->set(ExampleSearchInterface::class, ExampleSearch::class);
     }
 }

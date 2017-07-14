@@ -73,8 +73,8 @@ class ExampleSearch extends Example implements ExampleSearchInterface
         $query
             ->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'text', $this->text])
-            ->andFilterWhere(['like', 'created_at', $this->created_at])
-            ->andFilterWhere(['like', 'updated_at', $this->updated_at]);
+            ->andFilterWhere(['like', 'createdAt', $this->createdAt])
+            ->andFilterWhere(['like', 'updatedAt', $this->updatedAt]);
 
         return $dataProvider;
     }

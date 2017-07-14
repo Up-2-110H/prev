@@ -2,11 +2,10 @@
 
 namespace app\modules\example\models;
 
-use app\behaviors\LanguageBehavior;
-use app\behaviors\TimestampBehavior;
 use app\interfaces\HiddenAttributeInterface;
 use app\modules\example\interfaces\ExampleInterface;
 use app\traits\HiddenAttributeTrait;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "{{%example}}".
@@ -16,10 +15,10 @@ use app\traits\HiddenAttributeTrait;
  * @property string $text
  * @property integer $hidden
  * @property string $language
- * @property string $created_at
- * @property string $updated_at
+ * @property string $createdAt
+ * @property string $updatedAt
  */
-class Example extends \yii\db\ActiveRecord implements ExampleInterface, HiddenAttributeInterface
+class Example extends ActiveRecord implements ExampleInterface, HiddenAttributeInterface
 {
     use HiddenAttributeTrait;
 
@@ -30,24 +29,6 @@ class Example extends \yii\db\ActiveRecord implements ExampleInterface, HiddenAt
     {
         return [
             self::SCENARIO_DEFAULT => self::OP_ALL,
-        ];
-    }
-
-    /**
-     * @return array
-     */
-    public function behaviors()
-    {
-        return [
-            'LanguageBehavior' => [
-                'class' => LanguageBehavior::className(),
-                'attribute' => 'language',
-            ],
-            'TimestampBehavior' => [
-                'class' => TimestampBehavior::className(),
-                'createdAtAttribute' => 'created_at',
-                'updatedAtAttribute' => 'updated_at',
-            ],
         ];
     }
 
@@ -65,10 +46,9 @@ class Example extends \yii\db\ActiveRecord implements ExampleInterface, HiddenAt
     public function rules()
     {
         return [
-            [['title', 'text'], 'required'],
             [['text'], 'string'],
             [['hidden'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
+            [['createdAt', 'updatedAt'], 'safe'],
             [['title'], 'string', 'max' => 128],
             [['language'], 'string', 'max' => 8],
         ];
@@ -85,8 +65,8 @@ class Example extends \yii\db\ActiveRecord implements ExampleInterface, HiddenAt
             'text' => 'Текст',
             'hidden' => 'Скрыто',
             'language' => 'Язык',
-            'created_at' => 'Создано',
-            'updated_at' => 'Обновлено',
+            'createdAt' => 'Создано',
+            'updatedAt' => 'Обновлено',
         ];
     }
 

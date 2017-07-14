@@ -8,6 +8,7 @@
 
 namespace app\modules\example\interfaces;
 
+use app\interfaces\ModelInterface;
 use yii\db\ActiveRecordInterface;
 
 /**
@@ -15,7 +16,7 @@ use yii\db\ActiveRecordInterface;
  *
  * @package app\modules\example\interfaces
  */
-interface ExampleInterface extends ActiveRecordInterface
+interface ExampleInterface extends ActiveRecordInterface, ModelInterface
 {
 
 }

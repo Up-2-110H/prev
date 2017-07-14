@@ -36,20 +36,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 'id',
                 'title',
                 [
-                    'attribute' => 'hidden',
-                    'filter' => $searchModel::getHiddenList(),
-                    'value' => function ($model) {
-                        /** @var \app\modules\example\models\Example $model */
-                        return $model->getHidden();
-                    },
+                    'class' => 'app\core\grid\HiddenColumn',
                 ],
                 [
                     'class' => 'app\core\grid\DatePickerColumn',
-                    'attribute' => 'created_at',
+                    'attribute' => 'createdAt',
                 ],
                 [
                     'class' => 'app\core\grid\DatePickerColumn',
-                    'attribute' => 'updated_at',
+                    'attribute' => 'updatedAt',
                 ],
 
                 ['class' => 'yii\grid\ActionColumn'],

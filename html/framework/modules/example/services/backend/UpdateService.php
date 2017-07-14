@@ -8,6 +8,7 @@
 
 namespace app\modules\example\services\backend;
 
+use app\modules\example\forms\backend\UpdateForm;
 use app\modules\example\interfaces\ExampleInterface;
 use app\modules\example\interfaces\ExampleServiceInterface;
 
@@ -24,13 +25,20 @@ class UpdateService implements ExampleServiceInterface
     protected $model = null;
 
     /**
+     * @var UpdateForm|null
+     */
+    protected $form = null;
+
+    /**
      * UpdateService constructor.
      *
      * @param ExampleInterface $model
+     * @param UpdateForm $form
      */
-    public function __construct(ExampleInterface $model)
+    public function __construct(ExampleInterface $model, UpdateForm $form)
     {
         $this->model = $model;
+        $this->form = $form;
     }
 
     /**
@@ -38,6 +46,13 @@ class UpdateService implements ExampleServiceInterface
      */
     public function execute()
     {
-        return $this->model->save(false);
+        if ($result = $this->form->validate()) {
+            $attributes = $this->form->getAttributes();
+            $this->model->setAttributes($attributes);
+
+            $result = $this->model->save();
+        }
+
+        return $result;
     }
 }
