@@ -89,13 +89,9 @@ class CreateForm extends Model implements HiddenAttributeInterface
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
             'title' => 'Заголовок',
             'text' => 'Текст',
             'hidden' => 'Скрыто',
-            'language' => 'Язык',
-            'created_at' => 'Создано',
-            'updated_at' => 'Обновлено',
         ];
     }
 

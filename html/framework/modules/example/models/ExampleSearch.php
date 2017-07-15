@@ -36,7 +36,7 @@ class ExampleSearch extends Example implements ExampleSearchInterface
     {
         return [
             [['id', 'hidden'], 'integer'],
-            [['title', 'text', 'created_at', 'updated_at'], 'safe'],
+            [['title', 'text', 'createdAt', 'updatedAt'], 'safe'],
         ];
     }
 
