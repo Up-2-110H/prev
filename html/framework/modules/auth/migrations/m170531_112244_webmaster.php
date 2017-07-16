@@ -9,7 +9,7 @@ class m170531_112244_webmaster extends Migration
         $this->insert('{{%auth}}', [
             'login' => 'webmaster',
             'password' => Yii::$app->getSecurity()->generatePasswordHash('webmaster'),
-            'auth_key' => Yii::$app->getSecurity()->generateRandomString(64),
+            'auth_key' => Yii::$app->getSecurity()->generateRandomString(128),
             'access_token' => Yii::$app->getSecurity()->generateRandomString(128),
             'email' => 'webmaster@dev-vps.ru',
             'blocked' => 0,

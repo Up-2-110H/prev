@@ -68,7 +68,7 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface, BlockedAtt
             'GenerateRandomStringBehaviorAuthKey' => [
                 'class' => GenerateRandomStringBehavior::className(),
                 'attribute' => 'auth_key',
-                'stringLength' => 64,
+                'stringLength' => 128,
             ],
             'GenerateRandomStringBehaviorAccessToken' => [
                 'class' => GenerateRandomStringBehavior::className(),
@@ -105,8 +105,8 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface, BlockedAtt
             [['created_at', 'updated_at', 'roles'], 'safe'],
             [['login'], 'string', 'max' => 32],
             [['password', 'password_repeat'], 'string', 'max' => 512, 'min' => 8],
-            [['auth_key', 'email'], 'string', 'max' => 64],
-            [['access_token'], 'string', 'max' => 128],
+            [['email'], 'string', 'max' => 64],
+            [['auth_key', 'access_token'], 'string', 'max' => 128],
             [['login'], 'unique'],
             [['login'], 'required'],
             [['email'], 'email'],
