@@ -41,7 +41,7 @@ class AccessControl extends BaseAccessControl
      */
     protected function isActive($action)
     {
-        if ($action->getUniqueId() === Yii::$app->getErrorHandler()->errorAction) {
+        if ($action->getUniqueId() === Yii::$app->getErrorHandler()->errorAction && !$this->user->getIsGuest()) {
             return false;
         }
 
