@@ -73,8 +73,8 @@ return [
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.yandex.ru',
-                'username' => 'nsign.official@yandex.ru',
-                'password' => 'LTIoOUN3ed50gx8d',
+                'username' => 'logging@dev-vps.ru',
+                'password' => 'dev-vps.ru@logging',
                 'port' => 465,
                 'encryption' => 'ssl',
             ],
@@ -110,9 +110,9 @@ return [
                             'webmaster@dev-vps.ru',
                         ],
                         'from' => [
-                            'nsign.official@yandex.ru',
+                            'logging@dev-vps.ru' => 'Logging',
                         ],
-                        'subject' => 'Logging',
+                        'subject' => 'CMF2',
                     ],
                     'enabled' => true,
                 ],
