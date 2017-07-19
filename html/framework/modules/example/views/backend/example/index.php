@@ -34,7 +34,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 ['class' => 'yii\grid\SerialColumn'],
 
                 'id',
-                'title',
+                [
+                    'class' => 'app\core\grid\ActiveColumn',
+                    'attribute' => 'title',
+                ],
                 [
                     'class' => 'app\core\grid\HiddenColumn',
                 ],
