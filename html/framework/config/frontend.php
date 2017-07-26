@@ -7,7 +7,7 @@ $config = [
          * see. https://content-security-policy.com/
          */
         Yii::$app->getResponse()->getHeaders()->add('Content-Security-Policy',
-            'default-src none; script-src \'unsafe-inline\'; connect-src \'self\'; img-src \'self\' data:; style-src \'self\' \'unsafe-inline\'; font-src \'self\'; child-src \'self\';');
+            'default-src none; script-src \'self\' \'unsafe-inline\'; connect-src \'self\'; img-src \'self\' data:; style-src \'self\' \'unsafe-inline\'; font-src \'self\'; child-src \'self\';');
     },
     'modules' => [],
     'components' => [
