@@ -1,4 +1,4 @@
-image: debian-8-mysql:latest
+image: basic-debian-8:latest
 stages:
     - deploy
 before_script:
@@ -6,7 +6,7 @@ before_script:
     - mkdir -p ~/.ssh
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - composer self-update
-    - cd ./html/framework && composer install --prefer-dist --no-interaction --no-progress && cd ../../
+    - cd ./html/framework && composer install --prefer-dist --no-interaction --no-progress --ignore-platform-reqs && cd ../../
 dev:
     stage: deploy
     environment: dev
