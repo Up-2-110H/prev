@@ -4,7 +4,7 @@ $config = [
     'id' => 'web',
     'defaultRoute' => 'system',
     'as beforeRequest' => [
-        'class' => 'app\modules\system\components\backend\AccessControl',
+        'class' => 'krok\system\components\backend\AccessControl',
         'except' => [
             'gii/*',
             'debug/*',
@@ -23,9 +23,9 @@ $config = [
     },
     'modules' => [
         'system' => [
-            'class' => 'app\modules\system\Module',
-            'viewPath' => '@app/modules/system/views/backend',
-            'controllerNamespace' => 'app\modules\system\controllers\backend',
+            'class' => krok\system\Module::class,
+            'viewPath' => '@vendor/yii2-developer/yii2-system/views/backend',
+            'controllerNamespace' => 'krok\system\controllers\backend',
         ],
         'auth' => [
             'class' => 'app\modules\auth\Module',
@@ -33,9 +33,9 @@ $config = [
             'controllerNamespace' => 'app\modules\auth\controllers\backend',
         ],
         'example' => [
-            'class' => 'app\modules\example\Module',
-            'viewPath' => '@app/modules/example/views/backend',
-            'controllerNamespace' => 'app\modules\example\controllers\backend',
+            'class' => krok\example\Module::class,
+            'viewPath' => '@vendor/yii2-developer/yii2-example/views/backend',
+            'controllerNamespace' => 'krok\example\controllers\backend',
         ],
     ],
     'components' => [
@@ -46,7 +46,7 @@ $config = [
                 'basePath' => '@themes/paperDashboard',
                 'baseUrl' => '@themes/paperDashboard',
                 'pathMap' => [
-                    '@app/modules/system/views/backend/layouts' => '@app/themes/paperDashboard/views/layouts',
+                    '@vendor/yii2-developer/yii2-system/views/backend' => '@app/themes/paperDashboard/views',
                 ],
             ],
         ],
