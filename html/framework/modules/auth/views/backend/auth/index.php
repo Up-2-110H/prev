@@ -37,14 +37,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'login',
                 'email:email',
                 [
-                    'class' => 'app\core\grid\BlockedColumn',
+                    'class' => \krok\extend\grid\BlockedColumn::class,
                 ],
                 [
-                    'class' => 'app\core\grid\DatePickerColumn',
+                    'class' => \krok\extend\grid\DatePickerColumn::class,
                     'attribute' => 'created_at',
                 ],
                 [
-                    'class' => 'app\core\grid\DatePickerColumn',
+                    'class' => \krok\extend\grid\DatePickerColumn::class,
                     'attribute' => 'updated_at',
                 ],
 

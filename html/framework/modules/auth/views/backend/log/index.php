@@ -53,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     },
                 ],
                 [
-                    'class' => 'app\core\grid\DatePickerColumn',
+                    'class' => \krok\extend\grid\DatePickerColumn::class,
                     'attribute' => 'created_at',
                 ],
 

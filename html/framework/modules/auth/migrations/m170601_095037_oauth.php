@@ -8,18 +8,14 @@ class m170601_095037_oauth extends Migration
     {
         $options = ($this->db->getDriverName() === 'mysql') ? 'ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci' : null;
 
-        $this->createTable(
-            '{{%auth_oauth}}',
-            [
-                'id' => $this->primaryKey(),
-                'auth_id' => $this->integer(11)->notNull(),
-                'source' => $this->string(256)->notNull(),
-                'source_id' => $this->string(256)->notNull(),
-                'created_at' => $this->dateTime()->null()->defaultValue(null),
-                'updated_at' => $this->dateTime()->null()->defaultValue(null),
-            ],
-            $options
-        );
+        $this->createTable('{{%auth_oauth}}', [
+            'id' => $this->primaryKey(),
+            'auth_id' => $this->integer(11)->notNull(),
+            'source' => $this->string(256)->notNull(),
+            'source_id' => $this->string(256)->notNull(),
+            'created_at' => $this->dateTime()->null()->defaultValue(null),
+            'updated_at' => $this->dateTime()->null()->defaultValue(null),
+        ], $options);
 
         $this->createIndex('auth_id', '{{%auth_oauth}}', ['auth_id']);
         $this->addForeignKey(
