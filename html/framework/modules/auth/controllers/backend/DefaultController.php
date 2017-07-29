@@ -5,7 +5,7 @@ namespace app\modules\auth\controllers\backend;
 use app\modules\auth\models\Auth;
 use app\modules\auth\models\Login;
 use app\modules\auth\models\OAuth;
-use app\modules\system\components\backend\Controller;
+use krok\system\components\backend\Controller;
 use Yii;
 use yii\authclient\ClientInterface;
 use yii\db\Exception;
@@ -21,7 +21,7 @@ class DefaultController extends Controller
     /**
      * @var string
      */
-    public $layout = '@app/modules/system/views/backend/layouts/login.php';
+    public $layout = '@vendor/yii2-developer/yii2-system/views/backend/layouts/login.php';
 
     /**
      * @return array

@@ -3,7 +3,7 @@
 namespace app\modules\auth\controllers\backend;
 
 use app\modules\auth\models\LogSearch;
-use app\modules\system\components\backend\Controller;
+use krok\system\components\backend\Controller;
 use Yii;
 
 /**

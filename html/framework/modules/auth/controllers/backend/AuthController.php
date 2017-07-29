@@ -4,7 +4,7 @@ namespace app\modules\auth\controllers\backend;
 
 use app\modules\auth\models\Auth;
 use app\modules\auth\models\AuthSearch;
-use app\modules\system\components\backend\Controller;
+use krok\system\components\backend\Controller;
 use Yii;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
