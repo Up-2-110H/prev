@@ -11,7 +11,7 @@ use app\modules\example\services\backend\DeleteService;
 use app\modules\example\services\backend\FindService;
 use app\modules\example\services\backend\SearchService;
 use app\modules\example\services\backend\UpdateService;
-use app\modules\system\components\backend\Controller;
+use krok\system\components\backend\Controller;
 use Yii;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;

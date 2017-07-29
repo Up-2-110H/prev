@@ -6,7 +6,7 @@ use app\modules\example\interfaces\ExampleInterface;
 use app\modules\example\interfaces\ExampleSearchInterface;
 use app\modules\example\models\Example;
 use app\modules\example\models\ExampleSearch;
-use app\modules\system\components\backend\NameInterface;
+use krok\system\components\backend\NameInterface;
 use Yii;
 
 /**
