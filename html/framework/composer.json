@@ -22,16 +22,8 @@
       "url": "https://asset-packagist.org"
     },
     {
-      "type": "git",
-      "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-extend.git"
-    },
-    {
-      "type": "git",
-      "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-system.git"
-    },
-    {
-      "type": "git",
-      "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-example.git"
+      "type": "composer",
+      "url": "http://packagist.dev-vps.ru"
     }
   ],
   "require": {
@@ -45,9 +37,10 @@
     "yiisoft/yii2-authclient": "~2.0.0",
     "bootstrap-select/bootstrap-select": "~1.12.2",
     "vlucas/phpdotenv": "~2.4.0",
-    "yii2-developer/yii2-extend": "dev-master",
-    "yii2-developer/yii2-system": "dev-master",
-    "yii2-developer/yii2-example": "dev-master"
+    "yii2-developer/yii2-extend": "~0.0.1",
+    "yii2-developer/yii2-system": "~0.0.1",
+    "yii2-developer/yii2-paperDashboard": "~0.0.1",
+    "yii2-developer/yii2-example": "~0.0.1"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "~2.0.0",
