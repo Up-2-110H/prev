@@ -19,17 +19,14 @@ return [
             'items' => [
                 [
                     'label' => 'Auth',
-                    'icon' => 'ti-user',
                     'url' => ['/auth'],
                 ],
                 [
                     'label' => 'Social network',
-                    'icon' => 'ti-sharethis',
                     'url' => ['/auth/social/index'],
                 ],
                 [
                     'label' => 'Log',
-                    'icon' => 'ti-book',
                     'url' => ['/auth/log/index'],
                 ],
             ],
@@ -40,7 +37,6 @@ return [
             'items' => [
                 [
                     'label' => 'Example',
-                    'icon' => 'ti-files',
                     'url' => ['/example/example'],
                 ],
             ],
@@ -51,7 +47,6 @@ return [
             'items' => [
                 [
                     'label' => 'Clear cache',
-                    'icon' => 'ti-reload',
                     'url' => ['/system/default/flush-cache'],
                 ],
             ],

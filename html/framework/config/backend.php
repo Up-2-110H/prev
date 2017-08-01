@@ -4,7 +4,7 @@ $config = [
     'id' => 'web',
     'defaultRoute' => 'system',
     'as beforeRequest' => [
-        'class' => 'krok\system\components\backend\AccessControl',
+        'class' => \krok\system\components\backend\AccessControl::class,
         'except' => [
             'gii/*',
             'debug/*',
@@ -23,50 +23,50 @@ $config = [
     },
     'modules' => [
         'system' => [
-            'class' => krok\system\Module::class,
+            'class' => \krok\system\Module::class,
             'viewPath' => '@vendor/yii2-developer/yii2-system/views/backend',
             'controllerNamespace' => 'krok\system\controllers\backend',
         ],
         'auth' => [
-            'class' => 'app\modules\auth\Module',
+            'class' => 'app\modules\auth\Module', // todo
             'viewPath' => '@app/modules/auth/views/backend',
             'controllerNamespace' => 'app\modules\auth\controllers\backend',
         ],
         'example' => [
-            'class' => krok\example\Module::class,
+            'class' => \krok\example\Module::class,
             'viewPath' => '@vendor/yii2-developer/yii2-example/views/backend',
             'controllerNamespace' => 'krok\example\controllers\backend',
         ],
     ],
     'components' => [
         'view' => [
-            'class' => 'yii\web\View',
+            'class' => \yii\web\View::class,
             'theme' => [
-                'class' => 'yii\base\Theme',
-                'basePath' => '@themes/paperDashboard',
-                'baseUrl' => '@themes/paperDashboard',
+                'class' => \yii\base\Theme::class,
+                'basePath' => '@themes',
+                'baseUrl' => '@themes',
                 'pathMap' => [
-                    '@vendor/yii2-developer/yii2-system/views/backend' => '@app/themes/paperDashboard/views',
+                    '@vendor/yii2-developer/yii2-system/views/backend' => '@themes/views',
                 ],
             ],
         ],
         'assetManager' => [
-            'class' => 'yii\web\AssetManager',
+            'class' => \yii\web\AssetManager::class,
             'appendTimestamp' => true,
             'dirMode' => 0755,
             'fileMode' => 0644,
             'bundles' => [
-                'yii\web\JqueryAsset' => [
+                \yii\web\JqueryAsset::class => [
                     'js' => [
                         YII_ENV_DEV ? 'jquery.js' : 'jquery.min.js',
                     ],
                 ],
-                'yii\bootstrap\BootstrapAsset' => [
+                \yii\bootstrap\BootstrapAsset::class => [
                     'css' => [
                         YII_ENV_DEV ? 'css/bootstrap.css' : 'css/bootstrap.min.css',
                     ],
                 ],
-                'yii\bootstrap\BootstrapPluginAsset' => [
+                \yii\bootstrap\BootstrapPluginAsset::class => [
                     'js' => [
                         YII_ENV_DEV ? 'js/bootstrap.js' : 'js/bootstrap.min.js',
                     ],
@@ -74,13 +74,13 @@ $config = [
             ],
         ],
         'request' => [
-            'class' => 'app\components\language\LanguageRequest',
+            'class' => \app\components\language\LanguageRequest::class,
             'csrfParam' => '_backendCSRF',
             'cookieValidationKey' => hash('sha512', __FILE__ . __LINE__),
         ],
         'user' => [
-            'class' => 'yii\web\User',
-            'identityClass' => 'app\modules\auth\models\Auth',
+            'class' => \yii\web\User::class,
+            'identityClass' => \app\modules\auth\models\Auth::class,
             'idParam' => '__idBackend',
             'authTimeoutParam' => '__expireBackend',
             'absoluteAuthTimeoutParam' => '__absoluteExpireBackend',
@@ -93,19 +93,19 @@ $config = [
             // http://www.yiiframework.com/doc-2.0/yii-web-user.html#$authTimeout-detail
             'authTimeout' => 1 * 60 * 60,
             'on afterLogin' => [
-                'app\modules\auth\components\UserEventHandler',
+                \app\modules\auth\components\UserEventHandler::class,
                 'handleAfterLogin',
             ],
             'on afterLogout' => [
-                'app\modules\auth\components\UserEventHandler',
+                \app\modules\auth\components\UserEventHandler::class,
                 'handleAfterLogout',
             ],
         ],
         'authClientCollection' => [
-            'class' => 'yii\authclient\Collection',
+            'class' => \yii\authclient\Collection::class,
             'clients' => [
                 'yandex' => [
-                    'class' => 'app\modules\auth\clients\YandexOAuth',
+                    'class' => \app\modules\auth\clients\YandexOAuth::class,
                     'clientId' => '',
                     'clientSecret' => '',
                     'normalizeUserAttributeMap' => [
@@ -113,7 +113,7 @@ $config = [
                     ],
                 ],
                 'google' => [
-                    'class' => 'app\modules\auth\clients\GoogleOAuth',
+                    'class' => \app\modules\auth\clients\GoogleOAuth::class,
                     'clientId' => '',
                     'clientSecret' => '',
                     'normalizeUserAttributeMap' => [
@@ -122,7 +122,7 @@ $config = [
                     ],
                 ],
                 'vkontakte' => [
-                    'class' => 'app\modules\auth\clients\VKontakte',
+                    'class' => \app\modules\auth\clients\VKontakte::class,
                     'clientId' => '',
                     'clientSecret' => '',
                     'normalizeUserAttributeMap' => [
@@ -131,7 +131,7 @@ $config = [
                     ],
                 ],
                 'facebook' => [
-                    'class' => 'app\modules\auth\clients\Facebook',
+                    'class' => \app\modules\auth\clients\Facebook::class,
                     'clientId' => '',
                     'clientSecret' => '',
                     'normalizeUserAttributeMap' => [
@@ -139,7 +139,7 @@ $config = [
                     ],
                 ],
                 'twitter' => [
-                    'class' => 'app\modules\auth\clients\Twitter',
+                    'class' => \app\modules\auth\clients\Twitter::class,
                     'consumerKey' => '',
                     'consumerSecret' => '',
                     'normalizeUserAttributeMap' => [
@@ -147,7 +147,7 @@ $config = [
                     ],
                 ],
                 'gitlab' => [
-                    'class' => 'app\modules\auth\clients\GitLab',
+                    'class' => \app\modules\auth\clients\GitLab::class,
                     'clientId' => '',
                     'clientSecret' => '',
                     'normalizeUserAttributeMap' => [
@@ -155,7 +155,7 @@ $config = [
                     ],
                 ],
                 'ok' => [
-                    'class' => 'app\modules\auth\clients\Ok',
+                    'class' => \app\modules\auth\clients\Ok::class,
                     'clientId' => '',
                     'clientSecret' => '',
                     'applicationKey' => '',
@@ -167,7 +167,7 @@ $config = [
             ],
         ],
         'errorHandler' => [
-            'class' => 'yii\web\ErrorHandler',
+            'class' => \yii\web\ErrorHandler::class,
             'errorAction' => 'system/default/error',
         ],
     ],
@@ -177,7 +177,7 @@ if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
-        'class' => 'yii\debug\Module',
+        'class' => \yii\debug\Module::class,
         'allowedIPs' => [
             '*',
         ],
@@ -185,33 +185,33 @@ if (YII_ENV_DEV) {
 
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
-        'class' => 'yii\gii\Module',
+        'class' => \yii\gii\Module::class,
         'generators' => [
             'module' => [
-                'class' => 'yii\gii\generators\module\Generator',
+                'class' => \yii\gii\generators\module\Generator::class,
                 'messageCategory' => 'system',
                 'templates' => [
-                    'paperDashboard' => '@themes/paperDashboard/gii/module',
+                    'paperDashboard' => '@themes/gii/module',
                 ],
                 'template' => 'paperDashboard',
             ],
             'model' => [
-                'class' => 'yii\gii\generators\model\Generator',
+                'class' => \yii\gii\generators\model\Generator::class,
                 'generateQuery' => true,
                 'useTablePrefix' => true,
                 'messageCategory' => 'system',
                 'templates' => [
-                    'paperDashboard' => '@themes/paperDashboard/gii/model',
+                    'paperDashboard' => '@themes/gii/model',
                 ],
                 'template' => 'paperDashboard',
             ],
             'crud' => [
-                'class' => 'yii\gii\generators\crud\Generator',
+                'class' => \yii\gii\generators\crud\Generator::class,
                 'enableI18N' => true,
-                'baseControllerClass' => 'app\modules\system\components\backend\Controller',
+                'baseControllerClass' => \krok\system\components\backend\Controller::class,
                 'messageCategory' => 'system',
                 'templates' => [
-                    'paperDashboard' => '@themes/paperDashboard/gii/crud',
+                    'paperDashboard' => '@themes/gii/crud',
                 ],
                 'template' => 'paperDashboard',
             ],

@@ -5,7 +5,7 @@ $config = [
     'controllerMap' => [
         // Migrations for the specific project's module
         'migrate' => [
-            'class' => 'yii\console\controllers\MigrateController',
+            'class' => \yii\console\controllers\MigrateController::class,
             'migrationTable' => '{{%migration}}',
             'interactive' => false,
             'migrationPath' => [
@@ -16,14 +16,14 @@ $config = [
             ],
         ],
         'access' => [
-            'class' => 'app\commands\AccessController',
+            'class' => \app\commands\AccessController::class,
             'login' => [
                 'webmaster',
             ],
             'rules' => [
-                'app\modules\auth\rbac\AuthorRule',
+                \app\modules\auth\rbac\AuthorRule::class,
             ],
-            'user' => 'app\modules\auth\models\Auth',
+            'user' => \app\modules\auth\models\Auth::class,
             'modules' => [
                 [
                     'name' => 'system',
@@ -31,7 +31,6 @@ $config = [
                         'default' => [
                             'index',
                             'flush-cache',
-                            'flush-assets',
                         ],
                     ],
                 ],

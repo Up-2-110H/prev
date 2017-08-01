@@ -15,16 +15,16 @@ return [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
-        '@themes' => '@app/themes',
+        '@themes' => '@vendor/yii2-developer/yii2-paperDashboard',
         '@public' => dirname(dirname(__DIR__)) . '/web/uploads',
     ],
     'components' => [
         'authManager' => [
-            'class' => 'yii\rbac\DbManager',
+            'class' => \yii\rbac\DbManager::class,
             'cache' => 'cache',
         ],
         'language' => [
-            'class' => 'app\components\language\Language',
+            'class' => \app\components\language\Language::class,
             'list' => [
                 [
                     'iso' => 'ru-RU',
@@ -37,29 +37,39 @@ return [
             ],
         ],
         'urlManager' => [
-            'class' => 'app\components\language\LanguageUrlManager',
+            'class' => \app\components\language\LanguageUrlManager::class,
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'normalizer' => [
-                'class' => 'yii\web\UrlNormalizer',
+                'class' => \yii\web\UrlNormalizer::class,
             ],
             'rules' => require(__DIR__ . DIRECTORY_SEPARATOR . 'rules.php'),
         ],
         'formatter' => [
-            'class' => 'yii\i18n\Formatter',
+            'class' => \yii\i18n\Formatter::class,
             'numberFormatterSymbols' => [
                 \NumberFormatter::CURRENCY_SYMBOL => 'руб.',
             ],
         ],
         'security' => [
-            'class' => 'yii\base\Security',
+            'class' => \yii\base\Security::class,
             'passwordHashCost' => 15,
         ],
         'session' => [
-            'class' => 'yii\web\CacheSession',
+            'class' => \yii\web\CacheSession::class,
+            'cache' => [
+                'class' => \yii\redis\Cache::class,
+                'defaultDuration' => 0,
+                'keyPrefix' => hash('crc32', __FILE__),
+                'redis' => [
+                    'hostname' => 'redis',
+                    'port' => 6379,
+                    'database' => 1,
+                ],
+            ],
         ],
         'cache' => [
-            'class' => 'yii\redis\Cache',
+            'class' => \yii\redis\Cache::class,
             'defaultDuration' => 24 * 60 * 60,
             'keyPrefix' => hash('crc32', __FILE__),
             'redis' => [
@@ -69,7 +79,7 @@ return [
             ],
         ],
         'mailer' => [
-            'class' => 'yii\swiftmailer\Mailer',
+            'class' => \yii\swiftmailer\Mailer::class,
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.yandex.ru',
@@ -81,25 +91,25 @@ return [
             'useFileTransport' => YII_DEBUG, // @runtime/mail/
         ],
         'i18n' => [
-            'class' => 'yii\i18n\I18N',
+            'class' => \yii\i18n\I18N::class,
             'translations' => [
                 'app' => [
-                    'class' => 'yii\i18n\PhpMessageSource',
+                    'class' => \yii\i18n\PhpMessageSource::class,
                     'sourceLanguage' => 'en-US',
                 ],
                 'system' => [
-                    'class' => 'yii\i18n\PhpMessageSource',
+                    'class' => \yii\i18n\PhpMessageSource::class,
                     'sourceLanguage' => 'en-US',
                     'basePath' => '@app/messages',
                 ],
             ],
         ],
         'log' => [
-            'class' => 'yii\log\Dispatcher',
+            'class' => \yii\log\Dispatcher::class,
             'traceLevel' => YII_ENV_PROD ? 0 : 3,
             'targets' => [
                 'email' => [
-                    'class' => 'yii\log\EmailTarget',
+                    'class' => \yii\log\EmailTarget::class,
                     'levels' => ['error', 'warning'],
                     'except' => [
                         'yii\web\HttpException:404',
@@ -117,7 +127,7 @@ return [
                     'enabled' => true,
                 ],
                 'file' => [
-                    'class' => 'yii\log\FileTarget',
+                    'class' => \yii\log\FileTarget::class,
                     'levels' => ['error', 'warning'],
                     'except' => [
                         'yii\web\HttpException:404',
