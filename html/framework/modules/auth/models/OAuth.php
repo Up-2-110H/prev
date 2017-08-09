@@ -2,7 +2,7 @@
 
 namespace app\modules\auth\models;
 
-use app\behaviors\TimestampBehavior;
+use krok\extend\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "{{%auth_oauth}}".
@@ -34,7 +34,11 @@ class OAuth extends \yii\db\ActiveRecord
     public function behaviors()
     {
         return [
-            'TimestampBehavior' => TimestampBehavior::className(),
+            'TimestampBehavior' => [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'created_at',
+                'updatedAtAttribute' => 'updated_at',
+            ],
         ];
     }
 

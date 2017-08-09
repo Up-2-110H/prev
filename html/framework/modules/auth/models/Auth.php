@@ -75,7 +75,11 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface, BlockedAtt
                 'attribute' => 'access_token',
                 'stringLength' => 128,
             ],
-            'TimestampBehavior' => TimestampBehavior::className(),
+            'TimestampBehavior' => [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'created_at',
+                'updatedAtAttribute' => 'updated_at',
+            ],
             'EventBehavior' => [
                 'class' => EventBehavior::className(),
                 'events' => [
