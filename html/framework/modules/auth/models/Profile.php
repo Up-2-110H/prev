@@ -8,9 +8,9 @@
 
 namespace app\modules\auth\models;
 
-use app\behaviors\GenerateRandomStringBehavior;
-use app\behaviors\HashBehavior;
-use app\behaviors\TimestampBehavior;
+use krok\extend\behaviors\GenerateRandomStringBehavior;
+use krok\extend\behaviors\HashBehavior;
+use krok\extend\behaviors\TimestampBehavior;
 use Yii;
 
 /**

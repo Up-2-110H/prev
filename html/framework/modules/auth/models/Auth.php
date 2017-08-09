@@ -2,10 +2,10 @@
 
 namespace app\modules\auth\models;
 
-use app\behaviors\EventBehavior;
-use app\behaviors\GenerateRandomStringBehavior;
-use app\behaviors\HashBehavior;
-use app\behaviors\TimestampBehavior;
+use krok\extend\behaviors\EventBehavior;
+use krok\extend\behaviors\GenerateRandomStringBehavior;
+use krok\extend\behaviors\HashBehavior;
+use krok\extend\behaviors\TimestampBehavior;
 use krok\extend\interfaces\BlockedAttributeInterface;
 use krok\extend\traits\BlockedAttributeTrait;
 use Yii;
