@@ -53,7 +53,8 @@ $config = [
                 'basePath' => '@themes',
                 'baseUrl' => '@themes',
                 'pathMap' => [
-                    '@vendor/yii2-developer/yii2-system/views/backend' => '@themes/views',
+                    '@vendor/yii2-developer/yii2-system/views/backend' => '@app/modules/system/views/backend',
+                    '@vendor/yii2-developer/yii2-system/views/backend/layouts' => '@themes/views/layouts',
                 ],
             ],
         ],
