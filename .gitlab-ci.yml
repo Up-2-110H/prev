@@ -6,6 +6,7 @@ before_script:
     - mkdir -p ~/.ssh
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - composer self-update
+    - composer global require "fxp/composer-asset-plugin:~1.1.1" --no-interaction
     - cd ./html/framework && composer install --prefer-dist --no-interaction --no-progress --ignore-platform-reqs && cd ../../
 dev:
     stage: deploy
