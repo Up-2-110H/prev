@@ -12,7 +12,7 @@ $config = [
                 '@yii/rbac/migrations',
                 '@app/migrations',
                 '@app/modules/auth/migrations',
-                '@app/modules/example/migrations',
+                '@vendor/yii2-developer/yii2-example/migrations',
             ],
         ],
         'access' => [
@@ -40,6 +40,7 @@ $config = [
                         'auth' => [],
                         'log' => ['index'],
                         'social' => ['index'],
+                        'profile' => ['index'],
                     ],
                 ],
                 [
@@ -51,6 +52,7 @@ $config = [
             ],
         ],
     ],
+    'modules' => [],
     'components' => [
         'urlManager' => [
             'baseUrl' => '/',

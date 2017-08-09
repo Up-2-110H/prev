@@ -13,11 +13,17 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
+        '@root' => dirname(dirname(__DIR__)) . '/web',
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
         '@themes' => '@vendor/yii2-developer/yii2-paperDashboard',
-        '@public' => dirname(dirname(__DIR__)) . '/web/uploads',
+        '@public' => '@root/uploads',
     ],
+    'container' => [
+        'singletons' => [],
+        'definitions' => [],
+    ],
+    'modules' => [],
     'components' => [
         'authManager' => [
             'class' => \yii\rbac\DbManager::class,

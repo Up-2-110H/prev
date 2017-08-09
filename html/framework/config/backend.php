@@ -21,6 +21,13 @@ $config = [
         Yii::$app->getResponse()->getHeaders()->add('Content-Security-Policy',
             'default-src none; script-src \'self\' \'unsafe-inline\'; connect-src \'self\'; img-src \'self\' data:; style-src \'self\' \'unsafe-inline\' fonts.googleapis.com maxcdn.bootstrapcdn.com; font-src \'self\' fonts.gstatic.com maxcdn.bootstrapcdn.com; child-src \'self\';');
     },
+    'container' => [
+        'definitions' => [
+            'yii\captcha\CaptchaAction' => [
+                'backColor' => 0xf3f3f5,
+            ],
+        ],
+    ],
     'modules' => [
         'system' => [
             'class' => \krok\system\Module::class,
