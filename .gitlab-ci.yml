@@ -1,4 +1,4 @@
-image: nsign/runner-docker:latest
+image: ubuntu:16.04
 stages:
     - deploy
 before_script:
