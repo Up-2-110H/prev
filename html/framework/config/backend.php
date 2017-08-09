@@ -68,7 +68,6 @@ $config = [
             'fileMode' => 0644,
             'bundles' => [
                 \yii\web\JqueryAsset::class => [
-                    'sourcePath' => '@bower/jquery',
                     'js' => [
                         YII_ENV_DEV ? 'jquery.js' : 'jquery.min.js',
                     ],
