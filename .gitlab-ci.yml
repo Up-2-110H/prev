@@ -1,4 +1,4 @@
-image: basic-debian-8:latest
+image: nsign/runner-docker:latest
 stages:
     - deploy
 before_script:
