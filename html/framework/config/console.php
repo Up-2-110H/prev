@@ -57,6 +57,7 @@ $config = [
         'urlManager' => [
             'baseUrl' => '/',
             'hostInfo' => '/',
+            'rules' => require(__DIR__ . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR . 'rules.php'),
         ],
     ],
 ];

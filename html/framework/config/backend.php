@@ -57,6 +57,9 @@ $config = [
                 ],
             ],
         ],
+        'urlManager' => [
+            'rules' => require(__DIR__ . DIRECTORY_SEPARATOR . 'backend' . DIRECTORY_SEPARATOR . 'rules.php'),
+        ],
         'assetManager' => [
             'class' => \yii\web\AssetManager::class,
             'appendTimestamp' => true,

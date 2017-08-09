@@ -49,7 +49,7 @@ return [
             'normalizer' => [
                 'class' => \yii\web\UrlNormalizer::class,
             ],
-            'rules' => require(__DIR__ . DIRECTORY_SEPARATOR . 'rules.php'),
+            'rules' => [],
         ],
         'formatter' => [
             'class' => \yii\i18n\Formatter::class,

@@ -11,6 +11,9 @@ $config = [
     },
     'modules' => [],
     'components' => [
+        'urlManager' => [
+            'rules' => require(__DIR__ . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR . 'rules.php'),
+        ],
         'assetManager' => [
             'class' => \yii\web\AssetManager::class,
             'appendTimestamp' => true,
