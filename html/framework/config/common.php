@@ -134,7 +134,10 @@ return [
                 ],
                 'file' => [
                     'class' => \yii\log\FileTarget::class,
-                    'levels' => ['error', 'warning'],
+                    'levels' => [
+                        'error',
+                        'warning',
+                    ],
                     'except' => [
                         'yii\web\HttpException:404',
                         //'yii\web\HttpException:403',
