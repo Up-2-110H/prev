@@ -1,4 +1,6 @@
 image: runner:latest
+services:
+    - docker:dind
 stages:
     - test
     - deploy
