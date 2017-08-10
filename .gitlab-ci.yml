@@ -1,4 +1,4 @@
-image: nsign/runner-docker:latest
+image: runner:latest
 stages:
     - deploy
 before_script:
