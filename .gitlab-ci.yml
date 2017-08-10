@@ -1,6 +1,5 @@
-image: ubuntu:16.04
+image: nsign/runner-docker:latest
 stages:
-    - test
     - deploy
 before_script:
     - 'which sshpass || ( apt-get update -y && apt-get install sshpass -y )'
