@@ -1,5 +1,6 @@
 image: runner:latest
 stages:
+    - test
     - deploy
 before_script:
     - 'which sshpass || ( apt-get update -y && apt-get install sshpass -y )'
@@ -8,6 +9,16 @@ before_script:
     - composer self-update
     - composer global require "fxp/composer-asset-plugin:~1.1.1" --no-interaction
     - cd ./html/framework && composer install --prefer-dist --no-interaction --no-progress --ignore-platform-reqs && cd ../../
+test:
+    stage: test
+    script:
+        - docker-compose up -d
+        - sleep 10
+        - ./docker-exec framework/yii migrate/up
+        - ./docker-exec framework/yii access/install
+        - ./docker-exec framework/yii cache/flush-all
+        - sleep 10
+        - docker-compose down
 dev:
     stage: deploy
     environment: dev
