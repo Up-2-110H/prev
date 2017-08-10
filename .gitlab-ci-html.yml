@@ -1,4 +1,4 @@
-image: basic-debian-8:latest
+image: runner:latest
 stages:
     - deploy
 before_script:
