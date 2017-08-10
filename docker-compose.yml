@@ -3,7 +3,6 @@ services:
   app:
     image: ${IMAGE_APP_NAME}
     container_name: ${CONTAINER_NAME}
-    working_dir: /var/www
     environment:
       - APACHE_RUN_ID=${APACHE_RUN_ID}
       - APACHE_RUN_USER=${APACHE_RUN_USER}
