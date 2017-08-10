@@ -1,6 +1,4 @@
 image: runner:latest
-services:
-    - docker:17.06.1-ce-dind
 stages:
     - test
     - deploy
@@ -14,6 +12,9 @@ before_script:
 test:
     stage: test
     script:
+        - ls -l
+        - ls -l html
+        - ls -l html/web
         - mv test.env .env
         - docker-compose up -d
         - sleep 10
