@@ -1,6 +1,6 @@
 image: runner:latest
 services:
-    - docker:dind
+    - docker:17.06.1-ce-dind
 stages:
     - test
     - deploy
