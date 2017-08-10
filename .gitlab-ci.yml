@@ -12,10 +12,6 @@ before_script:
 test:
     stage: test
     script:
-        - mv html/web html/htdocs
-        - ls -l
-        - ls -l html
-        - ls -l html/htdocs
         - mv test.env .env
         - docker-compose up -d
         - sleep 10
