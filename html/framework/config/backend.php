@@ -23,7 +23,7 @@ $config = [
     },
     'container' => [
         'definitions' => [
-            'yii\captcha\CaptchaAction' => [
+            \yii\captcha\CaptchaAction::class => [
                 'backColor' => 0xf3f3f5,
             ],
         ],
@@ -35,7 +35,7 @@ $config = [
             'controllerNamespace' => 'krok\system\controllers\backend',
         ],
         'auth' => [
-            'class' => 'app\modules\auth\Module', // todo
+            'class' => \app\modules\auth\Module::class, // todo
             'viewPath' => '@app/modules/auth/views/backend',
             'controllerNamespace' => 'app\modules\auth\controllers\backend',
         ],
