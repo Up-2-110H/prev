@@ -18,6 +18,10 @@ return [
             'icon' => 'ti-files',
             'items' => [
                 [
+                    'label' => 'Content',
+                    'url' => ['/content/default'],
+                ],
+                [
                     'label' => 'Example',
                     'url' => ['/example/example'],
                 ],

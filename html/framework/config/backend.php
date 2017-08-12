@@ -39,6 +39,10 @@ $config = [
             'viewPath' => '@app/modules/auth/views/backend',
             'controllerNamespace' => 'app\modules\auth\controllers\backend',
         ],
+        'content' => [
+            'viewPath' => '@vendor/yii2-developer/yii2-content/views/backend',
+            'controllerNamespace' => 'krok\content\controllers\backend',
+        ],
         'example' => [
             'class' => \krok\example\Module::class,
             'viewPath' => '@vendor/yii2-developer/yii2-example/views/backend',

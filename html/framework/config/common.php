@@ -23,7 +23,19 @@ return [
         'singletons' => [],
         'definitions' => [],
     ],
-    'modules' => [],
+    'modules' => [
+        'content' => [
+            'class' => \krok\content\Module::class,
+            'layouts' => [
+                '//index' => 'Главная',
+                '//common' => 'Типовая',
+            ],
+            'views' => [
+                'index' => 'Главная',
+                'about' => 'О нас',
+            ],
+        ],
+    ],
     'components' => [
         'authManager' => [
             'class' => \yii\rbac\DbManager::class,

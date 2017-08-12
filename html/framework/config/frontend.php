@@ -2,6 +2,7 @@
 
 $config = [
     'id' => 'web',
+    'defaultRoute' => 'content/default/index',
     'on afterRequest' => function () {
         /**
          * see. https://content-security-policy.com/
@@ -9,7 +10,12 @@ $config = [
         Yii::$app->getResponse()->getHeaders()->add('Content-Security-Policy',
             'default-src none; script-src \'self\' \'unsafe-inline\'; connect-src \'self\'; img-src \'self\' data:; style-src \'self\' \'unsafe-inline\'; font-src \'self\'; child-src \'self\';');
     },
-    'modules' => [],
+    'modules' => [
+        'content' => [
+            'viewPath' => '@app/modules/content/views/frontend',
+            'controllerNamespace' => 'krok\content\controllers\frontend',
+        ],
+    ],
     'components' => [
         'urlManager' => [
             'rules' => require(__DIR__ . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR . 'rules.php'),
@@ -43,7 +49,7 @@ $config = [
         ],
         'errorHandler' => [
             'class' => \yii\web\ErrorHandler::class,
-            'errorAction' => 'site/error',
+            'errorAction' => 'content/default/error',
         ],
     ],
 ];

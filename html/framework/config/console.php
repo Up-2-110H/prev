@@ -9,9 +9,10 @@ $config = [
             'migrationTable' => '{{%migration}}',
             'interactive' => false,
             'migrationPath' => [
-                '@yii/rbac/migrations',
                 '@app/migrations',
+                '@yii/rbac/migrations',
                 '@app/modules/auth/migrations',
+                '@vendor/yii2-developer/yii2-content/migrations',
                 '@vendor/yii2-developer/yii2-example/migrations',
             ],
         ],
@@ -41,6 +42,12 @@ $config = [
                         'log' => ['index'],
                         'social' => ['index'],
                         'profile' => ['index'],
+                    ],
+                ],
+                [
+                    'name' => 'content',
+                    'controllers' => [
+                        'default' => [],
                     ],
                 ],
                 [

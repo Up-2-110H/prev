@@ -40,7 +40,8 @@
     "yii2-developer/yii2-extend": "~0.0.1",
     "yii2-developer/yii2-system": "~0.0.1",
     "yii2-developer/yii2-paperDashboard": "~0.0.1",
-    "yii2-developer/yii2-example": "~0.0.1"
+    "yii2-developer/yii2-example": "~0.0.1",
+    "yii2-developer/yii2-content": "~0.0.1"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "~2.0.0",
