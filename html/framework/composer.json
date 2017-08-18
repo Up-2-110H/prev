@@ -35,15 +35,15 @@
     "yiisoft/yii2-imagine": "~2.0.0",
     "yiisoft/yii2-jui": "~2.0.0",
     "yiisoft/yii2-authclient": "~2.0.0",
-    "bootstrap-select/bootstrap-select": "~1.12.2",
-    "vlucas/phpdotenv": "~2.4.0",
     "yii2-developer/yii2-extend": "~0.0.1",
     "yii2-developer/yii2-system": "~0.0.1",
     "yii2-developer/yii2-paperDashboard": "~0.0.1",
     "yii2-developer/yii2-example": "~0.0.1",
     "yii2-developer/yii2-content": "~0.0.1",
     "yii2-developer/yii2-storage": "~0.0.1",
-    "yii2-developer/yii2-slim": "~0.0.1"
+    "yii2-developer/yii2-slim": "~0.0.1",
+    "bootstrap-select/bootstrap-select": "~1.12.2",
+    "vlucas/phpdotenv": "~2.4.0"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "~2.0.0",
