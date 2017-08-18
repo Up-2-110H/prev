@@ -80,8 +80,8 @@ return [
                 'defaultDuration' => 0,
                 'keyPrefix' => hash('crc32', __FILE__),
                 'redis' => [
-                    'hostname' => 'redis',
-                    'port' => 6379,
+                    'hostname' => getenv('REDIS_HOST'),
+                    'port' => getenv('REDIS_PORT'),
                     'database' => 1,
                 ],
             ],
@@ -91,8 +91,8 @@ return [
             'defaultDuration' => 24 * 60 * 60,
             'keyPrefix' => hash('crc32', __FILE__),
             'redis' => [
-                'hostname' => 'redis',
-                'port' => 6379,
+                'hostname' => getenv('REDIS_HOST'),
+                'port' => getenv('REDIS_PORT'),
                 'database' => 0,
             ],
         ],
