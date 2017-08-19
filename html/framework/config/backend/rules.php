@@ -7,6 +7,7 @@
  */
 
 return [
+    'render/<path:[\w\/\.]+>' => 'glide/default/render',
     '<language:\w+\-\w+>' => '/',
     '<language:\w+\-\w+>/<module:[\w\-]+>' => '<module>',
     '<language:\w+\-\w+>/<module:[\w\-]+>/<controller:[\w\-]+>' => '<module>/<controller>',

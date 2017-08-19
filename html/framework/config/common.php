@@ -21,7 +21,40 @@ return [
     ],
     'container' => [
         'singletons' => [],
-        'definitions' => [],
+        'definitions' => [
+            \krok\storage\behaviors\UploaderBehavior::class => [
+                'class' => \krok\storage\behaviors\UploaderBehavior::class,
+                'uploadedDirectory' => '/storage',
+            ],
+            \krok\storage\behaviors\StorageBehavior::class => [
+                'class' => \krok\storage\behaviors\StorageBehavior::class,
+                'uploadedDirectory' => '/storage',
+            ],
+            \League\Flysystem\AdapterInterface::class => function () {
+                return Yii::createObject(\League\Flysystem\Adapter\Local::class, [Yii::getAlias('@public')]);
+            },
+            \League\Flysystem\FilesystemInterface::class => function () {
+                $filesystem = Yii::createObject(\League\Flysystem\Filesystem::class);
+                $filesystem->addPlugin(new \krok\storage\plugins\PublicUrl('/uploads/storage'));
+
+                return $filesystem;
+            },
+            \League\Glide\ServerFactory::class => function () {
+                $server = League\Glide\ServerFactory::create([
+                    'source' => Yii::createObject(\League\Flysystem\FilesystemInterface::class),
+                    'cache' => Yii::createObject(\League\Flysystem\FilesystemInterface::class),
+                    'source_path_prefix' => 'storage',
+                    'cache_path_prefix' => 'cache',
+                    'driver' => 'imagick',
+                ]);
+                $server->setResponseFactory(new \krok\glide\response\Yii2ResponseFactory());
+
+                return $server;
+            },
+            \League\Glide\Urls\UrlBuilderFactory::class => function () {
+                return \League\Glide\Urls\UrlBuilderFactory::create('/render/');
+            },
+        ],
     ],
     'modules' => [
         'content' => [
@@ -34,6 +67,10 @@ return [
                 'index' => 'Главная',
                 'about' => 'О нас',
             ],
+        ],
+        'glide' => [
+            'class' => \yii\base\Module::class,
+            'controllerNamespace' => 'krok\glide\controllers',
         ],
     ],
     'components' => [
