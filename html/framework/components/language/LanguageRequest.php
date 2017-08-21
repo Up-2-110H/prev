@@ -26,7 +26,11 @@ class LanguageRequest extends Request
         }
 
         if (Yii::$app->getUrlManager()->showScriptName === true) {
-            $pattern[] = '/' . preg_replace('/\//', '\/', $this->getScriptUrl()) . '/';
+            $pattern[] = '/^' . preg_replace('/\//', '\/', $this->getScriptUrl()) . '/';
+        }
+
+        if ($this->getBaseUrl()) {
+            $pattern[] = '/^' . preg_replace('/\//', '\/', $this->getBaseUrl()) . '/';
         }
 
         $requestUri = preg_replace($pattern, '', $resolveRequestUri);
