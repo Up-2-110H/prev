@@ -24,7 +24,7 @@ then
     mkdir --mode=0700 --parents "$DIRECTORY"
 fi
 
-DATE=$(date +"%Y-%m-10 %H:%M")
+DATE=$(date +"%Y-%m-%d %H:%M")
 
 docker exec "$CONTAINER" /usr/bin/mysqldump --single-transaction --no-create-db --verbose --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE" | gzip > "$DIRECTORY/$MYSQL_DATABASE-$DATE.sql.gz"
 
