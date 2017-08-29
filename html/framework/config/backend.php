@@ -26,6 +26,7 @@ $config = [
             \yii\captcha\CaptchaAction::class => [
                 'backColor' => 0xf3f3f5,
             ],
+            \krok\editor\interfaces\EditorInterface::class => \krok\tinymce\TinyMceWidget::class,
         ],
     ],
     'modules' => [

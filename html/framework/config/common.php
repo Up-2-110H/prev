@@ -59,7 +59,6 @@ return [
     'modules' => [
         'content' => [
             'class' => \krok\content\Module::class,
-            'editor' => \krok\tinymce\TinyMceWidget::class,
             'layouts' => [
                 '//index' => 'Главная',
                 '//common' => 'Типовая',
