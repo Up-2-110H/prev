@@ -17,4 +17,8 @@ Thumbs.db
 
 # environment
 /.env
+
+# system
+/.cache
+/.config
 /.bash_history
