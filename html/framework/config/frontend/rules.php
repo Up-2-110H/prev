@@ -7,7 +7,13 @@
  */
 
 return [
+    /**
+     * Glide
+     */
     'render/<path:[\w\/\.]+>' => 'glide/default/render',
+    /**
+     * System
+     */
     '<language:\w+\-\w+>/content/<alias:[\w\-]+>' => 'content/default/index',
     '<language:\w+\-\w+>' => '/',
     '<language:\w+\-\w+>/<module:[\w\-]+>' => '<module>',
