@@ -37,6 +37,17 @@ $config = [
                     ],
                 ],
                 [
+                    'name' => 'imperavi',
+                    'controllers' => [
+                        'default' => [
+                            'file-upload',
+                            'file-list',
+                            'image-upload',
+                            'image-list',
+                        ],
+                    ],
+                ],
+                [
                     'name' => 'auth',
                     'controllers' => [
                         'auth' => [],

@@ -19,14 +19,38 @@ $config = [
          * see. https://content-security-policy.com/
          */
         Yii::$app->getResponse()->getHeaders()->add('Content-Security-Policy',
-            'default-src none; script-src \'self\' \'unsafe-inline\'; connect-src \'self\'; img-src \'self\' data: blob:; style-src \'self\' \'unsafe-inline\' fonts.googleapis.com maxcdn.bootstrapcdn.com; font-src \'self\' fonts.gstatic.com maxcdn.bootstrapcdn.com; child-src \'self\';');
+            'default-src \'none\'; script-src \'self\' \'unsafe-inline\' \'unsafe-eval\'; connect-src \'self\'; img-src \'self\' data: blob:; style-src \'self\' \'unsafe-inline\' fonts.googleapis.com maxcdn.bootstrapcdn.com; font-src \'self\' fonts.gstatic.com maxcdn.bootstrapcdn.com data:; child-src \'self\';');
     },
     'container' => [
         'definitions' => [
             \yii\captcha\CaptchaAction::class => [
                 'backColor' => 0xf3f3f5,
             ],
-            \krok\editor\interfaces\EditorInterface::class => \krok\tinymce\TinyMceWidget::class,
+            \krok\editor\interfaces\EditorInterface::class => \krok\imperavi\widgets\ImperaviWidget::class,
+            \krok\imperavi\widgets\ImperaviWidget::class => [
+                'clientOptions' => [
+                    'buttonSource' => true,
+                    'replaceDivs' => false,
+                    'minHeight' => 400,
+                    'maxHeight' => 400,
+                    'autoresize' => false,
+                    'fileUpload' => '/cp/imperavi/default/file-upload',
+                    'fileManagerJson' => '/cp/imperavi/default/file-list',
+                    'imageUpload' => '/cp/imperavi/default/image-upload',
+                    'imageManagerJson' => '/cp/imperavi/default/image-list',
+                    'plugins' => [
+                        'filemanager',
+                        'clips',
+                        'imagemanager',
+                        'definedlinks',
+                        'fontfamily',
+                        'fontcolor',
+                        'fontsize',
+                        'table',
+                        'video',
+                    ],
+                ],
+            ],
         ],
     ],
     'modules' => [
@@ -34,6 +58,11 @@ $config = [
             'class' => \krok\system\Module::class,
             'viewPath' => '@vendor/yii2-developer/yii2-system/views/backend',
             'controllerNamespace' => 'krok\system\controllers\backend',
+        ],
+        'imperavi' => [
+            'class' => \krok\imperavi\Module::class,
+            'uploadDirectory' => '@root/uploads/editor',
+            'controllerNamespace' => 'krok\imperavi\controllers\backend',
         ],
         'auth' => [
             'class' => \app\modules\auth\Module::class, // todo
