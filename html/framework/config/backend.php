@@ -19,7 +19,7 @@ $config = [
          * see. https://content-security-policy.com/
          */
         Yii::$app->getResponse()->getHeaders()->add('Content-Security-Policy',
-            'default-src \'none\'; script-src \'self\' \'unsafe-inline\' \'unsafe-eval\'; connect-src \'self\'; img-src \'self\' data: blob:; style-src \'self\' \'unsafe-inline\' fonts.googleapis.com maxcdn.bootstrapcdn.com; font-src \'self\' fonts.gstatic.com maxcdn.bootstrapcdn.com data:; child-src \'self\';');
+            'default-src \'none\'; script-src \'self\' \'unsafe-inline\' \'unsafe-eval\' *.ucarecdn.com ucarecdn.com; connect-src \'self\' *.uploadcare.com ucarecdn.com; img-src \'self\' data: blob: *.ucarecdn.com ucarecdn.com; style-src \'self\' \'unsafe-inline\' fonts.googleapis.com maxcdn.bootstrapcdn.com; font-src \'self\' fonts.gstatic.com maxcdn.bootstrapcdn.com data:; child-src \'self\' *.youtube.com *.uploadcare.com;');
     },
     'container' => [
         'definitions' => [
@@ -29,16 +29,17 @@ $config = [
             \krok\editor\interfaces\EditorInterface::class => \krok\imperavi\widgets\ImperaviWidget::class,
             \krok\imperavi\widgets\ImperaviWidget::class => [
                 'clientOptions' => [
-                    'buttonSource' => true,
-                    'replaceDivs' => false,
+                    'imageResizable' => true,
+                    'imagePosition' => true,
                     'minHeight' => 400,
                     'maxHeight' => 400,
-                    'autoresize' => false,
+                    'lang' => 'ru',
                     'fileUpload' => '/cp/imperavi/default/file-upload',
                     'fileManagerJson' => '/cp/imperavi/default/file-list',
                     'imageUpload' => '/cp/imperavi/default/image-upload',
                     'imageManagerJson' => '/cp/imperavi/default/image-list',
                     'plugins' => [
+                        'source',
                         'filemanager',
                         'clips',
                         'imagemanager',
@@ -48,6 +49,15 @@ $config = [
                         'fontsize',
                         'table',
                         'video',
+                        'alignment',
+                        'fullscreen',
+                        'inlinestyle',
+                        'properties',
+                        'uploadcare',
+                    ],
+                    'uploadcare' => [
+                        'publicKey' => 'c57c7e1076bb74b7b215',
+                        'crop' => '4:3, 16:9',
                     ],
                 ],
             ],
