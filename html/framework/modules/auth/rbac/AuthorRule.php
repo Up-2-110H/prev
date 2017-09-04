@@ -34,6 +34,6 @@ class AuthorRule extends Rule
     {
         $model = ArrayHelper::toArray(ArrayHelper::getValue($params, 'model', []));
 
-        return isset($model['created_by']) ? $model['created_by'] == $user : false;
+        return isset($model['createdBy']) ? $model['createdBy'] == $user : false;
     }
 }
