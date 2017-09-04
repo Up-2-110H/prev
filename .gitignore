@@ -20,5 +20,6 @@ Thumbs.db
 
 # system
 /.cache
+/.local
 /.config
 /.bash_history
