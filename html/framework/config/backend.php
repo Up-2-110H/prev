@@ -53,11 +53,6 @@ $config = [
                         'fullscreen',
                         'inlinestyle',
                         'properties',
-                        'uploadcare',
-                    ],
-                    'uploadcare' => [
-                        'publicKey' => 'c57c7e1076bb74b7b215',
-                        'crop' => '4:3, 16:9',
                     ],
                 ],
             ],
