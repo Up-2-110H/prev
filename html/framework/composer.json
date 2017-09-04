@@ -27,7 +27,7 @@
     }
   ],
   "require": {
-    "php": ">=5.4.0",
+    "php": ">=7.0.0",
     "yiisoft/yii2": ">=2.0.12",
     "yiisoft/yii2-redis": "~2.0.0",
     "yiisoft/yii2-bootstrap": "~2.0.0",
@@ -44,7 +44,7 @@
     "yii2-developer/yii2-slim": "~0.0.1",
     "yii2-developer/yii2-glide": "~0.0.1",
     "yii2-developer/yii2-imperavi": "~0.0.1",
-    "bootstrap-select/bootstrap-select": "~1.12.2",
+    "bootstrap-select/bootstrap-select": "~1.12.0",
     "vlucas/phpdotenv": "~2.4.0"
   },
   "require-dev": {
