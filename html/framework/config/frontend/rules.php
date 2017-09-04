@@ -12,9 +12,12 @@ return [
      */
     'render/<path:[\w\/\.]+>' => 'glide/default/render',
     /**
-     * System
+     * Content
      */
     '<language:\w+\-\w+>/content/<alias:[\w\-]+>' => 'content/default/index',
+    /**
+     * System
+     */
     '<language:\w+\-\w+>' => '/',
     '<language:\w+\-\w+>/<module:[\w\-]+>' => '<module>',
     '<language:\w+\-\w+>/<module:[\w\-]+>/<controller:[\w\-]+>' => '<module>/<controller>',
