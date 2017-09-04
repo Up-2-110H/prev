@@ -1,7 +1,5 @@
 Модули:
 cabinet
-preview
-revision
 defaultTheme
 
 Вынести стандартные модули в extension
