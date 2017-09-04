@@ -137,11 +137,11 @@ return [
             'class' => \yii\swiftmailer\Mailer::class,
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
-                'host' => 'smtp.yandex.ru',
-                'username' => 'logging@dev-vps.ru',
-                'password' => 'dev-vps.ru@logging',
-                'port' => 465,
-                'encryption' => 'ssl',
+                'host' => getenv('SMTP_HOST'),
+                'username' => getenv('SMTP_USERNAME'),
+                'password' => getenv('SMTP_PASSWORD'),
+                'port' => getenv('SMTP_PORT'),
+                'encryption' => getenv('SMTP_ENCRYPTION'),
             ],
             'useFileTransport' => YII_DEBUG, // @runtime/mail/
         ],
