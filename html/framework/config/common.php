@@ -36,6 +36,7 @@ return [
             \League\Flysystem\FilesystemInterface::class => function () {
                 $filesystem = Yii::createObject(\League\Flysystem\Filesystem::class);
                 $filesystem->addPlugin(new \krok\storage\plugins\PublicUrl('/uploads/storage'));
+                $filesystem->addPlugin(new \krok\storage\plugins\HashGrid());
 
                 return $filesystem;
             },
