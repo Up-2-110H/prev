@@ -124,7 +124,7 @@ $config = [
             ],
         ],
         'request' => [
-            'class' => \app\components\language\LanguageRequest::class,
+            'class' => \krok\language\LanguageRequest::class,
             'csrfParam' => '_backendCSRF',
             'cookieValidationKey' => hash('sha512', __FILE__ . __LINE__),
         ],

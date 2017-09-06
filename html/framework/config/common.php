@@ -55,6 +55,20 @@ return [
             \League\Glide\Urls\UrlBuilderFactory::class => function () {
                 return \League\Glide\Urls\UrlBuilderFactory::create('/render/');
             },
+            \krok\language\LanguageInterface::class => function () {
+                $list = [
+                    [
+                        'iso' => 'ru-RU',
+                        'title' => 'Russian',
+                    ],
+                    [
+                        'iso' => 'en-US',
+                        'title' => 'English',
+                    ],
+                ];
+
+                return Yii::createObject(\krok\language\Language::class, [$list]);
+            },
         ],
     ],
     'modules' => [
@@ -79,21 +93,8 @@ return [
             'class' => \yii\rbac\DbManager::class,
             'cache' => 'cache',
         ],
-        'language' => [
-            'class' => \app\components\language\Language::class,
-            'list' => [
-                [
-                    'iso' => 'ru-RU',
-                    'title' => 'Russian',
-                ],
-                [
-                    'iso' => 'en-US',
-                    'title' => 'English',
-                ],
-            ],
-        ],
         'urlManager' => [
-            'class' => \app\components\language\LanguageUrlManager::class,
+            'class' => \krok\language\LanguageUrlManager::class,
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'normalizer' => [
