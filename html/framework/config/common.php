@@ -35,7 +35,7 @@ return [
             },
             \League\Flysystem\FilesystemInterface::class => function () {
                 $filesystem = Yii::createObject(\League\Flysystem\Filesystem::class);
-                $filesystem->addPlugin(new \krok\storage\plugins\PublicUrl('/uploads/storage'));
+                $filesystem->addPlugin(new \krok\storage\plugins\PublicUrl('/render/storage'));
                 $filesystem->addPlugin(new \krok\storage\plugins\HashGrid());
 
                 return $filesystem;
@@ -44,16 +44,12 @@ return [
                 $server = League\Glide\ServerFactory::create([
                     'source' => Yii::createObject(\League\Flysystem\FilesystemInterface::class),
                     'cache' => Yii::createObject(\League\Flysystem\FilesystemInterface::class),
-                    'source_path_prefix' => 'storage',
                     'cache_path_prefix' => 'cache',
                     'driver' => 'imagick',
                 ]);
                 $server->setResponseFactory(new \krok\glide\response\Yii2ResponseFactory());
 
                 return $server;
-            },
-            \League\Glide\Urls\UrlBuilderFactory::class => function () {
-                return \League\Glide\Urls\UrlBuilderFactory::create('/render/');
             },
             \krok\language\LanguageInterface::class => function () {
                 $list = [
