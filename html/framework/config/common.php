@@ -177,7 +177,7 @@ return [
                             'webmaster@dev-vps.ru',
                         ],
                         'from' => [
-                            'logging@dev-vps.ru' => 'Logging',
+                            getenv('EMAIL') => 'Logging',
                         ],
                         'subject' => 'CMF2',
                     ],

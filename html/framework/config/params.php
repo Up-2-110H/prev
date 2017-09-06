@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'email' => 'logging@dev-vps.ru',
+    'email' => getenv('EMAIL'),
     'HTMLPurifier' => [
         'Attr.AllowedFrameTargets' => [
             '_blank',
