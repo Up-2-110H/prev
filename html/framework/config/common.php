@@ -163,7 +163,10 @@ return [
             'targets' => [
                 'email' => [
                     'class' => \yii\log\EmailTarget::class,
-                    'levels' => ['error', 'warning'],
+                    'levels' => [
+                        'error',
+                        'warning',
+                    ],
                     'except' => [
                         'yii\web\HttpException:404',
                         //'yii\web\HttpException:403',
