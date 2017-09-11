@@ -155,7 +155,7 @@ $config = [
             'class' => \yii\authclient\Collection::class,
             'clients' => [
                 'yandex' => [
-                    'class' => \app\modules\auth\clients\YandexOAuth::class,
+                    'class' => \krok\oauth\YandexOAuth::class,
                     'clientId' => '',
                     'clientSecret' => '',
                     'normalizeUserAttributeMap' => [
@@ -163,7 +163,7 @@ $config = [
                     ],
                 ],
                 'google' => [
-                    'class' => \app\modules\auth\clients\GoogleOAuth::class,
+                    'class' => \krok\oauth\GoogleOAuth::class,
                     'clientId' => '',
                     'clientSecret' => '',
                     'normalizeUserAttributeMap' => [
@@ -172,7 +172,7 @@ $config = [
                     ],
                 ],
                 'vkontakte' => [
-                    'class' => \app\modules\auth\clients\VKontakte::class,
+                    'class' => \krok\oauth\VKontakte::class,
                     'clientId' => '',
                     'clientSecret' => '',
                     'normalizeUserAttributeMap' => [
@@ -181,7 +181,7 @@ $config = [
                     ],
                 ],
                 'facebook' => [
-                    'class' => \app\modules\auth\clients\Facebook::class,
+                    'class' => \krok\oauth\Facebook::class,
                     'clientId' => '',
                     'clientSecret' => '',
                     'normalizeUserAttributeMap' => [
@@ -189,7 +189,7 @@ $config = [
                     ],
                 ],
                 'twitter' => [
-                    'class' => \app\modules\auth\clients\Twitter::class,
+                    'class' => \krok\oauth\Twitter::class,
                     'consumerKey' => '',
                     'consumerSecret' => '',
                     'normalizeUserAttributeMap' => [
@@ -197,7 +197,7 @@ $config = [
                     ],
                 ],
                 'gitlab' => [
-                    'class' => \app\modules\auth\clients\GitLab::class,
+                    'class' => \krok\oauth\GitLab::class,
                     'clientId' => '',
                     'clientSecret' => '',
                     'normalizeUserAttributeMap' => [
@@ -205,7 +205,7 @@ $config = [
                     ],
                 ],
                 'ok' => [
-                    'class' => \app\modules\auth\clients\Ok::class,
+                    'class' => \krok\oauth\Ok::class,
                     'clientId' => '',
                     'clientSecret' => '',
                     'applicationKey' => '',

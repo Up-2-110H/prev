@@ -45,6 +45,7 @@
     "yii2-developer/yii2-glide": "~0.0.1",
     "yii2-developer/yii2-imperavi": "~0.0.1",
     "yii2-developer/yii2-language": "~0.0.1",
+    "yii2-developer/yii2-oauth": "~0.0.1",
     "bootstrap-select/bootstrap-select": "~1.12.0",
     "vlucas/phpdotenv": "~2.4.0"
   },
