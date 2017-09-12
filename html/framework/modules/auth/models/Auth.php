@@ -34,11 +34,7 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface, BlockedAtt
     use BlockedAttributeTrait;
 
     const SCENARIO_CREATE = 'create';
-
-    /**
-     * @var null
-     */
-    public $password_repeat = null;
+    const SCENARIO_REFRESH_TOKEN = 'refresh_token';
 
     /**
      * @var array
@@ -64,16 +60,30 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface, BlockedAtt
             'HashBehaviorPassword' => [
                 'class' => HashBehavior::className(),
                 'attribute' => 'password',
+                'scenarios' => [
+                    self::SCENARIO_DEFAULT,
+                    self::SCENARIO_CREATE,
+                ],
             ],
             'GenerateRandomStringBehaviorAuthKey' => [
                 'class' => GenerateRandomStringBehavior::className(),
+                'skipUpdateOnClean' => false,
                 'attribute' => 'auth_key',
                 'stringLength' => 128,
+                'scenarios' => [
+                    self::SCENARIO_CREATE,
+                    self::SCENARIO_REFRESH_TOKEN,
+                ],
             ],
             'GenerateRandomStringBehaviorAccessToken' => [
                 'class' => GenerateRandomStringBehavior::className(),
+                'skipUpdateOnClean' => false,
                 'attribute' => 'access_token',
                 'stringLength' => 128,
+                'scenarios' => [
+                    self::SCENARIO_CREATE,
+                    self::SCENARIO_REFRESH_TOKEN,
+                ],
             ],
             'TimestampBehavior' => [
                 'class' => TimestampBehavior::className(),
@@ -107,18 +117,30 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface, BlockedAtt
         return [
             [['blocked'], 'integer'],
             [['created_at', 'updated_at', 'roles'], 'safe'],
-            [['login'], 'string', 'max' => 32],
-            [['password', 'password_repeat'], 'string', 'max' => 512, 'min' => 8],
+            [['login'], 'string', 'max' => 32, 'min' => 4],
+            [['password'], 'string', 'max' => 512, 'min' => 8],
             [['email'], 'string', 'max' => 64],
-            [['auth_key', 'access_token'], 'string', 'max' => 128],
+            [
+                ['auth_key', 'access_token'],
+                'string',
+                'max' => 128,
+                'on' => [
+                    self::SCENARIO_CREATE,
+                    self::SCENARIO_REFRESH_TOKEN,
+                ],
+            ],
+            [
+                ['auth_key', 'access_token'],
+                'unique',
+                'on' => [
+                    self::SCENARIO_CREATE,
+                    self::SCENARIO_REFRESH_TOKEN,
+                ],
+            ],
             [['login'], 'unique'],
             [['login'], 'required'],
             [['email'], 'email'],
-            [['auth_key'], 'unique'],
-            [['access_token'], 'unique'],
-            [['password', 'password_repeat'], 'required', 'on' => [self::SCENARIO_CREATE]],
-            ['password_repeat', 'compare', 'compareAttribute' => 'password'],
-            ['password', 'compare', 'compareAttribute' => 'password_repeat'],
+            [['password'], 'required', 'on' => [self::SCENARIO_CREATE]],
         ];
     }
 
@@ -132,7 +154,6 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface, BlockedAtt
             'login' => 'Логин',
             'password' => 'Пароль',
             'roles' => 'Роли',
-            'password_repeat' => 'Повторите пароль',
             'auth_key' => 'Ключ авторизации',
             'access_token' => 'Токен доступа',
             'email' => 'Электронная почта',
