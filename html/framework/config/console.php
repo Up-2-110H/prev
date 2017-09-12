@@ -50,7 +50,14 @@ $config = [
                 [
                     'name' => 'auth',
                     'controllers' => [
-                        'auth' => [],
+                        'auth' => [
+                            'index',
+                            'create',
+                            'update',
+                            'delete',
+                            'view',
+                            'refresh-token',
+                        ],
                         'log' => ['index'],
                         'social' => ['index'],
                         'profile' => ['index'],

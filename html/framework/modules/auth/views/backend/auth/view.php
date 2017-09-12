@@ -28,6 +28,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     'method' => 'post',
                 ],
             ]) ?>
+            <?= Html::a('Сбросить токены', ['refresh-token', 'id' => $model->id], [
+                'class' => 'btn btn-warning',
+            ]) ?>
         </p>
     </div>
 

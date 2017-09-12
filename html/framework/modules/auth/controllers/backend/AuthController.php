@@ -121,6 +121,21 @@ class AuthController extends Controller
     }
 
     /**
+     * @param integer $id
+     *
+     * @return \yii\web\Response
+     */
+    public function actionRefreshToken($id)
+    {
+        $model = $this->findModel($id);
+        $model->setRoles($model->getRoles()); // todo: refactor service
+        $model->setScenario(Auth::SCENARIO_REFRESH_TOKEN);
+        $model->save();
+
+        return $this->redirect(['view', 'id' => $id]);
+    }
+
+    /**
      * Finds the Auth model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      *
