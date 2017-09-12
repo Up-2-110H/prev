@@ -103,6 +103,9 @@ return [
             'numberFormatterSymbols' => [
                 \NumberFormatter::CURRENCY_SYMBOL => 'руб.',
             ],
+            'numberFormatterOptions' => [
+                \NumberFormatter::MAX_FRACTION_DIGITS => 2,
+            ],
         ],
         'security' => [
             'class' => \yii\base\Security::class,
