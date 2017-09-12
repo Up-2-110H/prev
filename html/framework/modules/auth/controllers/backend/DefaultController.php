@@ -80,7 +80,6 @@ class DefaultController extends Controller
                     $auth = new Auth([
                         'login' => $attributes['login'],
                         'password' => $password,
-                        'password_repeat' => $password,
                         'email' => ArrayHelper::getValue($attributes, 'email'),
                         'blocked' => Auth::BLOCKED_YES,
                     ]);
