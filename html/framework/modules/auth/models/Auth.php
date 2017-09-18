@@ -8,6 +8,7 @@ use krok\extend\behaviors\HashBehavior;
 use krok\extend\behaviors\TimestampBehavior;
 use krok\extend\interfaces\BlockedAttributeInterface;
 use krok\extend\traits\BlockedAttributeTrait;
+use krok\logging\interfaces\LoggingIdentityInterface;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\web\IdentityInterface;
@@ -29,7 +30,7 @@ use yii\web\IdentityInterface;
  * @property Log[] $logs
  * @property OAuth[] $socials
  */
-class Auth extends \yii\db\ActiveRecord implements IdentityInterface, BlockedAttributeInterface
+class Auth extends \yii\db\ActiveRecord implements IdentityInterface, LoggingIdentityInterface, BlockedAttributeInterface
 {
     use BlockedAttributeTrait;
 
@@ -200,6 +201,14 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface, BlockedAtt
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLogin(): string
+    {
+        return $this->login;
     }
 
     /**
