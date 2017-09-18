@@ -4,6 +4,7 @@
 
 use krok\paperDashboard\widgets\analytics\AnalyticsWidget;
 use krok\paperDashboard\widgets\analytics\SpaceCircleChart;
+use krok\paperDashboard\widgets\logging\LoggingWidget;
 
 $this->title = 'Администрирование';
 ?>
@@ -138,97 +139,7 @@ $this->title = 'Администрирование';
                         </div>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="card card-top">
-                        <div class="card-header">
-                            <h4 class="card-title">История изменений</h4>
-                            <p class="category">5 последних действий администратора</p>
-                        </div>
-                    </div>
-                    <div class="card card-timeline card-plain card-bottom">
-                        <div class="card-content">
-                            <ul class="timeline timeline-simple">
-                                <li class="timeline-inverted">
-                                    <div class="timeline-badge danger"><i class="ti-close"></i></div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <span class="label label-danger">webmaster удалил</span>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p>
-                                                Министр Максим Топилин: Правительство России одобрило законопроект о
-                                                совершенствовании независимой оценки качества социальных услуг
-                                            </p>
-                                        </div>
-                                        <h6><i class="ti-time"></i>23.06.2017 в 06:34</h6>
-                                    </div>
-                                </li>
-                                <li class="timeline-inverted">
-                                    <div class="timeline-badge primary"><i class="ti-credit-card"></i></div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <span class="label label-primary">webmaster изменил</span>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p>
-                                                Федеральный этап Всероссийского конкурса профессионального мастерства
-                                                «Лучший по профессии» в номинации «Лучший водитель большегрузного
-                                                автомобиля»
-                                            </p>
-                                            <h6><i class="ti-time"></i>20.06.2017 в 09:29</h6>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="timeline-inverted">
-                                    <div class="timeline-badge success"><i class="ti-check-box"></i></div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <span class="label label-success">webmaster создал</span>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p>
-                                                Пресс-конференция замминистра Максима Топилина по оказанию социальной
-                                                помощи пострадавшим от вооруженного конфликта в Южной Осетии
-                                            </p>
-                                        </div>
-                                        <h6><i class="ti-time"></i>04.05.2017 в 23:59</h6>
-                                    </div>
-                                </li>
-                                <li class="timeline-inverted">
-                                    <div class="timeline-badge success"><i class="ti-check-box"></i></div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <span class="label label-success">webmaster создал</span>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p>
-                                                Федеральный этап Всероссийского конкурса профессионального мастерства
-                                                «Лучший по профессии» в номинации «Лучший водитель большегрузного
-                                                автомобиля»
-                                            </p>
-                                        </div>
-                                        <h6><i class="ti-time"></i>04.05.2017 в 23:59</h6>
-                                    </div>
-                                </li>
-                                <li class="timeline-inverted">
-                                    <div class="timeline-badge danger"><i class="ti-close"></i></div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <span class="label label-danger">webmaster удалил</span>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p>
-                                                Первый замминистра Алексей Вовченко: В федеральном этапе Всероссийского
-                                                конкурса «Семья года» примут участие 322 семьи
-                                            </p>
-                                        </div>
-                                        <h6><i class="ti-time"></i>23.06.2017 в 06:34</h6>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <?= LoggingWidget::widget() ?>
             </div>
         </div>
         <div class="col-lg-6">

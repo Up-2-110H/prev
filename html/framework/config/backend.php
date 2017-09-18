@@ -58,11 +58,21 @@ $config = [
             ],
         ],
     ],
+    'bootstrap' => [
+        'logging' => [
+            'class' => \krok\logging\Bootstrap::class,
+        ],
+    ],
     'modules' => [
         'system' => [
             'class' => \krok\system\Module::class,
             'viewPath' => '@vendor/yii2-developer/yii2-system/views/backend',
             'controllerNamespace' => 'krok\system\controllers\backend',
+        ],
+        'logging' => [
+            'class' => \krok\logging\Module::class,
+            'viewPath' => '@vendor/yii2-developer/yii2-logging/views/backend',
+            'controllerNamespace' => 'krok\logging\controllers\backend',
         ],
         'imperavi' => [
             'class' => \krok\imperavi\Module::class,

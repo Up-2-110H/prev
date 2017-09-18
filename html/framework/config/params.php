@@ -22,6 +22,10 @@ return [
                     'url' => ['/content/default'],
                 ],
                 [
+                    'label' => 'Logging',
+                    'url' => ['/logging/default'],
+                ],
+                [
                     'label' => 'Example',
                     'url' => ['/example/example'],
                 ],
