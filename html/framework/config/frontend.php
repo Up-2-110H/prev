@@ -59,6 +59,15 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
         'class' => \yii\debug\Module::class,
+        'panels' => [
+            'user' => [
+                'class' => \yii\debug\panels\UserPanel::class,
+                'ruleUserSwitch' => [
+                    'allow' => true,
+                    'roles' => ['@'],
+                ],
+            ],
+        ],
         'allowedIPs' => [
             '*',
         ],
