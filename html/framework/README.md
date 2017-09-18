@@ -63,3 +63,9 @@ Model
 
 Для примера можно взять модуль - @vendor/yii2-developer/yii2-example
 --------------------------------------------------------------------
+
+Установка
+=========
+
+./docker-exec framework/yii migrate/up
+./docker-exec framework/yii access/install
