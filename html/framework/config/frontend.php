@@ -60,12 +60,38 @@ if (YII_ENV_DEV) {
     $config['modules']['debug'] = [
         'class' => \yii\debug\Module::class,
         'panels' => [
+            'config' => false,
+            'request' => [
+                'class' => \yii\debug\panels\RequestPanel::class,
+                'displayVars' => ['_GET', '_POST', '_COOKIE', '_SESSION', '_FILES'],
+            ],
+            'log' => [
+                'class' => \yii\debug\panels\LogPanel::class,
+            ],
+            'profiling' => [
+                'class' => \yii\debug\panels\ProfilingPanel::class,
+            ],
+            'db' => [
+                'class' => \yii\debug\panels\DbPanel::class,
+            ],
+            'assets' => [
+                'class' => \yii\debug\panels\AssetPanel::class,
+            ],
+            'mail' => [
+                'class' => \yii\debug\panels\MailPanel::class,
+            ],
+            'timeline' => [
+                'class' => \yii\debug\panels\TimelinePanel::class,
+            ],
             'user' => [
                 'class' => \yii\debug\panels\UserPanel::class,
                 'ruleUserSwitch' => [
                     'allow' => true,
                     'roles' => ['@'],
                 ],
+            ],
+            'router' => [
+                'class' => \yii\debug\panels\RouterPanel::class,
             ],
         ],
         'allowedIPs' => [

@@ -165,7 +165,7 @@ return [
             'traceLevel' => YII_ENV_PROD ? 0 : 3,
             'targets' => [
                 'email' => [
-                    'class' => \yii\log\EmailTarget::class,
+                    'class' => \krok\log\EmailTarget::class,
                     'levels' => [
                         'error',
                         'warning',
@@ -186,7 +186,7 @@ return [
                     'enabled' => true,
                 ],
                 'file' => [
-                    'class' => \yii\log\FileTarget::class,
+                    'class' => \krok\log\FileTarget::class,
                     'levels' => [
                         'error',
                         'warning',
