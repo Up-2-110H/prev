@@ -162,7 +162,7 @@ return [
         ],
         'log' => [
             'class' => \yii\log\Dispatcher::class,
-            'traceLevel' => YII_ENV_PROD ? 0 : 3,
+            'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
                 'email' => [
                     'class' => \krok\log\EmailTarget::class,
