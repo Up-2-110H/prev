@@ -8,7 +8,7 @@
 
 return [
     'name' => 'CMF2',
-    'timeZone' => 'UTC',
+    'timeZone' => 'Europe/Moscow',
     'language' => 'ru-RU',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
