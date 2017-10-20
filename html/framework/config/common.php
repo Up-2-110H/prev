@@ -8,7 +8,7 @@
 
 return [
     'name' => 'CMF2',
-    'timeZone' => 'Europe/Moscow',
+    'timeZone' => 'UTC',
     'language' => 'ru-RU',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
@@ -100,6 +100,7 @@ return [
         ],
         'formatter' => [
             'class' => \yii\i18n\Formatter::class,
+            'timeZone' => 'Europe/Moscow',
             'numberFormatterSymbols' => [
                 \NumberFormatter::CURRENCY_SYMBOL => 'руб.',
             ],
