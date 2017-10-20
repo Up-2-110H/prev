@@ -17,6 +17,7 @@ Thumbs.db
 
 # environment
 /.env
+/.composer
 
 # system
 /.cache

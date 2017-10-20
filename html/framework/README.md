@@ -61,11 +61,12 @@ Model
 ],
 ```
 
-Для примера можно взять модуль - @vendor/yii2-developer/yii2-example
+Для примера можно взять модуль - @vendor/yii2-developer/yii2-content
 --------------------------------------------------------------------
 
 Установка
 =========
 
+./docker-exec composer --working-dir=framework install
 ./docker-exec framework/yii migrate/up
 ./docker-exec framework/yii access/install
