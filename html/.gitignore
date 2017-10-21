@@ -4,6 +4,7 @@
 
 # envelopment
 /web/robots.txt
+/framework/config/local.php
 
 # html
 /web/html/*

@@ -6,7 +6,7 @@
  * Time: 23:35
  */
 
-return [
+return \yii\helpers\ArrayHelper::merge([
     'name' => 'CMF2',
     'timeZone' => 'UTC',
     'language' => 'ru-RU',
@@ -203,4 +203,5 @@ return [
         'db' => require(__DIR__ . DIRECTORY_SEPARATOR . 'db.php'),
     ],
     'params' => require(__DIR__ . DIRECTORY_SEPARATOR . 'params.php'),
-];
+],
+    is_readable(__DIR__ . DIRECTORY_SEPARATOR . 'local.php') ? require(__DIR__ . DIRECTORY_SEPARATOR . 'local.php') : []);
