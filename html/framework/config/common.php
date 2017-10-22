@@ -138,7 +138,7 @@ return \yii\helpers\ArrayHelper::merge([
         'mailer' => [
             'class' => \yii\swiftmailer\Mailer::class,
             'transport' => [
-                'class' => 'Swift_SmtpTransport',
+                'class' => \Swift_SmtpTransport::class,
                 'host' => getenv('SMTP_HOST'),
                 'username' => getenv('SMTP_USERNAME'),
                 'password' => getenv('SMTP_PASSWORD'),
