@@ -55,7 +55,7 @@ return \yii\helpers\ArrayHelper::merge([
                 $list = [
                     [
                         'iso' => 'ru-RU',
-                        'title' => 'Russian',
+                        'title' => 'Русский',
                     ],
                     [
                         'iso' => 'en-US',
