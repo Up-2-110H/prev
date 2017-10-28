@@ -70,3 +70,10 @@ Model
 ./docker-exec composer --working-dir=framework install
 ./docker-exec framework/yii migrate/up
 ./docker-exec framework/yii access/install
+
+Администрирование
+=================
+
+Адрес: domain.tld/cp
+Логин: webmaster
+Пароль: webmaster
