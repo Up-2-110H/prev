@@ -26,7 +26,9 @@ Editor
 Model
 =====
 * id - должно быть!
-* hidden - для записи, active - для учетных записей. Вариант выбора в виде select поля. Для пунктов создаются константы ( HIDDEN_NO = 0 / HIDDEN_YES = 1 | ACTIVE_NO = 0 / ACTIVE_YES = 1 ) соответственно!
+* hidden - для записи, active - для учетных записей. Вариант выбора в виде select поля.
+    * html/framework/vendor/yii2-developer/yii2-extend/interfaces/HiddenAttributeInterface.php и html/framework/vendor/yii2-developer/yii2-extend/traits/HiddenAttributeTrait.php
+    * html/framework/vendor/yii2-developer/yii2-extend/interfaces/BlockedAttributeInterface.php и html/framework/vendor/yii2-developer/yii2-extend/traits/BlockedAttributeTrait.php
 * createdBy - создатель записи, внешний ключ на таблицу пользователей, ( DELETE - SET NULL , UPDATE - RESTRICT ) поведение - krok\extend\behaviors\CreatedByBehavior::class 
 * createdBy не нужно выводить в шаблонах и фильтре
 * createdAt - дата и время создания, updatedAt - дата и время последнего обновления. Поведение - krok\extend\behaviors\TimestampBehavior::class 
