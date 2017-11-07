@@ -65,6 +65,35 @@ return \yii\helpers\ArrayHelper::merge([
 
                 return Yii::createObject(\krok\language\Language::class, [$list]);
             },
+            \krok\backupManager\Manager::class => function () {
+                $filesystems = new \BackupManager\Filesystems\FilesystemProvider(new \BackupManager\Config\Config([
+                    'local' => [
+                        'type' => 'Local',
+                        'root' => Yii::getAlias('@runtime/backup/database'), // todo
+                    ],
+                ]));
+                $filesystems->add(new \BackupManager\Filesystems\LocalFilesystem());
+
+                $databases = new \BackupManager\Databases\DatabaseProvider(new \BackupManager\Config\Config([
+                    'db' => [
+                        'type' => 'mysql',
+                        'host' => getenv('MYSQL_HOST'),
+                        'port' => 3306,
+                        'user' => getenv('MYSQL_USER'),
+                        'pass' => getenv('MYSQL_PASSWORD'),
+                        'database' => getenv('MYSQL_DATABASE'),
+                        'singleTransaction' => true,
+                    ],
+                ]));
+                $databases->add(new \BackupManager\Databases\MysqlDatabase());
+
+                $compressors = new \BackupManager\Compressors\CompressorProvider();
+                $compressors->add(new \BackupManager\Compressors\GzipCompressor());
+
+                return new \krok\backupManager\Manager(
+                    new \BackupManager\Manager($filesystems, $databases, $compressors)
+                );
+            },
         ],
     ],
     'modules' => [

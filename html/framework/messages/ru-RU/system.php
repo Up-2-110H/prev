@@ -24,4 +24,6 @@ return [
     'Content' => 'Контент',
     'Logging' => 'Логирование',
     'Example' => 'Пример',
+
+    'Backup Manager' => 'Резервное копирование',
 ];

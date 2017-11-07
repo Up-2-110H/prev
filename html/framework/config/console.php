@@ -85,6 +85,18 @@ $config = [
                         'example' => [],
                     ],
                 ],
+                [
+                    'name' => 'backupManager',
+                    'controllers' => [
+                        'default' => [
+                            'index',
+                            'download',
+                        ],
+                        'database' => [
+                            'backup',
+                        ],
+                    ],
+                ],
             ],
         ],
     ],
