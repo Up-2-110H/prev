@@ -95,6 +95,9 @@ $config = [
                         'database' => [
                             'backup',
                         ],
+                        'filesystem' => [
+                            'backup',
+                        ],
                     ],
                 ],
             ],

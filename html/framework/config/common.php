@@ -90,8 +90,12 @@ return \yii\helpers\ArrayHelper::merge([
                 $compressors = new \BackupManager\Compressors\CompressorProvider();
                 $compressors->add(new \BackupManager\Compressors\GzipCompressor());
 
+                $filesystem = new \krok\archiver\filesystem\LocalFilesystem(['root' => dirname(Yii::getAlias('@root'))]);
+                $compressor = new \krok\archiver\compressor\ZipCompressor(['path' => Yii::getAlias('@runtime/backup/filesystem')]);
+
                 return new \krok\backupManager\Manager(
-                    new \BackupManager\Manager($filesystems, $databases, $compressors)
+                    new \BackupManager\Manager($filesystems, $databases, $compressors),
+                    new \krok\archiver\Manager($filesystem, $compressor)
                 );
             },
         ],
