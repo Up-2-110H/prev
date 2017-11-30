@@ -1300,11 +1300,11 @@
         },
         {
             "name": "yii2-developer/yii2-extend",
-            "version": "0.0.10",
+            "version": "0.0.11",
             "source": {
                 "type": "git",
                 "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-extend.git",
-                "reference": "ee47df8bdb9fa8380ea483ad52cc5e394984ddf4"
+                "reference": "4f01a24404b9d6c32876bc38261d04780f9dc421"
             },
             "require": {
                 "bower-asset/fancybox": "~2.1.0",
@@ -1335,7 +1335,7 @@
                 "extension",
                 "yii2"
             ],
-            "time": "2017-11-13T11:42:24+00:00"
+            "time": "2017-11-29T12:53:44+00:00"
         },
         {
             "name": "yii2-developer/yii2-glide",
