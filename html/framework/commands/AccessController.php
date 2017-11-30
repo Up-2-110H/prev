@@ -4,6 +4,7 @@ namespace app\commands;
 
 use Yii;
 use yii\base\InvalidConfigException;
+use yii\console\ExitCode;
 use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 use yii\rbac\BaseManager;
@@ -73,6 +74,9 @@ class AccessController extends \yii\console\Controller
      */
     protected $rbac = null;
 
+    /**
+     * @throws InvalidConfigException
+     */
     public function init()
     {
         parent::init();
@@ -90,6 +94,9 @@ class AccessController extends \yii\console\Controller
 
     /**
      * @return int
+     * @throws InvalidConfigException
+     * @throws \Exception
+     * @throws \yii\base\Exception
      */
     public function actionInstall()
     {
@@ -97,7 +104,7 @@ class AccessController extends \yii\console\Controller
         $this->installRules();
         $this->installItems();
 
-        return self::EXIT_CODE_NORMAL;
+        return ExitCode::OK;
     }
 
     /**
@@ -160,6 +167,7 @@ class AccessController extends \yii\console\Controller
 
     /**
      * @return int
+     * @throws InvalidConfigException
      */
     private function installRules()
     {
@@ -172,12 +180,14 @@ class AccessController extends \yii\console\Controller
             }
         }
 
-        return self::EXIT_CODE_NORMAL;
+        return ExitCode::OK;
     }
 
     /**
      * @return int
      * @throws InvalidConfigException
+     * @throws \Exception
+     * @throws \yii\base\Exception
      */
     private function installItems()
     {
@@ -266,7 +276,7 @@ class AccessController extends \yii\console\Controller
             }
         }
 
-        return self::EXIT_CODE_NORMAL;
+        return ExitCode::OK;
     }
 
     /**
