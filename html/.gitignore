@@ -1,6 +1,5 @@
 # composer
 /framework/vendor
-/framework/composer.lock
 
 # envelopment
 /web/robots.txt
