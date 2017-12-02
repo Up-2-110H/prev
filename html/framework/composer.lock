@@ -983,16 +983,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v3.3.13",
+            "version": "v3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "a56a3989fb762d7b19a0cf8e7693ee99a6ffb78d"
+                "reference": "db25e810fd5e124085e3777257d0cf4ae533d0ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/a56a3989fb762d7b19a0cf8e7693ee99a6ffb78d",
-                "reference": "a56a3989fb762d7b19a0cf8e7693ee99a6ffb78d",
+                "url": "https://api.github.com/repos/symfony/process/zipball/db25e810fd5e124085e3777257d0cf4ae533d0ea",
+                "reference": "db25e810fd5e124085e3777257d0cf4ae533d0ea",
                 "shasum": ""
             },
             "require": {
@@ -1001,7 +1001,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.3-dev"
+                    "dev-master": "3.4-dev"
                 }
             },
             "autoload": {
@@ -1028,7 +1028,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-13T15:31:11+00:00"
+            "time": "2017-11-22T12:18:49+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -1262,14 +1262,14 @@
         },
         {
             "name": "yii2-developer/yii2-example",
-            "version": "0.0.5",
+            "version": "0.0.6",
             "source": {
                 "type": "git",
                 "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-example.git",
-                "reference": "0eadb5d004528395b04feb84b3e2a12f117f708e"
+                "reference": "df7701566314440b87af9628e2323ae0bcdae6cb"
             },
             "require": {
-                "php": ">=7.0.0",
+                "php": ">=7.1.0",
                 "yii2-developer/yii2-editor": "~0.0.1",
                 "yii2-developer/yii2-extend": "~0.0.1",
                 "yii2-developer/yii2-system": "~0.0.1",
@@ -1296,7 +1296,7 @@
                 "extension",
                 "yii2"
             ],
-            "time": "2017-08-31T06:05:39+00:00"
+            "time": "2017-12-02T11:52:51+00:00"
         },
         {
             "name": "yii2-developer/yii2-extend",
