@@ -94,9 +94,6 @@ class AccessController extends \yii\console\Controller
 
     /**
      * @return int
-     * @throws InvalidConfigException
-     * @throws \Exception
-     * @throws \yii\base\Exception
      */
     public function actionInstall()
     {
@@ -167,7 +164,6 @@ class AccessController extends \yii\console\Controller
 
     /**
      * @return int
-     * @throws InvalidConfigException
      */
     private function installRules()
     {
@@ -186,8 +182,6 @@ class AccessController extends \yii\console\Controller
     /**
      * @return int
      * @throws InvalidConfigException
-     * @throws \Exception
-     * @throws \yii\base\Exception
      */
     private function installItems()
     {
