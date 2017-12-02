@@ -1262,11 +1262,11 @@
         },
         {
             "name": "yii2-developer/yii2-example",
-            "version": "0.0.6",
+            "version": "0.0.7",
             "source": {
                 "type": "git",
                 "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-example.git",
-                "reference": "df7701566314440b87af9628e2323ae0bcdae6cb"
+                "reference": "d560df5d3f36c409fde4e13e4b4be084adfcc496"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -1296,7 +1296,7 @@
                 "extension",
                 "yii2"
             ],
-            "time": "2017-12-02T11:52:51+00:00"
+            "time": "2017-12-02T14:26:49+00:00"
         },
         {
             "name": "yii2-developer/yii2-extend",

@@ -27,7 +27,7 @@ return [
                 ],
                 [
                     'label' => 'Example',
-                    'url' => ['/example/example'],
+                    'url' => ['/example/default'],
                 ],
                 [
                     'label' => 'Backup Manager',

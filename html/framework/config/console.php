@@ -82,7 +82,7 @@ $config = [
                 [
                     'name' => 'example',
                     'controllers' => [
-                        'example' => [],
+                        'default' => [],
                     ],
                 ],
                 [
