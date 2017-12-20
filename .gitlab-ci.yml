@@ -1,7 +1,7 @@
 image: runner:latest
 stages:
     - test
-    #- deploy
+    - deploy
 before_script:
     - 'which sshpass || ( apt-get update -y && apt-get install sshpass -y )'
     - mkdir -p ~/.ssh
