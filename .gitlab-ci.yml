@@ -16,8 +16,9 @@ deploy:
         - mv .env.gitlab .env
         - docker-compose up -d
         - docker-compose ps
-        - ./docker-exec composer --working-dir=html/framework/yii migrate/up
-        - ./docker-exec composer --working-dir=html/framework/yii access/install
+        - ./docker-exec composer --working-dir=html/framework install
+        - ./docker-exec html/framework/yii migrate/up
+        - ./docker-exec html/framework/yii access/install
     tags:
         - docker
 after_script:
