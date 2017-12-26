@@ -41,3 +41,5 @@ production:
         - production
     tags:
         - shell
+before_script:
+    - docker-compose down
