@@ -4,9 +4,11 @@ services:
 stages:
     - deploy
 before_script:
-    - docker info
+    - apk add --no-cache py-pip
+    - pip install docker-compose
+    - docker version
+    - docker-compose version
 build:
     stage: deploy
     script:
         - docker version
-
