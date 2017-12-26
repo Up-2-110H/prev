@@ -14,7 +14,7 @@ build:
     stage: deploy
     script:
         - mv .env.gitlab .env
-        - ls -la
+        - ls -la html
         - docker-compose up -d
         - docker-compose ps
     tags:
