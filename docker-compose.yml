@@ -8,7 +8,7 @@ services:
             - APACHE_RUN_USER=${APACHE_RUN_USER}
             - APACHE_RUN_GROUP=${APACHE_RUN_GROUP}
         volumes:
-            - .:/var/www
+            - .:/var/www/html
             - ./docker/server/log:/var/log/apache2
             - ./docker/config/cron:/root/cron
             - ./docker/config/php/php.ini:/usr/local/etc/php/php.ini
