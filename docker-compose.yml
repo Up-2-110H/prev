@@ -1,9 +1,7 @@
 version: '3'
 services:
     app:
-        build:
-            context: docker/build/php
-            dockerfile: Dockerfile
+        image: ${IMAGE_APP_NAME}
         container_name: ${CONTAINER_NAME}
         environment:
             - APACHE_RUN_ID=${APACHE_RUN_ID}

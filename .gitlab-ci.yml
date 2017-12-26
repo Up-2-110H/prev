@@ -15,12 +15,11 @@ migrate:
         - docker-compose version
         - mv .env.test .env
         - ls -la
+        - pwd
         - docker-compose build
         - docker-compose up -d
         - ./docker-exec pwd
         - ./docker-exec ls -l
-        - ./docker-exec html/framework/yii migrate/up
-        - ./docker-exec html/framework/yii access/install
         - docker-compose down
     only:
         - master
