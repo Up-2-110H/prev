@@ -16,8 +16,8 @@ migrate:
         - mv .env.test .env
         - ls -la
         - docker-compose up -d
-        - ./docker-exec framework/yii migrate/up
-        - ./docker-exec framework/yii access/install
+        - ./docker-exec pwd
+        - ./docker-exec ls -la
         - docker-compose down
     only:
         - master
