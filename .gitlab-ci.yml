@@ -17,10 +17,10 @@ migrate:
         - mv .env.test .env
         - ls -la
         - pwd
-        - docker-compose up -f docker-compose.yml docker-compose.gitlab.yml -d
+        - docker-compose -f docker-compose.yml docker-compose.gitlab.yml up -d
         - ./docker-exec pwd
         - ./docker-exec ls -l
-        - docker-compose down -f docker-compose.yml docker-compose.gitlab.yml
+        - docker-compose -f docker-compose.yml docker-compose.gitlab.yml down
     only:
         - master
 dev:
