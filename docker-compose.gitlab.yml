@@ -1,8 +1,0 @@
-version: '3'
-services:
-    app:
-        build:
-          context: docker/build/php
-          dockerfile: Dockerfile
-        volumes:
-            - /builds/${CI_PROJECT_PATH}:/var/www/html
