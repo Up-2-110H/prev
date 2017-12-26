@@ -11,6 +11,7 @@ before_script:
 migrate:
     stage: test
     script:
+        - ${CI_PROJECT_PATH}
         - docker info
         - docker version
         - docker-compose version
