@@ -16,7 +16,6 @@ migrate:
         - mv .env.test .env
         - ls -la
         - pwd
-        - docker-compose build
         - docker-compose up -d
         - ./docker-exec pwd
         - ./docker-exec ls -l
