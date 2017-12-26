@@ -16,10 +16,10 @@ migrate:
         - mv .env.test .env
         - ls -la
         - pwd
-        - docker-compose up -d --verbose
+        - docker-compose up -d
         - ./docker-exec pwd
         - ./docker-exec ls -l
-        - docker-compose down --verbose
+        - docker-compose down
     only:
         - master
 dev:
