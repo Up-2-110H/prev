@@ -1,21 +1,13 @@
-image: docker:latest
-# When using dind, it's wise to use the overlayfs driver for
-# improved performance.
-variables:
-  DOCKER_DRIVER: overlay
-services:
-    - docker:dind
+image: runner:latest
 stages:
     - test
     - deploy
 before_script:
-    - 'which sshpass || ( apk update && apk add sshpass )'
+    - 'which sshpass || ( apt-get update -y && apt-get install sshpass -y )'
     - mkdir -p ~/.ssh
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-    - apk update
-    - apk upgrade
-    - apk add python python-dev py-pip build-base
-    - pip install docker-compose
+    - composer self-update
+    - cd ./html/framework && composer install --prefer-dist --no-interaction --no-progress --ignore-platform-reqs && cd ../../
 migrate:
     stage: test
     script:
