@@ -21,3 +21,4 @@ build:
         - docker
 after_script:
     - docker-compose down
+    - rm -rf /builds/$CI_PROJECT_PATH
