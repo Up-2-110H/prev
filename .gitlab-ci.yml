@@ -10,13 +10,14 @@ before_script:
     - pip install docker-compose
     - docker version
     - docker-compose version
-build:
+deploy:
     stage: deploy
     script:
         - mv .env.gitlab .env
         - docker-compose up -d
         - docker-compose ps
-        - ./docker-exec ls -la
+        - ./docker-exec composer --working-dir=html/framework/yii migrate/up
+        - ./docker-exec composer --working-dir=html/framework/yii access/install
     tags:
         - docker
 after_script:
