@@ -12,3 +12,5 @@ build:
     stage: deploy
     script:
         - docker version
+    tags:
+        - docker
