@@ -11,6 +11,7 @@ before_script:
 build:
     stage: deploy
     script:
-        - docker version
+        - ls -la
+        - mv .env.gitlab .env
     tags:
         - docker
