@@ -7,7 +7,7 @@ stages:
     - test
     - deploy
 before_script:
-    - 'which sshpass || ( apk -y && apk add sshpass )'
+    - 'which sshpass || ( apk update && apk add sshpass )'
     - mkdir -p ~/.ssh
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - composer self-update
