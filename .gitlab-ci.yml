@@ -11,8 +11,6 @@ before_script:
 migrate:
     stage: test
     script:
-        - pwd
-        - useradd --shell=/bin/bash --home-dir="/var/www" test
         - docker version
         - docker-compose version
         - mv .env.test .env

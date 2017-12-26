@@ -1,14 +1,16 @@
 version: '3'
 services:
     app:
-        image: ${IMAGE_APP_NAME}
+        build:
+            context: docker/build/php
+            dockerfile: Dockerfile
         container_name: ${CONTAINER_NAME}
         environment:
             - APACHE_RUN_ID=${APACHE_RUN_ID}
             - APACHE_RUN_USER=${APACHE_RUN_USER}
             - APACHE_RUN_GROUP=${APACHE_RUN_GROUP}
         volumes:
-            - .:/var/www
+            #- .:/var/www
             - ./docker/server/log:/var/log/apache2
             - ./docker/config/cron:/root/cron
             - ./docker/config/php/php.ini:/usr/local/etc/php/php.ini
