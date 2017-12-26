@@ -14,6 +14,7 @@ build:
         - mv .env.gitlab .env
         - ls -la
         - docker-compose up -d
+        - docker-compose ps
     tags:
         - docker
 after_script:
