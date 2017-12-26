@@ -11,7 +11,10 @@ before_script:
 build:
     stage: deploy
     script:
-        - ls -la
         - mv .env.gitlab .env
+        - ls -la
+        - docker-compose up -d
     tags:
         - docker
+after_script:
+    - docker-compose down
