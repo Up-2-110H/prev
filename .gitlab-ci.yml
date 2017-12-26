@@ -14,8 +14,6 @@ build:
     stage: deploy
     script:
         - mv .env.gitlab .env
-        #- $CI_PROJECT_DIR
-        - $CI_PROJECT_PATH
         - docker-compose up -d
         - docker-compose ps
         - ./docker-exec ls -la
