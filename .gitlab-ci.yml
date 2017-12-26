@@ -1,4 +1,8 @@
-image: runner:latest
+image: docker:latest
+variables:
+    DOCKER_DRIVER: overlay
+services:
+    - docker:dind
 stages:
     - test
     - deploy
@@ -8,6 +12,11 @@ before_script:
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - composer self-update
     - cd ./html/framework && composer install --prefer-dist --no-interaction --no-progress --ignore-platform-reqs && cd ../../
+    - docker info
+    - apk update
+    - apk upgrade
+    - apk add python python-dev py-pip build-base
+    - pip install docker-compose
 migrate:
     stage: test
     script:
@@ -19,7 +28,6 @@ migrate:
         - docker-compose up -d
         - ./docker-exec pwd
         - ./docker-exec ls -l
-        - ./docker-exec ls -l docker
         - docker-compose down
     only:
         - master
