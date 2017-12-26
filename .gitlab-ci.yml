@@ -21,4 +21,4 @@ build:
         - docker
 after_script:
     - docker-compose down
-    - rm -rf .
+    - rm -rf ./
