@@ -3,17 +3,12 @@ stages:
     - test
     - deploy
 before_script:
-    - 'which sshpass || ( apt-get update -y && apt-get install sshpass -y )'
-    - mkdir -p ~/.ssh
-    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-    - composer self-update
-    - cd ./html/framework && composer install --prefer-dist --no-interaction --no-progress --ignore-platform-reqs && cd ../../
+    - docker info
+    - docker version
+    - docker-compose version
 migrate:
     stage: test
     script:
-        - docker info
-        - docker version
-        - docker-compose version
         - mv .env.test .env
         - docker-compose up -d
         - ./docker-exec pwd
@@ -21,6 +16,8 @@ migrate:
         - docker-compose down
     only:
         - master
+    tags:
+        - shell
 dev:
     stage: deploy
     environment: dev
@@ -33,6 +30,8 @@ dev:
         - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker-exec framework/yii cache/flush-all"
     only:
         - master
+    tags:
+        - shell
 production:
     stage: deploy
     environment: production
@@ -40,3 +39,5 @@ production:
         - ls -l html
     only:
         - production
+    tags:
+        - shell
