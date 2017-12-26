@@ -19,6 +19,7 @@ migrate:
         - docker-compose up -d
         - ./docker-exec pwd
         - ./docker-exec ls -l
+        - ./docker-exec ls -l docker
         - docker-compose down
     only:
         - master
