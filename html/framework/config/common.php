@@ -35,7 +35,8 @@ return \yii\helpers\ArrayHelper::merge([
             },
             \League\Flysystem\FilesystemInterface::class => function () {
                 $filesystem = Yii::createObject(\League\Flysystem\Filesystem::class);
-                $filesystem->addPlugin(new \krok\storage\plugins\PublicUrl('/render/storage'));
+                $filesystem->addPlugin(new \krok\storage\plugins\PublicUrl('/render/storage', 'getPublicUrl'));
+                $filesystem->addPlugin(new \krok\storage\plugins\PublicUrl('/uploads/storage', 'getDownloadUrl'));
                 $filesystem->addPlugin(new \krok\storage\plugins\HashGrid());
 
                 return $filesystem;
