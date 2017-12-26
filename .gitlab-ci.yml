@@ -8,7 +8,7 @@ before_script:
 migrate:
     stage: test
     script:
-        - mv .env.test .env
+        - mv .env.gitlab .env
         - docker-compose up -d
         - ./docker-exec composer --working-dir=framework install
         - ./docker-exec framework/yii migrate
@@ -41,5 +41,5 @@ production:
         - production
     tags:
         - shell
-before_script:
+after_script:
     - docker-compose down
