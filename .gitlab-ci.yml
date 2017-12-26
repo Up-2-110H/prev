@@ -17,6 +17,7 @@ migrate:
         - mv .env.test .env
         - ls -la
         - pwd
+        - docker-compose -f docker-compose.yml -f docker-compose.gitlab.yml build
         - docker-compose -f docker-compose.yml -f docker-compose.gitlab.yml up -d
         - ./docker-exec pwd
         - ./docker-exec ls -l
