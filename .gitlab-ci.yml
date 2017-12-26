@@ -1,5 +1,12 @@
 image: docker:latest
 services:
     - docker:dind
+stages:
+    - deploy
 before_script:
     - docker info
+build:
+    stage: deploy
+    script:
+        - docker version
+
