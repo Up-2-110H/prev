@@ -10,6 +10,7 @@ migrate:
     script:
         - mv .env.test .env
         - docker-compose up -d
+        - ./docker-exec composer --working-dir=framework install
         - ./docker-exec framework/yii migrate
         - ./docker-exec framework/yii access/install
         - docker-compose down
