@@ -4,23 +4,54 @@ variables:
 services:
     - docker:dind
 stages:
+    - tests
     - deploy
 before_script:
+    # Install
     - apk add --no-cache py-pip
     - pip install docker-compose
+    # Software
     - docker version
     - docker-compose version
-deploy:
-    stage: deploy
+    # Configure
+    - mv .env.gitlab .env
+    # Up
+    - docker-compose up -d
+    - docker-compose ps
+    # Run
+    - ./docker-exec composer --working-dir=html/framework install
+migrate:
+    stage: tests
     script:
-        - mv .env.gitlab .env
-        - docker-compose up -d
-        - docker-compose ps
-        - ./docker-exec composer --working-dir=html/framework install
         - ./docker-exec html/framework/yii migrate/up
         - ./docker-exec html/framework/yii access/install
     tags:
-        - docker
+        - dind
+dev:
+    stage: deploy
+    environment: dev
+    script:
+        - sshpass -p $SSH_PASSWORD rsync -riz --links --delete -e "ssh" --exclude-from="exclude.txt" . $SSH_USERNAME@$SSH_HOST:$SSH_DIRECTORY
+        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker-mysql-backup -c cmf2devvpsru_mysql_1"
+        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker-cron /root/cron/tabs"
+        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker-exec framework/yii migrate/up"
+        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker-exec framework/yii access/install"
+        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker-exec framework/yii cache/flush-all"
+    only:
+        - master
+    tags:
+        - dind
+production:
+    stage: deploy
+    environment: production
+    script:
+        - ls -l html
+    only:
+        - production
+    tags:
+        - dind
 after_script:
+    # Down
     - docker-compose down
+    # Cleanse
     - find . -delete
