@@ -2,18 +2,16 @@ stages:
     - test
     - deploy
 before_script:
-    - docker info
     - docker version
     - docker-compose version
+    - mv .env.gitlab .env
+    - docker-compose up -d
 migrate:
     stage: test
     script:
-        - mv .env.gitlab .env
-        - docker-compose up -d
         - ./docker-exec composer --working-dir=framework install
         - ./docker-exec framework/yii migrate
         - ./docker-exec framework/yii access/install
-        - docker-compose down
     only:
         - master
     tags:
