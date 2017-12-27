@@ -1,4 +1,4 @@
-image: docker:compose
+image: runner:compose
 variables:
     DOCKER_DRIVER: overlay
 services:
