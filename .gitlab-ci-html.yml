@@ -1,8 +1,7 @@
-image: runner:latest
+image: runner:compose
 stages:
     - deploy
 before_script:
-    - 'which sshpass || ( apt-get update -y && apt-get install sshpass -y )'
     - mkdir -p ~/.ssh
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
 dev:
@@ -12,3 +11,5 @@ dev:
         - sshpass -p $SSH_PASSWORD rsync -riz --delete -e "ssh" ./html/ $SSH_USERNAME@$SSH_HOST:$SSH_DIRECTORY
     only:
         - master
+    tags:
+        - dind
