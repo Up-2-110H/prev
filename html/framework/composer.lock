@@ -1537,11 +1537,11 @@
         },
         {
             "name": "yii2-developer/yii2-paperDashboard",
-            "version": "0.0.8",
+            "version": "0.0.9",
             "source": {
                 "type": "git",
                 "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-paperDashboard.git",
-                "reference": "8fa5555c959a351de020954ad7921e5e05306d6a"
+                "reference": "d62e3f4fcb6a9d0c0e36043245d521aa13ef498d"
             },
             "require": {
                 "bootstrap-select/bootstrap-select": "~1.12.0",
@@ -1575,7 +1575,7 @@
                 "paperDashboard",
                 "yii2"
             ],
-            "time": "2017-10-31T08:44:59+00:00"
+            "time": "2017-12-26T07:24:11+00:00"
         },
         {
             "name": "yii2-developer/yii2-security",
@@ -1971,23 +1971,23 @@
         },
         {
             "name": "yiisoft/yii2-gii",
-            "version": "2.0.5",
+            "version": "2.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-gii.git",
-                "reference": "1bd6df6804ca077ec022587905a0d43eb286f507"
+                "reference": "db41f647d9b73702ceb6864fdfce827a72b5ce42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/1bd6df6804ca077ec022587905a0d43eb286f507",
-                "reference": "1bd6df6804ca077ec022587905a0d43eb286f507",
+                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/db41f647d9b73702ceb6864fdfce827a72b5ce42",
+                "reference": "db41f647d9b73702ceb6864fdfce827a72b5ce42",
                 "shasum": ""
             },
             "require": {
                 "bower-asset/typeahead.js": "0.10.* | ~0.11.0",
                 "phpspec/php-diff": ">=1.0.2",
-                "yiisoft/yii2": ">=2.0.4",
-                "yiisoft/yii2-bootstrap": "~2.0"
+                "yiisoft/yii2": "~2.0.13",
+                "yiisoft/yii2-bootstrap": "~2.0.0"
             },
             "type": "yii2-extension",
             "extra": {
@@ -2020,7 +2020,7 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2016-03-18T14:09:46+00:00"
+            "time": "2017-12-22T23:53:06+00:00"
         },
         {
             "name": "yiisoft/yii2-imagine",
