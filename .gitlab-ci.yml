@@ -10,7 +10,10 @@ before_script:
     # Software
     - docker version
     - docker-compose version
-    # Configure
+    # Configure ssh
+    - mkdir -p ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    # Configure docker-compose
     - mv .env.gitlab .env
     # Up
     - docker-compose up -d
