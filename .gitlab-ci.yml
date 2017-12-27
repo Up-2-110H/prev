@@ -19,7 +19,7 @@ before_script:
     - docker-compose up -d
     - docker-compose ps
     # Run
-    - ./docker-exec composer --working-dir=html/framework install
+    - ./docker-exec composer --working-dir=framework install
 migrate:
     stage: tests
     script:
