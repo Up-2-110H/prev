@@ -2,7 +2,7 @@ image: runner:compose
 variables:
     DOCKER_DRIVER: overlay
 services:
-    - docker:dind
+    - docker:17.09.1-ce-dind
 stages:
     - tests
     - deploy
