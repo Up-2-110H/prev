@@ -23,7 +23,6 @@ before_script:
 migrate:
     stage: tests
     script:
-        - ./docker-exec ls -la
         - ./docker-exec framework/yii migrate/up
         - ./docker-exec framework/yii access/install
     tags:
