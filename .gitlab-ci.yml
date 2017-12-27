@@ -23,8 +23,9 @@ before_script:
 migrate:
     stage: tests
     script:
-        - ./docker-exec html/framework/yii migrate/up
-        - ./docker-exec html/framework/yii access/install
+        - ./docker-exec ls -la
+        - ./docker-exec framework/yii migrate/up
+        - ./docker-exec framework/yii access/install
     tags:
         - dind
 dev:
