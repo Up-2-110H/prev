@@ -22,11 +22,12 @@ before_script:
     - ./docker-exec composer --working-dir=framework install
 migrate:
     stage: tests
+    environment: tests
     script:
         - ./docker-exec framework/yii migrate/up
         - ./docker-exec framework/yii access/install
     tags:
-        - dind
+        - compose
 dev:
     stage: deploy
     environment: dev
@@ -40,16 +41,19 @@ dev:
     only:
         - master
     tags:
-        - dind
+        - compose
 production:
     stage: deploy
     environment: production
     script:
-        - ls -l html
+        - sshpass -p $SSH_PASSWORD_PROD rsync -riz --links --delete -e "ssh" --exclude-from="exclude.txt" . $SSH_USERNAME_PROD@$SSH_HOST_PROD:$SSH_DIRECTORY_PROD
+        - sshpass -p $SSH_PASSWORD_PROD ssh $SSH_USERNAME_PROD@$SSH_HOST_PROD "cd $SSH_DIRECTORY_PROD && /usr/local/php71/bin/php framework/yii migrate/up"
+        - sshpass -p $SSH_PASSWORD_PROD ssh $SSH_USERNAME_PROD@$SSH_HOST_PROD "cd $SSH_DIRECTORY_PROD && /usr/local/php71/bin/php framework/yii access/install"
+        - sshpass -p $SSH_PASSWORD_PROD ssh $SSH_USERNAME_PROD@$SSH_HOST_PROD "cd $SSH_DIRECTORY_PROD && /usr/local/php71/bin/php framework/yii cache/flush-all"
     only:
         - production
     tags:
-        - dind
+        - compose
 after_script:
     # Down
     - docker-compose down
