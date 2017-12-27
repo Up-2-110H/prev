@@ -1,4 +1,4 @@
-image: docker:latest
+image: runner:compose
 variables:
     DOCKER_DRIVER: overlay
 services:
@@ -7,9 +7,6 @@ stages:
     - tests
     - deploy
 before_script:
-    # Install
-    - apk add --no-cache py-pip
-    - pip install docker-compose
     # Software
     - docker version
     - docker-compose version
