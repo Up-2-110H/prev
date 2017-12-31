@@ -1,8 +1,8 @@
 image: runner:compose
 variables:
     DOCKER_DRIVER: overlay
-services:
-    - docker:dind
+#services:
+#    - docker:dind
 stages:
     - tests
     - deploy
