@@ -1,6 +1,6 @@
 image: runner:compose
-#variables:
-#    DOCKER_DRIVER: overlay
+variables:
+    DOCKER_DRIVER: overlay
 services:
     - docker:dind
 stages:
