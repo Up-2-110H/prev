@@ -1,6 +1,4 @@
 image: runner:compose
-#variables:
-#    DOCKER_DRIVER: overlay
 stages:
     - tests
     - deploy
