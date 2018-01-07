@@ -18,6 +18,7 @@ Thumbs.db
 # environment
 /.env
 /.composer
+/docker-compose.override.yml
 
 # system
 /.cache
