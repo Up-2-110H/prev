@@ -69,9 +69,9 @@ Model
 Установка
 =========
 
-./docker-exec composer --working-dir=framework install
-./docker-exec framework/yii migrate/up
-./docker-exec framework/yii access/install
+./docker.sh exec composer --working-dir=framework install
+./docker.sh exec framework/yii migrate/up
+./docker.sh exec framework/yii access/install
 
 Администрирование
 =================
