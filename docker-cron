@@ -1,5 +1,0 @@
-#!/usr/bin/env sh
-
-. ./.env
-
-docker exec -i "$CONTAINER_NAME" crontab -u "$APACHE_RUN_USER" "$@"

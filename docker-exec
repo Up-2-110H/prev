@@ -1,5 +1,0 @@
-#!/usr/bin/env sh
-
-. ./.env
-
-docker exec -i --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_NAME" "$@"

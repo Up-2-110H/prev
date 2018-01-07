@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-./docker-exec framework/yii migrate/up-all
-./docker-exec framework/yii access/install
-./docker-exec framework/yii cache/flush-all
+./docker.sh exec framework/yii migrate/up-all
+./docker.sh exec framework/yii access/install
+./docker.sh exec framework/yii cache/flush-all

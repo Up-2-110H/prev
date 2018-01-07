@@ -16,13 +16,13 @@ before_script:
     - docker-compose up -d
     - docker-compose ps
     # Run
-    - ./docker-exec composer --working-dir=framework install
+    - ./docker.sh exec composer --working-dir=framework install
 migrate:
     stage: tests
     environment: tests
     script:
-        - ./docker-exec framework/yii migrate/up
-        - ./docker-exec framework/yii access/install
+        - ./docker.sh exec framework/yii migrate/up
+        - ./docker.sh exec framework/yii access/install
     tags:
         - compose
 dev:
@@ -30,11 +30,11 @@ dev:
     environment: dev
     script:
         - sshpass -p $SSH_PASSWORD rsync -riz --links --delete -e "ssh" --exclude-from="exclude.txt" . $SSH_USERNAME@$SSH_HOST:$SSH_DIRECTORY
-        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker-mysql-backup -c cmf2devvpsru_mysql_1"
-        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker-cron /root/cron/tabs"
-        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker-exec framework/yii migrate/up"
-        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker-exec framework/yii access/install"
-        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker-exec framework/yii cache/flush-all"
+        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker.sh mysqldump -c cmf2devvpsru_mysql_1"
+        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker.sh cron /root/cron/tabs"
+        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker.sh exec framework/yii migrate/up"
+        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker.sh exec framework/yii access/install"
+        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker.sh exec framework/yii cache/flush-all"
     only:
         - master
     tags:
