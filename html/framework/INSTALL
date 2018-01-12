@@ -1,0 +1,5 @@
+Настроить xdebug в php.ini
+Прописать NETWORK в .env.dist
+Поправить .gitlab-ci.yml
+Поправить SiteController
+Удалить INSTALL

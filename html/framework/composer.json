@@ -60,5 +60,9 @@
         "process-timeout": 1800,
         "secure-http": false
     },
+    "scripts": {
+        "post-install-cmd": "@todo",
+        "todo": "cat INSTALL"
+    },
     "optimize-autoloader": true
 }
