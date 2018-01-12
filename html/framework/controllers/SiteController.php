@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use yii\base\DynamicModel;
+use yii\data\Pagination;
 use yii\web\Controller;
 
 /**
@@ -14,23 +16,9 @@ class SiteController extends Controller
     /**
      * @var string
      */
-    public $layout = '//index';
+    public $layout = '//common';
 
     /**
-     * @inheritdoc
-     */
-    public function actions()
-    {
-        return [
-            'error' => [
-                'class' => \yii\web\ErrorAction::class,
-            ],
-        ];
-    }
-
-    /**
-     * Displays homepage.
-     *
      * @return string
      */
     public function actionIndex()
@@ -39,12 +27,41 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays about page.
-     *
      * @return string
      */
-    public function actionAbout()
+    public function actionExample()
     {
-        return $this->render('about');
+        $pagination = new Pagination([
+            'totalCount' => 1000,
+        ]);
+
+        $breadcrumbs = [
+            [
+                'label' => 'Промежуточная',
+                'url' => ['/'],
+            ],
+            [
+                'label' => 'Активная',
+            ],
+        ];
+
+        $model = new DynamicModel([
+            'name' => 'Александр',
+            'email' => null,
+            'sex' => 1,
+            'isHidden' => 0,
+        ]);
+        $model
+            ->addRule(['name'], 'string')
+            ->addRule(['email'], 'email')
+            ->addRule(['sex', 'isHidden'], 'integer')
+            ->addRule(['name', 'email'], 'required')
+            ->validate();
+
+        return $this->render('example', [
+            'pagination' => $pagination,
+            'breadcrumbs' => $breadcrumbs,
+            'model' => $model,
+        ]);
     }
 }
