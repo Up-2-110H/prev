@@ -28,7 +28,7 @@
     ],
     "require": {
         "php": ">=7.1.0",
-        "yiisoft/yii2": ">=2.0.12",
+        "yiisoft/yii2": "~2.0.12",
         "yiisoft/yii2-redis": "~2.0.0",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
@@ -57,12 +57,12 @@
         "yiisoft/yii2-gii": "~2.0.0"
     },
     "config": {
+        "optimize-autoloader": true,
         "process-timeout": 1800,
         "secure-http": false
     },
     "scripts": {
         "post-install-cmd": "@todo",
         "todo": "cat INSTALL"
-    },
-    "optimize-autoloader": true
+    }
 }
