@@ -24,7 +24,7 @@ $config = [
     'container' => [
         'definitions' => [
             \yii\captcha\CaptchaAction::class => [
-                'backColor' => 0xf3f3f5,
+                'transparent' => true,
             ],
             \krok\editor\interfaces\EditorInterface::class => \krok\imperavi\widgets\ImperaviWidget::class,
             \krok\imperavi\widgets\ImperaviWidget::class => [
