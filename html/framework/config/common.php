@@ -185,7 +185,7 @@ return \yii\helpers\ArrayHelper::merge([
                         ],
                         'subject' => 'CMF2',
                     ],
-                    'enabled' => true,
+                    'enabled' => YII_ENV_DEV,
                 ],
                 'file' => [
                     'class' => \krok\log\FileTarget::class,
