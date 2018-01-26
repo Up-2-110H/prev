@@ -110,6 +110,10 @@ $config = [
             'hostInfo' => '/',
             'rules' => require(__DIR__ . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR . 'rules.php'),
         ],
+        'errorHandler' => [
+            'class' => \krok\sentry\console\SentryErrorHandler::class,
+            'sentry' => \krok\sentry\Sentry::class,
+        ],
     ],
 ];
 

@@ -48,8 +48,9 @@ $config = [
             'cookieValidationKey' => hash('sha512', __FILE__ . __LINE__),
         ],
         'errorHandler' => [
-            'class' => \yii\web\ErrorHandler::class,
+            'class' => \krok\sentry\web\SentryErrorHandler::class,
             'errorAction' => 'content/default/error',
+            'sentry' => \krok\sentry\Sentry::class,
         ],
     ],
 ];
