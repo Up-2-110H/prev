@@ -171,27 +171,6 @@ return \yii\helpers\ArrayHelper::merge([
             'class' => \yii\log\Dispatcher::class,
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
-                'email' => [
-                    'class' => \krok\log\EmailTarget::class,
-                    'levels' => [
-                        'error',
-                        'warning',
-                    ],
-                    'except' => [
-                        'yii\web\HttpException:404',
-                        //'yii\web\HttpException:403',
-                    ],
-                    'message' => [
-                        'to' => [
-                            'webmaster@dev-vps.ru',
-                        ],
-                        'from' => [
-                            getenv('EMAIL') => 'Logging',
-                        ],
-                        'subject' => 'CMF2',
-                    ],
-                    'enabled' => YII_ENV_DEV,
-                ],
                 'file' => [
                     'class' => \krok\log\FileTarget::class,
                     'levels' => [
