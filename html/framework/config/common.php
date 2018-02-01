@@ -23,7 +23,7 @@ return \yii\helpers\ArrayHelper::merge([
         'singletons' => [
             \krok\sentry\Sentry::class => [
                 'class' => \krok\sentry\Sentry::class,
-                'dsn' => 'http://c1743fa697e54c1baf3aca367232165d:cd8d4327fb26431cb234e16b9f1b38a8@sentry.dev-vps.ru/2',
+                'dsn' => getenv('SENTRY_DSN'),
             ],
         ],
         'definitions' => [
