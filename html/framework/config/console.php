@@ -19,15 +19,14 @@ $config = [
             ],
         ],
         'access' => [
-            'class' => \app\commands\AccessController::class,
-            'login' => [
-                'webmaster',
+            'class' => \krok\access\AccessController::class,
+            'userIds' => [
+                1,
             ],
             'rules' => [
                 \app\modules\auth\rbac\AuthorRule::class,
             ],
-            'user' => \app\modules\auth\models\Auth::class,
-            'modules' => [
+            'config' => [
                 [
                     'name' => 'system',
                     'controllers' => [
