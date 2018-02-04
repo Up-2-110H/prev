@@ -1270,11 +1270,11 @@
         },
         {
             "name": "yii2-developer/yii2-content",
-            "version": "0.0.8",
+            "version": "0.0.10",
             "source": {
                 "type": "git",
                 "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-content.git",
-                "reference": "d4e1f350bff9437b48e6857a8c509564e590b227"
+                "reference": "5b82ec6920d6d7ebddaff0cbcc7e58cb4932d43f"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -1304,7 +1304,7 @@
                 "extension",
                 "yii2"
             ],
-            "time": "2018-02-04T07:53:58+00:00"
+            "time": "2018-02-04T16:23:52+00:00"
         },
         {
             "name": "yii2-developer/yii2-editor",
@@ -1343,11 +1343,11 @@
         },
         {
             "name": "yii2-developer/yii2-example",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-example.git",
-                "reference": "cd240ab2b4fd68435053e469b3da4c754b9626e2"
+                "reference": "8591baa9dfb4acd44aced089f6bfe6289712e627"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -1377,7 +1377,7 @@
                 "extension",
                 "yii2"
             ],
-            "time": "2018-02-04T07:45:57+00:00"
+            "time": "2018-02-04T16:23:00+00:00"
         },
         {
             "name": "yii2-developer/yii2-extend",
