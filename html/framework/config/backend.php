@@ -19,7 +19,7 @@ $config = [
          * see. https://content-security-policy.com/
          */
         Yii::$app->getResponse()->getHeaders()->add('Content-Security-Policy',
-            'default-src \'none\'; script-src \'self\' \'unsafe-inline\' \'unsafe-eval\'; connect-src \'self\'; child-src \'self\'; img-src * data:; style-src * \'unsafe-inline\'; font-src *;');
+            'default-src \'none\'; script-src \'self\' \'unsafe-inline\' \'unsafe-eval\'; connect-src \'self\'; child-src \'self\'; img-src * data:; style-src * \'unsafe-inline\'; font-src * data:;');
     },
     'container' => [
         'definitions' => [
