@@ -1,5 +1,5 @@
 .git
-/.env
+.env
 /tmp/
 /docker/server/*/
 /html/web/html/
