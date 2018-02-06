@@ -19,11 +19,13 @@ services:
                 ipv4_address: ${NETWORK_APP}
     redis:
         image: redis:3.2
+        container_name: ${CONTAINER_NAME}-redis
         networks:
             self:
                 ipv4_address: ${NETWORK_REDIS}
     mysql:
         image: mysql:5.7
+        container_name: ${CONTAINER_NAME}-mysql
         environment:
             MYSQL_USER: ${MYSQL_USER}
             MYSQL_PASSWORD: ${MYSQL_PASSWORD}
@@ -37,6 +39,7 @@ services:
                 ipv4_address: ${NETWORK_MYSQL}
     phpmyadmin:
         image: phpmyadmin/phpmyadmin:latest
+        container_name: ${CONTAINER_NAME}-phpmyadmin
         links:
             - mysql:mysql
         environment:
