@@ -10,22 +10,11 @@ do_cron() {
     docker exec -i "$CONTAINER_NAME" crontab -u "$APACHE_RUN_USER" "$@"
 }
 
-do_mysqldump() {
-    while getopts c: option
-    do
-        case "${option}"
-        in
-            c) CONTAINER=${OPTARG};;
-        esac
-    done
+do_mysql_backup() {
 
     umask 177
 
-    if [ -z "$CONTAINER" ]
-    then
-        echo "CONTAINER обязателен для заполнения!"
-        exit 1
-    fi
+    CONTAINER="$CONTAINER_NAME-mysql"
 
     DIRECTORY="docker/server/backup"
     if ! [ -d "$DIRECTORY" ]
@@ -33,30 +22,68 @@ do_mysqldump() {
         mkdir --mode=0700 --parents "$DIRECTORY"
     fi
 
-    DATE=$(date +"%Y-%m-%d %H:%M")
+    if [ -z "$1" ]
+    then
+        DATE=$(date +"%Y-%m-%d %H:%M")
+        COMMAND="$DIRECTORY/$MYSQL_DATABASE-$DATE.sql.gz"
+    else
+        COMMAND="$1"
+    fi
 
-    docker exec "$CONTAINER" /usr/bin/mysqldump --single-transaction --no-create-db --verbose --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE" | gzip > "$DIRECTORY/$MYSQL_DATABASE-$DATE.sql.gz"
+    docker exec "$CONTAINER" /usr/bin/mysqldump --single-transaction --no-create-db --verbose --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE" | gzip > "$COMMAND"
 
     find "$DIRECTORY" -type f -mtime +3 -exec rm {} \;
 
-    echo "Created database backup!"
+    echo "Done!"
+}
+
+do_mysql_restore() {
+
+    CONTAINER="$CONTAINER_NAME-mysql"
+
+    DIRECTORY="docker/server/backup"
+    if ! [ -d "$DIRECTORY" ]
+    then
+        mkdir --mode=0700 --parents "$DIRECTORY"
+    fi
+
+    if [ -z "$1" ]
+    then
+        FILE=$(ls "$DIRECTORY" -t | head -1)
+        COMMAND="$DIRECTORY/$FILE"
+    else
+        COMMAND="$1"
+    fi
+
+    gunzip < "$COMMAND" | docker exec -i "$CONTAINER" /usr/bin/mysql --verbose --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE"
+
+    echo "Done!"
 }
 
 case "$1" in
 
     exec)
-        shift;
+        shift
         do_exec $@
         ;;
 
     cron)
-        shift;
+        shift
         do_cron $@
         ;;
 
-    mysqldump)
-        shift;
-        do_mysqldump $@
+    mysql-backup)
+        shift
+        do_mysql_backup $@
         ;;
+
+    mysql-restore)
+        shift
+        do_mysql_restore $@
+        ;;
+
+    *)
+    echo "Usage: docker.sh [exec|cron|mysql-backup|mysql-restore]"
+    ;;
 
 esac

@@ -30,7 +30,7 @@ dev:
     environment: dev
     script:
         - sshpass -p $SSH_PASSWORD rsync -riz --links --delete -e "ssh" --exclude-from="exclude.txt" . $SSH_USERNAME@$SSH_HOST:$SSH_DIRECTORY
-        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker.sh mysqldump -c cmf2devvpsru_mysql_1"
+        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker.sh mysql-backup"
         - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker.sh cron /root/cron/tabs"
         - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker.sh exec framework/yii migrate/up"
         - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker.sh exec framework/yii access/install"
