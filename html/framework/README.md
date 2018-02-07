@@ -70,13 +70,59 @@ Model
 Установка
 =========
 
+Предполагается что в системе уже установлен docker и docker-compose
+
+Копируем файл настройки окружения:
+
+```
+cp .env.dist .env
+```
+
+Редактируем файл .env
+
+Основные параметры:
+
+```
+COMPOSE_PROJECT_NAME=cmf2 _ИМЯ_ПРОЕКТА_
+
+CONTAINER_NAME=cmf2 _ИМЯ_ПРОЕКТА_
+
+APACHE_RUN_ID=1000 _ID_ЛОКАЛЬНОГО_ПОЛЬЗОВАТЕЛЯ_
+APACHE_RUN_USER=krok _ИМЯ_ЛОКАЛЬНОГО_ПОЛЬЗОВАТЕЛЯ_
+APACHE_RUN_GROUP=krok _ГРУППА_ЛОКАЛЬНОГО_ПОЛЬЗОВАТЕЛЯ_
+```
+
+Остальные параметры можно оставить без изменения
+
+Запускаем контейнеры:
+
+```
+docker-compose up -d
+```
+
+Если контейнеров в системе нет они будут загружены ( ~2 GB ) .
+
+После первого запуска нужно подождать 2-3 минуты , это нужно для первой инициализации
+
+Проверяем запущенные контейнеры:
+
+```
+docker-compose ps
+```
+
+Установка системы
+
+```
 ./docker.sh exec composer --working-dir=framework install
 ./docker.sh exec framework/yii migrate/up
 ./docker.sh exec framework/yii access/install
+```
 
 Администрирование
 =================
 
 Адрес: domain.tld/cp
+
 Логин: webmaster
+
 Пароль: webmaster
