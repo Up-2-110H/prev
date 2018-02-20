@@ -1,3 +1,11 @@
+Code style:
+===========
+* https://github.com/yiisoft/yii2/blob/master/docs/internals-ru/core-code-style.md
+
+Pattern:
+========
+* https://ru.wikipedia.org/wiki/SOLID_(объектно-ориентированное_программирование)
+
 MySQL
 =====
 * explicit_defaults_for_timestamp: https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_explicit_defaults_for_timestamp
