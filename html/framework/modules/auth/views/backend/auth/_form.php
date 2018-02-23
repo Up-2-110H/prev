@@ -1,5 +1,6 @@
 <?php
 
+use krok\passwordEye\PasswordEyeWidget;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -15,7 +16,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'login')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'password')->passwordInput(['maxlength' => true, 'value' => '']) ?>
+    <?= $form->field($model, 'password')->widget(
+        PasswordEyeWidget::class
+    ) ?>
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "db2489148b5f8605cedeed256c01c4b7",
+    "content-hash": "9d28800d53ca9baad66d9f83c5da46c3",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1622,6 +1622,48 @@
                 "yii2"
             ],
             "time": "2018-02-12T05:17:14+00:00"
+        },
+        {
+            "name": "yii2-developer/yii2-password-eye",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-password-eye.git",
+                "reference": "bcb9c1bc9ff3cf642755e55a380f80b3c5eb988b"
+            },
+            "require": {
+                "php": ">=7.1.0",
+                "yiisoft/yii2": "~2.0.12",
+                "yiisoft/yii2-bootstrap": "~2.0.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "krok\\passwordEye\\": ""
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "krok",
+                    "email": "yii2.developer@gmail.com"
+                }
+            ],
+            "description": "Password eye",
+            "keywords": [
+                "extension",
+                "eye",
+                "password",
+                "yii2"
+            ],
+            "time": "2018-02-23T06:03:20+00:00"
         },
         {
             "name": "yii2-developer/yii2-security",
