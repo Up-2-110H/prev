@@ -2,6 +2,9 @@
 
 $config = [
     'id' => 'console',
+    'bootstrap' => [
+        'queue',
+    ],
     'controllerMap' => [
         // Migrations for the specific project's module
         'migrate' => [

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9d28800d53ca9baad66d9f83c5da46c3",
+    "content-hash": "a5ca6305a61b7ea4945fe3297c8a6078",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1664,6 +1664,46 @@
                 "yii2"
             ],
             "time": "2018-02-23T06:03:20+00:00"
+        },
+        {
+            "name": "yii2-developer/yii2-queue",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-queue.git",
+                "reference": "0c2af8e0a1e637cdb71ed60ab190546d3564dc60"
+            },
+            "require": {
+                "php": ">=7.1.0",
+                "yiisoft/yii2-queue": "~2.0.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "krok\\queue\\": ""
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "krok",
+                    "email": "yii2.developer@gmail.com"
+                }
+            ],
+            "description": "Позволяет создавать очереди задач",
+            "keywords": [
+                "extension",
+                "queue",
+                "yii2"
+            ],
+            "time": "2018-02-26T12:01:48+00:00"
         },
         {
             "name": "yii2-developer/yii2-security",

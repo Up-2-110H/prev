@@ -10,8 +10,10 @@ services:
         volumes:
             - ./:/var/www
             - ./docker/server/log:/var/log/apache2
+            - ./docker/server/supervisor:/var/log/supervisor
             - ./docker/config/cron:/root/cron
             - ./docker/config/php/php.ini:/usr/local/etc/php/php.ini
+            - ./docker/config/supervisor/daemon.conf:/etc/supervisor/conf.d/daemon.conf
         expose:
             - 9000
         networks:

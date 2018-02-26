@@ -27,6 +27,9 @@ return \yii\helpers\ArrayHelper::merge([
             ],
         ],
         'definitions' => [
+            \yii\mail\MailerInterface::class => function () {
+                return Yii::$app->getMailer();
+            },
             \krok\storage\behaviors\UploaderBehavior::class => [
                 'class' => \krok\storage\behaviors\UploaderBehavior::class,
                 'uploadedDirectory' => '/storage',
@@ -183,6 +186,14 @@ return \yii\helpers\ArrayHelper::merge([
                     ],
                     'enabled' => YII_ENV_PROD,
                 ],
+            ],
+        ],
+        'queue' => [
+            'class' => \yii\queue\redis\Queue::class,
+            'redis' => [
+                'hostname' => getenv('REDIS_HOST'),
+                'port' => getenv('REDIS_PORT'),
+                'database' => 2,
             ],
         ],
         'db' => require(__DIR__ . DIRECTORY_SEPARATOR . 'db.php'),
