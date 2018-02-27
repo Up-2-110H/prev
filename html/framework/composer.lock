@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1dc51be047f4f72da05c467a57c1065",
+    "content-hash": "e2ebb45ec5164eb983d183caa2b7a053",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -318,16 +318,16 @@
         },
         {
             "name": "ezyang/htmlpurifier",
-            "version": "v4.9.3",
+            "version": "v4.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezyang/htmlpurifier.git",
-                "reference": "95e1bae3182efc0f3422896a3236e991049dac69"
+                "reference": "d85d39da4576a6934b72480be6978fb10c860021"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/95e1bae3182efc0f3422896a3236e991049dac69",
-                "reference": "95e1bae3182efc0f3422896a3236e991049dac69",
+                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/d85d39da4576a6934b72480be6978fb10c860021",
+                "reference": "d85d39da4576a6934b72480be6978fb10c860021",
                 "shasum": ""
             },
             "require": {
@@ -361,7 +361,7 @@
             "keywords": [
                 "html"
             ],
-            "time": "2017-06-03T02:28:16+00:00"
+            "time": "2018-02-23T01:58:20+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -1400,11 +1400,11 @@
         },
         {
             "name": "yii2-developer/yii2-imperavi",
-            "version": "1.0.0",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-imperavi.git",
-                "reference": "599cd45f62a8062a3417cd0ce17de50f9ccc017e"
+                "reference": "72f366d3340b563da2e420d5c781abfbb1ac599f"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -1433,7 +1433,7 @@
                 "imperavi",
                 "yii2"
             ],
-            "time": "2018-02-04T07:11:51+00:00"
+            "time": "2018-02-23T06:31:10+00:00"
         },
         {
             "name": "yii2-developer/yii2-language",
@@ -1509,17 +1509,17 @@
         },
         {
             "name": "yii2-developer/yii2-logging",
-            "version": "0.0.2",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-logging.git",
-                "reference": "16ecb9bab1132b3bf0dc26365668689bf2964b58"
+                "reference": "8b15b393085e2470808674e1ff320a56d6e87296"
             },
             "require": {
-                "php": ">=7.0.0",
+                "php": ">=7.1.0",
                 "yii2-developer/yii2-extend": "~0.0.1",
                 "yii2-developer/yii2-system": "~0.0.1",
-                "yiisoft/yii2": ">=2.0.12"
+                "yiisoft/yii2": "~2.0.12"
             },
             "type": "yii2-extension",
             "autoload": {
@@ -1536,13 +1536,13 @@
                     "email": "yii2.developer@gmail.com"
                 }
             ],
-            "description": "Logging",
+            "description": "Позволяет логировать действия ( добавление/изменение/удаление ) пользователя над записями",
             "keywords": [
                 "extension",
                 "logging",
                 "yii2"
             ],
-            "time": "2017-09-18T10:01:07+00:00"
+            "time": "2018-02-27T06:01:18+00:00"
         },
         {
             "name": "yii2-developer/yii2-oauth",
@@ -1581,11 +1581,11 @@
         },
         {
             "name": "yii2-developer/yii2-paperDashboard",
-            "version": "0.0.12",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-paperDashboard.git",
-                "reference": "81135984357f61d31fc07ad7989980c4dbe0d109"
+                "reference": "d7bd59f7381bbb3431a241756752f4f1e34799c0"
             },
             "require": {
                 "bootstrap-select/bootstrap-select": "~1.12.0",
@@ -1593,7 +1593,7 @@
                 "yii2-developer/yii2-analytics": "~1.0.0",
                 "yii2-developer/yii2-extend": "~0.0.1",
                 "yii2-developer/yii2-language": "~1.0.0",
-                "yii2-developer/yii2-logging": "~0.0.1",
+                "yii2-developer/yii2-logging": "~0.1.0",
                 "yiisoft/yii2": "~2.0.12",
                 "yiisoft/yii2-bootstrap": "~2.0.0"
             },
@@ -1615,13 +1615,13 @@
                     "email": "yii2.developer@gmail.com"
                 }
             ],
-            "description": "paperDashboard",
+            "description": "Шаблон системы администрирования",
             "keywords": [
                 "extension",
                 "paperDashboard",
                 "yii2"
             ],
-            "time": "2018-02-12T05:17:14+00:00"
+            "time": "2018-02-27T06:50:23+00:00"
         },
         {
             "name": "yii2-developer/yii2-password-eye",
@@ -1742,11 +1742,11 @@
         },
         {
             "name": "yii2-developer/yii2-sentry",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "source": {
                 "type": "git",
                 "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-sentry.git",
-                "reference": "f8b098f34cb46ff2ffd98d9f67698a62af43c03b"
+                "reference": "4aa5921ccfcced88c053815f2e53be5492b25ad2"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -1774,7 +1774,7 @@
                 "sentry",
                 "yii2"
             ],
-            "time": "2018-01-26T14:41:15+00:00"
+            "time": "2018-02-22T13:17:59+00:00"
         },
         {
             "name": "yii2-developer/yii2-slim",
@@ -1891,16 +1891,16 @@
         },
         {
             "name": "yiisoft/yii2",
-            "version": "2.0.14",
+            "version": "2.0.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "1c9cf916b1394681c7d043e79e1522c33e5bc6c1"
+                "reference": "d99969394c66dc3606134af092b8ec561ea5d7c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/1c9cf916b1394681c7d043e79e1522c33e5bc6c1",
-                "reference": "1c9cf916b1394681c7d043e79e1522c33e5bc6c1",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/d99969394c66dc3606134af092b8ec561ea5d7c6",
+                "reference": "d99969394c66dc3606134af092b8ec561ea5d7c6",
                 "shasum": ""
             },
             "require": {
@@ -1987,7 +1987,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2018-02-18T22:52:12+00:00"
+            "time": "2018-02-24T20:23:06+00:00"
         },
         {
             "name": "yiisoft/yii2-authclient",
