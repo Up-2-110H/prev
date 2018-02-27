@@ -24,7 +24,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'dataProvider' => $dataProvider,
             'filterModel' => $searchModel,
             'columns' => [
-
                 'id',
                 [
                     'attribute' => 'auth_id',
@@ -56,7 +55,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     'class' => \krok\extend\grid\DatePickerColumn::class,
                     'attribute' => 'created_at',
                 ],
-
             ],
         ]); ?>
 

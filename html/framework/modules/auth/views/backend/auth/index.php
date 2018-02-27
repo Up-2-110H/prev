@@ -31,8 +31,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'dataProvider' => $dataProvider,
             'filterModel' => $searchModel,
             'columns' => [
+                ['class' => 'yii\grid\ActionColumn'],
                 ['class' => 'yii\grid\SerialColumn'],
-
                 'id',
                 'login',
                 'email:email',
@@ -47,8 +47,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     'class' => \krok\extend\grid\DatePickerColumn::class,
                     'attribute' => 'updated_at',
                 ],
-
-                ['class' => 'yii\grid\ActionColumn'],
             ],
         ]); ?>
 
