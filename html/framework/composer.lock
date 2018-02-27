@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a5ca6305a61b7ea4945fe3297c8a6078",
+    "content-hash": "8454890b56a46aef4516f88fbbdb6280",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1286,11 +1286,11 @@
         },
         {
             "name": "yii2-developer/yii2-example",
-            "version": "1.0.1",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-example.git",
-                "reference": "8591baa9dfb4acd44aced089f6bfe6289712e627"
+                "reference": "ada54dbe223285ce9d5daff4d6bfcd87a9635741"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -1314,13 +1314,13 @@
                     "email": "yii2.developer@gmail.com"
                 }
             ],
-            "description": "Example",
+            "description": "Пример модуля",
             "keywords": [
                 "example",
                 "extension",
                 "yii2"
             ],
-            "time": "2018-02-04T16:23:00+00:00"
+            "time": "2018-02-27T06:02:31+00:00"
         },
         {
             "name": "yii2-developer/yii2-extend",
