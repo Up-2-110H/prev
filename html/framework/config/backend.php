@@ -26,6 +26,13 @@ $config = [
             \yii\captcha\CaptchaAction::class => [
                 'transparent' => true,
             ],
+            \yii\grid\ActionColumn::class => [
+                'class' => \yii\grid\ActionColumn::class,
+                'header' => 'Действие',
+                'options' => [
+                    'width' => 150,
+                ],
+            ],
             \krok\editor\interfaces\EditorInterface::class => \krok\imperavi\widgets\ImperaviWidget::class,
             \krok\imperavi\widgets\ImperaviWidget::class => [
                 'clientOptions' => [
