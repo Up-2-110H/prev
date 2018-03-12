@@ -1,5 +1,6 @@
 <?php
 
+use yii\authclient\widgets\AuthChoice;
 use yii\captcha\Captcha;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -49,7 +50,7 @@ $this->title = 'Авторизация';
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <?= $form->field($model, 'verifyCode')->widget(
-                                    Captcha::className(), [
+                                    Captcha::class, [
                                     'captchaAction' => '/auth/default/captcha',
                                 ]) ?>
                             </div>
@@ -62,6 +63,17 @@ $this->title = 'Авторизация';
                             <div class="text-center">
                                 <?= Html::submitButton('Авторизация', ['class' => 'btn btn-fill btn-wd']) ?>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid gray-bg">
+                    <div class="card-login__footer row">
+                        <div class="col-lg-12">
+                            <?= AuthChoice::widget([
+                                'popupMode' => false,
+                                'autoRender' => true,
+                                'baseAuthUrl' => ['/auth/default/oauth'],
+                            ]) ?>
                         </div>
                     </div>
                 </div>
