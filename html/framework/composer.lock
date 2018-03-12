@@ -201,13 +201,13 @@
             "version": "1.12.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/components/jqueryui.git",
-                "reference": "44ecf3794cc56b65954cc19737234a3119d036cc"
+                "url": "https://github.com/jquery/jquery-ui.git",
+                "reference": "c6f1735249295bb37153861aa97e5b3e38d46b02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/components/jqueryui/zipball/44ecf3794cc56b65954cc19737234a3119d036cc",
-                "reference": "44ecf3794cc56b65954cc19737234a3119d036cc",
+                "url": "https://api.github.com/repos/jquery/jquery-ui/zipball/c6f1735249295bb37153861aa97e5b3e38d46b02",
+                "reference": "c6f1735249295bb37153861aa97e5b3e38d46b02",
                 "shasum": null
             },
             "require": {
