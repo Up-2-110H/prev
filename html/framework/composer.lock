@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9d376b3dcfb769c45e9edf6f2a91cea3",
+    "content-hash": "5d99af17844775fab2454fa0475be6ee",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1551,15 +1551,15 @@
         },
         {
             "name": "yii2-developer/yii2-oauth",
-            "version": "1.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-oauth.git",
-                "reference": "db00f4c6b1819e1cb47618905ff718d5d52c5b04"
+                "reference": "9d0a27141f67adf750b916a80ba90cc0a927ef62"
             },
             "require": {
                 "php": ">=7.1.0",
-                "yiisoft/yii2-authclient": "~2.0.0"
+                "yiisoft/yii2-authclient": "~2.1.0"
             },
             "type": "yii2-extension",
             "autoload": {
@@ -1576,13 +1576,20 @@
                     "email": "yii2.developer@gmail.com"
                 }
             ],
-            "description": "OAuth",
+            "description": "Клиенты авторизации через соц. сети",
             "keywords": [
+                "Facebook",
+                "Gitlab",
+                "Google",
                 "OAuth",
+                "Ok",
+                "Twitter",
+                "Vk",
+                "Yandex",
                 "extension",
                 "yii2"
             ],
-            "time": "2018-02-03T14:33:21+00:00"
+            "time": "2018-03-12T05:44:41+00:00"
         },
         {
             "name": "yii2-developer/yii2-paperDashboard",
@@ -1996,21 +2003,23 @@
         },
         {
             "name": "yiisoft/yii2-authclient",
-            "version": "2.0.6",
+            "version": "2.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-authclient.git",
-                "reference": "96dd47c762749991a57d8c343b1a1ecfadf9c4c8"
+                "reference": "ff826241c231d8f768f4cb58577d6956fdbc5fab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-authclient/zipball/96dd47c762749991a57d8c343b1a1ecfadf9c4c8",
-                "reference": "96dd47c762749991a57d8c343b1a1ecfadf9c4c8",
+                "url": "https://api.github.com/repos/yiisoft/yii2-authclient/zipball/ff826241c231d8f768f4cb58577d6956fdbc5fab",
+                "reference": "ff826241c231d8f768f4cb58577d6956fdbc5fab",
                 "shasum": ""
             },
             "require": {
-                "ext-curl": "*",
-                "yiisoft/yii2": ">=2.0.4"
+                "yiisoft/yii2-httpclient": "~2.0.5"
+            },
+            "suggest": {
+                "spomky-labs/jose": "required for JWS,JWT or JWK related flows like OpenIDConnect"
             },
             "type": "yii2-extension",
             "extra": {
@@ -2020,7 +2029,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "yii\\authclient\\": ""
+                    "yii\\authclient\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2035,12 +2044,14 @@
             ],
             "description": "External authentication via OAuth and OpenID for the Yii framework",
             "keywords": [
+                "OpenID Connect",
                 "OpenId",
+                "api",
                 "auth",
                 "oauth",
                 "yii2"
             ],
-            "time": "2016-07-08T13:58:12+00:00"
+            "time": "2018-02-07T21:12:40+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -2151,6 +2162,53 @@
                 "yii2"
             ],
             "time": "2016-12-20T13:26:02+00:00"
+        },
+        {
+            "name": "yiisoft/yii2-httpclient",
+            "version": "2.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii2-httpclient.git",
+                "reference": "95fc8a943e8abb86e3d0f4eace6f6d1f4ba4f028"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-httpclient/zipball/95fc8a943e8abb86e3d0f4eace6f6d1f4ba4f028",
+                "reference": "95fc8a943e8abb86e3d0f4eace6f6d1f4ba4f028",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "~2.0.13"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "yii\\httpclient\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Klimov",
+                    "email": "klimov.paul@gmail.com"
+                }
+            ],
+            "description": "HTTP client extension for the Yii framework",
+            "keywords": [
+                "curl",
+                "http",
+                "httpclient",
+                "yii2"
+            ],
+            "time": "2018-02-13T15:11:30+00:00"
         },
         {
             "name": "yiisoft/yii2-imagine",

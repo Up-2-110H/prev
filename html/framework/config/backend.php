@@ -236,7 +236,7 @@ $config = [
             'class' => \yii\authclient\Collection::class,
             'clients' => [
                 'yandex' => [
-                    'class' => \krok\oauth\YandexOAuth::class,
+                    'class' => \krok\oauth\Yandex::class,
                     'clientId' => '',
                     'clientSecret' => '',
                     'normalizeUserAttributeMap' => [
@@ -244,7 +244,7 @@ $config = [
                     ],
                 ],
                 'google' => [
-                    'class' => \krok\oauth\GoogleOAuth::class,
+                    'class' => \krok\oauth\Google::class,
                     'clientId' => '',
                     'clientSecret' => '',
                     'normalizeUserAttributeMap' => [
@@ -270,9 +270,9 @@ $config = [
                     ],
                 ],
                 'twitter' => [
-                    'class' => \krok\oauth\Twitter::class,
-                    'consumerKey' => '',
-                    'consumerSecret' => '',
+                    'class' => \krok\oauth\TwitterOAuth2::class,
+                    'clientId' => '',
+                    'clientSecret' => '',
                     'normalizeUserAttributeMap' => [
                         'login' => 'screen_name',
                     ],
