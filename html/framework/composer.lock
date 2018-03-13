@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d99af17844775fab2454fa0475be6ee",
+    "content-hash": "89e154be4908338897a13d0726aabe10",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -201,13 +201,13 @@
             "version": "1.12.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jquery/jquery-ui.git",
-                "reference": "c6f1735249295bb37153861aa97e5b3e38d46b02"
+                "url": "https://github.com/components/jqueryui.git",
+                "reference": "44ecf3794cc56b65954cc19737234a3119d036cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jquery/jquery-ui/zipball/c6f1735249295bb37153861aa97e5b3e38d46b02",
-                "reference": "c6f1735249295bb37153861aa97e5b3e38d46b02",
+                "url": "https://api.github.com/repos/components/jqueryui/zipball/44ecf3794cc56b65954cc19737234a3119d036cc",
+                "reference": "44ecf3794cc56b65954cc19737234a3119d036cc",
                 "shasum": null
             },
             "require": {
@@ -696,33 +696,59 @@
             "time": "2017-05-09T17:41:49+00:00"
         },
         {
-            "name": "phpoffice/phpexcel",
-            "version": "1.8.1",
+            "name": "phpoffice/phpspreadsheet",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/PHPOffice/PHPExcel.git",
-                "reference": "372c7cbb695a6f6f1e62649381aeaa37e7e70b32"
+                "url": "https://github.com/PHPOffice/PhpSpreadsheet.git",
+                "reference": "8380fb3ad28242093c18d0baa9b7e67fb429ea84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/372c7cbb695a6f6f1e62649381aeaa37e7e70b32",
-                "reference": "372c7cbb695a6f6f1e62649381aeaa37e7e70b32",
+                "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/8380fb3ad28242093c18d0baa9b7e67fb429ea84",
+                "reference": "8380fb3ad28242093c18d0baa9b7e67fb429ea84",
                 "shasum": ""
             },
             "require": {
+                "ext-ctype": "*",
+                "ext-dom": "*",
+                "ext-gd": "*",
+                "ext-iconv": "*",
+                "ext-libxml": "*",
+                "ext-mbstring": "*",
+                "ext-simplexml": "*",
                 "ext-xml": "*",
+                "ext-xmlreader": "*",
                 "ext-xmlwriter": "*",
-                "php": ">=5.2.0"
+                "ext-zip": "*",
+                "ext-zlib": "*",
+                "php": "^5.6|^7.0",
+                "psr/simple-cache": "^1.0"
+            },
+            "require-dev": {
+                "dompdf/dompdf": "^0.8.0",
+                "friendsofphp/php-cs-fixer": "@stable",
+                "jpgraph/jpgraph": "^4.0",
+                "mpdf/mpdf": "^7.0.0",
+                "phpunit/phpunit": "^5.7",
+                "squizlabs/php_codesniffer": "^2.7",
+                "tecnickcom/tcpdf": "^6.2"
+            },
+            "suggest": {
+                "dompdf/dompdf": "Option for rendering PDF with PDF Writer",
+                "jpgraph/jpgraph": "Option for rendering charts, or including charts with PDF or HTML Writers",
+                "mpdf/mpdf": "Option for rendering PDF with PDF Writer",
+                "tecnick.com/tcpdf": "Option for rendering PDF with PDF Writer"
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "PHPExcel": "Classes/"
+                "psr-4": {
+                    "PhpOffice\\PhpSpreadsheet\\": "src/PhpSpreadsheet"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "LGPL"
+                "LGPL-2.1-or-later"
             ],
             "authors": [
                 {
@@ -730,28 +756,30 @@
                     "homepage": "http://blog.maartenballiauw.be"
                 },
                 {
-                    "name": "Mark Baker"
+                    "name": "Erik Tilt"
                 },
                 {
                     "name": "Franck Lefevre",
-                    "homepage": "http://blog.rootslabs.net"
+                    "homepage": "http://rootslabs.net"
                 },
                 {
-                    "name": "Erik Tilt"
+                    "name": "Mark Baker",
+                    "homepage": "http://markbakeruk.net"
                 }
             ],
-            "description": "PHPExcel - OpenXML - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
-            "homepage": "http://phpexcel.codeplex.com",
+            "description": "PHPSpreadsheet - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
+            "homepage": "https://github.com/PHPOffice/PhpSpreadsheet",
             "keywords": [
                 "OpenXML",
                 "excel",
+                "gnumeric",
+                "ods",
                 "php",
                 "spreadsheet",
                 "xls",
                 "xlsx"
             ],
-            "abandoned": "phpoffice/phpspreadsheet",
-            "time": "2015-05-01T07:00:55+00:00"
+            "time": "2018-03-04T20:41:15+00:00"
         },
         {
             "name": "psr/http-message",
@@ -802,6 +830,54 @@
                 "response"
             ],
             "time": "2016-08-06T14:39:51+00:00"
+        },
+        {
+            "name": "psr/simple-cache",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/simple-cache.git",
+                "reference": "408d5eafb83c57f6365a3ca330ff23aa4a5fa39b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
+                "reference": "408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\SimpleCache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interfaces for simple caching",
+            "keywords": [
+                "cache",
+                "caching",
+                "psr",
+                "psr-16",
+                "simple-cache"
+            ],
+            "time": "2017-10-23T01:57:42+00:00"
         },
         {
             "name": "sentry/sentry",
@@ -1213,16 +1289,16 @@
         },
         {
             "name": "yii2-developer/yii2-content",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-content.git",
-                "reference": "253c8806bcd8e2954775fad913e5d9bc33769b8a"
+                "reference": "4775a3e3546525066faea7463e75f5c9d8c0cc80"
             },
             "require": {
                 "php": ">=7.1.0",
                 "yii2-developer/yii2-editor": "~1.0.0",
-                "yii2-developer/yii2-extend": "~0.0.1",
+                "yii2-developer/yii2-extend": "~0.0.1 | ^0.1",
                 "yii2-developer/yii2-system": "~0.0.1",
                 "yiisoft/yii2": "~2.0.12"
             },
@@ -1247,7 +1323,7 @@
                 "extension",
                 "yii2"
             ],
-            "time": "2018-02-27T06:20:13+00:00"
+            "time": "2018-03-13T11:56:27+00:00"
         },
         {
             "name": "yii2-developer/yii2-editor",
@@ -1286,16 +1362,16 @@
         },
         {
             "name": "yii2-developer/yii2-example",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-example.git",
-                "reference": "ada54dbe223285ce9d5daff4d6bfcd87a9635741"
+                "reference": "69b4799c32c873eceea6f69b83b6a1024cfba5bc"
             },
             "require": {
                 "php": ">=7.1.0",
                 "yii2-developer/yii2-editor": "~1.0.0",
-                "yii2-developer/yii2-extend": "~0.0.1",
+                "yii2-developer/yii2-extend": "~0.0.1 | ^0.1",
                 "yii2-developer/yii2-system": "~0.0.1",
                 "yiisoft/yii2": "~2.0.12"
             },
@@ -1320,21 +1396,21 @@
                 "extension",
                 "yii2"
             ],
-            "time": "2018-02-27T06:02:31+00:00"
+            "time": "2018-03-13T11:59:21+00:00"
         },
         {
             "name": "yii2-developer/yii2-extend",
-            "version": "0.0.15",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-extend.git",
-                "reference": "5e5f55a2a20ea7a12e3a61d0b2209b803de79359"
+                "reference": "5229359d0da7dc2a1cfce699d7383e9318854bfe"
             },
             "require": {
                 "bower-asset/fancybox": "~2.1.0 | ~3.2.5",
                 "php": ">=7.1.0",
-                "phpoffice/phpexcel": "~1.8.0",
-                "yiisoft/yii2": ">=2.0.12",
+                "phpoffice/phpspreadsheet": "~1.2.0",
+                "yiisoft/yii2": "~2.0.12",
                 "yiisoft/yii2-bootstrap": "~2.0.0",
                 "yiisoft/yii2-jui": "~2.0.0"
             },
@@ -1359,7 +1435,7 @@
                 "extension",
                 "yii2"
             ],
-            "time": "2017-12-20T07:46:09+00:00"
+            "time": "2018-03-13T12:42:39+00:00"
         },
         {
             "name": "yii2-developer/yii2-glide",
@@ -1514,15 +1590,15 @@
         },
         {
             "name": "yii2-developer/yii2-logging",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-logging.git",
-                "reference": "8b15b393085e2470808674e1ff320a56d6e87296"
+                "reference": "f55b4ac209f46098840c677d5f09c26850489ad3"
             },
             "require": {
                 "php": ">=7.1.0",
-                "yii2-developer/yii2-extend": "~0.0.1",
+                "yii2-developer/yii2-extend": "~0.0.1 | ^0.1",
                 "yii2-developer/yii2-system": "~0.0.1",
                 "yiisoft/yii2": "~2.0.12"
             },
@@ -1547,7 +1623,7 @@
                 "logging",
                 "yii2"
             ],
-            "time": "2018-02-27T06:01:18+00:00"
+            "time": "2018-03-13T12:02:24+00:00"
         },
         {
             "name": "yii2-developer/yii2-oauth",
@@ -1593,17 +1669,17 @@
         },
         {
             "name": "yii2-developer/yii2-paperDashboard",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-paperDashboard.git",
-                "reference": "d7bd59f7381bbb3431a241756752f4f1e34799c0"
+                "reference": "26204350e1958b5b8f6b043e20ef43e34899e032"
             },
             "require": {
                 "bootstrap-select/bootstrap-select": "~1.12.0",
                 "php": ">=7.1.0",
                 "yii2-developer/yii2-analytics": "~1.0.0",
-                "yii2-developer/yii2-extend": "~0.0.1",
+                "yii2-developer/yii2-extend": "~0.0.1 | ^0.1",
                 "yii2-developer/yii2-language": "~1.0.0",
                 "yii2-developer/yii2-logging": "~0.1.0",
                 "yiisoft/yii2": "~2.0.12",
@@ -1633,7 +1709,7 @@
                 "paperDashboard",
                 "yii2"
             ],
-            "time": "2018-02-27T06:50:23+00:00"
+            "time": "2018-03-13T12:12:08+00:00"
         },
         {
             "name": "yii2-developer/yii2-password-eye",
@@ -1827,20 +1903,20 @@
         },
         {
             "name": "yii2-developer/yii2-storage",
-            "version": "0.0.9",
+            "version": "0.0.11",
             "source": {
                 "type": "git",
                 "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-storage.git",
-                "reference": "971c557c3231dfa143908af31b2d8be3345d46b5"
+                "reference": "aad7ec4a1fd8895948757d6c739f9d42e9f7b17e"
             },
             "require": {
                 "ext-fileinfo": "*",
                 "league/flysystem": "~1.0.0",
                 "league/glide": "~1.2.0",
-                "php": ">=7.0.0",
-                "yii2-developer/yii2-extend": "~0.0.1",
+                "php": ">=7.1.0",
+                "yii2-developer/yii2-extend": "~0.0.1 | ^0.1",
                 "yii2-developer/yii2-system": "~0.0.1",
-                "yiisoft/yii2": ">=2.0.12"
+                "yiisoft/yii2": "~2.0.12"
             },
             "type": "yii2-extension",
             "autoload": {
@@ -1857,13 +1933,13 @@
                     "email": "yii2.developer@gmail.com"
                 }
             ],
-            "description": "Storage",
+            "description": "Файловое хранилище",
             "keywords": [
                 "extension",
                 "storage",
                 "yii2"
             ],
-            "time": "2017-08-25T06:52:43+00:00"
+            "time": "2018-03-13T12:15:46+00:00"
         },
         {
             "name": "yii2-developer/yii2-system",
