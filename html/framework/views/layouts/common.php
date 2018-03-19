@@ -39,7 +39,6 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'Home', 'url' => ['/content/default/index', 'alias' => 'index']],
             ['label' => 'About', 'url' => ['/content/default/index', 'alias' => 'about']],
-            ['label' => 'Example', 'url' => ['/site/example']],
         ],
     ]);
     NavBar::end();
