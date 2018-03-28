@@ -30,7 +30,7 @@ do_mysql_backup() {
         COMMAND="$1"
     fi
 
-    docker exec "$CONTAINER" /usr/bin/mysqldump --single-transaction --no-create-db --verbose --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE" | gzip > "$COMMAND"
+    docker exec "$CONTAINER" mysqldump --single-transaction --no-create-db --verbose --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE" | gzip > "$COMMAND"
 
     find "$DIRECTORY" -type f -mtime +3 -exec rm {} \;
 
@@ -55,7 +55,7 @@ do_mysql_restore() {
         COMMAND="$1"
     fi
 
-    gunzip < "$COMMAND" | docker exec -i "$CONTAINER" /usr/bin/mysql --verbose --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE"
+    gunzip < "$COMMAND" | docker exec -i "$CONTAINER" mysql --verbose --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE"
 
     echo "Done!"
 }
