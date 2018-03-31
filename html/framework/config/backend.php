@@ -202,6 +202,21 @@ $config = [
                         YII_ENV_DEV ? 'js/bootstrap.js' : 'js/bootstrap.min.js',
                     ],
                 ],
+                \krok\paperDashboard\assets\PaperDashboardAsset::class => [
+                    'depends' => [
+                        \yii\web\JqueryAsset::class,
+                        \yii\bootstrap\BootstrapAsset::class,
+                        \krok\paperDashboard\assets\BootstrapDateTimePickerAsset::class,
+                        \krok\paperDashboard\assets\BootstrapSelectPickerAsset::class,
+                        \krok\paperDashboard\assets\BootstrapSwitchTagsAsset::class,
+                        \krok\paperDashboard\assets\ChartIstAsset::class,
+                        \krok\paperDashboard\assets\Es6PromiseAutoAsset::class,
+                        \krok\paperDashboard\assets\JqueryEasyPieChartAsset::class,
+                        \krok\paperDashboard\assets\PerfectScrollbarAsset::class,
+                        \krok\paperDashboard\assets\SweetAlert2Asset::class,
+                        \krok\bootbox\BootBoxAsset::class,
+                    ],
+                ],
             ],
         ],
         'request' => [
