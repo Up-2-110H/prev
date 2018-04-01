@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "41b162b3d55d51eb4c7353da4935f612",
+    "content-hash": "c90054b035112b5ce7fd8c4fdeadc612",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1729,11 +1729,11 @@
         },
         {
             "name": "yii2-developer/yii2-paperDashboard",
-            "version": "0.1.1",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-paperDashboard.git",
-                "reference": "26204350e1958b5b8f6b043e20ef43e34899e032"
+                "reference": "99392cfbda2996313ccb76be0a02ae94147f4387"
             },
             "require": {
                 "bootstrap-select/bootstrap-select": "~1.12.0",
@@ -1749,6 +1749,11 @@
                 "yiisoft/yii2-gii": "~2.0.0"
             },
             "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "krok\\paperDashboard\\": ""
@@ -1769,7 +1774,7 @@
                 "paperDashboard",
                 "yii2"
             ],
-            "time": "2018-03-13T12:12:08+00:00"
+            "time": "2018-04-01T15:20:55+00:00"
         },
         {
             "name": "yii2-developer/yii2-password-eye",
