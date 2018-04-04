@@ -8,7 +8,8 @@
 
 return [
     'Create' => 'Добавить',
-    'Update' => 'Сохранить',
+    'Save' => 'Сохранить',
+    'Update' => 'Редактировать',
     'Update {modelClass}: ' => 'Редактировать {modelClass}: ',
     'Delete' => 'Удалить',
     'Are you sure you want to delete this item?' => 'Вы уверены, что хотите удалить этот элемент?',
