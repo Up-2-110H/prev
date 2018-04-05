@@ -232,10 +232,6 @@ $config = [
             'absoluteAuthTimeoutParam' => '__absoluteExpireBackend',
             'returnUrlParam' => '__returnUrlBackend',
             'loginUrl' => ['/auth/default/login'],
-            // http://www.yiiframework.com/doc-2.0/yii-web-user.html#loginRequired()-detail
-            'returnUrl' => ['/'],
-            // Whether to enable cookie-based login: Yii::$app->user->login($this->getUser(), 24 * 60 * 60)
-            'enableAutoLogin' => false,
             // http://www.yiiframework.com/doc-2.0/yii-web-user.html#$authTimeout-detail
             'authTimeout' => 1 * 60 * 60,
             'on afterLogin' => [
