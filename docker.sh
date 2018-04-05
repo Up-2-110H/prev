@@ -60,6 +60,34 @@ do_mysql_restore() {
     echo "Done!"
 }
 
+do_mysql_drop_table() {
+
+    CONTAINER="$CONTAINER_NAME-mysql"
+
+    if [ -z "$1" ]
+    then
+        echo "Usage: docker.sh mysql-drop-table TABLE_NAME"
+        exit 1;
+    else
+        TABLE="$1"
+    fi
+
+    docker exec -i "$CONTAINER" mysql --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE" -e "SET FOREIGN_KEY_CHECKS=0; DROP TABLE $TABLE;"
+}
+
+do_mysql_truncate_database() {
+
+    CONTAINER="$CONTAINER_NAME-mysql"
+
+    TABLES=$(docker exec -i "$CONTAINER" mysql --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE" -Nse "SHOW TABLES;")
+
+    for TABLE in $TABLES
+    do
+        echo "DROP TABLE: $TABLE"
+        do_mysql_drop_table "$TABLE"
+    done
+}
+
 case "$1" in
 
     exec)
@@ -82,8 +110,18 @@ case "$1" in
         do_mysql_restore $@
         ;;
 
+    mysql-drop-table)
+        shift
+        do_mysql_drop_table $@
+        ;;
+
+    mysql-truncate-database)
+        shift
+        do_mysql_truncate_database
+        ;;
+
     *)
-    echo "Usage: docker.sh [exec|cron|mysql-backup|mysql-restore]"
+    echo "Usage: docker.sh [exec|cron|mysql-backup|mysql-restore|mysql-drop-table|mysql-truncate-database]"
     ;;
 
 esac
