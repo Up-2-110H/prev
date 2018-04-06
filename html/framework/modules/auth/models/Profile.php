@@ -39,6 +39,9 @@ class Profile extends Auth
             'HashBehaviorPassword' => [
                 'class' => HashBehavior::className(),
                 'attribute' => 'password',
+                'scenarios' => [
+                    self::SCENARIO_DEFAULT,
+                ],
                 'value' => function () {
                     return Yii::$app->getSecurity()->generatePasswordHash($this->password_new);
                 },
@@ -46,11 +49,17 @@ class Profile extends Auth
             'GenerateRandomStringBehaviorAuthKey' => [
                 'class' => GenerateRandomStringBehavior::className(),
                 'attribute' => 'auth_key',
+                'scenarios' => [
+                    self::SCENARIO_DEFAULT,
+                ],
                 'stringLength' => 128,
             ],
             'GenerateRandomStringBehaviorAccessToken' => [
                 'class' => GenerateRandomStringBehavior::className(),
                 'attribute' => 'access_token',
+                'scenarios' => [
+                    self::SCENARIO_DEFAULT,
+                ],
                 'stringLength' => 128,
             ],
             'TimestampBehavior' => [

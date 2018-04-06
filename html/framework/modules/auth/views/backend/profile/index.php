@@ -6,6 +6,7 @@
  * Time: 18:36
  */
 
+use krok\passwordEye\PasswordEyeWidget;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -25,9 +26,13 @@ $this->title = 'Мой профиль';
 
         <?php $form = ActiveForm::begin(); ?>
 
-        <?= $form->field($model, 'password')->passwordInput(['maxlength' => true, 'value' => '']) ?>
+        <?= $form->field($model, 'password')->widget(
+            PasswordEyeWidget::class
+        ) ?>
 
-        <?= $form->field($model, 'password_new')->passwordInput(['maxlength' => true, 'value' => '']) ?>
+        <?= $form->field($model, 'password_new')->widget(
+            PasswordEyeWidget::class
+        ) ?>
 
         <div class="form-group">
             <?= Html::submitButton(Yii::t('system', 'Update'), ['class' => 'btn btn-primary']) ?>
