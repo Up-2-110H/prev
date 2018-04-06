@@ -88,7 +88,7 @@ class Profile extends Auth
     public function attributeLabels()
     {
         return [
-            'password' => 'Пароль',
+            'password' => 'Старый пароль',
             'password_new' => 'Новый пароль',
         ];
     }
