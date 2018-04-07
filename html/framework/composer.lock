@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d6959bd82c00b6ed836a45e6be564313",
+    "content-hash": "897b40a0f94640c74ac1929f2dffdb50",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1618,11 +1618,11 @@
         },
         {
             "name": "yii2-developer/yii2-language",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-language.git",
-                "reference": "f4c79aa1d8e49da8e42830f6554d25ead5e0e2d4"
+                "reference": "632c9af885218087090dc95ac520324d0c3dc54a"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -1644,13 +1644,13 @@
                     "email": "yii2.developer@gmail.com"
                 }
             ],
-            "description": "Language",
+            "description": "Позволяет создавать мультиязычные сайты",
             "keywords": [
                 "extension",
                 "language",
                 "yii2"
             ],
-            "time": "2018-02-03T14:12:14+00:00"
+            "time": "2018-04-07T11:49:27+00:00"
         },
         {
             "name": "yii2-developer/yii2-log",
@@ -1769,18 +1769,18 @@
         },
         {
             "name": "yii2-developer/yii2-paperDashboard",
-            "version": "0.2.2",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-paperDashboard.git",
-                "reference": "125894f6a25117b3a411d6a43980d31f827e53c6"
+                "reference": "6bfeb6a4ff3f130098040e1af73ad58336d81785"
             },
             "require": {
                 "bootstrap-select/bootstrap-select": "~1.12.0",
                 "php": ">=7.1.0",
                 "yii2-developer/yii2-analytics": "~1.0.0",
                 "yii2-developer/yii2-extend": "~0.0.1 | ^0.1",
-                "yii2-developer/yii2-language": "~1.0.0",
+                "yii2-developer/yii2-language": "~1.1.0",
                 "yii2-developer/yii2-logging": "~0.1.0",
                 "yiisoft/yii2": "~2.0.12",
                 "yiisoft/yii2-bootstrap": "~2.0.0"
@@ -1814,7 +1814,7 @@
                 "paperDashboard",
                 "yii2"
             ],
-            "time": "2018-04-02T12:07:15+00:00"
+            "time": "2018-04-07T12:03:22+00:00"
         },
         {
             "name": "yii2-developer/yii2-password-eye",

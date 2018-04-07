@@ -224,7 +224,7 @@ $config = [
             ],
         ],
         'request' => [
-            'class' => \krok\language\LanguageRequest::class,
+            'class' => \krok\language\Request::class,
             'csrfParam' => '_csrfBackend',
             'cookieValidationKey' => hash('sha512', __FILE__ . __LINE__),
         ],

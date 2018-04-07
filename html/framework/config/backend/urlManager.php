@@ -7,7 +7,7 @@
  */
 
 return [
-    'class' => \krok\language\LanguageUrlManager::class,
+    'class' => \krok\language\UrlManager::class,
     'enablePrettyUrl' => true,
     'showScriptName' => false,
     'normalizer' => [

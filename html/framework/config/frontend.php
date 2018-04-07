@@ -48,7 +48,7 @@ $config = [
             ],
         ],
         'request' => [
-            'class' => \krok\language\LanguageRequest::class,
+            'class' => \krok\language\Request::class,
             'cookieValidationKey' => hash('sha512', __FILE__ . __LINE__),
         ],
         'errorHandler' => [
