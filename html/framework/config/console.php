@@ -108,9 +108,11 @@ $config = [
     'modules' => [],
     'components' => [
         'urlManager' => [
-            'baseUrl' => '/',
-            'hostInfo' => '/',
-            'rules' => require(__DIR__ . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR . 'rules.php'),
+            'class' => \yii\di\ServiceLocator::class,
+            'components' => [
+                'frontend' => require(__DIR__ . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR . 'urlManager.php'),
+                'backend' => require(__DIR__ . DIRECTORY_SEPARATOR . 'backend' . DIRECTORY_SEPARATOR . 'urlManager.php'),
+            ],
         ],
         'errorHandler' => [
             'class' => \krok\sentry\console\SentryErrorHandler::class,

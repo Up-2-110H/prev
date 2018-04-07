@@ -98,15 +98,6 @@ return \yii\helpers\ArrayHelper::merge([
             'class' => \yii\rbac\DbManager::class,
             'cache' => 'cache',
         ],
-        'urlManager' => [
-            'class' => \krok\language\LanguageUrlManager::class,
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'normalizer' => [
-                'class' => \yii\web\UrlNormalizer::class,
-            ],
-            'rules' => [],
-        ],
         'formatter' => [
             'class' => \yii\i18n\Formatter::class,
             'timeZone' => 'Europe/Moscow',

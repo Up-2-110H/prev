@@ -18,7 +18,11 @@ $config = [
     ],
     'components' => [
         'urlManager' => [
-            'rules' => require(__DIR__ . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR . 'rules.php'),
+            'class' => \yii\di\ServiceLocator::class,
+            'components' => [
+                'default' => require(__DIR__ . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR . 'urlManager.php'),
+                'backend' => require(__DIR__ . DIRECTORY_SEPARATOR . 'backend' . DIRECTORY_SEPARATOR . 'urlManager.php'),
+            ],
         ],
         'assetManager' => [
             'class' => \yii\web\AssetManager::class,

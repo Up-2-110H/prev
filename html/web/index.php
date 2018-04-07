@@ -12,4 +12,4 @@ require(__DIR__ . '/../framework/vendor/yiisoft/yii2/Yii.php');
 
 $config = require(__DIR__ . '/../framework/config/frontend.php');
 
-(new yii\web\Application($config))->run();
+(new \krok\application\web\Application($config))->run();
