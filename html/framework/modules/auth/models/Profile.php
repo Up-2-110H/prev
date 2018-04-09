@@ -21,9 +21,9 @@ use Yii;
 class Profile extends Auth
 {
     /**
-     * @var null
+     * @var string
      */
-    public $passwordNew = null;
+    public $passwordNew;
 
     /**
      * @var null|Auth
@@ -76,7 +76,7 @@ class Profile extends Auth
         return [
             [['password', 'passwordNew'], 'string', 'max' => 512, 'min' => 8],
             [['password', 'passwordNew'], 'required'],
-            ['password', 'authorization'],
+            [['password'], 'authorization'],
         ];
     }
 
