@@ -190,7 +190,7 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface, LoggingIde
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        return static::findOne(['access_token' => $token, 'blocked' => self::BLOCKED_NO]);
+        return static::findOne(['accessToken' => $token, 'blocked' => self::BLOCKED_NO]);
     }
 
     /**
