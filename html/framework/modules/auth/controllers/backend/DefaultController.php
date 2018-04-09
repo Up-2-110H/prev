@@ -55,10 +55,14 @@ class DefaultController extends Controller
     {
         $attributes = $client->getUserAttributes();
 
+        $id = ArrayHelper::getValue($attributes, 'id');
+        $login = ArrayHelper::getValue($attributes, 'login');
+        $email = ArrayHelper::getValue($attributes, 'email');
+
         /* @var $OAuth OAuth */
         $OAuth = OAuth::find()->where([
             'source' => $client->getId(),
-            'sourceId' => $attributes['id'],
+            'sourceId' => $id,
         ])->one();
 
         if (Yii::$app->getUser()->getIsGuest()) {
@@ -71,16 +75,16 @@ class DefaultController extends Controller
                 }
             } else {
                 // signUp
-                if (isset($attributes['login']) && Auth::find()->where(['login' => $attributes['login']])->exists()) {
+                if ($login && Auth::find()->where(['login' => $login])->exists()) {
                     Yii::$app->getSession()->addFlash('danger',
-                        sprintf('Пользователь %s совпадает с учетной записью %s, но не связан с ней',
-                            $attributes['login'], $client->getTitle()));
+                        sprintf('Пользователь %s совпадает с учетной записью %s, но не связан с ней', $login,
+                            $client->getTitle()));
                 } else {
                     $password = Yii::$app->getSecurity()->generateRandomString(8);
                     $auth = new Auth([
-                        'login' => $attributes['login'],
+                        'login' => $login,
                         'password' => $password,
-                        'email' => ArrayHelper::getValue($attributes, 'email'),
+                        'email' => $email,
                         'blocked' => Auth::BLOCKED_YES,
                     ]);
                     $transaction = Auth::getDb()->beginTransaction();
@@ -88,7 +92,7 @@ class DefaultController extends Controller
                         $OAuth = new OAuth([
                             'authId' => $auth->id,
                             'source' => $client->getId(),
-                            'sourceId' => (string)$attributes['id'],
+                            'sourceId' => $id,
                         ]);
                         if ($OAuth->save()) {
                             $transaction->commit();
@@ -115,7 +119,7 @@ class DefaultController extends Controller
                 $OAuth = new OAuth([
                     'authId' => Yii::$app->getUser()->getId(),
                     'source' => $client->getId(),
-                    'sourceId' => (string)$attributes['id'],
+                    'sourceId' => $id,
                 ]);
                 if ($OAuth->save()) {
                     Yii::$app->getSession()->addFlash('success',
