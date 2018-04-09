@@ -1,39 +1,24 @@
 <?php
 
 use krok\passwordEye\PasswordEyeWidget;
-use yii\helpers\Html;
-use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
+/* @var $form yii\widgets\ActiveForm */
 /* @var $model app\modules\auth\models\Auth */
 /* @var $roles [] */
-/* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="card-content">
+<?= $form->field($model, 'login')->textInput(['maxlength' => true]) ?>
 
-    <?php $form = ActiveForm::begin(); ?>
+<?= $form->field($model, 'password')->widget(
+    PasswordEyeWidget::class
+) ?>
 
-    <?= $form->field($model, 'login')->textInput(['maxlength' => true]) ?>
+<?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'password')->widget(
-        PasswordEyeWidget::class
-    ) ?>
+<?= $form->field($model, 'blocked')->dropDownList($model::getBlockedList()) ?>
 
-    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'blocked')->dropDownList($model::getBlockedList()) ?>
-
-    <?= $form->field($model, 'roles')->dropDownList($roles, [
-        'multiple' => true,
-        'data-live-search' => 'true',
-    ]) ?>
-
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('system', 'Create') : Yii::t('system', 'Save'),
-            ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-    </div>
-
-    <?php ActiveForm::end(); ?>
-
-</div>
+<?= $form->field($model, 'roles')->dropDownList($roles, [
+    'multiple' => true,
+    'data-live-search' => 'true',
+]) ?>

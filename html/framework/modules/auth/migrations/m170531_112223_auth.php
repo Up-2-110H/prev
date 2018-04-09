@@ -12,12 +12,12 @@ class m170531_112223_auth extends Migration
             'id' => $this->primaryKey(),
             'login' => $this->string(32)->notNull(),
             'password' => $this->string(512)->notNull(),
-            'auth_key' => $this->string(128)->null()->defaultValue(null),
-            'access_token' => $this->string(128)->null()->defaultValue(null),
+            'authKey' => $this->string(128)->null()->defaultValue(null),
+            'accessToken' => $this->string(128)->null()->defaultValue(null),
             'email' => $this->string(64)->null()->defaultValue(null),
             'blocked' => $this->smallInteger(1)->notNull()->defaultValue(1),
-            'created_at' => $this->dateTime()->null()->defaultValue(null),
-            'updated_at' => $this->dateTime()->null()->defaultValue(null),
+            'createdAt' => $this->dateTime()->null()->defaultValue(null),
+            'updatedAt' => $this->dateTime()->null()->defaultValue(null),
         ], $options);
 
         $this->createIndex('login', '{{%auth}}', ['login'], true);

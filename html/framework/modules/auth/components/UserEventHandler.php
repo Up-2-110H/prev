@@ -27,7 +27,7 @@ class UserEventHandler
     public static function handleAfterLogin(UserEvent $event)
     {
         $model = new Log([
-            'auth_id' => $event->identity->getId(),
+            'authId' => $event->identity->getId(),
             'status' => Log::STATUS_LOGGED,
         ]);
         if (!$model->save()) {
@@ -43,7 +43,7 @@ class UserEventHandler
     public static function handleAfterLogout(UserEvent $event)
     {
         $model = new Log([
-            'auth_id' => $event->identity->getId(),
+            'authId' => $event->identity->getId(),
             'status' => Log::STATUS_LOGOUT,
         ]);
         if (!$model->save()) {

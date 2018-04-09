@@ -42,15 +42,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'attributes' => [
                 'id',
                 'login',
-                'auth_key',
-                'access_token',
+                'authKey',
+                'accessToken',
                 'email:email',
                 [
                     'attribute' => 'blocked',
                     'value' => $model->getBlocked(),
                 ],
-                'created_at:datetime',
-                'updated_at:datetime',
+                'createdAt:datetime',
+                'updatedAt:datetime',
             ],
         ]) ?>
 

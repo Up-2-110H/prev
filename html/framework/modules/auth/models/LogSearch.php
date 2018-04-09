@@ -16,8 +16,8 @@ class LogSearch extends Log
     public function rules()
     {
         return [
-            [['id', 'auth_id', 'status'], 'integer'],
-            [['ip', 'created_at'], 'safe'],
+            [['id', 'authId', 'status'], 'integer'],
+            [['ip', 'createdAt'], 'safe'],
         ];
     }
 
@@ -38,7 +38,7 @@ class LogSearch extends Log
      */
     public function search($params)
     {
-        $query = Log::find()->orderBy(['created_at' => SORT_DESC]);
+        $query = Log::find()->orderBy(['createdAt' => SORT_DESC]);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -52,10 +52,10 @@ class LogSearch extends Log
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'auth_id' => $this->auth_id,
+            'authId' => $this->authId,
             'status' => $this->status,
             'ip' => $this->ip ? ip2long($this->ip) : null,
-        ])->andFilterWhere(['like', 'created_at', $this->created_at]);
+        ])->andFilterWhere(['like', 'createdAt', $this->createdAt]);
 
         return $dataProvider;
     }

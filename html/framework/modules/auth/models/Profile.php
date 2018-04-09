@@ -23,7 +23,7 @@ class Profile extends Auth
     /**
      * @var null
      */
-    public $password_new = null;
+    public $passwordNew = null;
 
     /**
      * @var null|Auth
@@ -43,12 +43,12 @@ class Profile extends Auth
                     self::SCENARIO_DEFAULT,
                 ],
                 'value' => function () {
-                    return Yii::$app->getSecurity()->generatePasswordHash($this->password_new);
+                    return Yii::$app->getSecurity()->generatePasswordHash($this->passwordNew);
                 },
             ],
             'GenerateRandomStringBehaviorAuthKey' => [
                 'class' => GenerateRandomStringBehavior::className(),
-                'attribute' => 'auth_key',
+                'attribute' => 'authKey',
                 'scenarios' => [
                     self::SCENARIO_DEFAULT,
                 ],
@@ -56,7 +56,7 @@ class Profile extends Auth
             ],
             'GenerateRandomStringBehaviorAccessToken' => [
                 'class' => GenerateRandomStringBehavior::className(),
-                'attribute' => 'access_token',
+                'attribute' => 'accessToken',
                 'scenarios' => [
                     self::SCENARIO_DEFAULT,
                 ],
@@ -64,8 +64,6 @@ class Profile extends Auth
             ],
             'TimestampBehavior' => [
                 'class' => TimestampBehavior::className(),
-                'createdAtAttribute' => 'created_at',
-                'updatedAtAttribute' => 'updated_at',
             ],
         ];
     }
@@ -76,8 +74,8 @@ class Profile extends Auth
     public function rules()
     {
         return [
-            [['password', 'password_new'], 'string', 'max' => 512, 'min' => 8],
-            [['password', 'password_new'], 'required'],
+            [['password', 'passwordNew'], 'string', 'max' => 512, 'min' => 8],
+            [['password', 'passwordNew'], 'required'],
             ['password', 'authorization'],
         ];
     }
@@ -89,7 +87,7 @@ class Profile extends Auth
     {
         return [
             'password' => 'Старый пароль',
-            'password_new' => 'Новый пароль',
+            'passwordNew' => 'Новый пароль',
         ];
     }
 

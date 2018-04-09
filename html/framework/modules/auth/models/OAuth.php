@@ -8,11 +8,11 @@ use krok\extend\behaviors\TimestampBehavior;
  * This is the model class for table "{{%auth_oauth}}".
  *
  * @property integer $id
- * @property integer $auth_id
+ * @property integer $authId
  * @property string $source
- * @property string $source_id
- * @property string $created_at
- * @property string $updated_at
+ * @property string $sourceId
+ * @property string $createdAt
+ * @property string $updatedAt
  *
  * @property Auth $auth
  */
@@ -36,8 +36,6 @@ class OAuth extends \yii\db\ActiveRecord
         return [
             'TimestampBehavior' => [
                 'class' => TimestampBehavior::className(),
-                'createdAtAttribute' => 'created_at',
-                'updatedAtAttribute' => 'updated_at',
             ],
         ];
     }
@@ -56,16 +54,16 @@ class OAuth extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['auth_id', 'source', 'source_id'], 'required'],
-            [['auth_id'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
-            [['source', 'source_id'], 'string', 'max' => 256],
+            [['authId', 'source', 'sourceId'], 'required'],
+            [['authId'], 'integer'],
+            [['createdAt', 'updatedAt'], 'safe'],
+            [['source', 'sourceId'], 'string', 'max' => 256],
             [
-                ['auth_id'],
+                ['authId'],
                 'exist',
                 'skipOnError' => true,
                 'targetClass' => Auth::className(),
-                'targetAttribute' => ['auth_id' => 'id'],
+                'targetAttribute' => ['authId' => 'id'],
             ],
         ];
     }
@@ -77,11 +75,11 @@ class OAuth extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'auth_id' => 'Пользователь',
+            'authId' => 'Пользователь',
             'source' => 'Социальная сеть',
-            'source_id' => 'Пользователь в социальной сети',
-            'created_at' => 'Создано',
-            'updated_at' => 'Обновлено',
+            'sourceId' => 'Пользователь в социальной сети',
+            'createdAt' => 'Создано',
+            'updatedAt' => 'Обновлено',
         ];
     }
 
@@ -90,6 +88,6 @@ class OAuth extends \yii\db\ActiveRecord
      */
     public function getAuth()
     {
-        return $this->hasOne(Auth::className(), ['id' => 'auth_id']);
+        return $this->hasOne(Auth::className(), ['id' => 'authId']);
     }
 }

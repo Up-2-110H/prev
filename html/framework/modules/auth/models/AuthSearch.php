@@ -17,7 +17,7 @@ class AuthSearch extends Auth
     {
         return [
             [['id', 'blocked'], 'integer'],
-            [['login', 'email', 'created_at', 'updated_at'], 'safe'],
+            [['login', 'email', 'createdAt', 'updatedAt'], 'safe'],
         ];
     }
 
@@ -58,8 +58,8 @@ class AuthSearch extends Auth
         $query
             ->andFilterWhere(['like', 'login', $this->login])
             ->andFilterWhere(['like', 'email', $this->email])
-            ->andFilterWhere(['like', 'created_at', $this->created_at])
-            ->andFilterWhere(['like', 'updated_at', $this->updated_at]);
+            ->andFilterWhere(['like', 'createdAt', $this->createdAt])
+            ->andFilterWhere(['like', 'updatedAt', $this->updatedAt]);
 
         return $dataProvider;
     }

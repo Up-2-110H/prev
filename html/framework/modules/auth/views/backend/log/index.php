@@ -26,13 +26,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'columns' => [
                 'id',
                 [
-                    'attribute' => 'auth_id',
+                    'attribute' => 'authId',
                     'filter' => $searchModel::getAuthList(),
                     'value' => function ($model) {
                         /** @var app\modules\auth\models\Log $model */
-                        $value = ArrayHelper::getValue($model::getAuthList(), $model->auth_id);
+                        $value = ArrayHelper::getValue($model::getAuthList(), $model->authId);
 
-                        return $value === null ? null : Html::a($value, ['auth/update', 'id' => $model->auth_id]);
+                        return $value === null ? null : Html::a($value, ['auth/update', 'id' => $model->authId]);
                     },
                     'format' => 'html',
                 ],
@@ -53,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 [
                     'class' => \krok\extend\grid\DatePickerColumn::class,
-                    'attribute' => 'created_at',
+                    'attribute' => 'createdAt',
                 ],
             ],
         ]); ?>

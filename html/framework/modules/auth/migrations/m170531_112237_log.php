@@ -10,18 +10,18 @@ class m170531_112237_log extends Migration
 
         $this->createTable('{{%auth_log}}', [
             'id' => $this->primaryKey(),
-            'auth_id' => $this->integer(11)->null()->defaultValue(null),
+            'authId' => $this->integer(11)->null()->defaultValue(null),
             'status' => $this->smallInteger(1)->null()->defaultValue(null),
             'ip' => $this->bigInteger(20)->null()->defaultValue(null),
-            'created_at' => $this->dateTime()->null()->defaultValue(null),
-            'updated_at' => $this->dateTime()->null()->defaultValue(null),
+            'createdAt' => $this->dateTime()->null()->defaultValue(null),
+            'updatedAt' => $this->dateTime()->null()->defaultValue(null),
         ], $options);
 
-        $this->createIndex('auth_id', '{{%auth_log}}', ['auth_id']);
+        $this->createIndex('authId', '{{%auth_log}}', ['authId']);
         $this->addForeignKey(
-            'auth_log_auth_id_auth_id',
+            'auth_log_authId_auth_id',
             '{{%auth_log}}',
-            ['auth_id'],
+            ['authId'],
             '{{%auth}}',
             ['id'],
             'SET NULL',
@@ -31,7 +31,7 @@ class m170531_112237_log extends Migration
 
     public function safeDown()
     {
-        $this->dropForeignKey('auth_log_auth_id_auth_id', '{{%auth_log}}');
+        $this->dropForeignKey('auth_log_authId_auth_id', '{{%auth_log}}');
         $this->dropTable('{{%auth_log}}');
     }
 }

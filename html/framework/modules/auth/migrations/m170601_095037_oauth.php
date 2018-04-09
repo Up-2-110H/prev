@@ -10,18 +10,18 @@ class m170601_095037_oauth extends Migration
 
         $this->createTable('{{%auth_oauth}}', [
             'id' => $this->primaryKey(),
-            'auth_id' => $this->integer(11)->notNull(),
+            'authId' => $this->integer(11)->notNull(),
             'source' => $this->string(256)->notNull(),
-            'source_id' => $this->string(256)->notNull(),
-            'created_at' => $this->dateTime()->null()->defaultValue(null),
-            'updated_at' => $this->dateTime()->null()->defaultValue(null),
+            'sourceId' => $this->string(256)->notNull(),
+            'createdAt' => $this->dateTime()->null()->defaultValue(null),
+            'updatedAt' => $this->dateTime()->null()->defaultValue(null),
         ], $options);
 
-        $this->createIndex('auth_id', '{{%auth_oauth}}', ['auth_id']);
+        $this->createIndex('authId', '{{%auth_oauth}}', ['authId']);
         $this->addForeignKey(
-            'auth_oauth_auth_id_auth_id',
+            'auth_oauth_authId_auth_id',
             '{{%auth_oauth}}',
-            ['auth_id'],
+            ['authId'],
             '{{%auth}}',
             ['id'],
             'CASCADE',
@@ -31,7 +31,7 @@ class m170601_095037_oauth extends Migration
 
     public function safeDown()
     {
-        $this->dropForeignKey('auth_oauth_auth_id_auth_id', '{{%auth_oauth}}');
+        $this->dropForeignKey('auth_oauth_authId_auth_id', '{{%auth_oauth}}');
         $this->dropTable('{{%auth_oauth}}');
     }
 }

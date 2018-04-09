@@ -19,12 +19,12 @@ use yii\web\IdentityInterface;
  * @property integer $id
  * @property string $login
  * @property string $password
- * @property string $auth_key
- * @property string $access_token
+ * @property string $authKey
+ * @property string $accessToken
  * @property string $email
  * @property integer $blocked
- * @property string $created_at
- * @property string $updated_at
+ * @property string $createdAt
+ * @property string $updatedAt
  *
  * @property string[] $roles
  * @property Log[] $logs
@@ -69,7 +69,7 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface, LoggingIde
             'GenerateRandomStringBehaviorAuthKey' => [
                 'class' => GenerateRandomStringBehavior::className(),
                 'skipUpdateOnClean' => false,
-                'attribute' => 'auth_key',
+                'attribute' => 'authKey',
                 'stringLength' => 128,
                 'scenarios' => [
                     self::SCENARIO_CREATE,
@@ -79,7 +79,7 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface, LoggingIde
             'GenerateRandomStringBehaviorAccessToken' => [
                 'class' => GenerateRandomStringBehavior::className(),
                 'skipUpdateOnClean' => false,
-                'attribute' => 'access_token',
+                'attribute' => 'accessToken',
                 'stringLength' => 128,
                 'scenarios' => [
                     self::SCENARIO_CREATE,
@@ -88,8 +88,6 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface, LoggingIde
             ],
             'TimestampBehavior' => [
                 'class' => TimestampBehavior::className(),
-                'createdAtAttribute' => 'created_at',
-                'updatedAtAttribute' => 'updated_at',
             ],
             'EventBehavior' => [
                 'class' => EventBehavior::className(),
@@ -117,12 +115,12 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface, LoggingIde
     {
         return [
             [['blocked'], 'integer'],
-            [['created_at', 'updated_at', 'roles'], 'safe'],
+            [['createdAt', 'updatedAt'], 'safe'],
             [['login'], 'string', 'max' => 32, 'min' => 4],
             [['password'], 'string', 'max' => 512, 'min' => 8],
             [['email'], 'string', 'max' => 64],
             [
-                ['auth_key', 'access_token'],
+                ['authKey', 'accessToken'],
                 'string',
                 'max' => 128,
                 'on' => [
@@ -131,7 +129,7 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface, LoggingIde
                 ],
             ],
             [
-                ['auth_key', 'access_token'],
+                ['authKey', 'accessToken'],
                 'unique',
                 'on' => [
                     self::SCENARIO_CREATE,
@@ -155,12 +153,12 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface, LoggingIde
             'login' => 'Логин',
             'password' => 'Пароль',
             'roles' => 'Роли',
-            'auth_key' => 'Ключ авторизации',
-            'access_token' => 'Токен доступа',
+            'authKey' => 'Ключ авторизации',
+            'accessToken' => 'Токен доступа',
             'email' => 'Электронная почта',
             'blocked' => 'Заблокирован',
-            'created_at' => 'Создано',
-            'updated_at' => 'Обновлено',
+            'createdAt' => 'Создано',
+            'updatedAt' => 'Обновлено',
         ];
     }
 
@@ -216,17 +214,17 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface, LoggingIde
      */
     public function getAuthKey()
     {
-        return $this->auth_key;
+        return $this->authKey;
     }
 
     /**
-     * @param string $auth_key
+     * @param string $authKey
      *
      * @return bool
      */
-    public function validateAuthKey($auth_key)
+    public function validateAuthKey($authKey)
     {
-        return $this->auth_key === $auth_key;
+        return $this->authKey === $authKey;
     }
 
     /**
@@ -266,7 +264,7 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface, LoggingIde
      */
     public function getLogs()
     {
-        return $this->hasMany(Log::className(), ['auth_id' => 'id']);
+        return $this->hasMany(Log::className(), ['authId' => 'id']);
     }
 
     /**
@@ -274,7 +272,7 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface, LoggingIde
      */
     public function getSocials()
     {
-        return $this->hasMany(OAuth::className(), ['auth_id' => 'id']);
+        return $this->hasMany(OAuth::className(), ['authId' => 'id']);
     }
 
     /**

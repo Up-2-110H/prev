@@ -1,8 +1,10 @@
 <?php
 
 use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
+/* @var $form yii\widgets\ActiveForm */
 /* @var $model app\modules\auth\models\Auth */
 /* @var $roles [] */
 
@@ -16,9 +18,19 @@ $this->params['breadcrumbs'][] = $this->title;
         <h4 class="card-title"><?= Html::encode($this->title) ?></h4>
     </div>
 
-    <?= $this->render('_form', [
-        'model' => $model,
-        'roles' => $roles,
-    ]) ?>
+    <div class="card-content">
+
+        <?php $form = ActiveForm::begin(); ?>
+
+        <?= $this->render('_form', ['form' => $form, 'model' => $model, 'roles' => $roles]) ?>
+
+        <div class="form-group">
+            <?= Html::submitButton(Yii::t('system', 'Create'),
+                ['class' => 'btn btn-success']) ?>
+        </div>
+
+        <?php ActiveForm::end(); ?>
+
+    </div>
 
 </div>

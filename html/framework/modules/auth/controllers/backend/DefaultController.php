@@ -58,7 +58,7 @@ class DefaultController extends Controller
         /* @var $OAuth OAuth */
         $OAuth = OAuth::find()->where([
             'source' => $client->getId(),
-            'source_id' => $attributes['id'],
+            'sourceId' => $attributes['id'],
         ])->one();
 
         if (Yii::$app->getUser()->getIsGuest()) {
@@ -86,9 +86,9 @@ class DefaultController extends Controller
                     $transaction = Auth::getDb()->beginTransaction();
                     if ($auth->save()) {
                         $OAuth = new OAuth([
-                            'auth_id' => $auth->id,
+                            'authId' => $auth->id,
                             'source' => $client->getId(),
-                            'source_id' => (string)$attributes['id'],
+                            'sourceId' => (string)$attributes['id'],
                         ]);
                         if ($OAuth->save()) {
                             $transaction->commit();
@@ -113,9 +113,9 @@ class DefaultController extends Controller
             if (!($OAuth instanceof OAuth)) {
                 // add user provider
                 $OAuth = new OAuth([
-                    'auth_id' => Yii::$app->getUser()->getId(),
+                    'authId' => Yii::$app->getUser()->getId(),
                     'source' => $client->getId(),
-                    'source_id' => (string)$attributes['id'],
+                    'sourceId' => (string)$attributes['id'],
                 ]);
                 if ($OAuth->save()) {
                     Yii::$app->getSession()->addFlash('success',
@@ -124,7 +124,7 @@ class DefaultController extends Controller
                 } else {
                     throw new Exception('', $OAuth->getErrors());
                 }
-            } elseif ($OAuth->auth_id == Yii::$app->getUser()->getId()) {
+            } elseif ($OAuth->authId == Yii::$app->getUser()->getId()) {
                 Yii::$app->getSession()->addFlash('info',
                     sprintf('Аккаунт <b>%s</b> уже привязан к социальной сети <b>%s</b>',
                         ArrayHelper::getValue(Yii::$app->getUser()->getIdentity(), 'login'), $client->getTitle()));
@@ -150,12 +150,9 @@ class DefaultController extends Controller
             return $this->redirect(Yii::$app->getUser()->getReturnUrl());
         }
 
-        return $this->render(
-            'login',
-            [
-                'model' => $model,
-            ]
-        );
+        return $this->render('login', [
+            'model' => $model,
+        ]);
     }
 
     /**

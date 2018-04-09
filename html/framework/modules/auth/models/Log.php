@@ -10,11 +10,11 @@ use yii\helpers\ArrayHelper;
  * This is the model class for table "{{%auth_log}}".
  *
  * @property integer $id
- * @property integer $auth_id
+ * @property integer $authId
  * @property integer $status
  * @property integer $ip
- * @property string $created_at
- * @property string $updated_at
+ * @property string $createdAt
+ * @property string $updatedAt
  *
  * @property Auth $auth
  */
@@ -41,8 +41,6 @@ class Log extends \yii\db\ActiveRecord
         return [
             'TimestampBehavior' => [
                 'class' => TimestampBehavior::className(),
-                'createdAtAttribute' => 'created_at',
-                'updatedAtAttribute' => 'updated_at',
             ],
             'IpBehavior' => IpBehavior::className(),
         ];
@@ -62,14 +60,14 @@ class Log extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['auth_id', 'status', 'ip'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
+            [['authId', 'status', 'ip'], 'integer'],
+            [['createdAt', 'updatedAt'], 'safe'],
             [
-                ['auth_id'],
+                ['authId'],
                 'exist',
                 'skipOnError' => true,
                 'targetClass' => Auth::className(),
-                'targetAttribute' => ['auth_id' => 'id'],
+                'targetAttribute' => ['authId' => 'id'],
             ],
         ];
     }
@@ -81,11 +79,11 @@ class Log extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'auth_id' => 'Пользователь',
+            'authId' => 'Пользователь',
             'status' => 'Статус',
             'ip' => 'IP',
-            'created_at' => 'Создано',
-            'updated_at' => 'Обновлено',
+            'createdAt' => 'Создано',
+            'updatedAt' => 'Обновлено',
         ];
     }
 
@@ -94,7 +92,7 @@ class Log extends \yii\db\ActiveRecord
      */
     public function getAuth()
     {
-        return $this->hasOne(Auth::className(), ['id' => 'auth_id']);
+        return $this->hasOne(Auth::className(), ['id' => 'authId']);
     }
 
     /**

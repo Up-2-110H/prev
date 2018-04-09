@@ -30,12 +30,12 @@ $this->title = 'Мой профиль';
             PasswordEyeWidget::class
         ) ?>
 
-        <?= $form->field($model, 'password_new')->widget(
+        <?= $form->field($model, 'passwordNew')->widget(
             PasswordEyeWidget::class
         ) ?>
 
         <div class="form-group">
-            <?= Html::submitButton(Yii::t('system', 'Update'), ['class' => 'btn btn-primary']) ?>
+            <?= Html::submitButton(Yii::t('system', 'Save'), ['class' => 'btn btn-primary']) ?>
         </div>
 
         <?php ActiveForm::end(); ?>

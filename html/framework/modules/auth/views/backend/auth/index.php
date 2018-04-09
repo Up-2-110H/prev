@@ -41,14 +41,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 [
                     'class' => \krok\extend\grid\DatePickerColumn::class,
-                    'attribute' => 'created_at',
+                    'attribute' => 'createdAt',
                 ],
                 [
                     'class' => \krok\extend\grid\DatePickerColumn::class,
-                    'attribute' => 'updated_at',
+                    'attribute' => 'updatedAt',
                 ],
             ],
         ]); ?>
 
     </div>
+
 </div>
