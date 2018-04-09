@@ -37,8 +37,8 @@ class AuthController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new AuthSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $searchModel = Yii::createObject(AuthSearch::class);
+        $dataProvider = $searchModel->search();
 
         return $this->render('index', [
             'searchModel' => $searchModel,
