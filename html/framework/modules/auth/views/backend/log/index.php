@@ -1,7 +1,6 @@
 <?php
 
 use yii\grid\GridView;
-use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
@@ -30,11 +29,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     'filter' => $searchModel::getAuthList(),
                     'value' => function ($model) {
                         /** @var app\modules\auth\models\Log $model */
-                        $value = ArrayHelper::getValue($model::getAuthList(), $model->authId);
-
-                        return $value === null ? null : Html::a($value, ['auth/update', 'id' => $model->authId]);
+                        if ($model->auth) {
+                            return Html::a($model->auth->login, ['auth/view', 'id' => $model->auth->id],
+                                ['target' => '_blank']);
+                        } else {
+                            return null;
+                        }
                     },
-                    'format' => 'html',
+                    'format' => 'raw',
                 ],
                 [
                     'attribute' => 'status',
