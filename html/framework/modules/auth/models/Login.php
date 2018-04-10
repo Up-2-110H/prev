@@ -3,18 +3,29 @@
 namespace app\modules\auth\models;
 
 use Yii;
+use yii\base\Model;
 
 /**
  * Class Login
  *
  * @package app\modules\auth\models
  */
-class Login extends Auth
+class Login extends Model
 {
     /**
-     * @var null
+     * @var string
      */
-    public $verifyCode = null;
+    public $login;
+
+    /**
+     * @var string
+     */
+    public $password;
+
+    /**
+     * @var string
+     */
+    public $verifyCode;
 
     /**
      * @var null|Auth
@@ -27,7 +38,7 @@ class Login extends Auth
     public function rules()
     {
         return [
-            [['login'], 'string', 'max' => 32],
+            [['login'], 'string', 'max' => 32, 'min' => 4],
             [['password'], 'string', 'max' => 512, 'min' => 8],
             [['login', 'password'], 'required'],
             ['password', 'authorization'],
