@@ -114,6 +114,7 @@ return \yii\helpers\ArrayHelper::merge([
         ],
         'session' => [
             'class' => \yii\web\CacheSession::class,
+            'timeout' => 24 * 60 * 60,
             'cache' => [
                 'class' => \yii\redis\Cache::class,
                 'defaultDuration' => 0,
