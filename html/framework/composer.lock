@@ -716,16 +716,16 @@
         },
         {
             "name": "phpoffice/phpspreadsheet",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPOffice/PhpSpreadsheet.git",
-                "reference": "8380fb3ad28242093c18d0baa9b7e67fb429ea84"
+                "reference": "36acc372875c4d894dc093825ce4f62209db5a76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/8380fb3ad28242093c18d0baa9b7e67fb429ea84",
-                "reference": "8380fb3ad28242093c18d0baa9b7e67fb429ea84",
+                "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/36acc372875c4d894dc093825ce4f62209db5a76",
+                "reference": "36acc372875c4d894dc093825ce4f62209db5a76",
                 "shasum": ""
             },
             "require": {
@@ -798,7 +798,7 @@
                 "xls",
                 "xlsx"
             ],
-            "time": "2018-03-04T20:41:15+00:00"
+            "time": "2018-04-10T03:53:16+00:00"
         },
         {
             "name": "psr/http-message",
@@ -1769,11 +1769,11 @@
         },
         {
             "name": "yii2-developer/yii2-paperDashboard",
-            "version": "0.3.1",
+            "version": "0.3.2",
             "source": {
                 "type": "git",
                 "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-paperDashboard.git",
-                "reference": "4db422f725015b4127ff0f6b258e43c380ad1eb5"
+                "reference": "a316df7f315f0e37e3c89d1c204d76d9c0db11fa"
             },
             "require": {
                 "bootstrap-select/bootstrap-select": "~1.12.0",
@@ -1814,7 +1814,7 @@
                 "paperDashboard",
                 "yii2"
             ],
-            "time": "2018-04-07T21:01:36+00:00"
+            "time": "2018-04-10T05:48:45+00:00"
         },
         {
             "name": "yii2-developer/yii2-password-eye",
