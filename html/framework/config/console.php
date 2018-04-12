@@ -49,13 +49,10 @@ $config = [
                     ],
                 ],
                 [
-                    'name' => 'imperavi',
+                    'name' => 'tinymce/uploader',
                     'controllers' => [
                         'default' => [
-                            'file-upload',
-                            'file-list',
-                            'image-upload',
-                            'image-list',
+                            'index',
                         ],
                     ],
                 ],

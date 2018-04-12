@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "897b40a0f94640c74ac1929f2dffdb50",
+    "content-hash": "5af2bb44935720e7c9966255d6cd6d36",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1115,6 +1115,52 @@
             "time": "2018-04-03T05:22:50+00:00"
         },
         {
+            "name": "tinymce/tinymce",
+            "version": "4.7.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tinymce/tinymce-dist.git",
+                "reference": "a7178e20d6053b92a177900531ffd2cdcb77f77c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tinymce/tinymce-dist/zipball/a7178e20d6053b92a177900531ffd2cdcb77f77c",
+                "reference": "a7178e20d6053b92a177900531ffd2cdcb77f77c",
+                "shasum": ""
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "tinymce.js",
+                        "plugins/*/plugin.js",
+                        "themes/*/theme.js"
+                    ],
+                    "files": [
+                        "tinymce.min.js",
+                        "plugins/*/plugin.min.js",
+                        "themes/*/theme.min.js",
+                        "skins/**"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1-only"
+            ],
+            "description": "Web based JavaScript HTML WYSIWYG editor control.",
+            "homepage": "http://www.tinymce.com",
+            "keywords": [
+                "editor",
+                "html",
+                "javascript",
+                "richtext",
+                "tinymce",
+                "wysiwyg"
+            ],
+            "time": "2018-04-11T09:26:11+00:00"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v2.4.0",
             "source": {
@@ -1538,6 +1584,48 @@
             "time": "2018-03-13T12:42:39+00:00"
         },
         {
+            "name": "yii2-developer/yii2-filesystem",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-filesystem.git",
+                "reference": "1ee69deb5bf0419f4ca8281d915d2a5ffe091862"
+            },
+            "require": {
+                "league/flysystem": "~1.0.0",
+                "league/glide": "~1.2.0",
+                "php": ">=7.1.0",
+                "yiisoft/yii2": "~2.0.12"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "krok\\filesystem\\": ""
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "krok",
+                    "email": "yii2.developer@gmail.com"
+                }
+            ],
+            "description": "Обертка над файловой системой",
+            "keywords": [
+                "extension",
+                "filesystem",
+                "yii2"
+            ],
+            "time": "2018-04-12T05:59:35+00:00"
+        },
+        {
             "name": "yii2-developer/yii2-glide",
             "version": "1.0.0",
             "source": {
@@ -1573,48 +1661,6 @@
                 "yii2"
             ],
             "time": "2018-02-03T13:52:02+00:00"
-        },
-        {
-            "name": "yii2-developer/yii2-imperavi",
-            "version": "2.0.1",
-            "source": {
-                "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-imperavi.git",
-                "reference": "4cbf944a8bc8205d1a9235f65a7d7174c201e803"
-            },
-            "require": {
-                "php": ">=7.1.0",
-                "yii2-developer/yii2-editor": "~1.0.0",
-                "yii2-developer/yii2-system": "~0.0.1",
-                "yiisoft/yii2": "~2.0.12"
-            },
-            "type": "yii2-extension",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "krok\\imperavi\\": ""
-                }
-            },
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "krok",
-                    "email": "yii2.developer@gmail.com"
-                }
-            ],
-            "description": "Редактор Imperavi",
-            "keywords": [
-                "extension",
-                "imperavi",
-                "yii2"
-            ],
-            "time": "2018-03-19T06:00:02+00:00"
         },
         {
             "name": "yii2-developer/yii2-language",
@@ -2081,6 +2127,92 @@
                 "yii2"
             ],
             "time": "2017-09-04T13:23:59+00:00"
+        },
+        {
+            "name": "yii2-developer/yii2-tinymce",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-tinymce.git",
+                "reference": "2fa78277c545480a1c841ef901bac52d9f509b5e"
+            },
+            "require": {
+                "php": ">=7.1.0",
+                "tinymce/tinymce": "~4.7.0",
+                "yii2-developer/yii2-editor": "~1.0.0",
+                "yiisoft/yii2": "~2.0.12"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "krok\\tinymce\\": ""
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "krok",
+                    "email": "yii2.developer@gmail.com"
+                }
+            ],
+            "description": "Редактор TinyMCE",
+            "keywords": [
+                "extension",
+                "tinymce",
+                "yii2"
+            ],
+            "time": "2018-04-12T11:48:39+00:00"
+        },
+        {
+            "name": "yii2-developer/yii2-tinymce-uploader",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-tinymce-uploader.git",
+                "reference": "18a9c1f0e785a5e6c06c3d249295458ce364d39d"
+            },
+            "require": {
+                "php": ">=7.1.0",
+                "tinymce/tinymce": "~4.7.0",
+                "yii2-developer/yii2-access": "~0.0.1",
+                "yii2-developer/yii2-filesystem": "~0.0.1",
+                "yiisoft/yii2": "~2.0.12"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "krok\\tinymce\\uploader\\": ""
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "krok",
+                    "email": "yii2.developer@gmail.com"
+                }
+            ],
+            "description": "Позволяет загружать файлы через TinyMCE редактор",
+            "keywords": [
+                "extension",
+                "tinymce",
+                "uploader",
+                "yii2"
+            ],
+            "time": "2018-04-12T06:28:23+00:00"
         },
         {
             "name": "yiisoft/yii2",

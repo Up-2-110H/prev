@@ -38,6 +38,10 @@ return \yii\helpers\ArrayHelper::merge([
                 'class' => \krok\storage\behaviors\StorageBehavior::class,
                 'uploadedDirectory' => '/storage',
             ],
+            \krok\tinymce\uploader\actions\UploaderAction::class => [
+                'class' => \krok\tinymce\uploader\actions\UploaderAction::class,
+                'uploadedDirectory' => '/editor',
+            ],
             \League\Flysystem\AdapterInterface::class => function () {
                 return Yii::createObject(\League\Flysystem\Adapter\Local::class, [Yii::getAlias('@public')]);
             },
@@ -45,6 +49,7 @@ return \yii\helpers\ArrayHelper::merge([
                 $filesystem = Yii::createObject(\League\Flysystem\Filesystem::class);
                 $filesystem->addPlugin(new \krok\storage\plugins\PublicUrl('/render/storage', 'getPublicUrl'));
                 $filesystem->addPlugin(new \krok\storage\plugins\PublicUrl('/uploads/storage', 'getDownloadUrl'));
+                $filesystem->addPlugin(new \krok\storage\plugins\PublicUrl('/uploads/editor', 'getEditorUrl'));
                 $filesystem->addPlugin(new \krok\storage\plugins\HashGrid());
 
                 return $filesystem;
