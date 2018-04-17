@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b19e521b89fd9032faf83cc8f7cd3679",
+    "content-hash": "67d57b62dad4e825668bbe61c4e7606c",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -2017,16 +2017,16 @@
         },
         {
             "name": "yii2-developer/yii2-slim",
-            "version": "0.0.7",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-slim.git",
-                "reference": "d8dfdddd3e2d2af5f78d47759344f8e879e9eb30"
+                "reference": "efe12bf7a1b4d7b7ee6370027290e33a6f7b5450"
             },
             "require": {
-                "league/flysystem": "~1.0.0",
                 "php": ">=7.1.0",
-                "yii2-developer/yii2-storage": "~0.0.1",
+                "yii2-developer/yii2-filesystem": "~0.1.0",
+                "yii2-developer/yii2-storage": "~0.1.0",
                 "yiisoft/yii2": "~2.0.12"
             },
             "type": "yii2-extension",
@@ -2044,28 +2044,27 @@
                     "email": "yii2.developer@gmail.com"
                 }
             ],
-            "description": "slim",
+            "description": "Позволяет обрезать и изменять размер изображения прямо в браузере",
             "keywords": [
                 "extension",
                 "slim",
                 "yii2"
             ],
-            "time": "2018-02-04T06:51:15+00:00"
+            "time": "2018-04-17T07:13:18+00:00"
         },
         {
             "name": "yii2-developer/yii2-storage",
-            "version": "0.0.13",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-storage.git",
-                "reference": "d5f7506c9bd5682b7d09b585768b5ed51244dd15"
+                "reference": "752f9f3d5ecb90c5eb47c742661c246d05db7752"
             },
             "require": {
                 "ext-fileinfo": "*",
-                "league/flysystem": "~1.0.0",
-                "league/glide": "~1.2.0",
                 "php": ">=7.1.0",
                 "yii2-developer/yii2-extend": "~0.0.1 | ^0.1",
+                "yii2-developer/yii2-filesystem": "~0.1.0",
                 "yii2-developer/yii2-system": "~0.0.1",
                 "yiisoft/yii2": "~2.0.12"
             },
@@ -2090,7 +2089,7 @@
                 "storage",
                 "yii2"
             ],
-            "time": "2018-03-21T11:55:01+00:00"
+            "time": "2018-04-17T07:32:18+00:00"
         },
         {
             "name": "yii2-developer/yii2-system",
