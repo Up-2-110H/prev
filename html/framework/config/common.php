@@ -47,10 +47,10 @@ return \yii\helpers\ArrayHelper::merge([
             },
             \League\Flysystem\FilesystemInterface::class => function () {
                 $filesystem = Yii::createObject(\League\Flysystem\Filesystem::class);
-                $filesystem->addPlugin(new \krok\storage\plugins\PublicUrl('/render/storage', 'getPublicUrl'));
-                $filesystem->addPlugin(new \krok\storage\plugins\PublicUrl('/uploads/storage', 'getDownloadUrl'));
-                $filesystem->addPlugin(new \krok\storage\plugins\PublicUrl('/uploads/editor', 'getEditorUrl'));
-                $filesystem->addPlugin(new \krok\storage\plugins\HashGrid());
+                $filesystem->addPlugin(new \krok\filesystem\plugins\PublicUrl('/render/storage', 'getPublicUrl'));
+                $filesystem->addPlugin(new \krok\filesystem\plugins\PublicUrl('/uploads/storage', 'getDownloadUrl'));
+                $filesystem->addPlugin(new \krok\filesystem\plugins\PublicUrl('/uploads/editor', 'getEditorUrl'));
+                $filesystem->addPlugin(new \krok\filesystem\plugins\HashGrid());
 
                 return $filesystem;
             },

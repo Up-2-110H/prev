@@ -52,7 +52,8 @@ $config = [
                     'name' => 'tinymce/uploader',
                     'controllers' => [
                         'default' => [
-                            'index',
+                            'image',
+                            'file',
                         ],
                     ],
                 ],

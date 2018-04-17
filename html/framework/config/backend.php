@@ -68,6 +68,9 @@ $config = [
                         'imagetools',
                         'wordcount',
                     ],
+                    'external_plugins' => [
+                        'easyfileupload' => 'easyfileupload',
+                    ],
                     'toolbar1' => implode(' | ', [
                         'formatselect fontselect fontsizeselect',
                     ]),
@@ -84,7 +87,7 @@ $config = [
                         'table',
                         'numlist bullist',
                         'link unlink',
-                        'image media',
+                        'easyfileupload image media',
                         'hr',
                         'blockquote',
                         'insertdatetime',
@@ -102,7 +105,8 @@ $config = [
                         'print',
                     ]),
                     'relative_urls' => false,
-                    'images_upload_url' => '/cp/tinymce/uploader',
+                    'images_upload_url' => '/cp/tinymce/uploader/default/image',
+                    'easyfileupload_url' => '/cp/tinymce/uploader/default/file',
                     'insertdatetime_formats' => [
                         '%H:%M',
                         '%d-%m-%Y',

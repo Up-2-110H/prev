@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5af2bb44935720e7c9966255d6cd6d36",
+    "content-hash": "1cd6dd8ad6536b5fc4bd6aeb49dc4ec9",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1215,7 +1215,7 @@
             "version": "0.1.1",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/extension/archiver.git",
+                "url": "https://gitlab.dev-vps.ru/extension/archiver.git",
                 "reference": "d07150207055a1b04f04ff75ad6171f47929f874"
             },
             "require": {
@@ -1249,7 +1249,7 @@
             "version": "0.0.1",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-access.git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-access.git",
                 "reference": "c2fb30b2ae3d8ddd86d0034728381622105c952b"
             },
             "require": {
@@ -1284,7 +1284,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-analytics.git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-analytics.git",
                 "reference": "331c6a5c7fc58f058107c1142c8fa7f6a6a94de8"
             },
             "require": {
@@ -1319,7 +1319,7 @@
             "version": "0.0.1",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-application.git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-application.git",
                 "reference": "2769de15a74d9e2b096f1a0b2cb6a40832a9c4c5"
             },
             "require": {
@@ -1359,7 +1359,7 @@
             "version": "0.0.7",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-backupManager.git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-backupManager.git",
                 "reference": "fadb30230ce4df1ee523d9f4eb38a9c83fdcff76"
             },
             "require": {
@@ -1397,7 +1397,7 @@
             "version": "0.0.2",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-bootbox.git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-bootbox.git",
                 "reference": "afb290b4092e0ce44c40123cb2de4c315b0b1bc1"
             },
             "require": {
@@ -1438,7 +1438,7 @@
             "version": "0.1.2",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-content.git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-content.git",
                 "reference": "1ca366a2e17fc1f52f911936276495d75f27ddba"
             },
             "require": {
@@ -1476,7 +1476,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-editor.git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-editor.git",
                 "reference": "3bba42fed10877eba54f9737833aa13e3fe59855"
             },
             "require": {
@@ -1511,7 +1511,7 @@
             "version": "1.1.2",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-example.git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-example.git",
                 "reference": "7de50c3822115469cd187ba9a38250226152aaad"
             },
             "require": {
@@ -1549,7 +1549,7 @@
             "version": "0.1.1",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-extend.git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-extend.git",
                 "reference": "5229359d0da7dc2a1cfce699d7383e9318854bfe"
             },
             "require": {
@@ -1585,16 +1585,16 @@
         },
         {
             "name": "yii2-developer/yii2-filesystem",
-            "version": "0.0.2",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-filesystem.git",
-                "reference": "1ee69deb5bf0419f4ca8281d915d2a5ffe091862"
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-filesystem.git",
+                "reference": "19e0399eba312eec7ab22cdb204cf8ca0125cc6f"
             },
             "require": {
                 "league/flysystem": "~1.0.0",
-                "league/glide": "~1.2.0",
                 "php": ">=7.1.0",
+                "yii2-developer/yii2-glide": "~1.0.0",
                 "yiisoft/yii2": "~2.0.12"
             },
             "type": "yii2-extension",
@@ -1623,14 +1623,14 @@
                 "filesystem",
                 "yii2"
             ],
-            "time": "2018-04-12T05:59:35+00:00"
+            "time": "2018-04-17T06:59:30+00:00"
         },
         {
             "name": "yii2-developer/yii2-glide",
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-glide.git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-glide.git",
                 "reference": "5bfe61209b87fd682703a5dbe3352048ddc3c3c2"
             },
             "require": {
@@ -1667,7 +1667,7 @@
             "version": "1.1.0",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-language.git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-language.git",
                 "reference": "632c9af885218087090dc95ac520324d0c3dc54a"
             },
             "require": {
@@ -1703,7 +1703,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-log.git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-log.git",
                 "reference": "0fbcec717c2b8942d87098e40a4504c2be868d8d"
             },
             "require": {
@@ -1739,7 +1739,7 @@
             "version": "0.1.1",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-logging.git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-logging.git",
                 "reference": "f55b4ac209f46098840c677d5f09c26850489ad3"
             },
             "require": {
@@ -1776,7 +1776,7 @@
             "version": "2.0.1",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-oauth.git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-oauth.git",
                 "reference": "9d0a27141f67adf750b916a80ba90cc0a927ef62"
             },
             "require": {
@@ -1818,7 +1818,7 @@
             "version": "0.3.2",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-paperDashboard.git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-paperDashboard.git",
                 "reference": "a316df7f315f0e37e3c89d1c204d76d9c0db11fa"
             },
             "require": {
@@ -1867,7 +1867,7 @@
             "version": "0.0.1",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-password-eye.git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-password-eye.git",
                 "reference": "bcb9c1bc9ff3cf642755e55a380f80b3c5eb988b"
             },
             "require": {
@@ -1909,7 +1909,7 @@
             "version": "0.0.1",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-queue.git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-queue.git",
                 "reference": "0c2af8e0a1e637cdb71ed60ab190546d3564dc60"
             },
             "require": {
@@ -1949,7 +1949,7 @@
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-security.git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-security.git",
                 "reference": "d20a505cbd67fcbeb093f708b814a23ccec1c707"
             },
             "require": {
@@ -1984,7 +1984,7 @@
             "version": "0.0.2",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-sentry.git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-sentry.git",
                 "reference": "4aa5921ccfcced88c053815f2e53be5492b25ad2"
             },
             "require": {
@@ -2020,7 +2020,7 @@
             "version": "0.0.7",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-slim.git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-slim.git",
                 "reference": "d8dfdddd3e2d2af5f78d47759344f8e879e9eb30"
             },
             "require": {
@@ -2057,7 +2057,7 @@
             "version": "0.0.13",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-storage.git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-storage.git",
                 "reference": "d5f7506c9bd5682b7d09b585768b5ed51244dd15"
             },
             "require": {
@@ -2097,7 +2097,7 @@
             "version": "0.0.2",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-system.git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-system.git",
                 "reference": "9f8bc877a517cd72b703a6ea41b5590bcccfc87b"
             },
             "require": {
@@ -2130,11 +2130,11 @@
         },
         {
             "name": "yii2-developer/yii2-tinymce",
-            "version": "1.0.2",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-tinymce.git",
-                "reference": "2fa78277c545480a1c841ef901bac52d9f509b5e"
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-tinymce.git",
+                "reference": "be246203903969b93cb22bd80415e5cd6f1cc97d"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -2168,21 +2168,21 @@
                 "tinymce",
                 "yii2"
             ],
-            "time": "2018-04-12T11:48:39+00:00"
+            "time": "2018-04-16T11:43:03+00:00"
         },
         {
             "name": "yii2-developer/yii2-tinymce-uploader",
-            "version": "0.0.2",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
-                "url": "http://gitlab.dev-vps.ru/yii2-extension/yii2-tinymce-uploader.git",
-                "reference": "18a9c1f0e785a5e6c06c3d249295458ce364d39d"
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-tinymce-uploader.git",
+                "reference": "2295705acd57e750e6523785d9018f51ab7e9411"
             },
             "require": {
                 "php": ">=7.1.0",
                 "tinymce/tinymce": "~4.7.0",
                 "yii2-developer/yii2-access": "~0.0.1",
-                "yii2-developer/yii2-filesystem": "~0.0.1",
+                "yii2-developer/yii2-filesystem": "~0.1.0",
                 "yiisoft/yii2": "~2.0.12"
             },
             "type": "yii2-extension",
@@ -2212,7 +2212,7 @@
                 "uploader",
                 "yii2"
             ],
-            "time": "2018-04-12T06:28:23+00:00"
+            "time": "2018-04-16T12:23:38+00:00"
         },
         {
             "name": "yiisoft/yii2",
