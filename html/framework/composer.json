@@ -23,7 +23,7 @@
         },
         {
             "type": "composer",
-            "url": "http://packagist.dev-vps.ru"
+            "url": "https://packagist.dev-vps.ru"
         }
     ],
     "require": {
@@ -63,8 +63,7 @@
     },
     "config": {
         "optimize-autoloader": true,
-        "process-timeout": 1800,
-        "secure-http": false
+        "process-timeout": 1800
     },
     "scripts": {
         "post-autoload-dump": "curl --silent --header \"Accept: text/plain\" https://security.sensiolabs.org/check_lock --form lock=@composer.lock"
