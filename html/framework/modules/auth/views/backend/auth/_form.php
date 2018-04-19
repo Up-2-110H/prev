@@ -21,4 +21,5 @@ use krok\passwordEye\PasswordEyeWidget;
 <?= $form->field($model, 'roles')->dropDownList($roles, [
     'multiple' => true,
     'data-live-search' => 'true',
+    'data-actions-box' => 'true',
 ]) ?>
