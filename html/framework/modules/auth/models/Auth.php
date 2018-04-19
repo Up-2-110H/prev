@@ -2,7 +2,7 @@
 
 namespace app\modules\auth\models;
 
-use krok\extend\behaviors\EventBehavior;
+use app\modules\auth\behaviors\RoleBehavior;
 use krok\extend\behaviors\GenerateRandomStringBehavior;
 use krok\extend\behaviors\HashBehavior;
 use krok\extend\behaviors\TimestampBehavior;
@@ -10,7 +10,6 @@ use krok\extend\interfaces\BlockedAttributeInterface;
 use krok\extend\traits\BlockedAttributeTrait;
 use krok\logging\interfaces\LoggingIdentityInterface;
 use Yii;
-use yii\helpers\ArrayHelper;
 use yii\web\IdentityInterface;
 
 /**
@@ -89,13 +88,9 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface, LoggingIde
             'TimestampBehavior' => [
                 'class' => TimestampBehavior::className(),
             ],
-            'EventBehavior' => [
-                'class' => EventBehavior::className(),
-                'events' => [
-                    self::EVENT_AFTER_INSERT => [$this, 'saveRoles'],
-                    self::EVENT_AFTER_UPDATE => [$this, 'saveRoles'],
-                    self::EVENT_AFTER_DELETE => [$this, 'deleteRoles'],
-                ],
+            'RoleBehavior' => [
+                'class' => RoleBehavior::class,
+                'model' => $this,
             ],
         ];
     }
@@ -140,6 +135,10 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface, LoggingIde
             [['login'], 'required'],
             [['email'], 'email'],
             [['password'], 'required', 'on' => [self::SCENARIO_CREATE]],
+            /**
+             * virtual property
+             */
+            [['roles'], 'safe'],
         ];
     }
 
@@ -232,31 +231,15 @@ class Auth extends \yii\db\ActiveRecord implements IdentityInterface, LoggingIde
      */
     public function getRoles()
     {
-        return ArrayHelper::map(Yii::$app->getAuthManager()->getRolesByUser($this->getId()), 'name', 'name');
+        return $this->roles;
     }
 
     /**
-     * @param array|string $roles
+     * @param array $roles
      */
     public function setRoles($roles)
     {
         $this->roles = $roles;
-    }
-
-    public function saveRoles()
-    {
-        Yii::$app->getAuthManager()->revokeAll($this->getId());
-
-        if (is_array($this->roles)) {
-            foreach ($this->roles as $row) {
-                Yii::$app->getAuthManager()->assign(Yii::$app->getAuthManager()->getRole($row), $this->getId());
-            }
-        }
-    }
-
-    public function deleteRoles()
-    {
-        Yii::$app->getAuthManager()->revokeAll($this->getId());
     }
 
     /**

@@ -128,7 +128,6 @@ class AuthController extends Controller
     public function actionRefreshToken($id)
     {
         $model = $this->findModel($id);
-        $model->setRoles($model->getRoles()); // todo: refactor service
         $model->setScenario(Auth::SCENARIO_REFRESH_TOKEN);
         $model->save();
 
