@@ -109,7 +109,7 @@ $config = [
                     'easyfileupload_url' => '/cp/tinymce/uploader/default/file',
                     'insertdatetime_formats' => [
                         '%H:%M',
-                        '%d-%m-%Y',
+                        '%d.%m.%Y',
                     ],
                     'templates' => [
                         [
