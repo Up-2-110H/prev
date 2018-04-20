@@ -8,6 +8,7 @@
 
 namespace app\modules\auth\controllers\backend;
 
+use app\modules\auth\models\Auth;
 use app\modules\auth\models\Profile;
 use krok\system\components\backend\Controller;
 use Yii;
@@ -24,20 +25,28 @@ class ProfileController extends Controller
      */
     public function actionIndex()
     {
-        $model = $this->findModel();
+        $profile = new Profile();
 
-        if ($model->load(Yii::$app->getRequest()->post()) && $model->save()) {
-            return $this->redirect(['index']);
+        if ($profile->load(Yii::$app->getRequest()->post()) && $profile->validate()) {
+
+            $model = $this->findModel();
+            $model->password = $profile->passwordNew;
+
+            if ($model->save()) {
+                Yii::$app->getSession()->setFlash('success', 'Пароль успешно изменен');
+            } else {
+                Yii::$app->getSession()->setFlash('danger', 'Ошибка изменения пароля');
+            }
         }
 
-        return $this->render('index', ['model' => $model]);
+        return $this->render('index', ['profile' => $profile]);
     }
 
     /**
-     * @return Profile
+     * @return null|\yii\web\IdentityInterface|Auth
      */
     protected function findModel()
     {
-        return Profile::findOne(Yii::$app->getUser()->getIdentity()->getId());
+        return Yii::$app->getUser()->getIdentity();
     }
 }

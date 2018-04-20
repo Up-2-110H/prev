@@ -11,7 +11,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\auth\models\Profile */
+/* @var $profile app\modules\auth\models\Profile */
 /* @var $form yii\widgets\ActiveForm */
 
 $this->title = 'Мой профиль';
@@ -26,11 +26,11 @@ $this->title = 'Мой профиль';
 
         <?php $form = ActiveForm::begin(); ?>
 
-        <?= $form->field($model, 'password')->widget(
+        <?= $form->field($profile, 'password')->widget(
             PasswordEyeWidget::class
         ) ?>
 
-        <?= $form->field($model, 'passwordNew')->widget(
+        <?= $form->field($profile, 'passwordNew')->widget(
             PasswordEyeWidget::class
         ) ?>
 

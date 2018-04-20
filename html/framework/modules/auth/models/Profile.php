@@ -8,18 +8,24 @@
 
 namespace app\modules\auth\models;
 
-use krok\extend\behaviors\GenerateRandomStringBehavior;
-use krok\extend\behaviors\HashBehavior;
-use krok\extend\behaviors\TimestampBehavior;
 use Yii;
+use yii\base\Model;
 
 /**
  * Class Profile
  *
+ * @property $password
+ * @property $passwordNew
+ *
  * @package app\modules\auth\models
  */
-class Profile extends Auth
+class Profile extends Model
 {
+    /**
+     * @var string
+     */
+    public $password;
+
     /**
      * @var string
      */
@@ -29,44 +35,6 @@ class Profile extends Auth
      * @var null|Auth
      */
     protected $auth = null;
-
-    /**
-     * @return array
-     */
-    public function behaviors()
-    {
-        return [
-            'HashBehaviorPassword' => [
-                'class' => HashBehavior::className(),
-                'attribute' => 'password',
-                'scenarios' => [
-                    self::SCENARIO_DEFAULT,
-                ],
-                'value' => function () {
-                    return Yii::$app->getSecurity()->generatePasswordHash($this->passwordNew);
-                },
-            ],
-            'GenerateRandomStringBehaviorAuthKey' => [
-                'class' => GenerateRandomStringBehavior::className(),
-                'attribute' => 'authKey',
-                'scenarios' => [
-                    self::SCENARIO_DEFAULT,
-                ],
-                'stringLength' => 128,
-            ],
-            'GenerateRandomStringBehaviorAccessToken' => [
-                'class' => GenerateRandomStringBehavior::className(),
-                'attribute' => 'accessToken',
-                'scenarios' => [
-                    self::SCENARIO_DEFAULT,
-                ],
-                'stringLength' => 128,
-            ],
-            'TimestampBehavior' => [
-                'class' => TimestampBehavior::className(),
-            ],
-        ];
-    }
 
     /**
      * @return array
@@ -94,9 +62,7 @@ class Profile extends Auth
     public function authorization()
     {
         if (!$this->hasErrors()) {
-            if (!$this->getAuth() || !Yii::$app->getSecurity()->validatePassword($this->password,
-                    $this->getAuth()->password)
-            ) {
+            if (!$this->getAuth() || !$this->getAuth()->validatePassword($this->password)) {
                 $this->addError('password', 'Неправильный пароль');
             }
         }
