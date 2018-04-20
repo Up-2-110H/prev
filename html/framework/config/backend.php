@@ -191,7 +191,7 @@ $config = [
             ],
         ],
         'auth' => [
-            'class' => \app\modules\auth\Module::class, // todo
+            'class' => \app\modules\auth\Module::class,
             'viewPath' => '@app/modules/auth/views/backend',
             'controllerNamespace' => 'app\modules\auth\controllers\backend',
         ],
