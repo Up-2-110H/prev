@@ -55,9 +55,9 @@ class DefaultController extends Controller
     {
         $attributes = $client->getUserAttributes();
 
-        $id = ArrayHelper::getValue($attributes, 'id');
-        $login = ArrayHelper::getValue($attributes, 'login');
-        $email = ArrayHelper::getValue($attributes, 'email');
+        $id = (string)ArrayHelper::getValue($attributes, 'id');
+        $login = (string)ArrayHelper::getValue($attributes, 'login');
+        $email = (string)ArrayHelper::getValue($attributes, 'email');
 
         /* @var $OAuth OAuth */
         $OAuth = OAuth::find()->where([
@@ -87,6 +87,7 @@ class DefaultController extends Controller
                         'email' => $email,
                         'blocked' => Auth::BLOCKED_YES,
                     ]);
+                    $auth->setScenario(Auth::SCENARIO_CREATE);
                     $transaction = Auth::getDb()->beginTransaction();
                     if ($auth->save()) {
                         $OAuth = new OAuth([

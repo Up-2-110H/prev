@@ -1773,11 +1773,11 @@
         },
         {
             "name": "yii2-developer/yii2-oauth",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-oauth.git",
-                "reference": "9d0a27141f67adf750b916a80ba90cc0a927ef62"
+                "reference": "8a3067843907c3345f488cd1401f17008cff0b16"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -1811,15 +1811,15 @@
                 "extension",
                 "yii2"
             ],
-            "time": "2018-03-12T05:44:41+00:00"
+            "time": "2018-04-20T07:20:43+00:00"
         },
         {
             "name": "yii2-developer/yii2-paperDashboard",
-            "version": "0.3.3",
+            "version": "0.3.5",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-paperDashboard.git",
-                "reference": "f581cda3cb8204409c4bda7d9ecc81f01b291022"
+                "reference": "a2073409d00138824b4db0161732a3db1e879c72"
             },
             "require": {
                 "bootstrap-select/bootstrap-select": "~1.12.0",
@@ -1860,7 +1860,7 @@
                 "paperDashboard",
                 "yii2"
             ],
-            "time": "2018-04-18T07:46:18+00:00"
+            "time": "2018-04-20T07:43:31+00:00"
         },
         {
             "name": "yii2-developer/yii2-password-eye",
