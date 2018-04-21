@@ -1212,11 +1212,11 @@
         },
         {
             "name": "yii2-developer/archiver",
-            "version": "0.1.1",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/extension/archiver.git",
-                "reference": "d07150207055a1b04f04ff75ad6171f47929f874"
+                "reference": "31bd205a21fca6f08ff71e4e0a70b064251ddb38"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -1237,12 +1237,12 @@
                     "email": "yii2.developer@gmail.com"
                 }
             ],
-            "description": "Archiver",
+            "description": "Позволяет создавать резервные копии файлов",
             "keywords": [
                 "archiver",
                 "library"
             ],
-            "time": "2017-11-27T03:51:17+00:00"
+            "time": "2018-02-25T08:02:00+00:00"
         },
         {
             "name": "yii2-developer/yii2-access",
