@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "67d57b62dad4e825668bbe61c4e7606c",
@@ -1067,7 +1067,7 @@
         },
         {
             "name": "symfony/process",
-            "version": "v3.4.8",
+            "version": "v3.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
@@ -1116,16 +1116,16 @@
         },
         {
             "name": "tinymce/tinymce",
-            "version": "4.7.11",
+            "version": "4.7.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tinymce/tinymce-dist.git",
-                "reference": "a7178e20d6053b92a177900531ffd2cdcb77f77c"
+                "reference": "914887eeeb9a28034045879defa09defccf7c68a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tinymce/tinymce-dist/zipball/a7178e20d6053b92a177900531ffd2cdcb77f77c",
-                "reference": "a7178e20d6053b92a177900531ffd2cdcb77f77c",
+                "url": "https://api.github.com/repos/tinymce/tinymce-dist/zipball/914887eeeb9a28034045879defa09defccf7c68a",
+                "reference": "914887eeeb9a28034045879defa09defccf7c68a",
                 "shasum": ""
             },
             "type": "component",
@@ -1158,7 +1158,7 @@
                 "tinymce",
                 "wysiwyg"
             ],
-            "time": "2018-04-11T09:26:11+00:00"
+            "time": "2018-05-03T13:38:00+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -2129,11 +2129,11 @@
         },
         {
             "name": "yii2-developer/yii2-tinymce",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-tinymce.git",
-                "reference": "f57a9a7fec65df75ee0fbcfe2f36263eb0f9df28"
+                "reference": "dcba2144e1c817add428c39bec3c60932cfb05e4"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -2167,7 +2167,7 @@
                 "tinymce",
                 "yii2"
             ],
-            "time": "2018-04-18T07:11:36+00:00"
+            "time": "2018-05-03T05:06:25+00:00"
         },
         {
             "name": "yii2-developer/yii2-tinymce-uploader",
@@ -2908,22 +2908,22 @@
         },
         {
             "name": "yiisoft/yii2-gii",
-            "version": "2.0.6",
+            "version": "2.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-gii.git",
-                "reference": "db41f647d9b73702ceb6864fdfce827a72b5ce42"
+                "reference": "9ec1374d0844f448d2af29c707f77c9f8d1375c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/db41f647d9b73702ceb6864fdfce827a72b5ce42",
-                "reference": "db41f647d9b73702ceb6864fdfce827a72b5ce42",
+                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/9ec1374d0844f448d2af29c707f77c9f8d1375c8",
+                "reference": "9ec1374d0844f448d2af29c707f77c9f8d1375c8",
                 "shasum": ""
             },
             "require": {
                 "bower-asset/typeahead.js": "0.10.* | ~0.11.0",
                 "phpspec/php-diff": ">=1.0.2",
-                "yiisoft/yii2": "~2.0.13",
+                "yiisoft/yii2": "~2.0.14",
                 "yiisoft/yii2-bootstrap": "~2.0.0"
             },
             "type": "yii2-extension",
@@ -2938,7 +2938,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "yii\\gii\\": ""
+                    "yii\\gii\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2957,7 +2957,7 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2017-12-22T23:53:06+00:00"
+            "time": "2018-05-02T22:05:25+00:00"
         }
     ],
     "aliases": [],
