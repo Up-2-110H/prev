@@ -60,6 +60,10 @@ return [
             'icon' => 'ti-settings',
             'items' => [
                 [
+                    'label' => 'Configure',
+                    'url' => ['/configure'],
+                ],
+                [
                     'label' => 'Clear cache',
                     'url' => ['/system/default/flush-cache'],
                 ],

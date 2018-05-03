@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "67d57b62dad4e825668bbe61c4e7606c",
+    "content-hash": "72659d23f8dca62f03493df4cead79e8",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1432,6 +1432,48 @@
                 "yii2"
             ],
             "time": "2018-03-31T05:52:53+00:00"
+        },
+        {
+            "name": "yii2-developer/yii2-configure",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-configure.git",
+                "reference": "e88ea44f1b8b47a7b5814ff3246276466c54adb5"
+            },
+            "require": {
+                "php": ">=7.1.0",
+                "yii2-developer/yii2-extend": "~0.0.1 | ^0.1",
+                "yii2-developer/yii2-system": "~0.0.1",
+                "yiisoft/yii2": "~2.0.12"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "krok\\configure\\": ""
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "krok",
+                    "email": "yii2.developer@gmail.com"
+                }
+            ],
+            "description": "Менеджер настроек",
+            "keywords": [
+                "configure",
+                "extension",
+                "yii2"
+            ],
+            "time": "2018-05-03T16:58:13+00:00"
         },
         {
             "name": "yii2-developer/yii2-content",

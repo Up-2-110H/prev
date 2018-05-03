@@ -209,6 +209,11 @@ $config = [
             'viewPath' => '@vendor/yii2-developer/yii2-backupManager/views/backend',
             'controllerNamespace' => 'krok\backupManager\controllers\backend',
         ],
+        'configure' => [
+            'class' => \krok\configure\Module::class,
+            'viewPath' => '@vendor/yii2-developer/yii2-configure/views/backend',
+            'controllerNamespace' => 'krok\configure\controllers\backend',
+        ],
     ],
     'components' => [
         'view' => [

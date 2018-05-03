@@ -79,6 +79,15 @@ return \yii\helpers\ArrayHelper::merge([
 
                 return Yii::createObject(\krok\language\Language::class, [$list]);
             },
+            \krok\configure\serializers\SerializerInterface::class => \krok\configure\serializers\JsonSerializer::class,
+            \krok\configure\ConfigureInterface::class => function () {
+                $configurable = [];
+
+                /** @var \krok\configure\serializers\SerializerInterface $serializer */
+                $serializer = Yii::createObject(\krok\configure\serializers\SerializerInterface::class);
+
+                return new \krok\configure\Configure($configurable, $serializer);
+            },
         ],
     ],
     'modules' => [

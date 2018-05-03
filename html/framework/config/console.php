@@ -19,6 +19,7 @@ $config = [
                 '@vendor/yii2-developer/yii2-storage/migrations',
                 '@vendor/yii2-developer/yii2-content/migrations',
                 '@vendor/yii2-developer/yii2-example/migrations',
+                '@vendor/yii2-developer/yii2-configure/migrations',
             ],
         ],
         'access' => [
@@ -97,6 +98,15 @@ $config = [
                         ],
                         'filesystem' => [
                             'backup',
+                        ],
+                    ],
+                ],
+                [
+                    'name' => 'configure',
+                    'controllers' => [
+                        'default' => [
+                            'list',
+                            'save',
                         ],
                     ],
                 ],

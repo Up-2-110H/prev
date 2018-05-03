@@ -21,6 +21,7 @@ return [
     'Communication with social networks' => 'Связь с социальными сетями',
     'History' => 'Журнал',
     'Systemic' => 'Системные',
+    'Configure' => 'Настройки',
     'Clear cache' => 'Очистить кэш',
     /**
      * Управление пользователями
