@@ -22,10 +22,6 @@ return [
                     'url' => ['/content/default'],
                 ],
                 [
-                    'label' => 'Logging',
-                    'url' => ['/logging/default'],
-                ],
-                [
                     'label' => 'Backup Manager',
                     'url' => ['/backupManager/default'],
                 ],

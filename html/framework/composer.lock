@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ffccffe4600136a297eb92cba398ede",
+    "content-hash": "64846d1fa9bf608fdf91d54547b5efb8",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1739,43 +1739,6 @@
             "time": "2018-04-18T07:41:18+00:00"
         },
         {
-            "name": "yii2-developer/yii2-logging",
-            "version": "0.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-logging.git",
-                "reference": "a66889dc53f4ced79cfd41d241ba8dfb894da66c"
-            },
-            "require": {
-                "php": ">=7.1.0",
-                "yii2-developer/yii2-extend": "~0.0.1 | ^0.1",
-                "yii2-developer/yii2-system": "~0.0.1",
-                "yiisoft/yii2": "~2.0.12"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "krok\\logging\\": ""
-                }
-            },
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "krok",
-                    "email": "yii2.developer@gmail.com"
-                }
-            ],
-            "description": "Позволяет логировать действия ( добавление/изменение/удаление ) пользователя над записями",
-            "keywords": [
-                "extension",
-                "logging",
-                "yii2"
-            ],
-            "time": "2018-04-18T07:38:57+00:00"
-        },
-        {
             "name": "yii2-developer/yii2-oauth",
             "version": "2.0.2",
             "source": {
@@ -1819,11 +1782,11 @@
         },
         {
             "name": "yii2-developer/yii2-paperDashboard",
-            "version": "0.3.5",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-paperDashboard.git",
-                "reference": "a2073409d00138824b4db0161732a3db1e879c72"
+                "reference": "8e61221d5b0b8a6c0b9d0621204a2bf6eafc3026"
             },
             "require": {
                 "bootstrap-select/bootstrap-select": "~1.12.0",
@@ -1831,7 +1794,6 @@
                 "yii2-developer/yii2-analytics": "~1.0.0",
                 "yii2-developer/yii2-extend": "~0.0.1 | ^0.1",
                 "yii2-developer/yii2-language": "~1.1.0",
-                "yii2-developer/yii2-logging": "~0.1.0",
                 "yiisoft/yii2": "~2.0.12",
                 "yiisoft/yii2-bootstrap": "~2.0.0"
             },
@@ -1864,7 +1826,7 @@
                 "paperDashboard",
                 "yii2"
             ],
-            "time": "2018-04-20T07:43:31+00:00"
+            "time": "2018-05-04T06:26:10+00:00"
         },
         {
             "name": "yii2-developer/yii2-password-eye",

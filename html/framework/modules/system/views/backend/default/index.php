@@ -4,7 +4,6 @@
 
 use krok\paperDashboard\widgets\analytics\AnalyticsWidget;
 use krok\paperDashboard\widgets\analytics\SpaceCircleChartWidget;
-use krok\paperDashboard\widgets\logging\LoggingWidget;
 
 $this->title = 'Администрирование';
 ?>
@@ -29,7 +28,6 @@ $this->title = 'Администрирование';
                         </div>
                     </div>
                 </div>
-                <?= LoggingWidget::widget() ?>
             </div>
         </div>
         <div class="col-lg-6">

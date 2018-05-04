@@ -15,7 +15,6 @@ $config = [
                 '@app/migrations',
                 '@yii/rbac/migrations',
                 '@app/modules/auth/migrations',
-                '@vendor/yii2-developer/yii2-logging/migrations',
                 '@vendor/yii2-developer/yii2-storage/migrations',
                 '@vendor/yii2-developer/yii2-content/migrations',
                 '@vendor/yii2-developer/yii2-configure/migrations',
@@ -36,15 +35,6 @@ $config = [
                         'default' => [
                             'index',
                             'flush-cache',
-                        ],
-                    ],
-                ],
-                [
-                    'name' => 'logging',
-                    'controllers' => [
-                        'default' => [
-                            'index',
-                            'view',
                         ],
                     ],
                 ],
