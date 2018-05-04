@@ -30,15 +30,15 @@ return [
             'icon' => 'ti-user',
             'items' => [
                 [
-                    'label' => 'User account',
+                    'label' => 'Auth',
                     'url' => ['/auth/auth'],
                 ],
                 [
-                    'label' => 'Communication with social networks',
+                    'label' => 'Social network',
                     'url' => ['/auth/social'],
                 ],
                 [
-                    'label' => 'History',
+                    'label' => 'Log',
                     'url' => ['/auth/log'],
                 ],
             ],
