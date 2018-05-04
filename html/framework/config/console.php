@@ -18,7 +18,6 @@ $config = [
                 '@vendor/yii2-developer/yii2-logging/migrations',
                 '@vendor/yii2-developer/yii2-storage/migrations',
                 '@vendor/yii2-developer/yii2-content/migrations',
-                '@vendor/yii2-developer/yii2-example/migrations',
                 '@vendor/yii2-developer/yii2-configure/migrations',
             ],
         ],
@@ -76,12 +75,6 @@ $config = [
                 ],
                 [
                     'name' => 'content',
-                    'controllers' => [
-                        'default' => [],
-                    ],
-                ],
-                [
-                    'name' => 'example',
                     'controllers' => [
                         'default' => [],
                     ],

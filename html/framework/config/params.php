@@ -26,10 +26,6 @@ return [
                     'url' => ['/logging/default'],
                 ],
                 [
-                    'label' => 'Example',
-                    'url' => ['/example/default'],
-                ],
-                [
                     'label' => 'Backup Manager',
                     'url' => ['/backupManager/default'],
                 ],

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "72659d23f8dca62f03493df4cead79e8",
+    "content-hash": "2ffccffe4600136a297eb92cba398ede",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1547,44 +1547,6 @@
                 "yii2"
             ],
             "time": "2018-02-03T13:07:39+00:00"
-        },
-        {
-            "name": "yii2-developer/yii2-example",
-            "version": "1.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-example.git",
-                "reference": "d2a07be6f2a3eeb4041c7835f0fc9bd69e779e22"
-            },
-            "require": {
-                "php": ">=7.1.0",
-                "yii2-developer/yii2-editor": "~1.0.0",
-                "yii2-developer/yii2-extend": "~0.0.1 | ^0.1",
-                "yii2-developer/yii2-system": "~0.0.1",
-                "yiisoft/yii2": "~2.0.12"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "krok\\example\\": ""
-                }
-            },
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "krok",
-                    "email": "yii2.developer@gmail.com"
-                }
-            ],
-            "description": "Пример модуля",
-            "keywords": [
-                "example",
-                "extension",
-                "yii2"
-            ],
-            "time": "2018-04-18T07:51:22+00:00"
         },
         {
             "name": "yii2-developer/yii2-extend",
