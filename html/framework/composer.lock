@@ -1782,11 +1782,11 @@
         },
         {
             "name": "yii2-developer/yii2-paperDashboard",
-            "version": "0.4.0",
+            "version": "0.4.1",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-paperDashboard.git",
-                "reference": "8e61221d5b0b8a6c0b9d0621204a2bf6eafc3026"
+                "reference": "47c8908827c1b670007f3878fb117fd0b157a670"
             },
             "require": {
                 "bootstrap-select/bootstrap-select": "~1.12.0",
@@ -1826,7 +1826,7 @@
                 "paperDashboard",
                 "yii2"
             ],
-            "time": "2018-05-04T06:26:10+00:00"
+            "time": "2018-05-04T07:08:30+00:00"
         },
         {
             "name": "yii2-developer/yii2-password-eye",
