@@ -21,17 +21,13 @@ return [
                     'label' => 'Content',
                     'url' => ['/content/default'],
                 ],
-                [
-                    'label' => 'Backup Manager',
-                    'url' => ['/backupManager/default'],
-                ],
             ],
         ],
     ],
     'dropdown' => [
         [
-            'label' => 'Administration',
-            'icon' => 'ti-panel',
+            'label' => 'Users',
+            'icon' => 'ti-user',
             'items' => [
                 [
                     'label' => 'User account',
@@ -58,6 +54,10 @@ return [
                 [
                     'label' => 'Clear cache',
                     'url' => ['/system/default/flush-cache'],
+                ],
+                [
+                    'label' => 'Backup Manager',
+                    'url' => ['/backupManager/default'],
                 ],
             ],
         ],

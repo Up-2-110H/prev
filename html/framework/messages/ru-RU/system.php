@@ -16,7 +16,7 @@ return [
     /**
      * Выпадающие списки
      */
-    'Administration' => 'Администрирование',
+    'Users' => 'Пользователи',
     'User account' => 'Учетные записи',
     'Communication with social networks' => 'Связь с социальными сетями',
     'History' => 'Журнал',
