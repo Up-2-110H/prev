@@ -10,6 +10,7 @@ $config = [
         'migrate' => [
             'class' => \yii\console\controllers\MigrateController::class,
             'migrationTable' => '{{%migration}}',
+            'useTablePrefix' => true,
             'interactive' => false,
             'migrationPath' => [
                 '@app/migrations',
