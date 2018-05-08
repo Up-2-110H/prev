@@ -12,7 +12,7 @@ MySQL
 
 Common
 ======
-* behaviors, grid, traits, interfaces, validators, widgets - ( "yii2-developer/yii2-extend": "~0.0.1", ) лежат в krok\extend
+* behaviors, grid, traits, interfaces, validators, widgets - ( "yii2-developer/yii2-extend": "~0.1.0", ) лежат в krok\extend
 * Имена полей в таблицах базы данных camelCase
 * Имена директорий в camelCase
 * Имена переменных в camelCase
