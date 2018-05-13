@@ -49,7 +49,7 @@ return \yii\helpers\ArrayHelper::merge([
                 $filesystem = Yii::createObject(\League\Flysystem\Filesystem::class);
                 $filesystem->addPlugin(new \krok\filesystem\plugins\PublicUrl('/render/storage', 'getPublicUrl'));
                 $filesystem->addPlugin(new \krok\filesystem\plugins\PublicUrl('/attachment/storage', 'getDownloadUrl'));
-                $filesystem->addPlugin(new \krok\filesystem\plugins\PublicUrl('/uploads/editor', 'getEditorUrl'));
+                $filesystem->addPlugin(new \krok\filesystem\plugins\PublicUrl('/attachment/editor', 'getEditorUrl'));
                 $filesystem->addPlugin(new \krok\filesystem\plugins\HashGrid());
 
                 return $filesystem;
