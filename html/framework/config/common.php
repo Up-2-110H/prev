@@ -48,7 +48,7 @@ return \yii\helpers\ArrayHelper::merge([
             \League\Flysystem\FilesystemInterface::class => function () {
                 $filesystem = Yii::createObject(\League\Flysystem\Filesystem::class);
                 $filesystem->addPlugin(new \krok\filesystem\plugins\PublicUrl('/render/storage', 'getPublicUrl'));
-                $filesystem->addPlugin(new \krok\filesystem\plugins\PublicUrl('/uploads/storage', 'getDownloadUrl'));
+                $filesystem->addPlugin(new \krok\filesystem\plugins\PublicUrl('/attachment/storage', 'getDownloadUrl'));
                 $filesystem->addPlugin(new \krok\filesystem\plugins\PublicUrl('/uploads/editor', 'getEditorUrl'));
                 $filesystem->addPlugin(new \krok\filesystem\plugins\HashGrid());
 
@@ -61,7 +61,6 @@ return \yii\helpers\ArrayHelper::merge([
                     'cache_path_prefix' => 'cache',
                     'driver' => 'imagick',
                 ]);
-                $server->setResponseFactory(new \krok\glide\response\Yii2ResponseFactory());
 
                 return $server;
             },
@@ -108,6 +107,10 @@ return \yii\helpers\ArrayHelper::merge([
         'glide' => [
             'class' => \yii\base\Module::class,
             'controllerNamespace' => 'krok\glide\controllers',
+        ],
+        'filesystem' => [
+            'class' => \yii\base\Module::class,
+            'controllerNamespace' => 'krok\filesystem\controllers',
         ],
     ],
     'components' => [

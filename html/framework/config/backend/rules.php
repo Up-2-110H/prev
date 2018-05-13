@@ -12,6 +12,10 @@ return [
      */
     'render/<path:[\w\/\.]+>' => 'glide/default/render',
     /**
+     * Filesystem
+     */
+    'attachment/<path:[\w\/\.\-]+>' => 'filesystem/default/attachment',
+    /**
      * System
      */
     '<language:\w+\-\w+>' => '/',

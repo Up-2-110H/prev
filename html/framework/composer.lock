@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c84b420d3ed5ceea7d7e3081fa83cc5",
+    "content-hash": "022ed4b9bf51d8c4e31163595800f6f3",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1589,16 +1589,16 @@
         },
         {
             "name": "yii2-developer/yii2-filesystem",
-            "version": "0.1.2",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-filesystem.git",
-                "reference": "1c1b8a8755a3eb285594c95ef0f00efe32360484"
+                "reference": "53d1437b7afc9ab6cad5a2255dc05d19f51b90a9"
             },
             "require": {
                 "league/flysystem": "~1.0.0",
+                "league/glide": "~1.2.0",
                 "php": ">=7.1.0",
-                "yii2-developer/yii2-glide": "~1.0.0",
                 "yiisoft/yii2": "~2.0.12"
             },
             "type": "yii2-extension",
@@ -1627,20 +1627,20 @@
                 "filesystem",
                 "yii2"
             ],
-            "time": "2018-04-18T07:14:42+00:00"
+            "time": "2018-05-13T10:13:15+00:00"
         },
         {
             "name": "yii2-developer/yii2-glide",
-            "version": "1.0.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-glide.git",
-                "reference": "5bfe61209b87fd682703a5dbe3352048ddc3c3c2"
+                "reference": "9bb416ce25c7d57c351e2b46ffb1e6c2d89be8e7"
             },
             "require": {
-                "league/flysystem": "~1.0.0",
                 "league/glide": "~1.2.0",
                 "php": ">=7.1.0",
+                "yii2-developer/yii2-filesystem": "~0.2.0",
                 "yiisoft/yii2": "~2.0.12"
             },
             "type": "yii2-extension",
@@ -1658,13 +1658,13 @@
                     "email": "yii2.developer@gmail.com"
                 }
             ],
-            "description": "Glide",
+            "description": "Glide позволяет изменять размер, ориентацию изображения на лету",
             "keywords": [
                 "extension",
                 "glide",
                 "yii2"
             ],
-            "time": "2018-02-03T13:52:02+00:00"
+            "time": "2018-05-13T08:15:06+00:00"
         },
         {
             "name": "yii2-developer/yii2-language",
@@ -1984,15 +1984,15 @@
         },
         {
             "name": "yii2-developer/yii2-slim",
-            "version": "0.2.0",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-slim.git",
-                "reference": "8306096866fa03422c768a4a27b9dd7ff5e14694"
+                "reference": "8f02becaa5adfc0dcda5567092b90120384ae9ac"
             },
             "require": {
                 "php": ">=7.1.0",
-                "yii2-developer/yii2-filesystem": "~0.1.0",
+                "yii2-developer/yii2-filesystem": "~0.2.0",
                 "yii2-developer/yii2-storage": "~0.2.0",
                 "yiisoft/yii2": "~2.0.12"
             },
@@ -2017,21 +2017,21 @@
                 "slim",
                 "yii2"
             ],
-            "time": "2018-05-07T11:52:43+00:00"
+            "time": "2018-05-13T08:43:35+00:00"
         },
         {
             "name": "yii2-developer/yii2-storage",
-            "version": "0.2.0",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-storage.git",
-                "reference": "94ec8d08a0d10ef01fe5f209ed3a8bb3794a9427"
+                "reference": "3ed69aa97107b36740d2496dd093609e05b78c44"
             },
             "require": {
                 "ext-fileinfo": "*",
                 "php": ">=7.1.0",
                 "yii2-developer/yii2-extend": "~0.0.1 | ^0.1",
-                "yii2-developer/yii2-filesystem": "~0.1.0",
+                "yii2-developer/yii2-filesystem": "~0.2.0",
                 "yii2-developer/yii2-system": "~1.0.0",
                 "yiisoft/yii2": "~2.0.12"
             },
@@ -2056,7 +2056,7 @@
                 "storage",
                 "yii2"
             ],
-            "time": "2018-05-07T11:43:37+00:00"
+            "time": "2018-05-13T08:34:41+00:00"
         },
         {
             "name": "yii2-developer/yii2-system",
@@ -2144,16 +2144,16 @@
         },
         {
             "name": "yii2-developer/yii2-tinymce-uploader",
-            "version": "0.1.4",
+            "version": "0.1.5",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-tinymce-uploader.git",
-                "reference": "8b46ac7ede0d784ed10c8dc1699cae9ee5859e40"
+                "reference": "493dde715a8f4a1bb0c364e00b33c18ed464f8f1"
             },
             "require": {
                 "php": ">=7.1.0",
                 "tinymce/tinymce": "~4.7.0",
-                "yii2-developer/yii2-filesystem": "~0.1.0",
+                "yii2-developer/yii2-filesystem": "~0.2.0",
                 "yiisoft/yii2": "~2.0.12"
             },
             "type": "yii2-extension",
@@ -2183,7 +2183,7 @@
                 "uploader",
                 "yii2"
             ],
-            "time": "2018-04-18T07:09:03+00:00"
+            "time": "2018-05-13T08:49:54+00:00"
         },
         {
             "name": "yiisoft/yii2",
