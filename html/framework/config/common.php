@@ -70,10 +70,6 @@ return \yii\helpers\ArrayHelper::merge([
                         'iso' => 'ru-RU',
                         'title' => 'Русский',
                     ],
-                    [
-                        'iso' => 'en-US',
-                        'title' => 'English',
-                    ],
                 ];
 
                 return Yii::createObject(\krok\language\Language::class, [$list]);
