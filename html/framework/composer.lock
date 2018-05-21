@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "022ed4b9bf51d8c4e31163595800f6f3",
+    "content-hash": "ebeb05f46cbae5da9c610d09394e2cda",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1116,16 +1116,16 @@
         },
         {
             "name": "tinymce/tinymce",
-            "version": "4.7.12",
+            "version": "4.7.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tinymce/tinymce-dist.git",
-                "reference": "914887eeeb9a28034045879defa09defccf7c68a"
+                "reference": "2d2cd37932279723b4a5e4d259bc94123acbe666"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tinymce/tinymce-dist/zipball/914887eeeb9a28034045879defa09defccf7c68a",
-                "reference": "914887eeeb9a28034045879defa09defccf7c68a",
+                "url": "https://api.github.com/repos/tinymce/tinymce-dist/zipball/2d2cd37932279723b4a5e4d259bc94123acbe666",
+                "reference": "2d2cd37932279723b4a5e4d259bc94123acbe666",
                 "shasum": ""
             },
             "type": "component",
@@ -1158,7 +1158,7 @@
                 "tinymce",
                 "wysiwyg"
             ],
-            "time": "2018-05-03T13:38:00+00:00"
+            "time": "2018-05-16T04:27:27+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
