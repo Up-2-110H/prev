@@ -13,11 +13,12 @@ return \yii\helpers\ArrayHelper::merge([
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
-        '@root' => dirname(dirname(__DIR__)) . '/web',
+        '@root' => dirname(dirname(__DIR__)),
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
         '@themes' => '@vendor/yii2-developer/yii2-paperDashboard',
-        '@public' => '@runtime/uploads',
+        '@storage' => '@root/storage',
+        '@backup' => '@root/backup',
     ],
     'container' => [
         'singletons' => [
@@ -43,7 +44,7 @@ return \yii\helpers\ArrayHelper::merge([
                 'uploadedDirectory' => '/editor',
             ],
             \League\Flysystem\AdapterInterface::class => function () {
-                return Yii::createObject(\League\Flysystem\Adapter\Local::class, [Yii::getAlias('@public')]);
+                return Yii::createObject(\League\Flysystem\Adapter\Local::class, [Yii::getAlias('@storage')]);
             },
             \League\Flysystem\FilesystemInterface::class => function () {
                 $filesystem = Yii::createObject(\League\Flysystem\Filesystem::class);

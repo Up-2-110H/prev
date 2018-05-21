@@ -4,5 +4,6 @@
 /docker/server/*/
 /html/web/html/
 /html/web/robots.txt
-/html/web/uploads/*/
+/html/backup/*/
+/html/storage/*/
 /html/framework/runtime/*/

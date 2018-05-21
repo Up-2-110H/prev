@@ -127,7 +127,7 @@ $config = [
                 $filesystems = new \BackupManager\Filesystems\FilesystemProvider(new \BackupManager\Config\Config([
                     'local' => [
                         'type' => 'Local',
-                        'root' => Yii::getAlias('@runtime/backup/database'),
+                        'root' => Yii::getAlias('@backup/database'),
                     ],
                 ]));
                 $filesystems->add(new \BackupManager\Filesystems\LocalFilesystem());
@@ -149,12 +149,12 @@ $config = [
                 $compressors->add(new \BackupManager\Compressors\GzipCompressor());
 
                 $finder = (new \Symfony\Component\Finder\Finder())->ignoreUnreadableDirs(true)->ignoreVCS(true)->exclude([
-                    'framework/runtime/backup',
                     'web/cp/assets',
                     'web/assets',
-                    'web/uploads',
-                ])->in(dirname(Yii::getAlias('@root')));
-                $compressor = new \krok\archiver\compressor\ZipCompressor(['path' => Yii::getAlias('@runtime/backup/filesystem')]);
+                    'storage',
+                    'backup',
+                ])->in(Yii::getAlias('@root'));
+                $compressor = new \krok\archiver\compressor\ZipCompressor(['path' => Yii::getAlias('@backup/filesystem')]);
 
                 ini_set('max_execution_time', 90);
 
