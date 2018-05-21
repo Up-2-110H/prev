@@ -17,7 +17,7 @@ return \yii\helpers\ArrayHelper::merge([
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
         '@themes' => '@vendor/yii2-developer/yii2-paperDashboard',
-        '@public' => '@root/uploads',
+        '@public' => '@runtime/uploads',
     ],
     'container' => [
         'singletons' => [
@@ -47,9 +47,18 @@ return \yii\helpers\ArrayHelper::merge([
             },
             \League\Flysystem\FilesystemInterface::class => function () {
                 $filesystem = Yii::createObject(\League\Flysystem\Filesystem::class);
+                /**
+                 * Glide render
+                 */
                 $filesystem->addPlugin(new \krok\filesystem\plugins\PublicUrl('/render/storage', 'getPublicUrl'));
+                /**
+                 * Filesystem attachment
+                 */
                 $filesystem->addPlugin(new \krok\filesystem\plugins\PublicUrl('/attachment/storage', 'getDownloadUrl'));
                 $filesystem->addPlugin(new \krok\filesystem\plugins\PublicUrl('/attachment/editor', 'getEditorUrl'));
+                /**
+                 * Hash grid
+                 */
                 $filesystem->addPlugin(new \krok\filesystem\plugins\HashGrid());
 
                 return $filesystem;
