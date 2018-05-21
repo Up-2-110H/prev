@@ -1356,11 +1356,11 @@
         },
         {
             "name": "yii2-developer/yii2-backupManager",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-backupManager.git",
-                "reference": "3a25268ad287fa1970684098a659709dcdfbfb05"
+                "reference": "bbd6f7ea8f657a385848692458968e512f9a25d5"
             },
             "require": {
                 "backup-manager/backup-manager": "~1.1.0",
@@ -1390,7 +1390,7 @@
                 "extension",
                 "yii2"
             ],
-            "time": "2018-05-07T11:38:08+00:00"
+            "time": "2018-05-21T12:37:00+00:00"
         },
         {
             "name": "yii2-developer/yii2-bootbox",
