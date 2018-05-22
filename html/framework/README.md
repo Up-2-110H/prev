@@ -23,13 +23,7 @@ Common
 Editor
 ======
 ```php
-<?= $form->field($model, 'text')->widget(
-    Yii::createObject([
-        'class' => \krok\editor\interfaces\EditorInterface::class,
-        'model' => $model,
-        'attribute' => 'text',
-    ])
-) ?>
+<?= $form->field($model, 'text')->widget(\krok\editor\EditorWidget::class) ?>
 ```
 
 Model
