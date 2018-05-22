@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ebeb05f46cbae5da9c610d09394e2cda",
+    "content-hash": "42854af85df7562768d29916e4efbbfb",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1477,15 +1477,15 @@
         },
         {
             "name": "yii2-developer/yii2-content",
-            "version": "0.2.0",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-content.git",
-                "reference": "da020b6170ea95b5ed865f9b30c120d032db3333"
+                "reference": "e536d78529875fa9a559e46cbcce3d29c194753c"
             },
             "require": {
                 "php": ">=7.1.0",
-                "yii2-developer/yii2-editor": "~1.0.0",
+                "yii2-developer/yii2-editor": "~2.0.0",
                 "yii2-developer/yii2-extend": "~0.0.1 | ^0.1",
                 "yii2-developer/yii2-system": "~1.0.0",
                 "yiisoft/yii2": "~2.0.12"
@@ -1511,15 +1511,15 @@
                 "extension",
                 "yii2"
             ],
-            "time": "2018-05-07T11:40:00+00:00"
+            "time": "2018-05-22T07:51:31+00:00"
         },
         {
             "name": "yii2-developer/yii2-editor",
-            "version": "1.0.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-editor.git",
-                "reference": "3bba42fed10877eba54f9737833aa13e3fe59855"
+                "reference": "410b9a746ab7b8135bbbd418c2055c620a7e4c9c"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -1540,13 +1540,13 @@
                     "email": "yii2.developer@gmail.com"
                 }
             ],
-            "description": "Editor",
+            "description": "Редактор textarea",
             "keywords": [
                 "editor",
                 "extension",
                 "yii2"
             ],
-            "time": "2018-02-03T13:07:39+00:00"
+            "time": "2018-05-22T06:40:59+00:00"
         },
         {
             "name": "yii2-developer/yii2-extend",
@@ -1983,43 +1983,6 @@
             "time": "2018-02-22T13:17:59+00:00"
         },
         {
-            "name": "yii2-developer/yii2-slim",
-            "version": "0.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-slim.git",
-                "reference": "8f02becaa5adfc0dcda5567092b90120384ae9ac"
-            },
-            "require": {
-                "php": ">=7.1.0",
-                "yii2-developer/yii2-filesystem": "~0.2.0",
-                "yii2-developer/yii2-storage": "~0.2.0",
-                "yiisoft/yii2": "~2.0.12"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "krok\\slim\\": ""
-                }
-            },
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "krok",
-                    "email": "yii2.developer@gmail.com"
-                }
-            ],
-            "description": "Позволяет обрезать и изменять размер изображения прямо в браузере",
-            "keywords": [
-                "extension",
-                "slim",
-                "yii2"
-            ],
-            "time": "2018-05-13T08:43:35+00:00"
-        },
-        {
             "name": "yii2-developer/yii2-storage",
             "version": "0.2.2",
             "source": {
@@ -2102,16 +2065,16 @@
         },
         {
             "name": "yii2-developer/yii2-tinymce",
-            "version": "1.0.6",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-tinymce.git",
-                "reference": "dcba2144e1c817add428c39bec3c60932cfb05e4"
+                "reference": "9668a4553361fae2aa94d3b260f306423780438f"
             },
             "require": {
                 "php": ">=7.1.0",
                 "tinymce/tinymce": "~4.7.0",
-                "yii2-developer/yii2-editor": "~1.0.0",
+                "yii2-developer/yii2-editor": "~2.0.0",
                 "yiisoft/yii2": "~2.0.12"
             },
             "type": "yii2-extension",
@@ -2140,7 +2103,7 @@
                 "tinymce",
                 "yii2"
             ],
-            "time": "2018-05-03T05:06:25+00:00"
+            "time": "2018-05-22T07:13:31+00:00"
         },
         {
             "name": "yii2-developer/yii2-tinymce-uploader",

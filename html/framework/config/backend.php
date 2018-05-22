@@ -33,7 +33,7 @@ $config = [
                     'width' => 150,
                 ],
             ],
-            \krok\editor\interfaces\EditorInterface::class => \krok\tinymce\TinyMceWidget::class,
+            \krok\editor\EditorWidget::class => \krok\tinymce\TinyMceWidget::class,
             \krok\tinymce\TinyMceWidget::class => [
                 'clientOptions' => [
                     'branding' => false,
