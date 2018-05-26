@@ -1,7 +1,6 @@
 <?php
 
 return [
-    'email' => getenv('EMAIL'),
     'HTMLPurifier' => [
         'Attr.AllowedFrameTargets' => [
             '_blank',
