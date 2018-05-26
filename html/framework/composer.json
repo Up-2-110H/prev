@@ -31,7 +31,6 @@
         "yiisoft/yii2": "~2.0.15",
         "yiisoft/yii2-redis": "~2.0.0",
         "yiisoft/yii2-bootstrap": "~2.0.0",
-        "yiisoft/yii2-swiftmailer": "~2.0.0",
         "yiisoft/yii2-imagine": "~2.0.0",
         "yiisoft/yii2-jui": "~2.0.0",
         "yii2-developer/yii2-application": "~0.0.1",
@@ -55,6 +54,7 @@
         "yii2-developer/yii2-backupManager": "~0.1.0",
         "yii2-developer/yii2-queue": "~0.0.1",
         "yii2-developer/yii2-bootbox": "~0.0.1",
+        "yii2-developer/yii2-mailer": "~0.0.1",
         "vlucas/phpdotenv": "~2.4.0"
     },
     "require-dev": {

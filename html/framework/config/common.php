@@ -89,6 +89,7 @@ return \yii\helpers\ArrayHelper::merge([
             \krok\configure\ConfigureInterface::class => function () {
                 $configurable = [
                     \krok\system\Configure::class,
+                    \krok\mailer\Configure::class,
                 ];
 
                 /** @var \krok\configure\serializers\SerializerInterface $serializer */
@@ -163,16 +164,7 @@ return \yii\helpers\ArrayHelper::merge([
             ],
         ],
         'mailer' => [
-            'class' => \yii\swiftmailer\Mailer::class,
-            'transport' => [
-                'class' => \Swift_SmtpTransport::class,
-                'host' => getenv('SMTP_HOST'),
-                'username' => getenv('SMTP_USERNAME'),
-                'password' => getenv('SMTP_PASSWORD'),
-                'port' => getenv('SMTP_PORT'),
-                'encryption' => getenv('SMTP_ENCRYPTION'),
-            ],
-            'useFileTransport' => YII_DEBUG, // @runtime/mail/
+            'class' => \krok\mailer\Mailer::class,
         ],
         'i18n' => [
             'class' => \yii\i18n\I18N::class,

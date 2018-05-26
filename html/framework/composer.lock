@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "42854af85df7562768d29916e4efbbfb",
+    "content-hash": "376a69aabb15bc692b26d59c7616b347",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1737,6 +1737,49 @@
                 "yii2"
             ],
             "time": "2018-04-18T07:41:18+00:00"
+        },
+        {
+            "name": "yii2-developer/yii2-mailer",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-mailer.git",
+                "reference": "ee6092934fe0bd04825348e7aa60270d68a7feff"
+            },
+            "require": {
+                "php": ">=7.1.0",
+                "yii2-developer/yii2-configure": "~0.0.1",
+                "yiisoft/yii2": "~2.0.12",
+                "yiisoft/yii2-swiftmailer": "~2.0.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "krok\\mailer\\": ""
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "krok",
+                    "email": "yii2.developer@gmail.com"
+                }
+            ],
+            "description": "Менеджер настроек исходящей почты",
+            "keywords": [
+                "configure",
+                "extension",
+                "mailer",
+                "yii2"
+            ],
+            "time": "2018-05-26T10:09:15+00:00"
         },
         {
             "name": "yii2-developer/yii2-oauth",
