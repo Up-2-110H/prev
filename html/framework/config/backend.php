@@ -386,6 +386,9 @@ if (YII_ENV_DEV) {
             'router' => [
                 'class' => \yii\debug\panels\RouterPanel::class,
             ],
+            'queue' => [
+                'class' => \yii\queue\debug\Panel::class,
+            ],
         ],
         'allowedIPs' => [
             '*',
@@ -423,6 +426,9 @@ if (YII_ENV_DEV) {
                     'paperDashboard' => '@themes/gii/crud',
                 ],
                 'template' => 'paperDashboard',
+            ],
+            'job' => [
+                'class' => \yii\queue\gii\Generator::class,
             ],
         ],
         'allowedIPs' => [

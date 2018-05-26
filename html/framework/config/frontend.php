@@ -98,6 +98,9 @@ if (YII_ENV_DEV) {
             'router' => [
                 'class' => \yii\debug\panels\RouterPanel::class,
             ],
+            'queue' => [
+                'class' => \yii\queue\debug\Panel::class,
+            ],
         ],
         'allowedIPs' => [
             '*',
