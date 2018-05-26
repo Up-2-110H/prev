@@ -23,7 +23,6 @@ return \yii\helpers\ArrayHelper::merge([
     'container' => [
         'singletons' => [
             \krok\sentry\Sentry::class => [
-                'class' => \krok\sentry\Sentry::class,
                 'dsn' => getenv('SENTRY_DSN'),
             ],
         ],
@@ -32,15 +31,12 @@ return \yii\helpers\ArrayHelper::merge([
                 return Yii::$app->getMailer();
             },
             \krok\storage\behaviors\UploaderBehavior::class => [
-                'class' => \krok\storage\behaviors\UploaderBehavior::class,
                 'uploadedDirectory' => '/storage',
             ],
             \krok\storage\behaviors\StorageBehavior::class => [
-                'class' => \krok\storage\behaviors\StorageBehavior::class,
                 'uploadedDirectory' => '/storage',
             ],
             \krok\tinymce\uploader\actions\UploaderAction::class => [
-                'class' => \krok\tinymce\uploader\actions\UploaderAction::class,
                 'uploadedDirectory' => '/editor',
             ],
             \League\Flysystem\AdapterInterface::class => function () {

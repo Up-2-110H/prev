@@ -27,7 +27,6 @@ $config = [
                 'transparent' => true,
             ],
             \yii\grid\ActionColumn::class => [
-                'class' => \yii\grid\ActionColumn::class,
                 'header' => 'Действие',
                 'options' => [
                     'width' => 150,
