@@ -49,7 +49,7 @@ $config = [
         ],
         'request' => [
             'class' => \krok\language\Request::class,
-            'cookieValidationKey' => hash('sha512', __FILE__ . __LINE__),
+            'cookieValidationKey' => getenv('YII_COOKIE_VALIDATION_KEY'),
         ],
         'errorHandler' => [
             'class' => \krok\sentry\web\SentryErrorHandler::class,

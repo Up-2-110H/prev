@@ -256,7 +256,7 @@ $config = [
         'request' => [
             'class' => \krok\language\Request::class,
             'csrfParam' => '_csrfBackend',
-            'cookieValidationKey' => hash('sha512', __FILE__ . __LINE__),
+            'cookieValidationKey' => getenv('YII_COOKIE_VALIDATION_KEY'),
         ],
         'user' => [
             'class' => \yii\web\User::class,
