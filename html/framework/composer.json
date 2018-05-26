@@ -52,7 +52,7 @@
         "yii2-developer/yii2-access": "~0.0.1",
         "yii2-developer/yii2-password-eye": "~0.0.1",
         "yii2-developer/yii2-backupManager": "~0.1.0",
-        "yii2-developer/yii2-queue": "~0.0.1",
+        "yii2-developer/yii2-queue": "~0.1.0",
         "yii2-developer/yii2-bootbox": "~0.0.1",
         "yii2-developer/yii2-mailer": "~0.0.1",
         "vlucas/phpdotenv": "~2.4.0"

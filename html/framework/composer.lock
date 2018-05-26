@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "376a69aabb15bc692b26d59c7616b347",
+    "content-hash": "400d45f67714e332b86003a54d741201",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1916,15 +1916,16 @@
         },
         {
             "name": "yii2-developer/yii2-queue",
-            "version": "0.0.1",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-queue.git",
-                "reference": "0c2af8e0a1e637cdb71ed60ab190546d3564dc60"
+                "reference": "e7a5bbf7c21d4f344d101936bdca47e75300ae98"
             },
             "require": {
                 "php": ">=7.1.0",
-                "yiisoft/yii2-queue": "~2.0.0"
+                "yiisoft/yii2-queue": "~2.0.0",
+                "yiisoft/yii2-swiftmailer": "~2.0.0"
             },
             "type": "yii2-extension",
             "extra": {
@@ -1952,7 +1953,7 @@
                 "queue",
                 "yii2"
             ],
-            "time": "2018-02-26T12:01:48+00:00"
+            "time": "2018-05-26T17:14:47+00:00"
         },
         {
             "name": "yii2-developer/yii2-security",

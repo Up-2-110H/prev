@@ -27,6 +27,9 @@ return \yii\helpers\ArrayHelper::merge([
             ],
         ],
         'definitions' => [
+            \krok\queue\mailer\MailerJob::class => [
+                'mailer' => 'sender',
+            ],
             \yii\mail\MailerInterface::class => function () {
                 return Yii::$app->getMailer();
             },
@@ -160,6 +163,10 @@ return \yii\helpers\ArrayHelper::merge([
             ],
         ],
         'mailer' => [
+            'class' => \krok\queue\mailer\Mailer::class,
+            'messageClass' => \krok\mailer\Message::class,
+        ],
+        'sender' => [
             'class' => \krok\mailer\Mailer::class,
         ],
         'i18n' => [
