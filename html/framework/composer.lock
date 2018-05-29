@@ -1362,17 +1362,18 @@
         },
         {
             "name": "yii2-developer/yii2-backup",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-backup.git",
-                "reference": "c619655a61d4292c4198d75a2dea361b174b0a72"
+                "reference": "881d133e4feed90ea5c66c8cac7ca230cf8e8593"
             },
             "require": {
                 "php": ">=7.1.0",
                 "yii2-developer/backup-manager": "~0.0.1",
                 "yii2-developer/yii2-system": "~1.0.0",
-                "yiisoft/yii2": "~2.0.12"
+                "yiisoft/yii2": "~2.0.12",
+                "yiisoft/yii2-queue": "~2.0.0"
             },
             "type": "yii2-extension",
             "extra": {
@@ -1400,7 +1401,7 @@
                 "extension",
                 "yii2"
             ],
-            "time": "2018-05-29T11:55:50+00:00"
+            "time": "2018-05-29T13:22:48+00:00"
         },
         {
             "name": "yii2-developer/yii2-bootbox",

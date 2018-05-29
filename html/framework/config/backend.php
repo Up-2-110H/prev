@@ -122,7 +122,7 @@ $config = [
                     'spellchecker_rpc_url' => '//speller.yandex.net/services/tinyspell',
                 ],
             ],
-            \krok\backup\actions\FilesystemAction::class => function (
+            \krok\backup\actions\FilesystemJobAction::class => function (
                 \yii\di\Container $container,
                 array $configure
             ) {
@@ -131,7 +131,7 @@ $config = [
                 /** @var \krok\BackupManager\FilesystemManager $manager */
                 $manager = $container->get(\krok\BackupManager\FilesystemManager::class);
 
-                $action = new \krok\backup\actions\FilesystemAction($id, $controller, $manager);
+                $action = new \krok\backup\actions\FilesystemJobAction($id, $controller, $manager);
 
                 $action->destinations = [
                     new \BackupManager\Filesystems\Destination('filesystem',
@@ -140,7 +140,7 @@ $config = [
 
                 return $action;
             },
-            \krok\backup\actions\DatabaseAction::class => function (
+            \krok\backup\actions\DatabaseJobAction::class => function (
                 \yii\di\Container $container,
                 array $configure
             ) {
@@ -149,7 +149,7 @@ $config = [
                 /** @var \krok\BackupManager\DatabaseManager $manager */
                 $manager = $container->get(\krok\BackupManager\DatabaseManager::class);
 
-                $action = new \krok\backup\actions\DatabaseAction($id, $controller, $manager);
+                $action = new \krok\backup\actions\DatabaseJobAction($id, $controller, $manager);
 
                 $action->destinations = [
                     new \BackupManager\Filesystems\Destination('database',
