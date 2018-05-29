@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "400d45f67714e332b86003a54d741201",
+    "content-hash": "f005f4124b3e8b9cd8b46e81d87e25e4",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1211,21 +1211,27 @@
             "time": "2016-09-01T10:05:43+00:00"
         },
         {
-            "name": "yii2-developer/archiver",
-            "version": "0.1.2",
+            "name": "yii2-developer/backup-manager",
+            "version": "0.0.1",
             "source": {
                 "type": "git",
-                "url": "https://gitlab.dev-vps.ru/extension/archiver.git",
-                "reference": "31bd205a21fca6f08ff71e4e0a70b064251ddb38"
+                "url": "https://gitlab.dev-vps.ru/extension/backup-manager.git",
+                "reference": "3f7428fd0f14ae5f7b46154adf1d82eb2340e6a6"
             },
             "require": {
+                "backup-manager/backup-manager": "~1.1.0",
                 "php": ">=7.1.0",
-                "symfony/finder": "~v3.3.0"
+                "symfony/finder": "~3.3.0"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
-                    "krok\\archiver\\": ""
+                    "krok\\BackupManager\\": ""
                 }
             },
             "license": [
@@ -1237,12 +1243,12 @@
                     "email": "yii2.developer@gmail.com"
                 }
             ],
-            "description": "Позволяет создавать резервные копии файлов",
+            "description": "Резервное копирование",
             "keywords": [
-                "archiver",
+                "backup-manager",
                 "library"
             ],
-            "time": "2018-02-25T08:02:00+00:00"
+            "time": "2018-05-29T03:48:09+00:00"
         },
         {
             "name": "yii2-developer/yii2-access",
@@ -1355,24 +1361,28 @@
             "time": "2018-05-07T10:31:33+00:00"
         },
         {
-            "name": "yii2-developer/yii2-backupManager",
-            "version": "0.1.1",
+            "name": "yii2-developer/yii2-backup",
+            "version": "0.0.1",
             "source": {
                 "type": "git",
-                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-backupManager.git",
-                "reference": "bbd6f7ea8f657a385848692458968e512f9a25d5"
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-backup.git",
+                "reference": "c619655a61d4292c4198d75a2dea361b174b0a72"
             },
             "require": {
-                "backup-manager/backup-manager": "~1.1.0",
                 "php": ">=7.1.0",
-                "yii2-developer/archiver": "~0.1.0",
+                "yii2-developer/backup-manager": "~0.0.1",
                 "yii2-developer/yii2-system": "~1.0.0",
                 "yiisoft/yii2": "~2.0.12"
             },
             "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
-                    "krok\\backupManager\\": ""
+                    "krok\\backup\\": ""
                 }
             },
             "license": [
@@ -1384,13 +1394,13 @@
                     "email": "yii2.developer@gmail.com"
                 }
             ],
-            "description": "Позволяет создавать резервные копии базы данных и файлов",
+            "description": "Менеджер резервного копирования",
             "keywords": [
                 "backup",
                 "extension",
                 "yii2"
             ],
-            "time": "2018-05-21T12:37:00+00:00"
+            "time": "2018-05-29T11:55:50+00:00"
         },
         {
             "name": "yii2-developer/yii2-bootbox",

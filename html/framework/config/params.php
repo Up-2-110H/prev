@@ -55,8 +55,8 @@ return [
                     'url' => ['/system/default/flush-cache'],
                 ],
                 [
-                    'label' => 'Backup Manager',
-                    'url' => ['/backupManager/default'],
+                    'label' => 'Backup',
+                    'url' => ['/backup/default'],
                 ],
             ],
         ],

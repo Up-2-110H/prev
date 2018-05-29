@@ -71,17 +71,18 @@ $config = [
                     ],
                 ],
                 [
-                    'name' => 'backupManager',
+                    'name' => 'backup',
                     'controllers' => [
                         'default' => [
                             'index',
-                            'download',
                         ],
-                        'database' => [
-                            'backup',
+                        'make' => [
+                            'filesystem',
+                            'database',
                         ],
-                        'filesystem' => [
-                            'backup',
+                        'download' => [
+                            'filesystem',
+                            'database',
                         ],
                     ],
                 ],

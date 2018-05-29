@@ -16,6 +16,10 @@ return [
      */
     'attachment/<path:[\w\/\.\-]+>' => 'filesystem/default/attachment',
     /**
+     * Backup
+     */
+    '<language:\w+\-\w+>/backup/download/<action:[\w\-]+>/<path:[\w\/\.\-\:]+>' => 'backup/download/<action>',
+    /**
      * System
      */
     '<language:\w+\-\w+>' => '/',

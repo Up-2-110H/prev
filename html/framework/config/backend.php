@@ -122,15 +122,60 @@ $config = [
                     'spellchecker_rpc_url' => '//speller.yandex.net/services/tinyspell',
                 ],
             ],
-            \krok\backupManager\Manager::class => function () {
-                $filesystems = new \BackupManager\Filesystems\FilesystemProvider(new \BackupManager\Config\Config([
-                    'local' => [
-                        'type' => 'Local',
-                        'root' => Yii::getAlias('@backup/database'),
+            \krok\backup\actions\FilesystemAction::class => function (
+                \yii\di\Container $container,
+                array $configure
+            ) {
+                [$id, $controller] = $configure;
+
+                /** @var \krok\BackupManager\FilesystemManager $manager */
+                $manager = $container->get(\krok\BackupManager\FilesystemManager::class);
+
+                $action = new \krok\backup\actions\FilesystemAction($id, $controller, $manager);
+
+                $action->destinations = [
+                    new \BackupManager\Filesystems\Destination('filesystem',
+                        (new DateTime())->format('Y-m-d_H:i:s') . '.zip'),
+                ];
+
+                return $action;
+            },
+            \krok\backup\actions\DatabaseAction::class => function (
+                \yii\di\Container $container,
+                array $configure
+            ) {
+                [$id, $controller] = $configure;
+
+                /** @var \krok\BackupManager\DatabaseManager $manager */
+                $manager = $container->get(\krok\BackupManager\DatabaseManager::class);
+
+                $action = new \krok\backup\actions\DatabaseAction($id, $controller, $manager);
+
+                $action->destinations = [
+                    new \BackupManager\Filesystems\Destination('database',
+                        (new DateTime())->format('Y-m-d_H:i:s') . '.sql'),
+                ];
+
+                return $action;
+            },
+            \krok\BackupManager\Finders\FinderProvider::class => function () {
+                $finder = new \krok\BackupManager\Finders\FinderProvider(new \BackupManager\Config\Config([
+                    'symfony' => [
+                        'type' => 'symfony',
+                        'exclude' => [
+                            'web/cp/assets',
+                            'web/assets',
+                            'storage',
+                            'backup',
+                        ],
+                        'root' => Yii::getAlias('@root'),
                     ],
                 ]));
-                $filesystems->add(new \BackupManager\Filesystems\LocalFilesystem());
+                $finder->add(new \krok\BackupManager\Finders\SymfonyFinder());
 
+                return $finder;
+            },
+            \BackupManager\Databases\DatabaseProvider::class => function () {
                 $databases = new \BackupManager\Databases\DatabaseProvider(new \BackupManager\Config\Config([
                     'db' => [
                         'type' => 'mysql',
@@ -144,23 +189,32 @@ $config = [
                 ]));
                 $databases->add(new \BackupManager\Databases\MysqlDatabase());
 
+                return $databases;
+            },
+            \BackupManager\Filesystems\FilesystemProvider::class => function () {
+                $filesystems = new \BackupManager\Filesystems\FilesystemProvider(new \BackupManager\Config\Config([
+                    'local' => [
+                        'type' => 'Local',
+                        'root' => Yii::getAlias('@backup/tmp'),
+                    ],
+                    'filesystem' => [
+                        'type' => 'Local',
+                        'root' => Yii::getAlias('@backup/filesystem'),
+                    ],
+                    'database' => [
+                        'type' => 'Local',
+                        'root' => Yii::getAlias('@backup/database'),
+                    ],
+                ]));
+                $filesystems->add(new \BackupManager\Filesystems\LocalFilesystem());
+
+                return $filesystems;
+            },
+            \BackupManager\Compressors\CompressorProvider::class => function () {
                 $compressors = new \BackupManager\Compressors\CompressorProvider();
                 $compressors->add(new \BackupManager\Compressors\GzipCompressor());
 
-                $finder = (new \Symfony\Component\Finder\Finder())->ignoreUnreadableDirs(true)->ignoreVCS(true)->exclude([
-                    'web/cp/assets',
-                    'web/assets',
-                    'storage',
-                    'backup',
-                ])->in(Yii::getAlias('@root'));
-                $compressor = new \krok\archiver\compressor\ZipCompressor(['path' => Yii::getAlias('@backup/filesystem')]);
-
-                ini_set('max_execution_time', 90);
-
-                return new \krok\backupManager\Manager(
-                    new \BackupManager\Manager($filesystems, $databases, $compressors),
-                    new \krok\archiver\Manager($finder, $compressor)
-                );
+                return $compressors;
             },
         ],
     ],
@@ -188,10 +242,10 @@ $config = [
             'viewPath' => '@vendor/yii2-developer/yii2-content/views/backend',
             'controllerNamespace' => 'krok\content\controllers\backend',
         ],
-        'backupManager' => [
-            'class' => \krok\backupManager\Module::class,
-            'viewPath' => '@vendor/yii2-developer/yii2-backupManager/views/backend',
-            'controllerNamespace' => 'krok\backupManager\controllers\backend',
+        'backup' => [
+            'class' => \yii\base\Module::class,
+            'viewPath' => '@vendor/yii2-developer/yii2-backup/views/backend',
+            'controllerNamespace' => 'krok\backup\controllers\backend',
         ],
         'configure' => [
             'class' => \krok\configure\Module::class,
