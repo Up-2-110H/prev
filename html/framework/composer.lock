@@ -157,12 +157,12 @@
             "version": "v3.2.5",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fancyapps/fancybox.git",
+                "url": "git@github.com:fancyapps/fancyBox.git",
                 "reference": "e68489e6f29334f85b6b98d995469f6be5a13b19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fancyapps/fancybox/zipball/e68489e6f29334f85b6b98d995469f6be5a13b19",
+                "url": "https://api.github.com/repos/fancyapps/fancyBox/zipball/e68489e6f29334f85b6b98d995469f6be5a13b19",
                 "reference": "e68489e6f29334f85b6b98d995469f6be5a13b19",
                 "shasum": null
             },
@@ -1362,11 +1362,11 @@
         },
         {
             "name": "yii2-developer/yii2-backup",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-backup.git",
-                "reference": "881d133e4feed90ea5c66c8cac7ca230cf8e8593"
+                "reference": "ba98cb2e4008603aa49ca87cce30e52a1dace999"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -1401,7 +1401,7 @@
                 "extension",
                 "yii2"
             ],
-            "time": "2018-05-29T13:22:48+00:00"
+            "time": "2018-06-02T07:21:44+00:00"
         },
         {
             "name": "yii2-developer/yii2-bootbox",
@@ -1600,11 +1600,11 @@
         },
         {
             "name": "yii2-developer/yii2-filesystem",
-            "version": "0.2.3",
+            "version": "0.2.4",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-filesystem.git",
-                "reference": "ebf6d81b247d5ac47189792d0facbc617f34fb62"
+                "reference": "3320df21fa4f735f6df0e206d2b8afc629c70c19"
             },
             "require": {
                 "league/flysystem": "~1.0.0",
@@ -1638,15 +1638,15 @@
                 "filesystem",
                 "yii2"
             ],
-            "time": "2018-05-25T12:22:01+00:00"
+            "time": "2018-06-02T07:25:14+00:00"
         },
         {
             "name": "yii2-developer/yii2-glide",
-            "version": "1.1.3",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-glide.git",
-                "reference": "c0e904c57e572bb0310038fcf219488466ecdec9"
+                "reference": "0f3eb684e70e66f2fe5a2b6863f2be7fd8ef2223"
             },
             "require": {
                 "league/glide": "~1.2.0",
@@ -1675,7 +1675,7 @@
                 "glide",
                 "yii2"
             ],
-            "time": "2018-05-25T12:36:04+00:00"
+            "time": "2018-06-02T07:28:31+00:00"
         },
         {
             "name": "yii2-developer/yii2-language",
