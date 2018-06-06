@@ -24,6 +24,9 @@ migrate:
 
         - ./docker.sh exec framework/yii migrate/up
         - ./docker.sh exec framework/yii access/install
+
+        # try tests
+        - ./docker.sh tests
     tags:
         - compose
 dev:

@@ -59,7 +59,10 @@
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
-        "yiisoft/yii2-gii": "~2.0.0"
+        "yiisoft/yii2-gii": "~2.0.0",
+        "guzzlehttp/guzzle": ">=4.1.4 <7.0",
+        "codeception/base": "^2.2.3",
+        "codeception/verify": "~0.3.1"
     },
     "config": {
         "optimize-autoloader": true,

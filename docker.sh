@@ -88,6 +88,16 @@ do_mysql_truncate_database() {
     done
 }
 
+do_tests() {
+    docker exec -i --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_NAME" bash -c "cd framework && php vendor/bin/codecept run"
+}
+
+do_install() {
+    docker exec -i --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_NAME" composer install --working-dir=framework
+    docker exec -i --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_NAME" framework/yii migrate/up
+    docker exec -i --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_NAME" framework/yii access/install
+}
+
 case "$1" in
 
     exec)
@@ -119,9 +129,16 @@ case "$1" in
         shift
         do_mysql_truncate_database
         ;;
-
+    tests)
+        shift
+        do_tests
+        ;;
+    install)
+        shift
+        do_install
+        ;;
     *)
-    echo "Usage: docker.sh [exec|cron|mysql-backup|mysql-restore|mysql-drop-table|mysql-truncate-database]"
+    echo "Usage: docker.sh [exec|cron|mysql-backup|mysql-restore|mysql-drop-table|mysql-truncate-database|tests|install]"
     ;;
 
 esac
