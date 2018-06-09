@@ -21,7 +21,7 @@ migrate:
     script:
 
         - ./docker.sh exec ls -l /var/www/html
-        - ./docker.sh exec ls -l /var/www/html/.composer
+        - ./docker.sh exec ls -l /var/www/html/html/.composer
 
         # Composer install
         - ./docker.sh exec composer --working-dir=framework install
