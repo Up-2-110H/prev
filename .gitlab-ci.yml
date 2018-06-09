@@ -20,7 +20,10 @@ migrate:
     environment: tests
     script:
 
-        - ./docker.sh exec ls -l /cache
+        - ./docker.sh exec ls -la /cache
+        - ./docker.sh exec pwd
+        - ./docker.sh exec ls -la ~
+        - ./docker.sh exec $COMPOSER_CACHE_DIR
 
         # Composer install
         - ./docker.sh exec composer --working-dir=framework install
