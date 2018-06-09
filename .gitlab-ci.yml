@@ -19,6 +19,10 @@ migrate:
     stage: tests
     environment: tests
     script:
+
+        - ./docker.sh exec ls -l /var/www/html
+        - ./docker.sh exec ls -l /var/www/html/.composer
+
         # Composer install
         - ./docker.sh exec composer --working-dir=framework install
 
