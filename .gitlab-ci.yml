@@ -25,6 +25,9 @@ migrate:
         - ./docker.sh exec framework/yii migrate/up
         - ./docker.sh exec framework/yii access/install
 
+        - ls -la /cache
+        - ls -la ~
+
         # try tests
         - ./docker.sh tests
     tags:
