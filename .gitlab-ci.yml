@@ -19,16 +19,11 @@ migrate:
     stage: tests
     environment: tests
     script:
-
-        - ls -la /cache
-
         # Composer install
         - ./docker.sh exec composer --working-dir=framework install
 
         - ./docker.sh exec framework/yii migrate/up
         - ./docker.sh exec framework/yii access/install
-
-        - ls -la /cache
 
         # try tests
         - ./docker.sh tests
