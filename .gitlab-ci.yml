@@ -1,4 +1,6 @@
 image: runner:compose
+services:
+    - docker:dind
 stages:
     - tests
     - deploy
