@@ -14,7 +14,6 @@ services:
             - ./docker/config/cron:/root/cron
             - ./docker/config/php/php.ini:/usr/local/etc/php/php.ini
             - ./docker/config/supervisor/daemon.conf:/etc/supervisor/conf.d/daemon.conf
-            - /var/cache/composer:/var/www/.composer
         expose:
             - 9000
         networks:

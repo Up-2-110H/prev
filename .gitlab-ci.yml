@@ -19,10 +19,6 @@ migrate:
     stage: tests
     environment: tests
     script:
-
-        - ./docker.sh exec ls -la /var/www
-        - ./docker.sh exec ls -la /var/www/.composer
-
         # Composer install
         - ./docker.sh exec composer --working-dir=framework install
 
