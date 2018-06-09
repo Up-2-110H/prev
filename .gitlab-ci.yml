@@ -20,7 +20,6 @@ migrate:
     environment: tests
     script:
 
-        - ./docker.sh exec ls -la /cache
         - ./docker.sh exec pwd
         - ./docker.sh exec $COMPOSER_CACHE_DIR
 
