@@ -19,10 +19,6 @@ migrate:
     stage: tests
     environment: tests
     script:
-
-        - ./docker.sh exec pwd
-        - ./docker.sh exec $COMPOSER_CACHE_DIR
-
         # Composer install
         - ./docker.sh exec composer --working-dir=framework install
 
