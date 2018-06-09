@@ -22,7 +22,6 @@ migrate:
 
         - ./docker.sh exec ls -la /cache
         - ./docker.sh exec pwd
-        - ./docker.sh exec ls -la ~
         - ./docker.sh exec $COMPOSER_CACHE_DIR
 
         # Composer install

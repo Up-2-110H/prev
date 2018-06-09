@@ -7,7 +7,6 @@ services:
             - APACHE_RUN_ID=${APACHE_RUN_ID}
             - APACHE_RUN_USER=${APACHE_RUN_USER}
             - APACHE_RUN_GROUP=${APACHE_RUN_GROUP}
-            - COMPOSER_CACHE_DIR:/cache
         volumes:
             - ./:/var/www
             - ./docker/server/log:/var/log/apache2
@@ -15,7 +14,7 @@ services:
             - ./docker/config/cron:/root/cron
             - ./docker/config/php/php.ini:/usr/local/etc/php/php.ini
             - ./docker/config/supervisor/daemon.conf:/etc/supervisor/conf.d/daemon.conf
-            - /cache:/cache
+            - /var/cache/composer:/var/www/html/.composer
         expose:
             - 9000
         networks:
