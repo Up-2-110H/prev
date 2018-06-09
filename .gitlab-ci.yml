@@ -19,6 +19,9 @@ migrate:
     stage: tests
     environment: tests
     script:
+
+        - ./docker.sh exec ls -l /cache
+
         # Composer install
         - ./docker.sh exec composer --working-dir=framework install
 
