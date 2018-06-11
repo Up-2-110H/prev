@@ -89,7 +89,7 @@ do_mysql_truncate_database() {
 }
 
 do_tests() {
-    docker exec -i --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_NAME" bash -c "cd framework && php vendor/bin/codecept run"
+    docker exec -i --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_NAME" framework/vendor/bin/codecept run --config=framework/codeception.yml
 }
 
 do_install() {
