@@ -98,6 +98,12 @@ do_install() {
     docker exec -i --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_NAME" framework/yii access/install
 }
 
+do_update() {
+    docker exec -i --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_NAME" composer update --working-dir=framework
+    docker exec -i --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_NAME" framework/yii migrate/up
+    docker exec -i --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_NAME" framework/yii access/install
+}
+
 case "$1" in
 
     exec)
@@ -137,8 +143,12 @@ case "$1" in
         shift
         do_install
         ;;
+    update)
+        shift
+        do_update
+        ;;
     *)
-    echo "Usage: docker.sh [exec|cron|mysql-backup|mysql-restore|mysql-drop-table|mysql-truncate-database|tests|install]"
+    echo "Usage: docker.sh [exec|cron|mysql-backup|mysql-restore|mysql-drop-table|mysql-truncate-database|tests|install|update]"
     ;;
 
 esac
