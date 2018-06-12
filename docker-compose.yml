@@ -16,6 +16,10 @@ services:
             - ./docker/config/supervisor/daemon.conf:/etc/supervisor/conf.d/daemon.conf
         expose:
             - 9000
+        depends_on:
+            - redis
+            - mysql
+            - phpmyadmin
         networks:
             self:
                 ipv4_address: ${NETWORK_APP}
@@ -36,6 +40,10 @@ services:
         volumes:
             - ./docker/server/mysql:/var/lib/mysql
             - ./docker/config/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+        healthcheck:
+          test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+          timeout: 5s
+          retries: 20
         networks:
             self:
                 ipv4_address: ${NETWORK_MYSQL}
