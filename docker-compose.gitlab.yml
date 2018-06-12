@@ -2,4 +2,4 @@ version: '3'
 services:
     app:
         volumes:
-            - /var/cache/composer:/var/www/.composer
+            - /var/cache/compose/composer:/var/www/.composer
