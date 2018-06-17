@@ -46,6 +46,7 @@ return \yii\helpers\ArrayHelper::merge([
                 return Yii::createObject(\League\Flysystem\Adapter\Local::class, [Yii::getAlias('@storage')]);
             },
             \League\Flysystem\FilesystemInterface::class => function () {
+                /** @var \League\Flysystem\FilesystemInterface $filesystem */
                 $filesystem = Yii::createObject(\League\Flysystem\Filesystem::class);
                 /**
                  * Glide render
@@ -56,6 +57,8 @@ return \yii\helpers\ArrayHelper::merge([
                  */
                 $filesystem->addPlugin(new \krok\filesystem\plugins\PublicUrl('/attachment/storage', 'getDownloadUrl'));
                 $filesystem->addPlugin(new \krok\filesystem\plugins\PublicUrl('/attachment/editor', 'getEditorUrl'));
+                $filesystem->addPlugin(new \krok\filesystem\plugins\Content('/storage', 'getContentStorage'));
+                $filesystem->addPlugin(new \krok\filesystem\plugins\Content('/editor', 'getContentEditor'));
                 /**
                  * Hash grid
                  */
