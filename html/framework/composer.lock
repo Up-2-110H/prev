@@ -1445,6 +1445,46 @@
             "time": "2018-03-31T05:52:53+00:00"
         },
         {
+            "name": "yii2-developer/yii2-clock",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-clock.git",
+                "reference": "71b5275c0a83e83be9c225289d2a7770355d5b6e"
+            },
+            "require": {
+                "php": ">=7.1.0",
+                "yiisoft/yii2": "~2.0.12"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "krok\\clock\\": ""
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "krok",
+                    "email": "yii2.developer@gmail.com"
+                }
+            ],
+            "description": "Системное время",
+            "keywords": [
+                "clock",
+                "extension",
+                "yii2"
+            ],
+            "time": "2018-06-18T13:33:46+00:00"
+        },
+        {
             "name": "yii2-developer/yii2-configure",
             "version": "0.0.6",
             "source": {
@@ -1836,16 +1876,17 @@
         },
         {
             "name": "yii2-developer/yii2-paperDashboard",
-            "version": "0.5.0",
+            "version": "0.5.1",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-paperDashboard.git",
-                "reference": "ab0fa863bd185be09a78fb07184a87bb568a3bf2"
+                "reference": "a59fa0314ce24dbfc6ae1cc972e4220fac3233d6"
             },
             "require": {
                 "bootstrap-select/bootstrap-select": "~1.12.0",
                 "php": ">=7.1.0",
                 "yii2-developer/yii2-analytics": "~1.0.0",
+                "yii2-developer/yii2-clock": "~0.0.1",
                 "yii2-developer/yii2-extend": "~0.0.1 | ^0.1",
                 "yii2-developer/yii2-language": "~1.1.0",
                 "yii2-developer/yii2-system": "~1.0.0",
@@ -1881,7 +1922,7 @@
                 "paperDashboard",
                 "yii2"
             ],
-            "time": "2018-05-07T11:30:49+00:00"
+            "time": "2018-06-18T14:18:20+00:00"
         },
         {
             "name": "yii2-developer/yii2-password-eye",
