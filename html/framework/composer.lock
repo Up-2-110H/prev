@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "670a405131a68bffbd59d304cce315fe",
+    "content-hash": "abeb2122b81c7565685ef76c850aa08b",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1640,11 +1640,11 @@
         },
         {
             "name": "yii2-developer/yii2-filesystem",
-            "version": "0.2.5",
+            "version": "0.2.6",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-filesystem.git",
-                "reference": "f11783bc9c28727e752a9ea9eb9c12d2052b99f1"
+                "reference": "da62ffbe05505e6a7f42a875feb385c592abaa82"
             },
             "require": {
                 "league/flysystem": "~1.0.0",
@@ -1678,7 +1678,7 @@
                 "filesystem",
                 "yii2"
             ],
-            "time": "2018-06-17T16:35:19+00:00"
+            "time": "2018-06-23T06:18:19+00:00"
         },
         {
             "name": "yii2-developer/yii2-glide",

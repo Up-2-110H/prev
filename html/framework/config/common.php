@@ -43,7 +43,7 @@ return \yii\helpers\ArrayHelper::merge([
                 'uploadedDirectory' => '/editor',
             ],
             \League\Flysystem\AdapterInterface::class => function () {
-                return Yii::createObject(\League\Flysystem\Adapter\Local::class, [Yii::getAlias('@storage')]);
+                return Yii::createObject(\krok\filesystem\adapter\Local::class, [Yii::getAlias('@storage')]);
             },
             \League\Flysystem\FilesystemInterface::class => function () {
                 /** @var \League\Flysystem\FilesystemInterface $filesystem */
