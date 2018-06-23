@@ -1682,11 +1682,11 @@
         },
         {
             "name": "yii2-developer/yii2-glide",
-            "version": "1.1.4",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-glide.git",
-                "reference": "0f3eb684e70e66f2fe5a2b6863f2be7fd8ef2223"
+                "reference": "f38d2ce62823a4357a71af8c284763793bbe9fa6"
             },
             "require": {
                 "league/glide": "~1.2.0",
@@ -1715,7 +1715,7 @@
                 "glide",
                 "yii2"
             ],
-            "time": "2018-06-02T07:28:31+00:00"
+            "time": "2018-06-23T06:59:46+00:00"
         },
         {
             "name": "yii2-developer/yii2-language",
