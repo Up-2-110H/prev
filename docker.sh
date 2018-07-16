@@ -2,19 +2,14 @@
 
 . ./.env
 
-do_exec() {
-    docker exec -i --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_NAME" "$@"
-}
+CONTAINER_APP="app";
+CONTAINER_MYSQL="mysql";
 
-do_cron() {
-    docker exec -i "$CONTAINER_NAME" crontab -u "$APACHE_RUN_USER" "$@"
+do_exec() {
+    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APP" "$@"
 }
 
 do_mysql_backup() {
-
-    umask 177
-
-    CONTAINER="$CONTAINER_NAME-mysql"
 
     DIRECTORY="docker/server/backup"
     if ! [ -d "$DIRECTORY" ]
@@ -30,7 +25,7 @@ do_mysql_backup() {
         COMMAND="$1"
     fi
 
-    docker exec "$CONTAINER" mysqldump --single-transaction --no-create-db --verbose --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE" | gzip > "$COMMAND"
+    docker-compose exec -T --env="MYSQL_PWD=$MYSQL_PASSWORD" "$CONTAINER_MYSQL" mysqldump --single-transaction --no-create-db --verbose --user="$MYSQL_USER" "$MYSQL_DATABASE" | gzip > "$COMMAND"
 
     find "$DIRECTORY" -type f -mtime +3 -exec rm {} \;
 
@@ -38,8 +33,6 @@ do_mysql_backup() {
 }
 
 do_mysql_restore() {
-
-    CONTAINER="$CONTAINER_NAME-mysql"
 
     DIRECTORY="docker/server/backup"
     if ! [ -d "$DIRECTORY" ]
@@ -55,14 +48,12 @@ do_mysql_restore() {
         COMMAND="$1"
     fi
 
-    gunzip < "$COMMAND" | docker exec -i "$CONTAINER" mysql --verbose --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE"
+    gunzip < "$COMMAND" | docker-compose exec -T --env="MYSQL_PWD=$MYSQL_PASSWORD" "$CONTAINER_MYSQL" mysql --verbose --user="$MYSQL_USER" "$MYSQL_DATABASE"
 
     echo "Done!"
 }
 
 do_mysql_drop_table() {
-
-    CONTAINER="$CONTAINER_NAME-mysql"
 
     if [ -z "$1" ]
     then
@@ -72,38 +63,37 @@ do_mysql_drop_table() {
         TABLE="$1"
     fi
 
-    docker exec -i "$CONTAINER" mysql --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE" -e "SET FOREIGN_KEY_CHECKS=0; DROP TABLE $TABLE;"
+    docker-compose exec -T --env="MYSQL_PWD=$MYSQL_PASSWORD" "$CONTAINER_MYSQL" mysql --user="$MYSQL_USER" "$MYSQL_DATABASE" -e "SET FOREIGN_KEY_CHECKS=0; DROP TABLE $TABLE;"
+
+    echo "DROP TABLE: $TABLE"
 }
 
 do_mysql_truncate_database() {
 
-    CONTAINER="$CONTAINER_NAME-mysql"
-
-    TABLES=$(docker exec -i "$CONTAINER" mysql --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE" -Nse "SHOW TABLES;")
+    TABLES=$(docker-compose exec -T --env="MYSQL_PWD=$MYSQL_PASSWORD" "$CONTAINER_MYSQL" mysql --user="$MYSQL_USER" "$MYSQL_DATABASE" -Nse "SHOW TABLES;")
 
     for TABLE in $TABLES
     do
-        echo "DROP TABLE: $TABLE"
         do_mysql_drop_table "$TABLE"
     done
 }
 
 do_tests() {
-    docker exec -i --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_NAME" framework/vendor/bin/codecept run --config=framework/codeception.yml
+    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APP" framework/vendor/bin/codecept run --config=framework/codeception.yml
 }
 
 do_install() {
-    docker exec -i --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_NAME" composer install --working-dir=framework
-    docker exec -i --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_NAME" framework/yii migrate/up
-    docker exec -i --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_NAME" framework/yii access/install
-    docker exec -i --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_NAME" framework/yii cache/flush-all
+    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APP" composer install --working-dir=framework
+    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APP" framework/yii migrate/up
+    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APP" framework/yii access/install
+    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APP" framework/yii cache/flush-all
 }
 
 do_update() {
-    docker exec -i --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_NAME" composer update --working-dir=framework
-    docker exec -i --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_NAME" framework/yii migrate/up
-    docker exec -i --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_NAME" framework/yii access/install
-    docker exec -i --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_NAME" framework/yii cache/flush-all
+    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APP" composer update --working-dir=framework
+    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APP" framework/yii migrate/up
+    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APP" framework/yii access/install
+    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APP" framework/yii cache/flush-all
 }
 
 case "$1" in
@@ -111,11 +101,6 @@ case "$1" in
     exec)
         shift
         do_exec $@
-        ;;
-
-    cron)
-        shift
-        do_cron $@
         ;;
 
     mysql-backup)
@@ -150,7 +135,7 @@ case "$1" in
         do_update
         ;;
     *)
-    echo "Usage: docker.sh [exec|cron|mysql-backup|mysql-restore|mysql-drop-table|mysql-truncate-database|tests|install|update]"
+    echo "Usage: docker.sh [exec|mysql-backup|mysql-restore|mysql-drop-table|mysql-truncate-database|tests|install|update]"
     ;;
 
 esac
