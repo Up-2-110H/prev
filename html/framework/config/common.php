@@ -171,6 +171,9 @@ return \yii\helpers\ArrayHelper::merge([
         ],
         'sender' => [
             'class' => \krok\mailer\Mailer::class,
+            'transport' => [
+                'class' => \krok\mailer\Swift_SmtpTransport::class,
+            ],
         ],
         'i18n' => [
             'class' => \yii\i18n\I18N::class,
