@@ -1791,11 +1791,11 @@
         },
         {
             "name": "yii2-developer/yii2-mailer",
-            "version": "0.1.0",
+            "version": "0.1.2",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-mailer.git",
-                "reference": "82bfaac53e2c881f286baa7cb652045c9e0133df"
+                "reference": "acb9ea9b5bbed494734ad67f71d314e96fd38e6c"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -1830,7 +1830,7 @@
                 "mailer",
                 "yii2"
             ],
-            "time": "2018-07-18T13:52:11+00:00"
+            "time": "2018-07-19T12:20:16+00:00"
         },
         {
             "name": "yii2-developer/yii2-oauth",
