@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e8700bcc723c4e95365e2f0590a7c5a4",
+    "content-hash": "6832929460c3dd843bc36ac5366d906d",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -2006,6 +2006,48 @@
                 "yii2"
             ],
             "time": "2018-05-26T17:14:47+00:00"
+        },
+        {
+            "name": "yii2-developer/yii2-robots",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-robots.git",
+                "reference": "92c9b34a8476c1ebe9e4d310285496ef1eb22463"
+            },
+            "require": {
+                "php": ">=7.1.0",
+                "yii2-developer/yii2-configure": "~0.0.1",
+                "yiisoft/yii2": "~2.0.12"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "krok\\robots\\": ""
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "krok",
+                    "email": "yii2.developer@gmail.com"
+                }
+            ],
+            "description": "Управление robots.txt",
+            "keywords": [
+                "extension",
+                "robots",
+                "robots.txt",
+                "yii2"
+            ],
+            "time": "2018-07-20T14:33:00+00:00"
         },
         {
             "name": "yii2-developer/yii2-security",

@@ -10,10 +10,28 @@ $config = [
         Yii::$app->getResponse()->getHeaders()->add('Content-Security-Policy',
             'default-src \'none\'; script-src \'self\' \'unsafe-inline\'; connect-src \'self\'; child-src \'self\'; img-src * data:; style-src * \'unsafe-inline\'; font-src *;');
     },
+    'container' => [
+        'definitions' => [
+            \krok\robots\RobotsInterface::class => [
+                'class' => \krok\robots\Robots::class,
+                'path' => '@runtime/robots/robots.txt',
+                'lines' => [
+                    'User-agent: *',
+                ],
+                'generators' => [
+                    \krok\robots\generators\AllowGenerator::class,
+                ],
+            ],
+        ],
+    ],
     'modules' => [
         'content' => [
             'viewPath' => '@app/modules/content/views/frontend',
             'controllerNamespace' => 'krok\content\controllers\frontend',
+        ],
+        'robots' => [
+            'class' => \yii\base\Module::class,
+            'controllerNamespace' => 'krok\robots\controllers\frontend',
         ],
     ],
     'components' => [

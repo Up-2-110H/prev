@@ -55,6 +55,7 @@
         "yii2-developer/yii2-bootbox": "~0.0.1",
         "yii2-developer/yii2-mailer": "~0.1.0",
         "yii2-developer/yii2-backup": "~0.0.1",
+        "yii2-developer/yii2-robots": "~0.0.1",
         "vlucas/phpdotenv": "~2.4.0"
     },
     "require-dev": {

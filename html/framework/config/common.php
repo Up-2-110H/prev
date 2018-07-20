@@ -92,6 +92,7 @@ return \yii\helpers\ArrayHelper::merge([
                 $configurable = [
                     \krok\system\Configure::class,
                     \krok\mailer\Configure::class,
+                    \krok\robots\Configure::class,
                 ];
 
                 /** @var \krok\configure\serializers\SerializerInterface $serializer */

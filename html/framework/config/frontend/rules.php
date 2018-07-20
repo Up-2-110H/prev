@@ -20,6 +20,14 @@ return [
      */
     '<language:\w+\-\w+>/content/<alias:[\w\-]+>' => 'content/default/index',
     /**
+     * Robots
+     */
+    [
+        'pattern' => 'robots',
+        'route' => 'robots',
+        'suffix' => '.txt',
+    ],
+    /**
      * System
      */
     '<language:\w+\-\w+>' => '/',
