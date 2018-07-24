@@ -3,7 +3,3 @@
 
 # envelopment
 /framework/config/local.php
-
-# html
-/web/html/*
-!/web/html/.htaccess
