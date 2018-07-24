@@ -2,6 +2,7 @@
 .env
 /docker/container/var/lib/mysql/
 /docker/container/var/log/
+/docker/container/backup/*/
 /html/web/html/
 /html/backup/*/
 /html/storage/*/

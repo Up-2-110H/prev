@@ -19,15 +19,22 @@ do_mysql_backup() {
 
     if [ -z "$1" ]
     then
-        DATE=$(date +"%Y-%m-%d %H:%M")
-        COMMAND="$DIRECTORY/$MYSQL_DATABASE-$DATE.sql.gz"
+        DATE=$(date +"%Y-%m-%d-%H:%M")
+        FOLDER="$DIRECTORY/$DATE"
+
+        if ! [ -d "$FOLDER" ]
+        then
+            mkdir --mode=0700 --parents "$FOLDER"
+        fi
+
+        COMMAND="$FOLDER/latest.sql.gz"
     else
         COMMAND="$1"
     fi
 
     docker-compose exec -T --env="MYSQL_PWD=$MYSQL_PASSWORD" "$CONTAINER_MYSQL" mysqldump --single-transaction --no-create-db --verbose --user="$MYSQL_USER" "$MYSQL_DATABASE" | gzip > "$COMMAND"
 
-    find "$DIRECTORY" -type f -mtime +3 -exec rm {} \;
+    find "$DIRECTORY" -type d -mtime +3 -exec rm -r {} +
 
     echo "Done!"
 }
@@ -42,8 +49,8 @@ do_mysql_restore() {
 
     if [ -z "$1" ]
     then
-        FILE=$(ls "$DIRECTORY" -t | head -1)
-        COMMAND="$DIRECTORY/$FILE"
+        FILE=$(find "$DIRECTORY" -type f -name *.sql.gz -exec ls -t "{}" + | head -1)
+        COMMAND="$FILE"
     else
         COMMAND="$1"
     fi
