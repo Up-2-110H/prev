@@ -115,9 +115,7 @@ docker-compose ps
 Установка системы
 
 ```
-./docker.sh exec composer --working-dir=framework install
-./docker.sh exec framework/yii migrate/up
-./docker.sh exec framework/yii access/install
+./docker.sh install
 ```
 
 Администрирование
