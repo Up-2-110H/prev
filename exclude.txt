@@ -1,9 +1,8 @@
 .git
 .env
-/tmp/
-/docker/server/*/
+/docker/container/var/lib/mysql/
+/docker/container/var/log/
 /html/web/html/
-/html/web/robots.txt
 /html/backup/*/
 /html/storage/*/
 /html/framework/runtime/*/
