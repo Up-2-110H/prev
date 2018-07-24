@@ -2,7 +2,7 @@
 
 . ./.env
 
-CONTAINER_APP="app";
+CONTAINER_APP="application";
 CONTAINER_MYSQL="mysql";
 
 do_exec() {
