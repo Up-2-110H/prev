@@ -10,6 +10,7 @@ services:
             CRON_FILE: /var/spool/cron/config/crontab
         volumes:
             - ./html:/var/www/html
+            - ./docker/.composer:/var/www/.composer
             - ./docker/container/var/log/apache2:/var/log/apache2
             - ./docker/container/var/log/supervisor:/var/log/supervisor
             - ./docker/container/var/spool/cron/config:/var/spool/cron/config
