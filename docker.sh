@@ -2,16 +2,16 @@
 
 . ./.env
 
-CONTAINER_APP="application";
+CONTAINER_APPLICATION="application";
 CONTAINER_MYSQL="mysql";
 
 do_exec() {
-    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APP" "$@"
+    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" "$@"
 }
 
 do_mysql_backup() {
 
-    DIRECTORY="docker/server/backup"
+    DIRECTORY="docker/backup"
     if ! [ -d "$DIRECTORY" ]
     then
         mkdir --mode=0700 --parents "$DIRECTORY"
@@ -34,7 +34,7 @@ do_mysql_backup() {
 
 do_mysql_restore() {
 
-    DIRECTORY="docker/server/backup"
+    DIRECTORY="docker/backup"
     if ! [ -d "$DIRECTORY" ]
     then
         mkdir --mode=0700 --parents "$DIRECTORY"
@@ -79,21 +79,21 @@ do_mysql_truncate_database() {
 }
 
 do_tests() {
-    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APP" framework/vendor/bin/codecept run --config=framework/codeception.yml
+    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/vendor/bin/codecept run --config=framework/codeception.yml
 }
 
 do_install() {
-    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APP" composer install --working-dir=framework
-    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APP" framework/yii migrate/up
-    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APP" framework/yii access/install
-    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APP" framework/yii cache/flush-all
+    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" composer install --working-dir=framework
+    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii migrate/up
+    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii access/install
+    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii cache/flush-all
 }
 
 do_update() {
-    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APP" composer update --working-dir=framework
-    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APP" framework/yii migrate/up
-    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APP" framework/yii access/install
-    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APP" framework/yii cache/flush-all
+    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" composer update --working-dir=framework
+    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii migrate/up
+    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii access/install
+    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii cache/flush-all
 }
 
 case "$1" in
