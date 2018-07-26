@@ -11,12 +11,12 @@ services:
         volumes:
             - ./html:/var/www/html
             - ./docker/.composer:/var/www/.composer
-            - ./docker/container/var/log/apache2:/var/log/apache2
-            - ./docker/container/var/log/supervisor:/var/log/supervisor
-            - ./docker/container/var/spool/cron/config:/var/spool/cron/config
-            - ./docker/container/usr/log/supervisor:/usr/log/supervisor
-            - ./docker/container/usr/local/etc/php/php.ini:/usr/local/etc/php/php.ini
-            - ./docker/container/etc/supervisor/application.conf:/etc/supervisor/application.conf
+            - ./docker/containers/application/var/log/apache2:/var/log/apache2
+            - ./docker/containers/application/var/log/supervisor:/var/log/supervisor
+            - ./docker/containers/application/var/spool/cron/config:/var/spool/cron/config
+            - ./docker/containers/application/usr/log/supervisor:/usr/log/supervisor
+            - ./docker/containers/application/usr/local/etc/php/php.ini:/usr/local/etc/php/php.ini
+            - ./docker/containers/application/etc/supervisor/application.conf:/etc/supervisor/application.conf
         expose:
             - 9000
         depends_on:
@@ -40,8 +40,8 @@ services:
             MYSQL_DATABASE: ${MYSQL_DATABASE}
             MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
         volumes:
-            - ./docker/container/var/lib/mysql:/var/lib/mysql
-            - ./docker/container/etc/mysql/conf.d/my.cnf:/etc/mysql/conf.d/my.cnf
+            - ./docker/containers/mysql/var/lib/mysql:/var/lib/mysql
+            - ./docker/containers/mysql/etc/mysql/conf.d/my.cnf:/etc/mysql/conf.d/my.cnf
         networks:
             self:
                 ipv4_address: ${NETWORK_MYSQL}
@@ -53,7 +53,7 @@ services:
         environment:
             PMA_HOST: mysql
         volumes:
-            - ./docker/container/etc/phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
+            - ./docker/containers/phpmyadmin/etc/phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
         depends_on:
             - mysql
         networks:
