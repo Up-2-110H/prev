@@ -7,3 +7,4 @@
 /html/backup/*/
 /html/storage/*/
 /html/framework/runtime/*/
+/html/framework/config/local.php
