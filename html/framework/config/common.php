@@ -187,6 +187,7 @@ return \yii\helpers\ArrayHelper::merge([
                 'app' => [
                     'class' => \yii\i18n\PhpMessageSource::class,
                     'sourceLanguage' => 'en-US',
+                    'basePath' => '@app/messages',
                 ],
                 'system' => [
                     'class' => \yii\i18n\PhpMessageSource::class,
