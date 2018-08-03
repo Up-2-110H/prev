@@ -15,9 +15,9 @@ $config = [
                 '@app/migrations',
                 '@yii/rbac/migrations',
                 '@app/modules/auth/migrations',
-                '@vendor/yii2-developer/yii2-storage/migrations',
-                '@vendor/yii2-developer/yii2-content/migrations',
-                '@vendor/yii2-developer/yii2-configure/migrations',
+                '@krok/storage/migrations',
+                '@krok/content/migrations',
+                '@krok/configure/migrations',
             ],
         ],
         'access' => [

@@ -21,7 +21,7 @@ class DefaultController extends Controller
     /**
      * @var string
      */
-    public $layout = '@vendor/yii2-developer/yii2-system/views/backend/layouts/login.php';
+    public $layout = '@krok/system/views/backend/layouts/login.php';
 
     /**
      * @return array

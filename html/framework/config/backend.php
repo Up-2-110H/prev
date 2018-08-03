@@ -221,7 +221,7 @@ $config = [
     'modules' => [
         'system' => [
             'class' => \krok\system\Module::class,
-            'viewPath' => '@vendor/yii2-developer/yii2-system/views/backend',
+            'viewPath' => '@krok/system/views/backend',
             'controllerNamespace' => 'krok\system\controllers\backend',
         ],
         'tinymce' => [
@@ -239,17 +239,17 @@ $config = [
             'controllerNamespace' => 'app\modules\auth\controllers\backend',
         ],
         'content' => [
-            'viewPath' => '@vendor/yii2-developer/yii2-content/views/backend',
+            'viewPath' => '@krok/content/views/backend',
             'controllerNamespace' => 'krok\content\controllers\backend',
         ],
         'backup' => [
             'class' => \yii\base\Module::class,
-            'viewPath' => '@vendor/yii2-developer/yii2-backup/views/backend',
+            'viewPath' => '@krok/backup/views/backend',
             'controllerNamespace' => 'krok\backup\controllers\backend',
         ],
         'configure' => [
             'class' => \krok\configure\Module::class,
-            'viewPath' => '@vendor/yii2-developer/yii2-configure/views/backend',
+            'viewPath' => '@krok/configure/views/backend',
             'controllerNamespace' => 'krok\configure\controllers\backend',
         ],
     ],
@@ -261,8 +261,8 @@ $config = [
                 'basePath' => '@themes',
                 'baseUrl' => '@themes',
                 'pathMap' => [
-                    '@vendor/yii2-developer/yii2-system/views/backend' => '@app/modules/system/views/backend',
-                    '@vendor/yii2-developer/yii2-system/views/backend/layouts' => '@themes/views/layouts',
+                    '@krok/system/views/backend' => '@app/modules/system/views/backend',
+                    '@krok/system/views/backend/layouts' => '@themes/views/layouts',
                 ],
             ],
         ],
