@@ -23,7 +23,7 @@ return \yii\helpers\ArrayHelper::merge([
     'container' => [
         'singletons' => [
             \krok\sentry\Sentry::class => [
-                'dsn' => getenv('SENTRY_DSN'),
+                'dsn' => filter_var(getenv('SENTRY_DSN'), FILTER_VALIDATE_URL) ? getenv('SENTRY_DSN') : null,
             ],
         ],
         'definitions' => [

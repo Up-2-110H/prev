@@ -3,6 +3,8 @@ services:
     application:
         image: ${IMAGE_APPLICATION}
         container_name: ${CONTAINER_NAME}
+        env_file:
+          - ./.env
         environment:
             APACHE_RUN_ID: ${APACHE_RUN_ID}
             APACHE_RUN_USER: ${APACHE_RUN_USER}
