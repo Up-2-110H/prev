@@ -179,6 +179,11 @@ return \yii\helpers\ArrayHelper::merge([
         'i18n' => [
             'class' => \yii\i18n\I18N::class,
             'translations' => [
+                'yii' => [
+                    'class' => \yii\i18n\PhpMessageSource::class,
+                    'sourceLanguage' => 'en-US',
+                    'basePath' => '@app/messages',
+                ],
                 'app' => [
                     'class' => \yii\i18n\PhpMessageSource::class,
                     'sourceLanguage' => 'en-US',
