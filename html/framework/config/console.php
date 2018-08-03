@@ -6,7 +6,6 @@ $config = [
         'queue',
     ],
     'controllerMap' => [
-        // Migrations for the specific project's module
         'migrate' => [
             'class' => \yii\console\controllers\MigrateController::class,
             'migrationTable' => '{{%migration}}',
@@ -103,7 +102,7 @@ $config = [
         'urlManager' => [
             'class' => \yii\di\ServiceLocator::class,
             'components' => [
-                'frontend' => require(__DIR__ . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR . 'urlManager.php'),
+                'default' => require(__DIR__ . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR . 'urlManager.php'),
                 'backend' => require(__DIR__ . DIRECTORY_SEPARATOR . 'backend' . DIRECTORY_SEPARATOR . 'urlManager.php'),
             ],
         ],
