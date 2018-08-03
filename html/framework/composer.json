@@ -47,7 +47,6 @@
         "yii2-developer/yii2-tinymce-uploader": "~0.1.0",
         "yii2-developer/yii2-language": "~1.1.0",
         "yii2-developer/yii2-oauth": "~2.0.0",
-        "yii2-developer/yii2-log": "~1.0.0",
         "yii2-developer/yii2-sentry": "~0.0.1",
         "yii2-developer/yii2-access": "~0.0.1",
         "yii2-developer/yii2-password-eye": "~0.0.1",

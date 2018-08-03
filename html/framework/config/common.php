@@ -195,7 +195,7 @@ return \yii\helpers\ArrayHelper::merge([
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
                 'file' => [
-                    'class' => \krok\log\FileTarget::class,
+                    'class' => \yii\log\FileTarget::class,
                     'levels' => [
                         'error',
                         'warning',
@@ -220,4 +220,4 @@ return \yii\helpers\ArrayHelper::merge([
     ],
     'params' => require(__DIR__ . DIRECTORY_SEPARATOR . 'params.php'),
 ],
-    is_readable(__DIR__ . DIRECTORY_SEPARATOR . 'local.php') ? require(__DIR__ . DIRECTORY_SEPARATOR . 'local.php') : []);
+    file_exists(__DIR__ . DIRECTORY_SEPARATOR . 'local.php') ? require(__DIR__ . DIRECTORY_SEPARATOR . 'local.php') : []);
