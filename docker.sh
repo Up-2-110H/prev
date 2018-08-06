@@ -90,7 +90,7 @@ do_mysql_wait() {
         sleep 1
     done;
 
-    sleep 5
+    sleep 10
 }
 
 do_tests() {
