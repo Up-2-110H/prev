@@ -31,7 +31,7 @@ dev:
     environment: dev
     script:
         # Composer install
-        - ./docker.sh exec composer --working-dir=framework install
+        - ./docker.sh exec -T composer --working-dir=framework install
 
         - sshpass -p $SSH_PASSWORD rsync -riz --links --delete -e "ssh -p $SSH_PORT" --exclude-from="exclude.txt" . $SSH_USERNAME@$SSH_HOST:$SSH_DIRECTORY
         - sshpass -p $SSH_PASSWORD ssh -p $SSH_PORT $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker.sh mysql-backup"
@@ -48,7 +48,7 @@ production:
     environment: production
     script:
         # Composer install
-        - ./docker.sh exec composer --working-dir=framework install --no-dev
+        - ./docker.sh exec -T composer --working-dir=framework install --no-dev
 
         - sshpass -p $SSH_PASSWORD_PROD rsync -riz --links --delete -e "ssh -p $SSH_PORT_PROD" --exclude-from="exclude.txt" . $SSH_USERNAME_PROD@$SSH_HOST_PROD:$SSH_DIRECTORY_PROD
         - sshpass -p $SSH_PASSWORD_PROD ssh -p $SSH_PORT_PROD $SSH_USERNAME_PROD@$SSH_HOST_PROD "cd $SSH_DIRECTORY_PROD && /usr/local/php71/bin/php html/framework/yii migrate/up"
