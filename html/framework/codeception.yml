@@ -13,9 +13,9 @@ extensions:
 settings:
     bootstrap: _bootstrap.php
     colors: true
-    memory_limit: 64M
+    memory_limit: 128M
 modules:
     config:
         Yii2:
-            configFile: 'tests/config/tests.php'
-            cleanup: false
+            configFile: 'tests/config/web.php'
+            cleanup: true
