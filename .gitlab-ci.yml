@@ -20,10 +20,10 @@ migrate:
     environment: tests
     script:
         # Install
-        - ./docker.sh install
+        - ./docker.sh install wait
 
         # Try tests
-        - ./docker.sh tests
+        - ./docker.sh tests wait
     tags:
         - compose
 dev:

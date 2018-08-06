@@ -2,8 +2,8 @@
 
 . ./.env
 
-CONTAINER_APPLICATION="application";
-CONTAINER_MYSQL="mysql";
+CONTAINER_APPLICATION="application"
+CONTAINER_MYSQL="mysql"
 
 do_exec() {
     docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" "$@"
@@ -65,7 +65,7 @@ do_mysql_drop_table() {
     if [ -z "$1" ]
     then
         echo "Usage: docker.sh mysql-drop-table TABLE_NAME"
-        exit 1;
+        exit 1
     else
         TABLE="$1"
     fi
@@ -86,17 +86,21 @@ do_mysql_truncate_database() {
 }
 
 do_mysql_wait() {
-    until [ "`docker-compose exec -T --env="MYSQL_PWD=$MYSQL_ROOT_PASSWORD" "$CONTAINER_MYSQL" mysqladmin --user=root --wait ping | grep -o \"is\salive\"`"=='is alive' ]; do
+    until [ "`docker-compose exec -T --env="MYSQL_PWD=$MYSQL_ROOT_PASSWORD" "$CONTAINER_MYSQL" mysqladmin --user=root --wait ping | grep -o \"is\salive\"`"=='is alive' ]
+    do
         sleep 1
-    done;
+    done
 
-    sleep 20
+    if [ "$1" = "wait" ]
+    then
+        sleep 30
+    fi
 }
 
 do_tests() {
     DB="codeception"
 
-    do_mysql_wait
+    do_mysql_wait "$@"
 
     docker-compose exec -T --env="MYSQL_PWD=$MYSQL_ROOT_PASSWORD" "$CONTAINER_MYSQL" mysql --user=root -e "CREATE DATABASE $DB;"
 
@@ -111,7 +115,7 @@ do_tests() {
 do_install() {
     docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" composer install --working-dir=framework
 
-    do_mysql_wait
+    do_mysql_wait "$@"
 
     docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii migrate/up
     docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii access/install
@@ -161,11 +165,11 @@ case "$1" in
         ;;
     tests)
         shift
-        do_tests
+        do_tests $@
         ;;
     install)
         shift
-        do_install
+        do_install $@
         ;;
     update)
         shift
