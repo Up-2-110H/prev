@@ -38,8 +38,8 @@ $config = [
         'urlManager' => [
             'class' => \yii\di\ServiceLocator::class,
             'components' => [
-                'default' => require(__DIR__ . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR . 'urlManager.php'),
-                'backend' => require(__DIR__ . DIRECTORY_SEPARATOR . 'backend' . DIRECTORY_SEPARATOR . 'urlManager.php'),
+                'default' => require(__DIR__ . '/frontend/urlManager.php'),
+                'backend' => require(__DIR__ . '/backend/urlManager.php'),
             ],
         ],
         'assetManager' => [
@@ -125,4 +125,4 @@ if (YII_ENV_DEV) {
     ];
 }
 
-return \yii\helpers\ArrayHelper::merge(require(__DIR__ . DIRECTORY_SEPARATOR . 'common.php'), $config);
+return \yii\helpers\ArrayHelper::merge(require(__DIR__ . '/common.php'), $config);

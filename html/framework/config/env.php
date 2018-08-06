@@ -1,6 +1,6 @@
 <?php
 
-if (file_exists(dirname(dirname(dirname(__DIR__))) . '.env')) {
+if (file_exists(dirname(dirname(dirname(__DIR__))) . '/.env')) {
     $dotEnv = new \Dotenv\Dotenv(dirname(dirname(dirname(__DIR__))), '.env');
     $dotEnv->load();
 }

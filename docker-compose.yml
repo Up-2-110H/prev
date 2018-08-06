@@ -3,14 +3,13 @@ services:
     application:
         image: ${IMAGE_APPLICATION}
         container_name: ${CONTAINER_NAME}
-        env_file:
-          - ./.env
         environment:
             APACHE_RUN_ID: ${APACHE_RUN_ID}
             APACHE_RUN_USER: ${APACHE_RUN_USER}
             APACHE_RUN_GROUP: ${APACHE_RUN_GROUP}
             CRON_FILE: /var/spool/cron/config/crontab
         volumes:
+            - ./.env:/var/www/.env
             - ./html:/var/www/html
             - ./docker/.composer:/var/www/.composer
             - ./docker/containers/application/var/log/apache2:/var/log/apache2

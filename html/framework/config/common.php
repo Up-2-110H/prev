@@ -222,8 +222,8 @@ return \yii\helpers\ArrayHelper::merge([
                 'database' => 2,
             ],
         ],
-        'db' => require(__DIR__ . DIRECTORY_SEPARATOR . 'db.php'),
+        'db' => require(__DIR__ . '/db.php'),
     ],
-    'params' => require(__DIR__ . DIRECTORY_SEPARATOR . 'params.php'),
+    'params' => require(__DIR__ . '/params.php'),
 ],
-    file_exists(__DIR__ . DIRECTORY_SEPARATOR . 'local.php') ? require(__DIR__ . DIRECTORY_SEPARATOR . 'local.php') : []);
+    file_exists(__DIR__ . '/local.php') ? require(__DIR__ . '/local.php') : []);
