@@ -6,7 +6,7 @@ CONTAINER_APPLICATION="application";
 CONTAINER_MYSQL="mysql";
 
 do_exec() {
-    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" "$@"
+    docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" "$@"
 }
 
 do_mysql_backup() {
@@ -122,11 +122,11 @@ do_update() {
 }
 
 do_make_cest() {
-    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/vendor/bin/codecept g:cest functional "$@" --config=framework/codeception.yml
+    docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/vendor/bin/codecept g:cest functional "$@" --config=framework/codeception.yml
 }
 
 do_make_test() {
-    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/vendor/bin/codecept g:test unit "$@" --config=framework/codeception.yml
+    docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/vendor/bin/codecept g:test unit "$@" --config=framework/codeception.yml
 }
 
 case "$1" in
