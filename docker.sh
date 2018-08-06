@@ -86,7 +86,20 @@ do_mysql_truncate_database() {
 }
 
 do_tests() {
-    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/vendor/bin/codecept run --config=framework/codeception.yml
+    DB="codeception"
+
+    until [ "`docker-compose exec --env="MYSQL_PWD=$MYSQL_ROOT_PASSWORD" "$CONTAINER_MYSQL" mysqladmin --user=root --wait ping | grep -o \"is\salive\"`"=='is alive' ]; do
+        sleep 1;
+    done;
+
+    docker-compose exec --env="MYSQL_PWD=$MYSQL_ROOT_PASSWORD" "$CONTAINER_MYSQL" mysql --user=root -e "CREATE DATABASE $DB;"
+
+    docker-compose exec --env="YII_ENV=test" --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii migrate/up --appconfig=framework/tests/config/console.php
+    docker-compose exec --env="YII_ENV=test" --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii access/install --appconfig=framework/tests/config/console.php
+
+    docker-compose exec --env="YII_ENV=test" --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/vendor/bin/codecept run --config=framework/codeception.yml
+
+    docker-compose exec --env="MYSQL_PWD=$MYSQL_ROOT_PASSWORD" "$CONTAINER_MYSQL" mysql --user=root -e "DROP DATABASE $DB;"
 }
 
 do_install() {
@@ -101,6 +114,14 @@ do_update() {
     docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii migrate/up
     docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii access/install
     docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii cache/flush-all
+}
+
+do_make_cest() {
+    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/vendor/bin/codecept g:cest functional "$@" --config=framework/codeception.yml
+}
+
+do_make_test() {
+    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/vendor/bin/codecept g:test unit "$@" --config=framework/codeception.yml
 }
 
 case "$1" in
@@ -141,8 +162,16 @@ case "$1" in
         shift
         do_update
         ;;
+    g:cest)
+        shift
+        do_make_cest $@
+        ;;
+    g:test)
+        shift
+        do_make_test $@
+        ;;
     *)
-    echo "Usage: docker.sh [exec|mysql-backup|mysql-restore|mysql-drop-table|mysql-truncate-database|tests|install|update]"
+    echo "Usage: docker.sh [exec|mysql-backup|mysql-restore|mysql-drop-table|mysql-truncate-database|tests|install|update|g:cest|g:test]"
     ;;
 
 esac
