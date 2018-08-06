@@ -33,12 +33,12 @@ dev:
         # Composer install
         - ./docker.sh exec composer --working-dir=framework install
 
-        - sshpass -p $SSH_PASSWORD rsync -riz --links --delete -e "ssh" --exclude-from="exclude.txt" . $SSH_USERNAME@$SSH_HOST:$SSH_DIRECTORY
-        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker.sh mysql-backup"
-        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker.sh exec crontab /var/local/cron/crontab"
-        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker.sh exec framework/yii migrate/up"
-        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker.sh exec framework/yii access/install"
-        - sshpass -p $SSH_PASSWORD ssh $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker.sh exec framework/yii cache/flush-all"
+        - sshpass -p $SSH_PASSWORD rsync -riz --links --delete -e "ssh -p $SSH_PORT" --exclude-from="exclude.txt" . $SSH_USERNAME@$SSH_HOST:$SSH_DIRECTORY
+        - sshpass -p $SSH_PASSWORD ssh -p $SSH_PORT $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker.sh mysql-backup"
+        - sshpass -p $SSH_PASSWORD ssh -p $SSH_PORT $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker.sh exec crontab /var/local/cron/crontab"
+        - sshpass -p $SSH_PASSWORD ssh -p $SSH_PORT $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker.sh exec framework/yii migrate/up"
+        - sshpass -p $SSH_PASSWORD ssh -p $SSH_PORT $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker.sh exec framework/yii access/install"
+        - sshpass -p $SSH_PASSWORD ssh -p $SSH_PORT $SSH_USERNAME@$SSH_HOST "cd $SSH_DIRECTORY && ./docker.sh exec framework/yii cache/flush-all"
     only:
         - master
     tags:
@@ -50,10 +50,10 @@ production:
         # Composer install
         - ./docker.sh exec composer --working-dir=framework install --no-dev
 
-        - sshpass -p $SSH_PASSWORD_PROD rsync -riz --links --delete -e "ssh" --exclude-from="exclude.txt" . $SSH_USERNAME_PROD@$SSH_HOST_PROD:$SSH_DIRECTORY_PROD
-        - sshpass -p $SSH_PASSWORD_PROD ssh $SSH_USERNAME_PROD@$SSH_HOST_PROD "cd $SSH_DIRECTORY_PROD && /usr/local/php71/bin/php html/framework/yii migrate/up"
-        - sshpass -p $SSH_PASSWORD_PROD ssh $SSH_USERNAME_PROD@$SSH_HOST_PROD "cd $SSH_DIRECTORY_PROD && /usr/local/php71/bin/php html/framework/yii access/install"
-        - sshpass -p $SSH_PASSWORD_PROD ssh $SSH_USERNAME_PROD@$SSH_HOST_PROD "cd $SSH_DIRECTORY_PROD && /usr/local/php71/bin/php html/framework/yii cache/flush-all"
+        - sshpass -p $SSH_PASSWORD_PROD rsync -riz --links --delete -e "ssh -p $SSH_PORT_PROD" --exclude-from="exclude.txt" . $SSH_USERNAME_PROD@$SSH_HOST_PROD:$SSH_DIRECTORY_PROD
+        - sshpass -p $SSH_PASSWORD_PROD ssh -p $SSH_PORT_PROD $SSH_USERNAME_PROD@$SSH_HOST_PROD "cd $SSH_DIRECTORY_PROD && /usr/local/php71/bin/php html/framework/yii migrate/up"
+        - sshpass -p $SSH_PASSWORD_PROD ssh -p $SSH_PORT_PROD $SSH_USERNAME_PROD@$SSH_HOST_PROD "cd $SSH_DIRECTORY_PROD && /usr/local/php71/bin/php html/framework/yii access/install"
+        - sshpass -p $SSH_PASSWORD_PROD ssh -p $SSH_PORT_PROD $SSH_USERNAME_PROD@$SSH_HOST_PROD "cd $SSH_DIRECTORY_PROD && /usr/local/php71/bin/php html/framework/yii cache/flush-all"
     only:
         - production
     tags:

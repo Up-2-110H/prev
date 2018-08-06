@@ -8,6 +8,6 @@ dev:
     stage: deploy
     environment: dev
     script:
-        - sshpass -p $SSH_PASSWORD rsync -riz --links --delete -e "ssh" ./html/ $SSH_USERNAME@$SSH_HOST:$SSH_DIRECTORY
+        - sshpass -p $SSH_PASSWORD rsync -riz --links --delete -e "ssh -p $SSH_PORT" ./html/ $SSH_USERNAME@$SSH_HOST:$SSH_DIRECTORY
     only:
         - master
