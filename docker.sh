@@ -88,18 +88,18 @@ do_mysql_truncate_database() {
 do_tests() {
     DB="codeception"
 
-    until [ "`docker-compose exec --env="MYSQL_PWD=$MYSQL_ROOT_PASSWORD" "$CONTAINER_MYSQL" mysqladmin --user=root --wait ping | grep -o \"is\salive\"`"=='is alive' ]; do
+    until [ "`docker-compose exec -T --env="MYSQL_PWD=$MYSQL_ROOT_PASSWORD" "$CONTAINER_MYSQL" mysqladmin --user=root --wait ping | grep -o \"is\salive\"`"=='is alive' ]; do
         sleep 1;
     done;
 
-    docker-compose exec --env="MYSQL_PWD=$MYSQL_ROOT_PASSWORD" "$CONTAINER_MYSQL" mysql --user=root -e "CREATE DATABASE $DB;"
+    docker-compose exec -T --env="MYSQL_PWD=$MYSQL_ROOT_PASSWORD" "$CONTAINER_MYSQL" mysql --user=root -e "CREATE DATABASE $DB;"
 
-    docker-compose exec --env="YII_ENV=test" --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii migrate/up --appconfig=framework/tests/config/console.php
-    docker-compose exec --env="YII_ENV=test" --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii access/install --appconfig=framework/tests/config/console.php
+    docker-compose exec -T --env="YII_ENV=test" --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii migrate/up --appconfig=framework/tests/config/console.php
+    docker-compose exec -T --env="YII_ENV=test" --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii access/install --appconfig=framework/tests/config/console.php
 
-    docker-compose exec --env="YII_ENV=test" --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/vendor/bin/codecept run --config=framework/codeception.yml
+    docker-compose exec -T --env="YII_ENV=test" --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/vendor/bin/codecept run --config=framework/codeception.yml
 
-    docker-compose exec --env="MYSQL_PWD=$MYSQL_ROOT_PASSWORD" "$CONTAINER_MYSQL" mysql --user=root -e "DROP DATABASE $DB;"
+    docker-compose exec -T --env="MYSQL_PWD=$MYSQL_ROOT_PASSWORD" "$CONTAINER_MYSQL" mysql --user=root -e "DROP DATABASE $DB;"
 }
 
 do_install() {
@@ -110,10 +110,10 @@ do_install() {
 }
 
 do_update() {
-    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" composer update --working-dir=framework
-    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii migrate/up
-    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii access/install
-    docker-compose exec --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii cache/flush-all
+    docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" composer update --working-dir=framework
+    docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii migrate/up
+    docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii access/install
+    docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii cache/flush-all
 }
 
 do_make_cest() {
