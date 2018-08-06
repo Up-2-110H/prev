@@ -1,7 +1,7 @@
 .git
 .env
-/docker/container/var/lib/mysql/
-/docker/container/var/log/
+/docker/containers/application/var/log/*/
+/docker/containers/mysql/var/lib/mysql/
 /docker/container/backup/*/
 /html/web/html/
 /html/backup/*/
