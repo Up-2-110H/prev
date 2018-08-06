@@ -92,6 +92,8 @@ do_tests() {
         sleep 1;
     done;
 
+    sleep 60
+
     docker-compose exec -T --env="MYSQL_PWD=$MYSQL_ROOT_PASSWORD" "$CONTAINER_MYSQL" mysql --user=root -e "CREATE DATABASE $DB;"
 
     docker-compose exec -T --env="YII_ENV=test" --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii migrate/up --appconfig=framework/tests/config/console.php
@@ -104,6 +106,9 @@ do_tests() {
 
 do_install() {
     docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" composer install --working-dir=framework
+
+    sleep 60
+
     docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii migrate/up
     docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii access/install
     docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii cache/flush-all
