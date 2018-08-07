@@ -19,8 +19,8 @@ tests:
     stage: tests
     environment: tests
     script:
-        # Install
-        - ./docker.sh install wait
+        # Composer install
+        - ./docker.sh exec composer --working-dir=framework install
 
         # Try tests
         - ./docker.sh tests wait
