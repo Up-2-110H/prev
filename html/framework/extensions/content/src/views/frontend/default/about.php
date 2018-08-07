@@ -7,9 +7,6 @@ use yii\helpers\Html;
 
 $this->title = $dto->getTitle();
 $this->params['breadcrumbs'][] = $this->title;
-
-$this->registerMetaTag(['name' => 'keywords', 'content' => $dto->getKeywords()]);
-$this->registerMetaTag(['name' => 'description', 'content' => $dto->getDescription()]);
 ?>
 <div class="site-about">
 

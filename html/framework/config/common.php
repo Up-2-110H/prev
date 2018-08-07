@@ -93,6 +93,8 @@ return \yii\helpers\ArrayHelper::merge([
                     \krok\system\Configure::class,
                     \krok\mailer\Configure::class,
                     \krok\robots\Configure::class,
+                    \krok\meta\MetaConfigure::class,
+                    \krok\meta\OpenGraphConfigure::class,
                 ];
 
                 /** @var \krok\configure\serializers\SerializerInterface $serializer */
@@ -100,6 +102,8 @@ return \yii\helpers\ArrayHelper::merge([
 
                 return new \krok\configure\Configure($configurable, $serializer);
             },
+            \krok\meta\serializers\SerializerInterface::class => \krok\meta\serializers\JsonSerializer::class,
+            \krok\meta\MetaInterface::class => \krok\meta\Meta::class,
         ],
     ],
     'modules' => [

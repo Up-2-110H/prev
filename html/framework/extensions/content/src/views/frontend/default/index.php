@@ -6,9 +6,6 @@ use yii\helpers\Html;
 /* @var $dto \krok\content\dto\frontend\ContentDto */
 
 $this->title = $dto->getTitle();
-
-$this->registerMetaTag(['name' => 'keywords', 'content' => $dto->getKeywords()]);
-$this->registerMetaTag(['name' => 'description', 'content' => $dto->getDescription()]);
 ?>
 <div class="site-index">
 

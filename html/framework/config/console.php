@@ -18,6 +18,7 @@ $config = [
                 '@krok/storage/migrations',
                 '@krok/content/migrations',
                 '@krok/configure/migrations',
+                '@krok/meta/migrations',
             ],
         ],
         'access' => [

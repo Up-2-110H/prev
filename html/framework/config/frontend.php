@@ -26,7 +26,7 @@ $config = [
     ],
     'modules' => [
         'content' => [
-            'viewPath' => '@app/modules/content/views/frontend',
+            'viewPath' => '@krok/content/views/frontend',
             'controllerNamespace' => 'krok\content\controllers\frontend',
         ],
         'robots' => [

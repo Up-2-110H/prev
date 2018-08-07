@@ -24,6 +24,10 @@
         {
             "type": "composer",
             "url": "https://packagist.dev-vps.ru"
+        },
+        {
+            "type": "path",
+            "url": "extensions/*/"
         }
     ],
     "require": {
@@ -39,7 +43,7 @@
         "yii2-developer/yii2-extend": "~0.1.0",
         "yii2-developer/yii2-system": "~1.0.0",
         "yii2-developer/yii2-paperDashboard": "~0.5.0",
-        "yii2-developer/yii2-content": "~1.0.0",
+        "yii2-developer/yii2-content": "~2.0.0",
         "yii2-developer/yii2-storage": "~0.2.0",
         "yii2-developer/yii2-filesystem": "~0.2.0",
         "yii2-developer/yii2-glide": "~1.1.0",
