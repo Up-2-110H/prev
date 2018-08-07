@@ -1,7 +1,6 @@
 image: runner:compose
 stages:
     - tests
-    - codeception
     - deploy
 before_script:
     # Software
@@ -16,18 +15,13 @@ before_script:
     - docker-compose build
     - docker-compose up -d
     - docker-compose ps
-migrate:
+tests:
     stage: tests
     environment: tests
     script:
         # Install
         - ./docker.sh install wait
-    tags:
-        - compose
-codeception:
-    stage: tests
-    environment: codeception
-    script:
+
         # Try tests
         - ./docker.sh tests wait
     tags:
