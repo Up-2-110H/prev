@@ -33,10 +33,6 @@ return [
                     'url' => ['/auth/auth'],
                 ],
                 [
-                    'label' => 'Social network',
-                    'url' => ['/auth/social'],
-                ],
-                [
                     'label' => 'Log',
                     'url' => ['/auth/log'],
                 ],
