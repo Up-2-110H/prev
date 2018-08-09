@@ -25,6 +25,20 @@ return \yii\helpers\ArrayHelper::merge([
             \krok\sentry\Sentry::class => [
                 'dsn' => filter_var(getenv('SENTRY_DSN'), FILTER_VALIDATE_URL) ? getenv('SENTRY_DSN') : null,
             ],
+            \krok\configure\ConfigureInterface::class => function () {
+                $configurable = [
+                    \krok\system\Configure::class,
+                    \krok\mailer\Configure::class,
+                    \krok\robots\Configure::class,
+                    \krok\meta\MetaConfigure::class,
+                    \krok\meta\OpenGraphConfigure::class,
+                ];
+
+                /** @var \krok\configure\serializers\SerializerInterface $serializer */
+                $serializer = Yii::createObject(\krok\configure\serializers\SerializerInterface::class);
+
+                return new \krok\configure\Configure($configurable, $serializer);
+            },
         ],
         'definitions' => [
             \krok\queue\mailer\MailerJob::class => [
@@ -88,20 +102,6 @@ return \yii\helpers\ArrayHelper::merge([
             },
             \krok\configure\helpers\ConfigureHelperInterface::class => \krok\configure\helpers\ConfigureHelper::class,
             \krok\configure\serializers\SerializerInterface::class => \krok\configure\serializers\JsonSerializer::class,
-            \krok\configure\ConfigureInterface::class => function () {
-                $configurable = [
-                    \krok\system\Configure::class,
-                    \krok\mailer\Configure::class,
-                    \krok\robots\Configure::class,
-                    \krok\meta\MetaConfigure::class,
-                    \krok\meta\OpenGraphConfigure::class,
-                ];
-
-                /** @var \krok\configure\serializers\SerializerInterface $serializer */
-                $serializer = Yii::createObject(\krok\configure\serializers\SerializerInterface::class);
-
-                return new \krok\configure\Configure($configurable, $serializer);
-            },
             \krok\meta\serializers\SerializerInterface::class => \krok\meta\serializers\JsonSerializer::class,
             \krok\meta\MetaInterface::class => \krok\meta\Meta::class,
         ],
