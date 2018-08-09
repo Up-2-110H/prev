@@ -1486,11 +1486,11 @@
         },
         {
             "name": "yii2-developer/yii2-configure",
-            "version": "0.0.7",
+            "version": "0.0.8",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-configure.git",
-                "reference": "950ae76cf738b24cbbc39950fe0a3f33d7db2ba8"
+                "reference": "f268bee47dcdfe72c6fd2993bc7d43feb0f3e3fb"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -1524,7 +1524,7 @@
                 "extension",
                 "yii2"
             ],
-            "time": "2018-07-08T10:36:54+00:00"
+            "time": "2018-08-09T11:34:54+00:00"
         },
         {
             "name": "yii2-developer/yii2-content",
