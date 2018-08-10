@@ -234,9 +234,9 @@ $config = [
             ],
         ],
         'auth' => [
-            'class' => \app\modules\auth\Module::class,
-            'viewPath' => '@app/modules/auth/views/backend',
-            'controllerNamespace' => 'app\modules\auth\controllers\backend',
+            'class' => \krok\auth\Module::class,
+            'viewPath' => '@krok/auth/views/backend',
+            'controllerNamespace' => 'krok\auth\controllers\backend',
         ],
         'content' => [
             'viewPath' => '@krok/content/views/backend',
@@ -314,7 +314,7 @@ $config = [
         ],
         'user' => [
             'class' => \yii\web\User::class,
-            'identityClass' => \app\modules\auth\models\Auth::class,
+            'identityClass' => \krok\auth\models\Auth::class,
             'idParam' => '__idBackend',
             'authTimeoutParam' => '__expireBackend',
             'absoluteAuthTimeoutParam' => '__absoluteExpireBackend',
@@ -323,11 +323,11 @@ $config = [
             // http://www.yiiframework.com/doc-2.0/yii-web-user.html#$authTimeout-detail
             'authTimeout' => 1 * 60 * 60,
             'on afterLogin' => [
-                \app\modules\auth\components\UserEventHandler::class,
+                \krok\auth\components\UserEventHandler::class,
                 'handleAfterLogin',
             ],
             'on afterLogout' => [
-                \app\modules\auth\components\UserEventHandler::class,
+                \krok\auth\components\UserEventHandler::class,
                 'handleAfterLogout',
             ],
         ],

@@ -37,6 +37,7 @@
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-imagine": "~2.0.0",
         "yiisoft/yii2-jui": "~2.0.0",
+        "yii2-developer/yii2-auth": "~2.0.0",
         "yii2-developer/yii2-application": "~0.0.1",
         "yii2-developer/yii2-configure": "~0.0.1",
         "yii2-developer/yii2-editor": "~2.0.0",
@@ -50,10 +51,8 @@
         "yii2-developer/yii2-tinymce": "~2.0.0",
         "yii2-developer/yii2-tinymce-uploader": "~0.1.0",
         "yii2-developer/yii2-language": "~1.1.0",
-        "yii2-developer/yii2-oauth": "~2.0.0",
         "yii2-developer/yii2-sentry": "~0.0.1",
         "yii2-developer/yii2-access": "~0.0.1",
-        "yii2-developer/yii2-password-eye": "~0.0.1",
         "yii2-developer/yii2-queue": "~0.1.0",
         "yii2-developer/yii2-bootbox": "~0.0.1",
         "yii2-developer/yii2-mailer": "~0.1.0",
@@ -70,7 +69,8 @@
     },
     "config": {
         "optimize-autoloader": true,
-        "process-timeout": 1800
+        "process-timeout": 1800,
+        "sort-packages": true
     },
     "scripts": {
         "post-autoload-dump": "curl --silent --header \"Accept: text/plain\" https://security.sensiolabs.org/check_lock --form lock=@composer.lock"

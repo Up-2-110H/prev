@@ -14,7 +14,7 @@ $config = [
             'migrationPath' => [
                 '@app/migrations',
                 '@yii/rbac/migrations',
-                '@app/modules/auth/migrations',
+                '@krok/auth/migrations',
                 '@krok/storage/migrations',
                 '@krok/content/migrations',
                 '@krok/configure/migrations',
@@ -27,7 +27,7 @@ $config = [
                 1,
             ],
             'rules' => [
-                \app\modules\auth\rbac\AuthorRule::class,
+                \krok\auth\rbac\AuthorRule::class,
             ],
             'config' => [
                 [

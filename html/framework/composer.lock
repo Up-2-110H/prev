@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c9d2aed007380145e03624ee7808023f",
+    "content-hash": "1c788b181e8c2d00a77d51a2b7bf0396",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1359,6 +1359,46 @@
                 "yii2"
             ],
             "time": "2018-05-07T10:31:33+00:00"
+        },
+        {
+            "name": "yii2-developer/yii2-auth",
+            "version": "2.0.0",
+            "dist": {
+                "type": "path",
+                "url": "extensions/auth",
+                "reference": "0df7f3060779c612874eb4ab6c96adec9c95d327",
+                "shasum": null
+            },
+            "require": {
+                "php": ">=7.1.0",
+                "yii2-developer/yii2-configure": "~0.0.1",
+                "yii2-developer/yii2-extend": "~0.0.1 | ^0.1",
+                "yii2-developer/yii2-oauth": "~2.0.0",
+                "yii2-developer/yii2-password-eye": "~0.0.1",
+                "yii2-developer/yii2-system": "~1.0.0",
+                "yiisoft/yii2": "~2.0.12"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "krok\\auth\\": "src"
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "krok",
+                    "email": "yii2.developer@gmail.com"
+                }
+            ],
+            "description": "Управление администраторами",
+            "keywords": [
+                "auth",
+                "extension",
+                "yii2"
+            ]
         },
         {
             "name": "yii2-developer/yii2-backup",
