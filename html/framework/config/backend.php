@@ -307,9 +307,20 @@ $config = [
                 ],
             ],
         ],
+        'session' => [
+            'name' => 'PHPSESSID-CP',
+            'cookieParams' => [
+                'httponly' => true,
+                'path' => '/cp',
+            ],
+        ],
         'request' => [
             'class' => \krok\language\Request::class,
-            'csrfParam' => '_csrfBackend',
+            'csrfParam' => '_csrf-CP',
+            'csrfCookie' => [
+                'httpOnly' => true,
+                'path' => '/cp',
+            ],
             'cookieValidationKey' => getenv('YII_COOKIE_VALIDATION_KEY'),
         ],
         'user' => [
