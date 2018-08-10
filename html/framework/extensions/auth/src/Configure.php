@@ -80,7 +80,7 @@ class Configure extends Model implements ConfigurableInterface
     public function attributeHints()
     {
         return [
-            'authTimeout' => 'В минутах',
+            'authTimeout' => 'Бездействие в минутах по истечению которых нужно авторизоваться повторно',
         ];
     }
 
