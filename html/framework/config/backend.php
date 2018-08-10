@@ -324,15 +324,9 @@ $config = [
             'cookieValidationKey' => getenv('YII_COOKIE_VALIDATION_KEY'),
         ],
         'user' => [
-            'class' => \yii\web\User::class,
+            'class' => \krok\auth\components\User::class,
             'identityClass' => \krok\auth\models\Auth::class,
-            'idParam' => '__idBackend',
-            'authTimeoutParam' => '__expireBackend',
-            'absoluteAuthTimeoutParam' => '__absoluteExpireBackend',
-            'returnUrlParam' => '__returnUrlBackend',
             'loginUrl' => ['/auth/default/login'],
-            // http://www.yiiframework.com/doc-2.0/yii-web-user.html#$authTimeout-detail
-            'authTimeout' => 1 * 60 * 60,
             'on afterLogin' => [
                 \krok\auth\components\UserEventHandler::class,
                 'handleAfterLogin',
