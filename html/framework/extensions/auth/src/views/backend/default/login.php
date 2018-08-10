@@ -10,6 +10,9 @@ use yii\widgets\ActiveForm;
 /* @var $model krok\auth\models\Login */
 /* @var $form ActiveForm */
 
+/** @var \krok\configure\helpers\ConfigureHelperInterface $configure */
+$configure = Yii::createObject(\krok\configure\helpers\ConfigureHelperInterface::class);
+
 $this->title = 'Авторизация';
 ?>
 <div class="container">
@@ -51,7 +54,7 @@ $this->title = 'Авторизация';
                             <div class="form-group">
                                 <?= $form->field($model, 'verifyCode')->widget(
                                     Captcha::class, [
-                                    'captchaAction' => '/auth/default/captcha',
+                                    'captchaAction' => ['captcha'],
                                 ]) ?>
                             </div>
                         </div>
@@ -66,17 +69,19 @@ $this->title = 'Авторизация';
                         </div>
                     </div>
                 </div>
-                <div class="container-fluid gray-bg">
-                    <div class="card-login__footer row">
-                        <div class="col-lg-12">
-                            <?= AuthChoice::widget([
-                                'popupMode' => false,
-                                'autoRender' => true,
-                                'baseAuthUrl' => ['/auth/default/oauth'],
-                            ]) ?>
+                <?php if ($configure->get(\krok\auth\Configure::class, 'socialAuthorization')) : ?>
+                    <div class="container-fluid gray-bg">
+                        <div class="card-login__footer row">
+                            <div class="col-lg-12">
+                                <?= AuthChoice::widget([
+                                    'popupMode' => false,
+                                    'autoRender' => true,
+                                    'baseAuthUrl' => ['oauth'],
+                                ]) ?>
+                            </div>
                         </div>
                     </div>
-                </div>
+                <?php endif; ?>
             </div>
             <?php ActiveForm::end(); ?>
         </div>

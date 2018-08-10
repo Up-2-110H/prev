@@ -2,12 +2,15 @@
 
 namespace krok\auth\controllers\backend;
 
+use krok\auth\Configure;
 use krok\auth\models\Auth;
 use krok\auth\models\Login;
 use krok\auth\models\OAuth;
+use krok\configure\ConfigureInterface;
 use krok\system\components\backend\Controller;
 use Yii;
 use yii\authclient\ClientInterface;
+use yii\base\Module;
 use yii\db\Exception;
 use yii\helpers\ArrayHelper;
 
@@ -24,26 +27,53 @@ class DefaultController extends Controller
     public $layout = '@krok/system/views/backend/layouts/login.php';
 
     /**
+     * @var Configure
+     */
+    protected $configurable;
+
+    /**
+     * DefaultController constructor.
+     *
+     * @param string $id
+     * @param Module $module
+     * @param ConfigureInterface $configure
+     * @param array $config
+     */
+    public function __construct(string $id, Module $module, ConfigureInterface $configure, array $config = [])
+    {
+        parent::__construct($id, $module, $config);
+
+        $this->configurable = $configure->get(Configure::class);
+    }
+
+    /**
      * @return array
      */
     public function actions()
     {
-        return [
+        $actions = [
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'cmf2' : null,
             ],
-            'oauth' => ArrayHelper::merge(
-                [
-                    'class' => 'yii\authclient\AuthAction',
-                    'successCallback' => [$this, 'OAuthCallback'],
-                ],
-                Yii::$app->getUser()->getIsGuest() ? [] : [
-                    'successUrl' => Yii::$app->getUrlManager()->createAbsoluteUrl(['/auth/social']),
-                    'cancelUrl' => Yii::$app->getUrlManager()->createAbsoluteUrl(['/auth/social']),
-                ]
-            ),
         ];
+
+        if ($this->configurable->socialAuthorization) {
+            $actions = array_merge($actions, [
+                'oauth' => ArrayHelper::merge(
+                    [
+                        'class' => 'yii\authclient\AuthAction',
+                        'successCallback' => [$this, 'OAuthCallback'],
+                    ],
+                    Yii::$app->getUser()->getIsGuest() ? [] : [
+                        'successUrl' => Yii::$app->getUrlManager()->createAbsoluteUrl(['/auth/social']),
+                        'cancelUrl' => Yii::$app->getUrlManager()->createAbsoluteUrl(['/auth/social']),
+                    ]
+                ),
+            ]);
+        }
+
+        return $actions;
     }
 
     /**
