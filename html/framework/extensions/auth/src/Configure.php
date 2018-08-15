@@ -25,7 +25,6 @@ class Configure extends Model implements ConfigurableInterface
 
     const USE_CAPTCHA_NO = 0;
     const USE_CAPTCHA_YES = 1;
-    const USE_CAPTCHA_FAIL = 3;
 
     const AUTH_TIMEOUT = 1 * 60 * 60;
 
@@ -149,7 +148,6 @@ class Configure extends Model implements ConfigurableInterface
         return [
             static::USE_CAPTCHA_NO => 'Никогда не проверять',
             static::USE_CAPTCHA_YES => 'Проверять всегда',
-            static::USE_CAPTCHA_FAIL => 'Проверять после первой некорректной попытки',
         ];
     }
 }
