@@ -2,8 +2,11 @@
 
 namespace krok\auth\models;
 
+use krok\auth\Configure;
+use krok\configure\ConfigureInterface;
 use Yii;
 use yii\base\Model;
+use yii\di\Instance;
 
 /**
  * Class Login
@@ -33,21 +36,47 @@ class Login extends Model
     protected $auth = null;
 
     /**
+     * @var Configure
+     */
+    protected $configurable;
+
+    /**
+     * Login constructor.
+     *
+     * @param array $config
+     */
+    public function __construct(array $config = [])
+    {
+        parent::__construct($config);
+
+        $this->configurable = Instance::ensure(ConfigureInterface::class,
+            ConfigureInterface::class)->get(Configure::class);
+    }
+
+    /**
      * @return array
      */
     public function rules()
     {
-        return [
+        $rules = [
             [['login'], 'string', 'max' => 32, 'min' => 4],
             [['password'], 'string', 'max' => 512, 'min' => 8],
             [['login', 'password'], 'required'],
             ['password', 'authorization'],
-            [
-                'verifyCode',
-                'captcha',
-                'captchaAction' => '/auth/default/captcha',
-            ],
+
         ];
+
+        if ($this->configurable->useCaptcha) {
+            $rules = array_merge($rules, [
+                [
+                    'verifyCode',
+                    'captcha',
+                    'captchaAction' => '/auth/default/captcha',
+                ],
+            ]);
+        }
+
+        return $rules;
     }
 
     /**

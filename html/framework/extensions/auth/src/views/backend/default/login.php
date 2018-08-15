@@ -48,18 +48,20 @@ $this->title = 'Авторизация';
                         </div>
                     </div>
                 </div>
-                <div class="container-fluid gray-bg">
-                    <div class="card-login__vertify row">
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <?= $form->field($model, 'verifyCode')->widget(
-                                    Captcha::class, [
-                                    'captchaAction' => ['captcha'],
-                                ]) ?>
+                <?php if ($configure->get(\krok\auth\Configure::class, 'useCaptcha')) : ?>
+                    <div class="container-fluid gray-bg">
+                        <div class="card-login__vertify row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <?= $form->field($model, 'verifyCode')->widget(
+                                        Captcha::class, [
+                                        'captchaAction' => ['captcha'],
+                                    ]) ?>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                <?php endif; ?>
                 <div class="container-fluid">
                     <div class="card-login__footer row">
                         <div class="col-lg-12">
