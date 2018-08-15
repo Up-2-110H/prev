@@ -11,6 +11,7 @@ use krok\system\components\backend\Controller;
 use Yii;
 use yii\authclient\ClientInterface;
 use yii\base\Module;
+use yii\captcha\CaptchaAction;
 use yii\db\Exception;
 use yii\helpers\ArrayHelper;
 
@@ -53,7 +54,7 @@ class DefaultController extends Controller
     {
         $actions = [
             'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
+                'class' => CaptchaAction::class,
                 'fixedVerifyCode' => YII_ENV_TEST ? 'cmf2' : null,
             ],
         ];
