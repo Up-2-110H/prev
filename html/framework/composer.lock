@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1c788b181e8c2d00a77d51a2b7bf0396",
+    "content-hash": "29bf819aa4650f604622d4d88929b253",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -715,6 +715,20 @@
             "time": "2017-05-09T17:41:49+00:00"
         },
         {
+            "name": "npm-asset/flatpickr",
+            "version": "4.5.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/flatpickr/-/flatpickr-4.5.1.tgz",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
             "name": "phpoffice/phpspreadsheet",
             "version": "1.2.1",
             "source": {
@@ -1366,13 +1380,13 @@
             "dist": {
                 "type": "path",
                 "url": "extensions/auth",
-                "reference": "0df7f3060779c612874eb4ab6c96adec9c95d327",
+                "reference": "0b28157e563db2594cda20181fd609f8a17ca1f1",
                 "shasum": null
             },
             "require": {
                 "php": ">=7.1.0",
-                "yii2-developer/yii2-configure": "~0.0.1",
-                "yii2-developer/yii2-extend": "~0.0.1 | ^0.1",
+                "yii2-developer/yii2-configure": "~1.0.0",
+                "yii2-developer/yii2-extend": "~1.0.0",
                 "yii2-developer/yii2-oauth": "~2.0.0",
                 "yii2-developer/yii2-password-eye": "~0.0.1",
                 "yii2-developer/yii2-system": "~1.0.0",
@@ -1526,15 +1540,15 @@
         },
         {
             "name": "yii2-developer/yii2-configure",
-            "version": "0.0.8",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-configure.git",
-                "reference": "f268bee47dcdfe72c6fd2993bc7d43feb0f3e3fb"
+                "reference": "b9e499e86f1532d86917ce54d200784a6363d359"
             },
             "require": {
                 "php": ">=7.1.0",
-                "yii2-developer/yii2-extend": "~0.0.1 | ^0.1",
+                "yii2-developer/yii2-extend": "~1.0.0",
                 "yii2-developer/yii2-system": "~1.0.0",
                 "yiisoft/yii2": "~2.0.12"
             },
@@ -1564,7 +1578,7 @@
                 "extension",
                 "yii2"
             ],
-            "time": "2018-08-09T11:34:54+00:00"
+            "time": "2018-08-16T09:20:52+00:00"
         },
         {
             "name": "yii2-developer/yii2-content",
@@ -1572,14 +1586,14 @@
             "dist": {
                 "type": "path",
                 "url": "extensions/content",
-                "reference": "f1ca4b5db432c9f887806070b70c2920a943b385",
+                "reference": "73fa8b62b3be5090bcfe8980f6b6a9a54e80f42a",
                 "shasum": null
             },
             "require": {
                 "php": ">=7.1.0",
                 "yii2-developer/yii2-editor": "~2.0.0",
-                "yii2-developer/yii2-extend": "~0.0.1 | ^0.1",
-                "yii2-developer/yii2-meta": "~0.0.1",
+                "yii2-developer/yii2-extend": "~1.0.0",
+                "yii2-developer/yii2-meta": "~1.0.0",
                 "yii2-developer/yii2-system": "~1.0.0",
                 "yiisoft/yii2": "~2.0.12"
             },
@@ -1642,16 +1656,17 @@
         },
         {
             "name": "yii2-developer/yii2-extend",
-            "version": "0.1.2",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-extend.git",
-                "reference": "82181cb9b3982d1796dba67e0eb65c2596a6fc64"
+                "reference": "10e6924d91c388dbcfa9f5d9ccd3e00ab40f534f"
             },
             "require": {
                 "bower-asset/fancybox": "~2.1.0 | ~3.2.5",
                 "php": ">=7.1.0",
                 "phpoffice/phpspreadsheet": "~1.2.0",
+                "yii2-developer/yii2-flatpickr": "~0.0.1",
                 "yiisoft/yii2": "~2.0.12",
                 "yiisoft/yii2-bootstrap": "~2.0.0",
                 "yiisoft/yii2-jui": "~2.0.0"
@@ -1677,7 +1692,7 @@
                 "extension",
                 "yii2"
             ],
-            "time": "2018-06-21T10:58:04+00:00"
+            "time": "2018-08-03T11:16:19+00:00"
         },
         {
             "name": "yii2-developer/yii2-filesystem",
@@ -1720,6 +1735,47 @@
                 "yii2"
             ],
             "time": "2018-06-23T06:18:19+00:00"
+        },
+        {
+            "name": "yii2-developer/yii2-flatpickr",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-flatpickr.git",
+                "reference": "7ec7110d2891535c544f6058fe6a459ed19490c3"
+            },
+            "require": {
+                "npm-asset/flatpickr": "~4.5.0",
+                "php": ">=7.1.0",
+                "yiisoft/yii2": "~2.0.12"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "krok\\flatpickr\\": ""
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "krok",
+                    "email": "yii2.developer@gmail.com"
+                }
+            ],
+            "description": "Flatpickr",
+            "keywords": [
+                "extension",
+                "flatpickr",
+                "yii2"
+            ],
+            "time": "2018-07-06T05:38:01+00:00"
         },
         {
             "name": "yii2-developer/yii2-glide",
@@ -1796,15 +1852,15 @@
         },
         {
             "name": "yii2-developer/yii2-mailer",
-            "version": "0.1.2",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-mailer.git",
-                "reference": "acb9ea9b5bbed494734ad67f71d314e96fd38e6c"
+                "reference": "a8ca918d4881b8a1d99934286e87380e97e33ac6"
             },
             "require": {
                 "php": ">=7.1.0",
-                "yii2-developer/yii2-configure": "~0.0.1",
+                "yii2-developer/yii2-configure": "~1.0.0",
                 "yiisoft/yii2": "~2.0.12",
                 "yiisoft/yii2-swiftmailer": "~2.0.0"
             },
@@ -1835,20 +1891,20 @@
                 "mailer",
                 "yii2"
             ],
-            "time": "2018-07-19T12:20:16+00:00"
+            "time": "2018-08-16T11:43:56+00:00"
         },
         {
             "name": "yii2-developer/yii2-meta",
-            "version": "0.0.6",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-meta.git",
-                "reference": "caa32f55c15a8d00413fada715c578e54ce94952"
+                "reference": "18e35a9267ed6d5095f8c5604e1c65595c2e9b57"
             },
             "require": {
                 "php": ">=7.1.0",
-                "yii2-developer/yii2-configure": "~0.0.1",
-                "yii2-developer/yii2-extend": "~0.0.1 | ^0.1",
+                "yii2-developer/yii2-configure": "~1.0.0",
+                "yii2-developer/yii2-extend": "~1.0.0",
                 "yiisoft/yii2": "~2.0.12"
             },
             "type": "yii2-extension",
@@ -1877,7 +1933,7 @@
                 "meta",
                 "yii2"
             ],
-            "time": "2018-08-07T11:28:18+00:00"
+            "time": "2018-08-16T10:56:39+00:00"
         },
         {
             "name": "yii2-developer/yii2-oauth",
@@ -1923,18 +1979,18 @@
         },
         {
             "name": "yii2-developer/yii2-paperDashboard",
-            "version": "0.5.2",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-paperDashboard.git",
-                "reference": "cc70ff2e04935276a3423012a55b4fbdd60e2f6d"
+                "reference": "66d49efb253b4fe57333065a833d2084d8b59d46"
             },
             "require": {
                 "bootstrap-select/bootstrap-select": "~1.12.0",
                 "php": ">=7.1.0",
                 "yii2-developer/yii2-analytics": "~1.0.0",
                 "yii2-developer/yii2-clock": "~0.0.1",
-                "yii2-developer/yii2-extend": "~0.0.1 | ^0.1",
+                "yii2-developer/yii2-extend": "~1.0.0",
                 "yii2-developer/yii2-language": "~1.1.0",
                 "yii2-developer/yii2-system": "~1.0.0",
                 "yiisoft/yii2": "~2.0.12",
@@ -1969,7 +2025,7 @@
                 "paperDashboard",
                 "yii2"
             ],
-            "time": "2018-08-15T12:27:18+00:00"
+            "time": "2018-08-16T11:01:18+00:00"
         },
         {
             "name": "yii2-developer/yii2-password-eye",
@@ -2056,15 +2112,15 @@
         },
         {
             "name": "yii2-developer/yii2-robots",
-            "version": "0.0.1",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-robots.git",
-                "reference": "92c9b34a8476c1ebe9e4d310285496ef1eb22463"
+                "reference": "fcb3d0c7b18bb8da19e6e24781090d74f1624b25"
             },
             "require": {
                 "php": ">=7.1.0",
-                "yii2-developer/yii2-configure": "~0.0.1",
+                "yii2-developer/yii2-configure": "~1.0.0",
                 "yiisoft/yii2": "~2.0.12"
             },
             "type": "yii2-extension",
@@ -2094,7 +2150,7 @@
                 "robots.txt",
                 "yii2"
             ],
-            "time": "2018-07-20T14:33:00+00:00"
+            "time": "2018-08-16T11:43:06+00:00"
         },
         {
             "name": "yii2-developer/yii2-sentry",
@@ -2134,16 +2190,16 @@
         },
         {
             "name": "yii2-developer/yii2-storage",
-            "version": "0.2.2",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-storage.git",
-                "reference": "c046f62a60e42017a22cc2b4213879653fee1dcf"
+                "reference": "74765772c2def23a42111678fe526d9779297533"
             },
             "require": {
                 "ext-fileinfo": "*",
                 "php": ">=7.1.0",
-                "yii2-developer/yii2-extend": "~0.0.1 | ^0.1",
+                "yii2-developer/yii2-extend": "~1.0.0",
                 "yii2-developer/yii2-filesystem": "~0.2.0",
                 "yii2-developer/yii2-system": "~1.0.0",
                 "yiisoft/yii2": "~2.0.12"
@@ -2169,19 +2225,18 @@
                 "storage",
                 "yii2"
             ],
-            "time": "2018-05-21T11:16:20+00:00"
+            "time": "2018-08-16T11:04:12+00:00"
         },
         {
             "name": "yii2-developer/yii2-system",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-system.git",
-                "reference": "5ec0d17cd9c924a98989b0de6f0a5165aa52772f"
+                "reference": "b41bfb911404a26ef15b69aa6ae0ed1b639f9c68"
             },
             "require": {
                 "php": ">=7.1.0",
-                "yii2-developer/yii2-configure": "~0.0.1",
                 "yiisoft/yii2": "~2.0.12",
                 "yiisoft/yii2-bootstrap": "~2.0.0"
             },
@@ -2211,7 +2266,7 @@
                 "system",
                 "yii2"
             ],
-            "time": "2018-05-07T11:14:57+00:00"
+            "time": "2018-08-16T10:48:17+00:00"
         },
         {
             "name": "yii2-developer/yii2-tinymce",
