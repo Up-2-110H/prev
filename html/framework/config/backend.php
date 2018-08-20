@@ -32,6 +32,9 @@ $config = [
                     'width' => 150,
                 ],
             ],
+            \krok\extend\grid\DatePickerColumn::class => [
+                'format' => 'datetime',
+            ],
             \krok\editor\EditorWidget::class => \krok\tinymce\TinyMceWidget::class,
             \krok\tinymce\TinyMceWidget::class => [
                 'clientOptions' => [
