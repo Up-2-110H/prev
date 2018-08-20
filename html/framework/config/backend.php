@@ -35,6 +35,9 @@ $config = [
             \krok\extend\grid\DatePickerColumn::class => [
                 'format' => 'datetime',
             ],
+            \krok\flatpickr\FlatpickrDatetimeWidget::class => \krok\datetimeFormatter\FlatpickrDatetimeWidget::class,
+            \krok\flatpickr\FlatpickrDateWidget::class => \krok\datetimeFormatter\FlatpickrDateWidget::class,
+            \krok\flatpickr\FlatpickrTimeWidget::class => \krok\datetimeFormatter\FlatpickrTimeWidget::class,
             \krok\editor\EditorWidget::class => \krok\tinymce\TinyMceWidget::class,
             \krok\tinymce\TinyMceWidget::class => [
                 'clientOptions' => [

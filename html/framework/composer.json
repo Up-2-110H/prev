@@ -40,6 +40,7 @@
         "yii2-developer/yii2-bootbox": "~0.0.1",
         "yii2-developer/yii2-configure": "~1.0.0",
         "yii2-developer/yii2-content": "~2.0.0",
+        "yii2-developer/yii2-datetime-formatter": "~0.0.1",
         "yii2-developer/yii2-editor": "~2.0.0",
         "yii2-developer/yii2-extend": "~1.0.0",
         "yii2-developer/yii2-filesystem": "~0.2.0",

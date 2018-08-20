@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "29bf819aa4650f604622d4d88929b253",
+    "content-hash": "cc792cb6bd545d015cd67e2fc62a1515",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1618,6 +1618,48 @@
                 "extension",
                 "yii2"
             ]
+        },
+        {
+            "name": "yii2-developer/yii2-datetime-formatter",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-datetime-formatter.git",
+                "reference": "dbe946b21a89081079d9994b7d7e3f24de35ac6d"
+            },
+            "require": {
+                "php": ">=7.1.0",
+                "yii2-developer/yii2-flatpickr": "~0.0.1",
+                "yiisoft/yii2": "~2.0.12"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "krok\\datetimeFormatter\\": ""
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "krok",
+                    "email": "yii2.developer@gmail.com"
+                }
+            ],
+            "description": "Datetime formatter",
+            "keywords": [
+                "datetime",
+                "extension",
+                "formatter",
+                "yii2"
+            ],
+            "time": "2018-08-20T10:30:40+00:00"
         },
         {
             "name": "yii2-developer/yii2-editor",
