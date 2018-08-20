@@ -31,7 +31,9 @@ $this->title = 'Авторизация';
                                 <a href="<?= Url::to() ?>" class="logo-big">
                                     <?= Html::img('@web/static/default/img/logo-big.svg', ['alt' => 'Лого']) ?>
                                 </a>
-                                <span class="name"><?= Yii::$app->name ?></span>
+                                <span class="name">
+                                    <?= $configure->get(\krok\system\Configure::class, 'title') ?>
+                                </span>
                             </div>
                         </div>
                     </div>
