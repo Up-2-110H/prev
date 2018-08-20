@@ -28,10 +28,10 @@
     "require": {
         "php": ">=7.1.0",
         "yiisoft/yii2": "~2.0.12",
-        "yii2-developer/yii2-extend": "~0.0.1 | ^0.1",
+        "yii2-developer/yii2-extend": "~1.0.0",
         "yii2-developer/yii2-system": "~1.0.0",
         "yii2-developer/yii2-editor": "~2.0.0",
-        "yii2-developer/yii2-meta": "~0.0.1"
+        "yii2-developer/yii2-meta": "~1.0.0"
     },
     "autoload": {
         "psr-4": {
