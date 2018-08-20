@@ -1780,11 +1780,11 @@
         },
         {
             "name": "yii2-developer/yii2-flatpickr",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-flatpickr.git",
-                "reference": "7ec7110d2891535c544f6058fe6a459ed19490c3"
+                "reference": "30b62a8afde0fb658f704cf7936bc229d2cf7583"
             },
             "require": {
                 "npm-asset/flatpickr": "~4.5.0",
@@ -1817,7 +1817,7 @@
                 "flatpickr",
                 "yii2"
             ],
-            "time": "2018-07-06T05:38:01+00:00"
+            "time": "2018-08-20T11:07:42+00:00"
         },
         {
             "name": "yii2-developer/yii2-glide",
