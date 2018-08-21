@@ -72,6 +72,7 @@ return \yii\helpers\ArrayHelper::merge([
                  */
                 $filesystem->addPlugin(new \krok\filesystem\plugins\PublicUrl('/attachment/storage', 'getDownloadUrl'));
                 $filesystem->addPlugin(new \krok\filesystem\plugins\PublicUrl('/attachment/editor', 'getEditorUrl'));
+                $filesystem->addPlugin(new \krok\filesystem\plugins\PublicUrl('/attachment/system', 'getSystemUrl'));
                 $filesystem->addPlugin(new \krok\filesystem\plugins\Content('/storage', 'getContentStorage'));
                 $filesystem->addPlugin(new \krok\filesystem\plugins\Content('/editor', 'getContentEditor'));
                 /**

@@ -2271,11 +2271,11 @@
         },
         {
             "name": "yii2-developer/yii2-system",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-system.git",
-                "reference": "fd5f4c7e0713a29c8403845406f2aff3b9323d59"
+                "reference": "16f93bbd65fa5e4f29b75f825f6054b754cc3a5a"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -2308,7 +2308,7 @@
                 "system",
                 "yii2"
             ],
-            "time": "2018-08-21T10:01:24+00:00"
+            "time": "2018-08-21T12:56:57+00:00"
         },
         {
             "name": "yii2-developer/yii2-tinymce",

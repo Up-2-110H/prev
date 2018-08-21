@@ -29,7 +29,8 @@ $this->title = 'Авторизация';
                         <div class="col-lg-12">
                             <div class="card-login__title">
                                 <a href="<?= Url::to() ?>" class="logo-big">
-                                    <?= Html::img('@web/static/default/img/logo-big.svg', ['alt' => 'Лого']) ?>
+                                    <?= Html::img($configure->get(\krok\system\Configure::class, 'logoLogin'),
+                                        ['alt' => 'Лого']) ?>
                                 </a>
                                 <span class="name">
                                     <?= $configure->get(\krok\system\Configure::class, 'title') ?>
