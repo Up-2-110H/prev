@@ -132,6 +132,14 @@ class Configure extends Model implements ConfigurableInterface
     /**
      * @return array
      */
+    public function asArray(): array
+    {
+        return $this->toArray();
+    }
+
+    /**
+     * @return array
+     */
     public static function getSocialAuthorizationList(): array
     {
         return [
