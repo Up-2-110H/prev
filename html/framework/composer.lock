@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d2a86a37d0551c132b2265c3ff5a935",
+    "content-hash": "5e43d560e655c92aa30945ec8917b1f3",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -571,16 +571,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.45",
+            "version": "1.0.46",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "a99f94e63b512d75f851b181afcdf0ee9ebef7e6"
+                "reference": "f3e0d925c18b92cf3ce84ea5cc58d62a1762a2b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/a99f94e63b512d75f851b181afcdf0ee9ebef7e6",
-                "reference": "a99f94e63b512d75f851b181afcdf0ee9ebef7e6",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/f3e0d925c18b92cf3ce84ea5cc58d62a1762a2b2",
+                "reference": "f3e0d925c18b92cf3ce84ea5cc58d62a1762a2b2",
                 "shasum": ""
             },
             "require": {
@@ -592,7 +592,7 @@
             "require-dev": {
                 "ext-fileinfo": "*",
                 "phpspec/phpspec": "^3.4",
-                "phpunit/phpunit": "^5.7"
+                "phpunit/phpunit": "^5.7.10"
             },
             "suggest": {
                 "ext-fileinfo": "Required for MimeType",
@@ -651,7 +651,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2018-05-07T08:44:23+00:00"
+            "time": "2018-08-22T07:45:22+00:00"
         },
         {
             "name": "league/glide",
@@ -914,16 +914,16 @@
         },
         {
             "name": "sentry/sentry",
-            "version": "1.8.4",
+            "version": "1.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-php.git",
-                "reference": "643ec20d181ca55317d4ccda6ad658b9a8b4f06a"
+                "reference": "6b4c80ee1f5d9d5ab5bae949f4eb5d758a0bf64b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/643ec20d181ca55317d4ccda6ad658b9a8b4f06a",
-                "reference": "643ec20d181ca55317d4ccda6ad658b9a8b4f06a",
+                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/6b4c80ee1f5d9d5ab5bae949f4eb5d758a0bf64b",
+                "reference": "6b4c80ee1f5d9d5ab5bae949f4eb5d758a0bf64b",
                 "shasum": ""
             },
             "require": {
@@ -950,7 +950,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.9.x-dev"
+                    "dev-master": "1.10.x-dev"
                 }
             },
             "autoload": {
@@ -974,7 +974,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2018-03-20T12:52:10+00:00"
+            "time": "2018-08-18T19:41:03+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2196,15 +2196,15 @@
         },
         {
             "name": "yii2-developer/yii2-sentry",
-            "version": "0.0.2",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-sentry.git",
-                "reference": "4aa5921ccfcced88c053815f2e53be5492b25ad2"
+                "reference": "66231f083a4c999e3980544071c43e2b0b583d78"
             },
             "require": {
                 "php": ">=7.1.0",
-                "sentry/sentry": "~1.8.0",
+                "sentry/sentry": "~1.9.0",
                 "yiisoft/yii2": "~2.0.12"
             },
             "type": "yii2-extension",
@@ -2222,13 +2222,13 @@
                     "email": "yii2.developer@gmail.com"
                 }
             ],
-            "description": "Sentry",
+            "description": "Мониторинг ошибок Sentry",
             "keywords": [
                 "extension",
                 "sentry",
                 "yii2"
             ],
-            "time": "2018-02-22T13:17:59+00:00"
+            "time": "2018-08-24T07:27:39+00:00"
         },
         {
             "name": "yii2-developer/yii2-storage",
