@@ -13,7 +13,7 @@ return [
     ],
     'menu' => [
         [
-            'label' => 'Content',
+            'label' => 'Material',
             'icon' => 'ti-files',
             'items' => [
                 [
