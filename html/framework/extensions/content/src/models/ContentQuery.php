@@ -2,6 +2,7 @@
 
 namespace krok\content\models;
 
+use krok\transliterate\TransliterateExistInterface;
 use Yii;
 
 /**
@@ -9,7 +10,7 @@ use Yii;
  *
  * @see Content
  */
-class ContentQuery extends \yii\db\ActiveQuery
+class ContentQuery extends \yii\db\ActiveQuery implements TransliterateExistInterface
 {
     /**
      * @param string $alias
@@ -43,6 +44,16 @@ class ContentQuery extends \yii\db\ActiveQuery
         }
 
         return $this->andWhere([Content::tableName() . '.[[language]]' => $language]);
+    }
+
+    /**
+     * @param string $alias
+     *
+     * @return bool
+     */
+    public function transliterateExist(string $alias): bool
+    {
+        return $this->where(['alias' => $alias])->language()->exists();
     }
 
     /**

@@ -5,6 +5,7 @@ namespace krok\content\controllers\backend;
 use krok\content\models\Content;
 use krok\content\models\ContentSearch;
 use krok\system\components\backend\Controller;
+use krok\transliterate\actions\TransliterateExistAction;
 use Yii;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
@@ -25,6 +26,19 @@ class DefaultController extends Controller
                 'actions' => [
                     'delete' => ['POST'],
                 ],
+            ],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function actions()
+    {
+        return [
+            'transliterate' => [
+                'class' => TransliterateExistAction::class,
+                'active' => Content::find(),
             ],
         ];
     }

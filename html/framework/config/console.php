@@ -67,7 +67,14 @@ $config = [
                 [
                     'name' => 'content',
                     'controllers' => [
-                        'default' => [],
+                        'default' => [
+                            'index',
+                            'create',
+                            'update',
+                            'delete',
+                            'view',
+                            'transliterate',
+                        ],
                     ],
                 ],
                 [

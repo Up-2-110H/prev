@@ -84,7 +84,7 @@ class Content extends \yii\db\ActiveRecord implements HiddenAttributeInterface
             [['text'], 'string'],
             [['hidden'], 'integer'],
             [['createdAt', 'updatedAt'], 'safe'],
-            [['alias'], 'match', 'pattern' => '/^([a-z\-0-9]+)$/i'],
+            [['alias'], 'match', 'pattern' => '/^([a-z\-\_0-9]+)$/i'],
             [['alias'], 'string', 'min' => 2, 'max' => 64],
             [['layout', 'view'], 'string', 'max' => 64],
             [['title'], 'string', 'max' => 128],

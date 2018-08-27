@@ -55,6 +55,7 @@
         "yii2-developer/yii2-system": "~1.0.0",
         "yii2-developer/yii2-tinymce": "~2.0.0",
         "yii2-developer/yii2-tinymce-uploader": "~0.1.0",
+        "yii2-developer/yii2-transliterate": "~0.0.1",
         "yiisoft/yii2": "~2.0.15",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-imagine": "~2.0.0",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5e43d560e655c92aa30945ec8917b1f3",
+    "content-hash": "60220413d941fa6e1852a62573556463",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -2394,6 +2394,46 @@
                 "yii2"
             ],
             "time": "2018-05-21T11:23:36+00:00"
+        },
+        {
+            "name": "yii2-developer/yii2-transliterate",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-transliterate.git",
+                "reference": "a4305c45fb2f66ca2f215fc6bd19f26dc54749c9"
+            },
+            "require": {
+                "php": ">=7.1.0",
+                "yiisoft/yii2": "~2.0.12"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "krok\\transliterate\\": "src"
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "krok",
+                    "email": "yii2.developer@gmail.com"
+                }
+            ],
+            "description": "Транслятор кириллицы",
+            "keywords": [
+                "extension",
+                "transliterate",
+                "yii2"
+            ],
+            "time": "2018-08-27T06:29:10+00:00"
         },
         {
             "name": "yiisoft/yii2",
