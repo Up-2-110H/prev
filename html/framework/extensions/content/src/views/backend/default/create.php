@@ -31,8 +31,6 @@ $this->params['breadcrumbs'][] = $this->title;
             ]),
         ]) ?>
 
-        <?= $this->render('_form', ['form' => $form, 'model' => $model]) ?>
-
         <div class="form-group">
             <?= Html::submitButton(Yii::t('system', 'Create'), ['class' => 'btn btn-success']) ?>
         </div>
