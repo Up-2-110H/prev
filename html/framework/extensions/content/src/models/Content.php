@@ -5,6 +5,7 @@ namespace krok\content\models;
 use krok\content\MetaConfigurableAdapter;
 use krok\content\Module;
 use krok\content\OpenGraphConfigurableAdapter;
+use krok\datetimeFormatter\validators\DatetimeFormatterValidator;
 use krok\extend\behaviors\LanguageBehavior;
 use krok\extend\behaviors\TagDependencyBehavior;
 use krok\extend\behaviors\TimestampBehavior;
@@ -84,6 +85,7 @@ class Content extends \yii\db\ActiveRecord implements HiddenAttributeInterface
             [['text'], 'string'],
             [['hidden'], 'integer'],
             [['createdAt', 'updatedAt'], 'safe'],
+            [['createdAt', 'updatedAt'], DatetimeFormatterValidator::class],
             [['alias'], 'match', 'pattern' => '/^([a-z\-\_0-9]+)$/i'],
             [['alias'], 'string', 'min' => 2, 'max' => 256],
             [['layout', 'view'], 'string', 'max' => 64],
@@ -111,8 +113,8 @@ class Content extends \yii\db\ActiveRecord implements HiddenAttributeInterface
             'view' => 'Шаблон',
             'hidden' => 'Скрыта',
             'language' => 'Язык',
-            'createdAt' => 'Создано',
-            'updatedAt' => 'Обновлено',
+            'createdAt' => 'Дата создания',
+            'updatedAt' => 'Дата изменения',
         ];
     }
 

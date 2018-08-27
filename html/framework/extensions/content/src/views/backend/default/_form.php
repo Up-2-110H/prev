@@ -1,6 +1,7 @@
 <?php
 
 use krok\editor\EditorWidget;
+use krok\flatpickr\FlatpickrDatetimeWidget;
 use krok\maxlength\MaxlengthWidget;
 use krok\transliterate\widgets\TransliterateWidget;
 use yii\helpers\Html;
@@ -24,5 +25,9 @@ use yii\helpers\Url;
 <?= $form->field($model, 'layout')->dropDownList($model::getLayouts()) ?>
 
 <?= $form->field($model, 'view')->dropDownList($model::getViews()) ?>
+
+<?= $form->field($model, 'createdAt')->widget(FlatpickrDatetimeWidget::class) ?>
+
+<?= $form->field($model, 'updatedAt')->widget(FlatpickrDatetimeWidget::class) ?>
 
 <?= $form->field($model, 'hidden')->dropDownList($model::getHiddenList()) ?>
