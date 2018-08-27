@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "60220413d941fa6e1852a62573556463",
+    "content-hash": "a6f18fd1cb636bb6c9b69239c8a4b2f9",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -151,6 +151,25 @@
             "license": [
                 "MIT"
             ]
+        },
+        {
+            "name": "bower-asset/bootstrap-maxlength",
+            "version": "1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mimo84/bootstrap-maxlength.git",
+                "reference": "c94159120b7b117f485648d9e3a1f3866fadbe2d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mimo84/bootstrap-maxlength/zipball/c94159120b7b117f485648d9e3a1f3866fadbe2d",
+                "reference": "c94159120b7b117f485648d9e3a1f3866fadbe2d",
+                "shasum": null
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.9.0"
+            },
+            "type": "bower-asset"
         },
         {
             "name": "bower-asset/fancybox",
@@ -1934,6 +1953,48 @@
                 "yii2"
             ],
             "time": "2018-08-21T10:10:16+00:00"
+        },
+        {
+            "name": "yii2-developer/yii2-maxlength",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-maxlength.git",
+                "reference": "cbd7bbdf70f3f0f019446d123289a802b4b1720a"
+            },
+            "require": {
+                "bower-asset/bootstrap-maxlength": "~1.7.0",
+                "php": ">=7.1.0",
+                "yiisoft/yii2": "~2.0.12",
+                "yiisoft/yii2-bootstrap": "~2.0.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "krok\\maxlength\\": "src"
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "krok",
+                    "email": "yii2.developer@gmail.com"
+                }
+            ],
+            "description": "Считает символы в поле ввода",
+            "keywords": [
+                "extension",
+                "maxlength",
+                "yii2"
+            ],
+            "time": "2018-08-27T10:21:41+00:00"
         },
         {
             "name": "yii2-developer/yii2-meta",
@@ -5437,7 +5498,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "yii2-developer/yii2-maxlength": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
