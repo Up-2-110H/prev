@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a6f18fd1cb636bb6c9b69239c8a4b2f9",
+    "content-hash": "4e0706cf9c0d86236b9ff3ce7ddf7af3",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1956,11 +1956,11 @@
         },
         {
             "name": "yii2-developer/yii2-maxlength",
-            "version": "dev-master",
+            "version": "0.0.1",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-maxlength.git",
-                "reference": "cbd7bbdf70f3f0f019446d123289a802b4b1720a"
+                "reference": "35a0043ad88ca4e5244b292cb1c0c036d8064be7"
             },
             "require": {
                 "bower-asset/bootstrap-maxlength": "~1.7.0",
@@ -1994,7 +1994,7 @@
                 "maxlength",
                 "yii2"
             ],
-            "time": "2018-08-27T10:21:41+00:00"
+            "time": "2018-08-27T10:35:06+00:00"
         },
         {
             "name": "yii2-developer/yii2-meta",
@@ -5498,9 +5498,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "yii2-developer/yii2-maxlength": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
