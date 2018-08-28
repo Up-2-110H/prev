@@ -38,15 +38,11 @@ $config = [
             \krok\extend\grid\DatetimePickerColumn::class => [
                 'dateFormat' => 'Y-m-d H:i',
             ],
-            \krok\flatpickr\FlatpickrDatetimeWidget::class => function ($container, $params, $config) {
-                $config += [
-                    'clientOptions' => [
-                        'defaultDate' => Yii::$app->getFormatter()->asDatetime('now', 'yyyy-MM-dd HH:mm'),
-                    ],
-                ];
-
-                return new \krok\datetimeFormatter\FlatpickrDatetimeWidget($config);
-            },
+            \krok\flatpickr\FlatpickrDatetimeWidget::class => [
+                'class' => \krok\datetimeFormatter\FlatpickrDatetimeWidget::class,
+                'dateFormat' => 'Y-m-d H:i',
+                'defaultDatetime' => true,
+            ],
             \krok\flatpickr\FlatpickrDateWidget::class => \krok\datetimeFormatter\FlatpickrDateWidget::class,
             \krok\flatpickr\FlatpickrTimeWidget::class => \krok\datetimeFormatter\FlatpickrTimeWidget::class,
             \krok\datetimeFormatter\validators\DatetimeFormatterValidator::class => [

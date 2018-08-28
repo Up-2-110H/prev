@@ -8,7 +8,6 @@ use krok\content\OpenGraphConfigurableAdapter;
 use krok\datetimeFormatter\validators\DatetimeFormatterValidator;
 use krok\extend\behaviors\LanguageBehavior;
 use krok\extend\behaviors\TagDependencyBehavior;
-use krok\extend\behaviors\TimestampBehavior;
 use krok\extend\interfaces\HiddenAttributeInterface;
 use krok\extend\traits\HiddenAttributeTrait;
 use krok\meta\behaviors\MetaBehavior;
@@ -53,9 +52,6 @@ class Content extends \yii\db\ActiveRecord implements HiddenAttributeInterface
             ],
             'LanguageBehavior' => [
                 'class' => LanguageBehavior::class,
-            ],
-            'TimestampBehavior' => [
-                'class' => TimestampBehavior::class,
             ],
             'MetaBehavior' => [
                 'class' => MetaBehavior::class,
