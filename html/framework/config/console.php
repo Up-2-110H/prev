@@ -31,74 +31,111 @@ $config = [
             ],
             'config' => [
                 [
+                    'label' => 'System',
                     'name' => 'system',
                     'controllers' => [
                         'default' => [
-                            'index',
-                            'flush-cache',
+                            'label' => 'System',
+                            'actions' => [
+                                'index',
+                                'flush-cache',
+                            ],
                         ],
                     ],
                 ],
                 [
+                    'label' => 'Tinymce',
                     'name' => 'tinymce/uploader',
                     'controllers' => [
                         'default' => [
-                            'image',
-                            'file',
+                            'label' => 'Tinymce',
+                            'actions' => [
+                                'image',
+                                'file',
+                            ],
                         ],
                     ],
                 ],
                 [
+                    'label' => 'Auth',
                     'name' => 'auth',
                     'controllers' => [
                         'auth' => [
-                            'index',
-                            'create',
-                            'update',
-                            'delete',
-                            'view',
-                            'refresh-token',
+                            'label' => 'Auth',
+                            'actions' => [
+                                'index',
+                                'create',
+                                'update',
+                                'delete',
+                                'view',
+                                'refresh-token',
+                            ],
                         ],
-                        'log' => ['index'],
-                        'social' => ['index'],
-                        'profile' => ['index'],
+                        'log' => [
+                            'label' => 'Log',
+                            'actions' => ['index'],
+                        ],
+                        'social' => [
+                            'label' => 'Social network',
+                            'actions' => ['index'],
+                        ],
+                        'profile' => [
+                            'label' => 'Profile',
+                            'actions' => ['index'],
+                        ],
                     ],
                 ],
                 [
+                    'label' => 'Content',
                     'name' => 'content',
                     'controllers' => [
                         'default' => [
-                            'index',
-                            'create',
-                            'update',
-                            'delete',
-                            'view',
-                            'transliterate',
+                            'label' => 'Content',
+                            'actions' => [
+                                'index',
+                                'create',
+                                'update',
+                                'delete',
+                                'view',
+                                'transliterate',
+                            ],
                         ],
                     ],
                 ],
                 [
+                    'label' => 'Backup',
                     'name' => 'backup',
                     'controllers' => [
                         'default' => [
-                            'index',
+                            'label' => 'Backup',
+                            'actions' => ['index'],
                         ],
                         'make' => [
-                            'filesystem',
-                            'database',
+                            'label' => 'Make backup',
+                            'actions' => [
+                                'filesystem',
+                                'database',
+                            ],
                         ],
                         'download' => [
-                            'filesystem',
-                            'database',
+                            'label' => 'Download backup',
+                            'actions' => [
+                                'filesystem',
+                                'database',
+                            ],
                         ],
                     ],
                 ],
                 [
+                    'label' => 'Configure',
                     'name' => 'configure',
                     'controllers' => [
                         'default' => [
-                            'list',
-                            'save',
+                            'label' => 'Configure',
+                            'actions' => [
+                                'list',
+                                'save',
+                            ],
                         ],
                     ],
                 ],

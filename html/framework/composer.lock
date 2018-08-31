@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4e0706cf9c0d86236b9ff3ce7ddf7af3",
+    "content-hash": "a1ef6099f7e0842c35223e50a21a67d6",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1285,11 +1285,11 @@
         },
         {
             "name": "yii2-developer/yii2-access",
-            "version": "0.0.1",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-access.git",
-                "reference": "c2fb30b2ae3d8ddd86d0034728381622105c952b"
+                "reference": "c870e912d83a37adce827cf5f06e1adf653d9dc3"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -1310,13 +1310,13 @@
                     "email": "yii2.developer@gmail.com"
                 }
             ],
-            "description": "Access",
+            "description": "Генератор доступа в систему администрирования RBAC",
             "keywords": [
                 "access",
                 "extension",
                 "yii2"
             ],
-            "time": "2018-02-01T08:02:37+00:00"
+            "time": "2018-08-31T06:47:46+00:00"
         },
         {
             "name": "yii2-developer/yii2-analytics",
@@ -1519,11 +1519,11 @@
         },
         {
             "name": "yii2-developer/yii2-clock",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-clock.git",
-                "reference": "71b5275c0a83e83be9c225289d2a7770355d5b6e"
+                "reference": "5578a067a231711933b16015c562047244b122d7"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -1555,7 +1555,7 @@
                 "extension",
                 "yii2"
             ],
-            "time": "2018-06-18T13:33:46+00:00"
+            "time": "2018-08-30T05:10:20+00:00"
         },
         {
             "name": "yii2-developer/yii2-configure",
@@ -1956,11 +1956,11 @@
         },
         {
             "name": "yii2-developer/yii2-maxlength",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-maxlength.git",
-                "reference": "35a0043ad88ca4e5244b292cb1c0c036d8064be7"
+                "reference": "a7e6aec81f2ad1ad27f331db67a8caca57914277"
             },
             "require": {
                 "bower-asset/bootstrap-maxlength": "~1.7.0",
@@ -1994,7 +1994,7 @@
                 "maxlength",
                 "yii2"
             ],
-            "time": "2018-08-27T10:35:06+00:00"
+            "time": "2018-08-30T05:42:31+00:00"
         },
         {
             "name": "yii2-developer/yii2-meta",
@@ -3255,21 +3255,21 @@
         },
         {
             "name": "codeception/phpunit-wrapper",
-            "version": "7.2.0",
+            "version": "7.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/phpunit-wrapper.git",
-                "reference": "e12834e076632262f1f85da41f53c06bb1fd28fb"
+                "reference": "a4990126a20bbaa67ca34088ff91960c209a664b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/phpunit-wrapper/zipball/e12834e076632262f1f85da41f53c06bb1fd28fb",
-                "reference": "e12834e076632262f1f85da41f53c06bb1fd28fb",
+                "url": "https://api.github.com/repos/Codeception/phpunit-wrapper/zipball/a4990126a20bbaa67ca34088ff91960c209a664b",
+                "reference": "a4990126a20bbaa67ca34088ff91960c209a664b",
                 "shasum": ""
             },
             "require": {
                 "phpunit/php-code-coverage": "^6.0",
-                "phpunit/phpunit": "~7.1.0|~7.2.0",
+                "phpunit/phpunit": "~7.1.0|~7.2.0|~7.3.0",
                 "sebastian/comparator": "^3.0",
                 "sebastian/diff": "^3.0"
             },
@@ -3294,7 +3294,7 @@
                 }
             ],
             "description": "PHPUnit classes used by Codeception",
-            "time": "2018-08-01T08:17:04+00:00"
+            "time": "2018-08-28T23:24:24+00:00"
         },
         {
             "name": "codeception/stub",
@@ -4186,16 +4186,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.2.7",
+            "version": "7.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "8e878aff7917ef66e702e03d1359b16eee254e2c"
+                "reference": "34705f81bddc3f505b9599a2ef96e2b4315ba9b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/8e878aff7917ef66e702e03d1359b16eee254e2c",
-                "reference": "8e878aff7917ef66e702e03d1359b16eee254e2c",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/34705f81bddc3f505b9599a2ef96e2b4315ba9b8",
+                "reference": "34705f81bddc3f505b9599a2ef96e2b4315ba9b8",
                 "shasum": ""
             },
             "require": {
@@ -4240,7 +4240,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "7.2-dev"
+                    "dev-master": "7.3-dev"
                 }
             },
             "autoload": {
@@ -4266,7 +4266,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-07-15T05:20:50+00:00"
+            "time": "2018-08-22T06:39:21+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",

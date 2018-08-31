@@ -39,7 +39,7 @@ return [
             ],
         ],
         [
-            'label' => 'Systemic',
+            'label' => 'System',
             'icon' => 'ti-settings',
             'items' => [
                 [

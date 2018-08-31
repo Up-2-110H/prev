@@ -33,7 +33,7 @@
     "require": {
         "php": ">=7.1.0",
         "vlucas/phpdotenv": "~2.4.0",
-        "yii2-developer/yii2-access": "~0.0.1",
+        "yii2-developer/yii2-access": "~1.0.0",
         "yii2-developer/yii2-application": "~0.0.1",
         "yii2-developer/yii2-auth": "~2.0.0",
         "yii2-developer/yii2-backup": "~0.0.1",
