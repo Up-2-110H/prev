@@ -3,6 +3,7 @@
 $config = [
     'id' => 'web',
     'defaultRoute' => 'content/default/index',
+    'on beforeRequest' => [\krok\catchAll\CatchAllHandler::class, 'handle'],
     'on afterRequest' => function () {
         /**
          * see. https://content-security-policy.com/
@@ -32,6 +33,11 @@ $config = [
         'robots' => [
             'class' => \yii\base\Module::class,
             'controllerNamespace' => 'krok\robots\controllers\frontend',
+        ],
+        'catchAll' => [
+            'class' => \yii\base\Module::class,
+            'viewPath' => '@krok/catchAll/views/frontend',
+            'controllerNamespace' => 'krok\catchAll\controllers\frontend',
         ],
     ],
     'components' => [

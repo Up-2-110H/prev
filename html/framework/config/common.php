@@ -33,6 +33,7 @@ return \yii\helpers\ArrayHelper::merge([
                     \krok\robots\Configure::class,
                     \krok\meta\MetaConfigure::class,
                     \krok\meta\OpenGraphConfigure::class,
+                    \krok\catchAll\Configure::class,
                 ];
 
                 /** @var \krok\configure\serializers\SerializerInterface $serializer */

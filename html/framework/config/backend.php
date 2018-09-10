@@ -343,14 +343,14 @@ $config = [
             'class' => \krok\auth\components\User::class,
             'identityClass' => \krok\auth\models\Auth::class,
             'loginUrl' => ['/auth/default/login'],
-            'on afterLogin' => [
-                \krok\auth\components\UserEventHandler::class,
-                'handleAfterLogin',
-            ],
-            'on afterLogout' => [
-                \krok\auth\components\UserEventHandler::class,
-                'handleAfterLogout',
-            ],
+            'on afterLogin' => function (\yii\web\UserEvent $event) {
+                \krok\catchAll\UserHandler::loginHandle();
+                \krok\auth\components\UserEventHandler::handleAfterLogin($event);
+            },
+            'on afterLogout' => function (\yii\web\UserEvent $event) {
+                \krok\catchAll\UserHandler::logoutHandle();
+                \krok\auth\components\UserEventHandler::handleAfterLogout($event);
+            },
         ],
         'authClientCollection' => [
             'class' => \yii\authclient\Collection::class,

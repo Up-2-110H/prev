@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a1ef6099f7e0842c35223e50a21a67d6",
+    "content-hash": "af88adee2f2827a076807eb687a7a353",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1516,6 +1516,43 @@
                 "yii2"
             ],
             "time": "2018-03-31T05:52:53+00:00"
+        },
+        {
+            "name": "yii2-developer/yii2-catch-all",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-catch-all.git",
+                "reference": "a1fce7e3e00e9e774ade32f7aa1ad0cba5509cb5"
+            },
+            "require": {
+                "php": ">=7.1.0",
+                "yii2-developer/yii2-configure": "~1.1.0",
+                "yii2-developer/yii2-editor": "~2.0.0",
+                "yiisoft/yii2": "~2.0.12"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "krok\\catchAll\\": "src"
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "krok",
+                    "email": "yii2.developer@gmail.com"
+                }
+            ],
+            "description": "Сервисное обслуживание сайта, блокировка",
+            "keywords": [
+                "catch-all",
+                "extension",
+                "yii2"
+            ],
+            "time": "2018-09-10T09:52:34+00:00"
         },
         {
             "name": "yii2-developer/yii2-clock",
