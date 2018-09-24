@@ -1,5 +1,3 @@
 LANG=ru_RU.UTF-8
 
-@reboot /usr/bin/supervisord -c /etc/supervisor/application.conf
-
 # * * * * * /usr/local/bin/php /var/www/html/framework/yii
