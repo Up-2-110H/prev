@@ -5,8 +5,27 @@
 CONTAINER_APPLICATION="application"
 CONTAINER_MYSQL="mysql"
 
+STORE_ERROR_CODE=0
+
+do_watch() {
+    ERROR_CODE=$?
+
+    if [ "$1" = "wait" ] && [ "$ERROR_CODE" -gt 0 ]; then
+        STORE_ERROR_CODE="$ERROR_CODE"
+    fi
+
+    if [ "$1" != "wait" ] && [ "$ERROR_CODE" -gt 0 ]; then
+        exit "$ERROR_CODE"
+    fi
+
+    if [ "$1" != "wait" ] && [ "$STORE_ERROR_CODE" -gt 0 ]; then
+        exit "$STORE_ERROR_CODE"
+    fi
+}
+
 do_exec() {
     docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" "$@"
+    do_watch
 }
 
 do_mysql_backup() {
@@ -93,7 +112,7 @@ do_mysql_wait() {
 
     if [ "$1" = "wait" ]
     then
-        sleep 30
+        sleep 60
     fi
 }
 
@@ -103,38 +122,44 @@ do_tests() {
     do_mysql_wait "$@"
 
     docker-compose exec -T --env="MYSQL_PWD=$MYSQL_ROOT_PASSWORD" "$CONTAINER_MYSQL" mysql --user=root -e "CREATE DATABASE $DB;"
+    do_watch wait
 
     docker-compose exec -T --env="YII_ENV=test" --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii migrate/up --appconfig=framework/tests/config/console.php
+    do_watch wait
     docker-compose exec -T --env="YII_ENV=test" --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii access/install --appconfig=framework/tests/config/console.php
+    do_watch wait
 
     docker-compose exec -T --env="YII_ENV=test" --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/vendor/bin/codecept run --config=framework/codeception.yml
+    do_watch wait
 
     docker-compose exec -T --env="MYSQL_PWD=$MYSQL_ROOT_PASSWORD" "$CONTAINER_MYSQL" mysql --user=root -e "DROP DATABASE $DB;"
+    do_watch wait
+
+    do_watch
 }
 
 do_install() {
-    docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" composer install --working-dir=framework
+    do_exec composer install --working-dir=framework
 
-    do_mysql_wait "$@"
-
-    docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii migrate/up
-    docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii access/install
-    docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii cache/flush-all
+    do_exec framework/yii migrate/up
+    do_exec framework/yii access/install
+    do_exec framework/yii cache/flush-all
 }
 
 do_update() {
-    docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" composer update --working-dir=framework
-    docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii migrate/up
-    docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii access/install
-    docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii cache/flush-all
+    do_exec composer update --working-dir=framework
+
+    do_exec framework/yii migrate/up
+    do_exec framework/yii access/install
+    do_exec framework/yii cache/flush-all
 }
 
 do_make_cest() {
-    docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/vendor/bin/codecept g:cest functional "$@" --config=framework/codeception.yml
+    do_exec framework/vendor/bin/codecept g:cest functional "$@" --config=framework/codeception.yml
 }
 
 do_make_test() {
-    docker-compose exec -T --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/vendor/bin/codecept g:test unit "$@" --config=framework/codeception.yml
+    do_exec framework/vendor/bin/codecept g:test unit "$@" --config=framework/codeception.yml
 }
 
 case "$1" in
@@ -169,7 +194,7 @@ case "$1" in
         ;;
     install)
         shift
-        do_install $@
+        do_install
         ;;
     update)
         shift

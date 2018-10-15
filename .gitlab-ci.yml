@@ -26,6 +26,8 @@ tests:
         - ./docker.sh tests wait
     tags:
         - compose
+    only:
+        - schedules
 dev:
     stage: deploy
     environment: dev
@@ -43,6 +45,8 @@ dev:
         - master
     tags:
         - compose
+    except:
+        - schedules
 production:
     stage: deploy
     environment: production
@@ -58,6 +62,8 @@ production:
         - production
     tags:
         - compose
+    except:
+        - schedules
 after_script:
     # Down
     - docker-compose down
