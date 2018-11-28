@@ -339,6 +339,10 @@ $config = [
             ],
             'cookieValidationKey' => getenv('YII_COOKIE_VALIDATION_KEY'),
         ],
+        'authManager' => [
+            'class' => \yii\rbac\DbManager::class,
+            'cache' => 'cache',
+        ],
         'user' => [
             'class' => \krok\auth\components\User::class,
             'identityClass' => \krok\auth\models\Auth::class,

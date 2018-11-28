@@ -151,6 +151,10 @@ $config = [
                 'backend' => require(__DIR__ . '/backend/urlManager.php'),
             ],
         ],
+        'authManager' => [
+            'class' => \yii\rbac\DbManager::class,
+            'cache' => 'cache',
+        ],
         'errorHandler' => [
             'class' => \krok\sentry\console\SentryErrorHandler::class,
             'sentry' => \krok\sentry\Sentry::class,

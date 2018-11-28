@@ -131,10 +131,6 @@ return \yii\helpers\ArrayHelper::merge([
         ],
     ],
     'components' => [
-        'authManager' => [
-            'class' => \yii\rbac\DbManager::class,
-            'cache' => 'cache',
-        ],
         'formatter' => [
             'class' => \yii\i18n\Formatter::class,
             'timeZone' => 'Europe/Moscow',
