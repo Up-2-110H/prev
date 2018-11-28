@@ -1978,11 +1978,11 @@
         },
         {
             "name": "yii2-developer/yii2-glide",
-            "version": "2.1.2",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-glide.git",
-                "reference": "8ec08566e905287c212ecef732fb81da084ede61"
+                "reference": "74e119338389d37638e2f831389ae5bf73be104d"
             },
             "require": {
                 "league/glide": "~1.3.0",
@@ -2011,7 +2011,7 @@
                 "glide",
                 "yii2"
             ],
-            "time": "2018-11-28T12:58:11+00:00"
+            "time": "2018-11-28T13:58:51+00:00"
         },
         {
             "name": "yii2-developer/yii2-language",
@@ -2514,11 +2514,11 @@
         },
         {
             "name": "yii2-developer/yii2-tinymce-uploader",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-tinymce-uploader.git",
-                "reference": "3261187a1ba913a439da16c141f9dd4bb2b04ff1"
+                "reference": "5e75f84c27965048a9e0142aff909ea65ec39c5c"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -2553,7 +2553,7 @@
                 "uploader",
                 "yii2"
             ],
-            "time": "2018-11-28T13:07:34+00:00"
+            "time": "2018-11-28T14:14:40+00:00"
         },
         {
             "name": "yii2-developer/yii2-transliterate",
