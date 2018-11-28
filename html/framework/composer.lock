@@ -2431,11 +2431,11 @@
         },
         {
             "name": "yii2-developer/yii2-system",
-            "version": "1.0.3",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-system.git",
-                "reference": "16f93bbd65fa5e4f29b75f825f6054b754cc3a5a"
+                "reference": "e073d2ea0998c5dc99a7f66f586d956fd56fd6ce"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -2450,7 +2450,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "krok\\system\\": ""
+                    "krok\\system\\": "src"
                 }
             },
             "license": [
@@ -2462,13 +2462,13 @@
                     "email": "yii2.developer@gmail.com"
                 }
             ],
-            "description": "System",
+            "description": "Система",
             "keywords": [
                 "extension",
                 "system",
                 "yii2"
             ],
-            "time": "2018-08-21T12:56:57+00:00"
+            "time": "2018-11-28T15:07:13+00:00"
         },
         {
             "name": "yii2-developer/yii2-tinymce",
