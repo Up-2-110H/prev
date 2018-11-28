@@ -1,0 +1,39 @@
+{
+    "name": "yii2-developer/yii2-survey",
+    "description": "Опросы",
+    "type": "yii2-extension",
+    "version": "1.0.0",
+    "keywords": [
+        "yii2",
+        "extension",
+        "survey"
+    ],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "krok",
+            "email": "yii2.developer@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+        {
+            "type": "composer",
+            "url": "https://packagist.dev-vps.ru"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "yiisoft/yii2": "~2.0.12",
+        "yii2-developer/yii2-extend": "~1.0.0",
+        "yii2-developer/yii2-system": "~1.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "krok\\survey\\": "src"
+        }
+    }
+}
