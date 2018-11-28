@@ -10,11 +10,11 @@ return [
     /**
      * Glide
      */
-    'render/<path:[\w\/\.]+>' => 'glide/default/render',
+    'render/<scheme:[\w]+>/<path:[\w\/\.]+>' => 'glide/default/render',
     /**
      * Filesystem
      */
-    'attachment/<path:[\w\/\.\-]+>' => 'filesystem/default/attachment',
+    'attachment/<scheme:[\w]+>/<path:[\w\/\.\-]+>' => 'filesystem/default/attachment',
     /**
      * Backup
      */

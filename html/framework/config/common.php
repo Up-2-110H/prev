@@ -49,49 +49,82 @@ return \yii\helpers\ArrayHelper::merge([
             \yii\mail\MailerInterface::class => function () {
                 return Yii::$app->getMailer();
             },
-            \krok\storage\behaviors\UploaderBehavior::class => [
-                'uploadedDirectory' => '/storage',
-            ],
-            \krok\storage\behaviors\StorageBehavior::class => [
-                'uploadedDirectory' => '/storage',
-            ],
             \krok\tinymce\uploader\actions\UploaderAction::class => [
-                'uploadedDirectory' => '/editor',
+                'scheme' => 'editor://',
             ],
-            \League\Flysystem\AdapterInterface::class => function () {
-                return Yii::createObject(\krok\filesystem\adapter\Local::class, [Yii::getAlias('@storage')]);
-            },
-            \League\Flysystem\FilesystemInterface::class => function () {
-                /** @var \League\Flysystem\FilesystemInterface $filesystem */
-                $filesystem = Yii::createObject(\League\Flysystem\Filesystem::class);
-                /**
-                 * Glide render
-                 */
-                $filesystem->addPlugin(new \krok\filesystem\plugins\PublicUrl('/render/storage', 'getPublicUrl'));
-                /**
-                 * Filesystem attachment
-                 */
-                $filesystem->addPlugin(new \krok\filesystem\plugins\PublicUrl('/attachment/storage', 'getDownloadUrl'));
-                $filesystem->addPlugin(new \krok\filesystem\plugins\PublicUrl('/attachment/editor', 'getEditorUrl'));
-                $filesystem->addPlugin(new \krok\filesystem\plugins\PublicUrl('/attachment/system', 'getSystemUrl'));
-                $filesystem->addPlugin(new \krok\filesystem\plugins\Content('/storage', 'getContentStorage'));
-                $filesystem->addPlugin(new \krok\filesystem\plugins\Content('/editor', 'getContentEditor'));
-                /**
-                 * Hash grid
-                 */
-                $filesystem->addPlugin(new \krok\filesystem\plugins\HashGrid());
+            \krok\filesystem\GridBuilderInterface::class => \krok\filesystem\GridBuilder::class,
+            \League\Flysystem\MountManager::class => function (\yii\di\Container $container) {
 
-                return $filesystem;
-            },
-            \League\Glide\ServerFactory::class => function () {
-                $server = League\Glide\ServerFactory::create([
-                    'source' => Yii::createObject(\League\Flysystem\FilesystemInterface::class),
-                    'cache' => Yii::createObject(\League\Flysystem\FilesystemInterface::class),
-                    'cache_path_prefix' => 'cache',
-                    'driver' => 'imagick',
+                $cache = new \League\Flysystem\Filesystem(new \krok\filesystem\adapter\Local(Yii::getAlias('@storage/cache')));
+
+                $storage = new \League\Flysystem\Filesystem(new \krok\filesystem\adapter\Local(Yii::getAlias('@storage/storage')));
+                $storage->addPlugin(new \krok\filesystem\plugins\PublicUrl('getRenderUrl',
+                    $container->get(\krok\glide\UrlBuilderManager::class)->getUrlBuilder('render/storage')));
+                $storage->addPlugin(new \krok\filesystem\plugins\PublicUrl('getAttachmentUrl',
+                    $container->get(\krok\glide\UrlBuilderManager::class)->getUrlBuilder('attachment/storage')));
+
+                $editor = new \League\Flysystem\Filesystem(new \krok\filesystem\adapter\Local(Yii::getAlias('@storage/editor')));
+                $editor->addPlugin(new \krok\filesystem\plugins\PublicUrl('getRenderUrl',
+                    $container->get(\krok\glide\UrlBuilderManager::class)->getUrlBuilder('render/editor')));
+                $editor->addPlugin(new \krok\filesystem\plugins\PublicUrl('getAttachmentUrl',
+                    $container->get(\krok\glide\UrlBuilderManager::class)->getUrlBuilder('attachment/editor')));
+
+                $system = new \League\Flysystem\Filesystem(new \krok\filesystem\adapter\Local(Yii::getAlias('@storage/system')));
+                $system->addPlugin(new \krok\filesystem\plugins\PublicUrl('getAttachmentUrl',
+                    $container->get(\krok\glide\UrlBuilderManager::class)->getUrlBuilder('attachment/system')));
+
+                $mount = new \League\Flysystem\MountManager([
+                    'cache' => $cache,
+                    'storage' => $storage,
+                    'editor' => $editor,
+                    'system' => $system,
                 ]);
 
-                return $server;
+                $mount->addPlugin(new \krok\filesystem\plugins\Content('getContent'));
+
+                return $mount;
+            },
+            \krok\glide\actions\GlideAction::class => [
+                'signature' => null,
+            ],
+            \krok\glide\UrlBuilderManager::class => function () {
+                $signature = null;
+
+                $urlBuilder = new \krok\glide\UrlBuilderManager([
+                    'render/storage' => \League\Glide\Urls\UrlBuilderFactory::create('render/storage', $signature),
+                    'attachment/storage' => \League\Glide\Urls\UrlBuilderFactory::create('attachment/storage'),
+
+                    'render/editor' => \League\Glide\Urls\UrlBuilderFactory::create('render/editor', $signature),
+                    'attachment/editor' => \League\Glide\Urls\UrlBuilderFactory::create('attachment/editor'),
+
+                    'attachment/system' => \League\Glide\Urls\UrlBuilderFactory::create('attachment/system'),
+                ]);
+
+                return $urlBuilder;
+            },
+            \krok\glide\ServerManager::class => function (\yii\di\Container $container) {
+                /** @var \League\Flysystem\MountManager $mount */
+                $mount = $container->get(\League\Flysystem\MountManager::class);
+
+                $cache = $mount->getFilesystem('cache');
+                $driver = 'imagick';
+
+                $servers = new \krok\glide\ServerManager([
+                    'storage' => \League\Glide\ServerFactory::create([
+                        'source' => $mount->getFilesystem('storage'),
+                        'base_url' => 'render/storage',
+                        'cache' => $cache,
+                        'driver' => $driver,
+                    ]),
+                    'editor' => \League\Glide\ServerFactory::create([
+                        'source' => $mount->getFilesystem('editor'),
+                        'base_url' => 'render/editor',
+                        'cache' => $cache,
+                        'driver' => $driver,
+                    ]),
+                ]);
+
+                return $servers;
             },
             \krok\language\LanguageInterface::class => function () {
                 $list = [

@@ -244,7 +244,7 @@ $config = [
             'class' => \yii\base\Module::class,
             'modules' => [
                 'uploader' => [
-                    'class' => \krok\tinymce\uploader\Module::class,
+                    'class' => \yii\base\Module::class,
                     'controllerNamespace' => 'krok\tinymce\uploader\controllers\backend',
                 ],
             ],

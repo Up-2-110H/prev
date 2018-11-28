@@ -15,7 +15,6 @@ $config = [
                 '@app/migrations',
                 '@yii/rbac/migrations',
                 '@krok/auth/migrations',
-                '@krok/storage/migrations',
                 '@krok/content/migrations',
                 '@krok/configure/migrations',
                 '@krok/meta/migrations',
