@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "af88adee2f2827a076807eb687a7a353",
+    "content-hash": "ebe4e2613e2604d44fa01fd425d62cd8",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1620,11 +1620,11 @@
         },
         {
             "name": "yii2-developer/yii2-catch-all",
-            "version": "0.0.2",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-catch-all.git",
-                "reference": "19978b8767f3b65929d42c19138831205a956bb8"
+                "reference": "f6284947cd55daff6921c0e4329bb7644b482d10"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -1653,7 +1653,7 @@
                 "extension",
                 "yii2"
             ],
-            "time": "2018-10-03T03:30:54+00:00"
+            "time": "2018-11-21T08:11:32+00:00"
         },
         {
             "name": "yii2-developer/yii2-clock",
