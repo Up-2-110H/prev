@@ -37,7 +37,7 @@ class m181126_003222_survey_answer extends Migration
      */
     public function safeDown()
     {
-        $this->dropForeignKey('fk-question', '{{%survey_question}}');
+        $this->dropForeignKey('fk-question', '{{%survey_answer}}');
         $this->dropTable('{{%survey_answer}}');
     }
 }
