@@ -27,6 +27,9 @@ $this->params['breadcrumbs'][] = Yii::t('system', 'Update');
         <div class="form-group">
             <?= Html::submitButton(Yii::t('system', 'Save'),
                 ['class' => 'btn btn-primary']) ?>
+            <?= Html::a('Вопросы', ['question/index', 'id' => $model->id], [
+                'class' => 'btn btn-success',
+            ]) ?>
         </div>
 
         <?php ActiveForm::end(); ?>

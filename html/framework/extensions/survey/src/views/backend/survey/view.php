@@ -21,17 +21,15 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Html::a(Yii::t('system', 'Update'), ['update', 'id' => $model->id], [
                 'class' => 'btn btn-primary',
             ]) ?>
+            <?= Html::a('Вопросы', ['question/index', 'id' => $model->id], [
+                'class' => 'btn btn-success',
+            ]) ?>
             <?= Html::a(Yii::t('system', 'Delete'), ['delete', 'id' => $model->id], [
                 'class' => 'btn btn-danger',
                 'data' => [
                     'confirm' => Yii::t('system', 'Are you sure you want to delete this item?'),
                     'method' => 'post',
                 ],
-            ]) ?>
-        </p>
-        <p>
-            <?= Html::a('Вопросы', ['question/index', 'id' => $model->id], [
-                'class' => 'btn btn-success',
             ]) ?>
         </p>
     </div>

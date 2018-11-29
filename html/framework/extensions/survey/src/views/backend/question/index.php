@@ -17,14 +17,16 @@ $this->params['breadcrumbs'][] = $this->title;
         <h4 class="card-title"><?= Html::encode($this->title) ?></h4>
     </div>
 
-    <div class="card-header">
-        <p>
-            <?php foreach ($types as $type) : ?>
+    <div class="card-content">
+
+        <?php foreach ($types as $type) : ?>
+            <div class="more" style="float: left;">
                 <?= Html::a($type['label'], $type['url'], [
                     'class' => 'btn btn-success',
                 ]) ?>
-            <?php endforeach; ?>
-        </p>
+            </div>
+        <?php endforeach; ?>
+
     </div>
 
     <div class="card-content">

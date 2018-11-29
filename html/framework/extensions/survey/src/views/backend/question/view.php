@@ -22,6 +22,11 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Html::a(Yii::t('system', 'Update'), ['update', 'id' => $model->id], [
                 'class' => 'btn btn-primary',
             ]) ?>
+            <?php if ($isAnswers === true) : ?>
+                <?= Html::a('Ответы', ['answer/index', 'id' => $model->id], [
+                    'class' => 'btn btn-success',
+                ]) ?>
+            <?php endif; ?>
             <?= Html::a(Yii::t('system', 'Delete'), ['delete', 'id' => $model->id], [
                 'class' => 'btn btn-danger',
                 'data' => [
@@ -30,13 +35,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
             ]) ?>
         </p>
-        <?php if ($isAnswers === true) : ?>
-            <p>
-                <?= Html::a('Ответы', ['answer/index', 'id' => $model->id], [
-                    'class' => 'btn btn-success',
-                ]) ?>
-            </p>
-        <?php endif; ?>
     </div>
 
     <div class="card-content">
