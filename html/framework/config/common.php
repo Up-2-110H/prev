@@ -16,7 +16,7 @@ return \yii\helpers\ArrayHelper::merge([
         '@root' => dirname(dirname(__DIR__)),
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
-        '@themes' => '@vendor/yii2-developer/yii2-paperDashboard',
+        '@themes' => '@vendor/yii2-developer/yii2-paperdashboard/src',
         '@storage' => '@root/storage',
         '@backup' => '@root/backup',
     ],
@@ -136,6 +136,7 @@ return \yii\helpers\ArrayHelper::merge([
 
                 return Yii::createObject(\krok\language\Language::class, [$list]);
             },
+            \krok\system\Configure::class => \krok\paperDashboard\Configure::class,
             \krok\configure\helpers\ConfigureHelperInterface::class => \krok\configure\helpers\ConfigureHelper::class,
             \krok\configure\serializers\SerializerInterface::class => \krok\configure\serializers\JsonSerializer::class,
             \krok\meta\serializers\SerializerInterface::class => \krok\meta\serializers\JsonSerializer::class,
