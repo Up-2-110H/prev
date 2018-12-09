@@ -314,11 +314,11 @@ $config = [
                     'depends' => [
                         \yii\web\JqueryAsset::class,
                         \yii\bootstrap\BootstrapAsset::class,
-                        \krok\paperDashboard\assets\BootstrapSelectPickerAsset::class,
                         \krok\paperDashboard\assets\BootstrapSwitchTagsAsset::class,
                         \krok\paperDashboard\assets\Es6PromiseAutoAsset::class,
                         \krok\paperDashboard\assets\PerfectScrollbarAsset::class,
                         \krok\bootbox\BootBoxAsset::class,
+                        \krok\select2\Select2Asset::class,
                     ],
                 ],
             ],

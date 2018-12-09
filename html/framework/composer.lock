@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8aa0c784cad396d2c46809e74ed2ff98",
+    "content-hash": "18a29293fee49b32ba93fa292cc1da5e",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -272,6 +272,25 @@
                 "shasum": null
             },
             "type": "bower-asset"
+        },
+        {
+            "name": "bower-asset/select2",
+            "version": "4.0.5",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:ivaynberg/select2.git",
+                "reference": "ebf10c93db7d6d7a0d1330119d4c6f32cbd231d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ivaynberg/select2/zipball/ebf10c93db7d6d7a0d1330119d4c6f32cbd231d7",
+                "reference": "ebf10c93db7d6d7a0d1330119d4c6f32cbd231d7",
+                "shasum": null
+            },
+            "type": "bower-asset",
+            "license": [
+                "MIT"
+            ]
         },
         {
             "name": "bower-asset/yii2-pjax",
@@ -2262,11 +2281,11 @@
         },
         {
             "name": "yii2-developer/yii2-paperdashboard",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-paperDashboard.git",
-                "reference": "1842b7baa4a035c4eae23a0e8336fd20d004bd93"
+                "reference": "1e958f678950e12885f213b3b65627651697c362"
             },
             "require": {
                 "bootstrap-select/bootstrap-select": "~1.12.0",
@@ -2308,7 +2327,7 @@
                 "paperDashboard",
                 "yii2"
             ],
-            "time": "2018-12-08T10:27:08+00:00"
+            "time": "2018-12-09T10:20:28+00:00"
         },
         {
             "name": "yii2-developer/yii2-password-eye",
@@ -2434,6 +2453,42 @@
                 "yii2"
             ],
             "time": "2018-08-21T10:14:19+00:00"
+        },
+        {
+            "name": "yii2-developer/yii2-select2",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-select2.git",
+                "reference": "19ed4a27e66667262ca075545a507d9a6acbf728"
+            },
+            "require": {
+                "bower-asset/select2": "~4.0.0",
+                "php": ">=7.1.0",
+                "yiisoft/yii2": "~2.0.12"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "krok\\select2\\": "src"
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "krok",
+                    "email": "yii2.developer@gmail.com"
+                }
+            ],
+            "description": "select2",
+            "keywords": [
+                "extension",
+                "select2",
+                "yii2"
+            ],
+            "time": "2018-12-09T10:22:31+00:00"
         },
         {
             "name": "yii2-developer/yii2-sentry",
