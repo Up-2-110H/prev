@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "18a29293fee49b32ba93fa292cc1da5e",
+    "content-hash": "11d7e7b01d349ff5d6b6505b714ad491",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1804,7 +1804,7 @@
             "dist": {
                 "type": "path",
                 "url": "extensions/content",
-                "reference": "73fa8b62b3be5090bcfe8980f6b6a9a54e80f42a",
+                "reference": "e79495ffa558c8b158d535eed921f1056f2553f4",
                 "shasum": null
             },
             "require": {
@@ -1813,6 +1813,7 @@
                 "yii2-developer/yii2-extend": "~1.0.0",
                 "yii2-developer/yii2-meta": "~1.0.0",
                 "yii2-developer/yii2-system": "~1.0.0",
+                "yii2-developer/yii2-transliterate": "~0.0.1",
                 "yiisoft/yii2": "~2.0.12"
             },
             "type": "yii2-extension",
@@ -2280,12 +2281,12 @@
             "time": "2018-04-20T07:20:43+00:00"
         },
         {
-            "name": "yii2-developer/yii2-paperdashboard",
-            "version": "2.0.1",
+            "name": "yii2-developer/yii2-paper-dashboard",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-paperDashboard.git",
-                "reference": "1e958f678950e12885f213b3b65627651697c362"
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-paper-dashboard.git",
+                "reference": "0b2ddc3d642a1774f9b72389eef6e2ccb6389b3e"
             },
             "require": {
                 "bootstrap-select/bootstrap-select": "~1.12.0",
@@ -2309,7 +2310,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "krok\\paperDashboard\\": "src"
+                    "krok\\paperdashboard\\": "src"
                 }
             },
             "license": [
@@ -2324,10 +2325,10 @@
             "description": "Шаблон системы администрирования",
             "keywords": [
                 "extension",
-                "paperDashboard",
+                "paperdashboard",
                 "yii2"
             ],
-            "time": "2018-12-09T10:20:28+00:00"
+            "time": "2018-12-18T06:33:46+00:00"
         },
         {
             "name": "yii2-developer/yii2-password-eye",

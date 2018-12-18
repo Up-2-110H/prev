@@ -2,8 +2,8 @@
 
 /* @var $this yii\web\View */
 
-use krok\paperDashboard\widgets\analytics\AnalyticsWidget;
-use krok\paperDashboard\widgets\analytics\SpaceCircleChartWidget;
+use krok\paperdashboard\widgets\analytics\AnalyticsWidget;
+use krok\paperdashboard\widgets\analytics\SpaceCircleChartWidget;
 
 $this->title = 'Администрирование';
 ?>

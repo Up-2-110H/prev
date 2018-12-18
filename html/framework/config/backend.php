@@ -21,6 +21,9 @@ $config = [
         Yii::$app->getResponse()->getHeaders()->add('Content-Security-Policy',
             'default-src \'none\'; script-src \'self\' \'unsafe-inline\' \'unsafe-eval\'; connect-src \'self\' speller.yandex.net; child-src \'self\'; img-src * data: blob:; style-src * \'unsafe-inline\'; font-src * data:;');
     },
+    'aliases' => [
+        '@themes' => '@vendor/yii2-developer/yii2-paper-dashboard/src',
+    ],
     'container' => [
         'definitions' => [
             \yii\captcha\CaptchaAction::class => [
@@ -310,13 +313,13 @@ $config = [
                         YII_ENV_DEV ? 'js/bootstrap.js' : 'js/bootstrap.min.js',
                     ],
                 ],
-                \krok\paperDashboard\assets\PaperDashboardAsset::class => [
+                \krok\paperdashboard\assets\PaperdashboardAsset::class => [
                     'depends' => [
                         \yii\web\JqueryAsset::class,
                         \yii\bootstrap\BootstrapAsset::class,
-                        \krok\paperDashboard\assets\BootstrapSwitchTagsAsset::class,
-                        \krok\paperDashboard\assets\Es6PromiseAutoAsset::class,
-                        \krok\paperDashboard\assets\PerfectScrollbarAsset::class,
+                        \krok\paperdashboard\assets\BootstrapSwitchTagsAsset::class,
+                        \krok\paperdashboard\assets\Es6PromiseAutoAsset::class,
+                        \krok\paperdashboard\assets\PerfectScrollbarAsset::class,
                         \krok\bootbox\BootBoxAsset::class,
                         \krok\select2\Select2Asset::class,
                     ],
@@ -480,9 +483,9 @@ if (YII_ENV_DEV) {
                 'class' => \yii\gii\generators\module\Generator::class,
                 'messageCategory' => 'system',
                 'templates' => [
-                    'paperDashboard' => '@themes/gii/module',
+                    'paper-dashboard' => '@themes/gii/module',
                 ],
-                'template' => 'paperDashboard',
+                'template' => 'paper-dashboard',
             ],
             'model' => [
                 'class' => \yii\gii\generators\model\Generator::class,
@@ -490,9 +493,9 @@ if (YII_ENV_DEV) {
                 'useTablePrefix' => true,
                 'messageCategory' => 'system',
                 'templates' => [
-                    'paperDashboard' => '@themes/gii/model',
+                    'paper-dashboard' => '@themes/gii/model',
                 ],
-                'template' => 'paperDashboard',
+                'template' => 'paper-dashboard',
             ],
             'crud' => [
                 'class' => \yii\gii\generators\crud\Generator::class,
@@ -500,9 +503,9 @@ if (YII_ENV_DEV) {
                 'baseControllerClass' => \krok\system\components\backend\Controller::class,
                 'messageCategory' => 'system',
                 'templates' => [
-                    'paperDashboard' => '@themes/gii/crud',
+                    'paper-dashboard' => '@themes/gii/crud',
                 ],
-                'template' => 'paperDashboard',
+                'template' => 'paper-dashboard',
             ],
             'job' => [
                 'class' => \yii\queue\gii\Generator::class,

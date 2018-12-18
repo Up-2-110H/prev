@@ -9,11 +9,11 @@
 use krok\clock\ClockWidget;
 use krok\extend\widgets\alert\AlertWidget;
 use krok\language\LanguageWidget;
-use krok\paperDashboard\assets\PaperDashboardAsset;
-use krok\paperDashboard\assets\ThemifyIconsAsset;
-use krok\paperDashboard\widgets\menu\DropDownWidget;
-use krok\paperDashboard\widgets\menu\MenuWidget;
-use krok\paperDashboard\widgets\search\SearchWidget;
+use krok\paperdashboard\assets\PaperdashboardAsset;
+use krok\paperdashboard\assets\ThemifyIconsAsset;
+use krok\paperdashboard\widgets\menu\DropDownWidget;
+use krok\paperdashboard\widgets\menu\MenuWidget;
+use krok\paperdashboard\widgets\search\SearchWidget;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -22,7 +22,7 @@ use yii\web\YiiAsset;
 /* @var $this yii\web\View */
 /* @var $content string */
 
-PaperDashboardAsset::register($this);
+PaperdashboardAsset::register($this);
 ThemifyIconsAsset::register($this);
 YiiAsset::register($this);
 
