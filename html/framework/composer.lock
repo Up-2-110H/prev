@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50a59a35c6ed44dca22578a4e3bc4bb7",
+    "content-hash": "0fc500462fb186cd205384b55deeb76d",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -2113,11 +2113,11 @@
         },
         {
             "name": "yii2-developer/yii2-mailer",
-            "version": "1.0.1",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-mailer.git",
-                "reference": "9515e112b111bcfadb0c8e740df7101a3cad12a0"
+                "reference": "4ab8f877072256b5e71731c8412617a5203031a6"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -2133,7 +2133,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "krok\\mailer\\": ""
+                    "krok\\mailer\\": "src"
                 }
             },
             "license": [
@@ -2152,7 +2152,7 @@
                 "mailer",
                 "yii2"
             ],
-            "time": "2018-08-21T10:10:16+00:00"
+            "time": "2019-01-16T09:46:58+00:00"
         },
         {
             "name": "yii2-developer/yii2-maxlength",
