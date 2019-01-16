@@ -27,7 +27,7 @@ return \yii\helpers\ArrayHelper::merge([
             \krok\configure\ConfigureInterface::class => function () {
                 $configurable = [
                     \krok\paperdashboard\Configurable::class,
-                    \krok\auth\Configure::class,
+                    \krok\auth\Configurable::class,
                     \krok\mailer\Configure::class,
                     \krok\robots\Configure::class,
                     \krok\meta\MetaConfigure::class,

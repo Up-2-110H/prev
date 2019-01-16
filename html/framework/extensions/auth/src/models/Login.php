@@ -2,7 +2,7 @@
 
 namespace krok\auth\models;
 
-use krok\auth\Configure;
+use krok\auth\Configurable;
 use krok\configure\ConfigureInterface;
 use Yii;
 use yii\base\Model;
@@ -36,7 +36,7 @@ class Login extends Model
     protected $auth = null;
 
     /**
-     * @var Configure
+     * @var Configurable
      */
     protected $configurable;
 
@@ -50,7 +50,7 @@ class Login extends Model
         parent::__construct($config);
 
         $this->configurable = Instance::ensure(ConfigureInterface::class,
-            ConfigureInterface::class)->get(Configure::class);
+            ConfigureInterface::class)->get(Configurable::class);
     }
 
     /**

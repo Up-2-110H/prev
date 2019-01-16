@@ -8,7 +8,7 @@
 
 namespace krok\auth\components;
 
-use krok\auth\Configure;
+use krok\auth\Configurable;
 use krok\configure\ConfigureInterface;
 
 /**
@@ -19,7 +19,7 @@ use krok\configure\ConfigureInterface;
 class User extends \yii\web\User
 {
     /**
-     * @var Configure
+     * @var Configurable
      */
     protected $configurable;
 
@@ -33,7 +33,7 @@ class User extends \yii\web\User
     {
         parent::__construct($config);
 
-        $this->configurable = $configurable->get(Configure::class);
+        $this->configurable = $configurable->get(Configurable::class);
 
         $this->authTimeout = $this->authTimeout ?: $this->configurable->authTimeout;
     }

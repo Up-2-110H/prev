@@ -51,7 +51,7 @@ $this->title = 'Авторизация';
                         </div>
                     </div>
                 </div>
-                <?php if ($configure->get(\krok\auth\Configure::class, 'useCaptcha')) : ?>
+                <?php if ($configure->get(\krok\auth\Configurable::class, 'useCaptcha')) : ?>
                     <div class="container-fluid gray-bg">
                         <div class="card-login__vertify row">
                             <div class="col-lg-12">
@@ -74,7 +74,7 @@ $this->title = 'Авторизация';
                         </div>
                     </div>
                 </div>
-                <?php if ($configure->get(\krok\auth\Configure::class, 'socialAuthorization')) : ?>
+                <?php if ($configure->get(\krok\auth\Configurable::class, 'socialAuthorization')) : ?>
                     <div class="container-fluid gray-bg">
                         <div class="card-login__footer row">
                             <div class="col-lg-12">

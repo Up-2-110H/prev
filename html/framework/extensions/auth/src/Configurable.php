@@ -8,17 +8,15 @@
 
 namespace krok\auth;
 
-use krok\configure\ConfigurableInterface;
 use krok\configure\types\DropDownType;
 use Yii;
-use yii\base\Model;
 
 /**
- * Class Configure
+ * Class Configurable
  *
  * @package krok\auth
  */
-class Configure extends Model implements ConfigurableInterface
+class Configurable extends \krok\configure\Configurable
 {
     const SOCIAL_AUTHORIZATION_NO = 0;
     const SOCIAL_AUTHORIZATION_YES = 1;
@@ -127,14 +125,6 @@ class Configure extends Model implements ConfigurableInterface
         }
 
         return false;
-    }
-
-    /**
-     * @return array
-     */
-    public function asArray(): array
-    {
-        return $this->toArray();
     }
 
     /**

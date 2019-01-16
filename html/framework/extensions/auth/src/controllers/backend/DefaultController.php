@@ -2,7 +2,7 @@
 
 namespace krok\auth\controllers\backend;
 
-use krok\auth\Configure;
+use krok\auth\Configurable;
 use krok\auth\models\Auth;
 use krok\auth\models\Login;
 use krok\auth\models\OAuth;
@@ -28,7 +28,7 @@ class DefaultController extends Controller
     public $layout = '@krok/system/views/backend/layouts/login.php';
 
     /**
-     * @var Configure
+     * @var Configurable
      */
     protected $configurable;
 
@@ -44,7 +44,7 @@ class DefaultController extends Controller
     {
         parent::__construct($id, $module, $config);
 
-        $this->configurable = $configure->get(Configure::class);
+        $this->configurable = $configure->get(Configurable::class);
     }
 
     /**
