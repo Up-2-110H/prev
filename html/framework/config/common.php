@@ -26,7 +26,7 @@ return \yii\helpers\ArrayHelper::merge([
             ],
             \krok\configure\ConfigureInterface::class => function () {
                 $configurable = [
-                    \krok\system\Configure::class,
+                    \krok\paperdashboard\Configurable::class,
                     \krok\auth\Configure::class,
                     \krok\mailer\Configure::class,
                     \krok\robots\Configure::class,
@@ -135,7 +135,6 @@ return \yii\helpers\ArrayHelper::merge([
 
                 return Yii::createObject(\krok\language\Language::class, [$list]);
             },
-            \krok\system\Configure::class => \krok\paperdashboard\Configure::class,
             \krok\configure\helpers\ConfigureHelperInterface::class => \krok\configure\helpers\ConfigureHelper::class,
             \krok\configure\serializers\SerializerInterface::class => \krok\configure\serializers\JsonSerializer::class,
             \krok\meta\serializers\SerializerInterface::class => \krok\meta\serializers\JsonSerializer::class,
