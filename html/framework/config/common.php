@@ -30,8 +30,8 @@ return \yii\helpers\ArrayHelper::merge([
                     \krok\auth\Configurable::class,
                     \krok\mailer\Configurable::class,
                     \krok\robots\Configurable::class,
-                    \krok\meta\MetaConfigure::class,
-                    \krok\meta\OpenGraphConfigure::class,
+                    \krok\meta\MetaConfigurable::class,
+                    \krok\meta\OpenGraphConfigurable::class,
                     \krok\catchAll\Configurable::class,
                 ];
 

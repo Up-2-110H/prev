@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ea1c98aff3d356c8529d46268f94799e",
+    "content-hash": "65757cff97f84497a6609d495b6c0d5d",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -1804,14 +1804,14 @@
             "dist": {
                 "type": "path",
                 "url": "extensions/content",
-                "reference": "e79495ffa558c8b158d535eed921f1056f2553f4",
+                "reference": "1a9b3bae307fcc78bb5583524d00ec831799ffe9",
                 "shasum": null
             },
             "require": {
                 "php": ">=7.1.0",
                 "yii2-developer/yii2-editor": "~2.0.0",
                 "yii2-developer/yii2-extend": "~1.0.0",
-                "yii2-developer/yii2-meta": "~1.0.0",
+                "yii2-developer/yii2-meta": "~1.1.0",
                 "yii2-developer/yii2-system": "~1.0.0",
                 "yii2-developer/yii2-transliterate": "~0.0.1",
                 "yiisoft/yii2": "~2.0.12"
@@ -2198,11 +2198,11 @@
         },
         {
             "name": "yii2-developer/yii2-meta",
-            "version": "1.0.1",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-meta.git",
-                "reference": "23e5a36a7bb97acdfd3574e443fc85f3dbc6c5bf"
+                "reference": "1e184b4041ad1d12b952caa06c8a9eaa157a31a2"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -2218,7 +2218,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "krok\\meta\\": ""
+                    "krok\\meta\\": "src"
                 }
             },
             "license": [
@@ -2236,7 +2236,7 @@
                 "meta",
                 "yii2"
             ],
-            "time": "2018-08-21T10:15:50+00:00"
+            "time": "2019-01-16T10:52:11+00:00"
         },
         {
             "name": "yii2-developer/yii2-oauth",
