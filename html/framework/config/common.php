@@ -251,6 +251,7 @@ return \yii\helpers\ArrayHelper::merge([
         ],
         'queue' => [
             'class' => \yii\queue\redis\Queue::class,
+            'channel' => hash('crc32', __FILE__),
             'redis' => [
                 'hostname' => getenv('REDIS_HOST'),
                 'port' => getenv('REDIS_PORT'),
