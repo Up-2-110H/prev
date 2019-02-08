@@ -29,11 +29,11 @@ $this->title = 'Авторизация';
                         <div class="col-lg-12">
                             <div class="card-login__title">
                                 <a href="<?= Url::to() ?>" class="logo-big">
-                                    <?= Html::img($configure->get(\krok\system\Configure::class, 'logoLogin'),
+                                    <?= Html::img($configure->get(\krok\paperdashboard\Configurable::class, 'logoLogin'),
                                         ['alt' => 'Лого']) ?>
                                 </a>
                                 <span class="name">
-                                    <?= $configure->get(\krok\system\Configure::class, 'title') ?>
+                                    <?= $configure->get(\krok\paperdashboard\Configurable::class, 'title') ?>
                                 </span>
                             </div>
                         </div>
