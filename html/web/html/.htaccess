@@ -1,7 +1,0 @@
-<IfModule mod_dir.c>
-    DirectoryIndex disabled
-</IfModule>
-
-<IfModule mod_autoindex.c>
-    Options +Indexes
-</IfModule>
