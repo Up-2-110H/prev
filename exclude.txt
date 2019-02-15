@@ -4,6 +4,7 @@
 /docker/containers/mysql/var/lib/mysql/
 /docker/backup/*/
 /html/web/html/
+/html/web/.well-known/
 /html/backup/*/
 /html/storage/*/
 /html/framework/runtime/*/
