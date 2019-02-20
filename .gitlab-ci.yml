@@ -13,7 +13,7 @@ before_script:
     - cp .env.gitlab .env
     # Up
     - docker-compose build
-    - docker-compose up -d
+    - docker-compose up --detach --remove-orphans
     - docker-compose ps
 tests:
     stage: tests
