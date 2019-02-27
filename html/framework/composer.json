@@ -77,6 +77,6 @@
         "sort-packages": true
     },
     "scripts": {
-        "post-autoload-dump": "curl --silent --header \"Accept: text/plain\" https://security.sensiolabs.org/check_lock --form lock=@composer.lock"
+        "post-autoload-dump": "curl --silent --header \"Accept: text/plain\" https://security.symfony.com/check_lock --form lock=@composer.lock"
     }
 }
