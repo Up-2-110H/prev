@@ -29,6 +29,7 @@ return \yii\helpers\ArrayHelper::merge([
                     \krok\paperdashboard\Configurable::class,
                     \krok\auth\Configurable::class,
                     \krok\mailer\Configurable::class,
+                    \krok\sms\Configurable::class,
                     \krok\robots\Configurable::class,
                     \krok\meta\MetaConfigurable::class,
                     \krok\meta\OpenGraphConfigurable::class,

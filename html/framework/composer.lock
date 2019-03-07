@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dec0fe14cb528758101741e033fa76a3",
+    "content-hash": "b283216d5e9eb90b347b653153673007",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -2526,6 +2526,44 @@
                 "yii2"
             ],
             "time": "2018-08-24T07:27:39+00:00"
+        },
+        {
+            "name": "yii2-developer/yii2-sms",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-sms.git",
+                "reference": "2fa2d0630243c2bd747e44ce75ee12ced729272f"
+            },
+            "require": {
+                "php": ">=7.1.0",
+                "yii2-developer/yii2-configure": "~1.2.0",
+                "yiisoft/yii2": "~2.0.12",
+                "yiisoft/yii2-httpclient": "~2.0.0"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "krok\\sms\\": "src"
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "krok",
+                    "email": "yii2.developer@gmail.com"
+                }
+            ],
+            "description": "SMS шлюз",
+            "keywords": [
+                "SMS",
+                "extension",
+                "gate",
+                "yii2"
+            ],
+            "time": "2019-03-07T12:01:14+00:00"
         },
         {
             "name": "yii2-developer/yii2-system",
