@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b283216d5e9eb90b347b653153673007",
+    "content-hash": "a4589a02ec7798d9c8138cc46b8ad9ab",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
@@ -240,7 +240,7 @@
             "version": "1.12.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/components/jqueryui.git",
+                "url": "git@github.com:components/jqueryui.git",
                 "reference": "44ecf3794cc56b65954cc19737234a3119d036cc"
             },
             "dist": {
@@ -2374,14 +2374,15 @@
         },
         {
             "name": "yii2-developer/yii2-queue",
-            "version": "0.1.0",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-queue.git",
-                "reference": "e7a5bbf7c21d4f344d101936bdca47e75300ae98"
+                "reference": "0ccf9f3b54e97951c75bbc866e9297913481105f"
             },
             "require": {
                 "php": ">=7.1.0",
+                "yii2-developer/yii2-sms": "~0.0.1",
                 "yiisoft/yii2-queue": "~2.0.0",
                 "yiisoft/yii2-swiftmailer": "~2.0.0"
             },
@@ -2393,7 +2394,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "krok\\queue\\": ""
+                    "krok\\queue\\": "src"
                 }
             },
             "license": [
@@ -2411,7 +2412,7 @@
                 "queue",
                 "yii2"
             ],
-            "time": "2018-05-26T17:14:47+00:00"
+            "time": "2019-03-08T05:29:38+00:00"
         },
         {
             "name": "yii2-developer/yii2-robots",
@@ -2529,11 +2530,11 @@
         },
         {
             "name": "yii2-developer/yii2-sms",
-            "version": "0.0.1",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-sms.git",
-                "reference": "2fa2d0630243c2bd747e44ce75ee12ced729272f"
+                "reference": "0b5e15805d8aa61bac94aec25afb47266ee7fb94"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -2563,7 +2564,7 @@
                 "gate",
                 "yii2"
             ],
-            "time": "2019-03-07T12:01:14+00:00"
+            "time": "2019-03-08T04:46:55+00:00"
         },
         {
             "name": "yii2-developer/yii2-system",

@@ -140,6 +140,7 @@ return \yii\helpers\ArrayHelper::merge([
             \krok\configure\serializers\SerializerInterface::class => \krok\configure\serializers\JsonSerializer::class,
             \krok\meta\serializers\SerializerInterface::class => \krok\meta\serializers\JsonSerializer::class,
             \krok\meta\MetaInterface::class => \krok\meta\Meta::class,
+            \krok\sms\GateInterface::class => \krok\queue\sms\Gate::class,
         ],
     ],
     'modules' => [
