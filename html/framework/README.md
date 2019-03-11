@@ -12,7 +12,7 @@ MySQL
 
 Common
 ======
-* behaviors, grid, traits, interfaces, validators, widgets - ( "yii2-developer/yii2-extend": "~0.1.0", ) лежат в krok\extend
+* behaviors, grid, traits, interfaces, validators, widgets - ( "yii2-developer/yii2-extend": "*", ) лежат в krok\extend
 * Имена полей в таблицах базы данных camelCase
 * Имена директорий в camelCase
 * Имена переменных в camelCase
@@ -30,11 +30,11 @@ Model
 =====
 * id - должно быть!
 * hidden - для записи, active - для учетных записей. Вариант выбора в виде select поля.
-    * html/framework/vendor/yii2-developer/yii2-extend/interfaces/HiddenAttributeInterface.php и html/framework/vendor/yii2-developer/yii2-extend/traits/HiddenAttributeTrait.php
-    * html/framework/vendor/yii2-developer/yii2-extend/interfaces/BlockedAttributeInterface.php и html/framework/vendor/yii2-developer/yii2-extend/traits/BlockedAttributeTrait.php
-* createdBy - создатель записи, внешний ключ на таблицу пользователей, ( DELETE - SET NULL , UPDATE - RESTRICT ) поведение - krok\extend\behaviors\CreatedByBehavior::class 
+    * html/framework/vendor/yii2-developer/yii2-extend/src/interfaces/HiddenAttributeInterface.php и html/framework/vendor/yii2-developer/yii2-extend/src/traits/HiddenAttributeTrait.php
+    * html/framework/vendor/yii2-developer/yii2-extend/src/interfaces/BlockedAttributeInterface.php и html/framework/vendor/yii2-developer/yii2-extend/src/traits/BlockedAttributeTrait.php
+* createdBy - создатель записи, внешний ключ на таблицу пользователей, ( DELETE - SET NULL , UPDATE - RESTRICT ) поведение - krok\extend\behaviors\CreatedByBehavior::class
 * createdBy не нужно выводить в шаблонах и фильтре
-* createdAt - дата и время создания, updatedAt - дата и время последнего обновления. Поведение - krok\extend\behaviors\TimestampBehavior::class 
+* createdAt - дата и время создания, updatedAt - дата и время последнего обновления. Поведение - krok\extend\behaviors\TimestampBehavior::class
 
 Форматтер типов, для:
 --------------------
