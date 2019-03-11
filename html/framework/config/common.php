@@ -85,10 +85,10 @@ return \yii\helpers\ArrayHelper::merge([
                 return $mount;
             },
             \krok\glide\actions\GlideAction::class => [
-                'signature' => null,
+                'signature' => hash('crc32', __FILE__),
             ],
             \krok\glide\UrlBuilderManager::class => function () {
-                $signature = null;
+                $signature = hash('crc32', __FILE__);
 
                 $urlBuilder = new \krok\glide\UrlBuilderManager([
                     'render/storage' => \League\Glide\Urls\UrlBuilderFactory::create('render/storage', $signature),
