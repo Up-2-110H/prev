@@ -198,11 +198,11 @@ $config = [
                 $databases = new \BackupManager\Databases\DatabaseProvider(new \BackupManager\Config\Config([
                     'db' => [
                         'type' => 'mysql',
-                        'host' => getenv('MYSQL_HOST'),
-                        'port' => getenv('MYSQL_PORT'),
-                        'user' => getenv('MYSQL_USER'),
-                        'pass' => getenv('MYSQL_PASSWORD'),
-                        'database' => getenv('MYSQL_DATABASE'),
+                        'host' => env('MYSQL_HOST'),
+                        'port' => env('MYSQL_PORT'),
+                        'user' => env('MYSQL_USER'),
+                        'pass' => env('MYSQL_PASSWORD'),
+                        'database' => env('MYSQL_DATABASE'),
                         'singleTransaction' => true,
                     ],
                 ]));
@@ -340,7 +340,7 @@ $config = [
                 'httpOnly' => true,
                 'path' => '/cp',
             ],
-            'cookieValidationKey' => getenv('YII_COOKIE_VALIDATION_KEY'),
+            'cookieValidationKey' => env('YII_COOKIE_VALIDATION_KEY'),
         ],
         'authManager' => [
             'class' => \yii\rbac\DbManager::class,
@@ -437,35 +437,6 @@ if (YII_ENV_DEV) {
     $config['modules']['debug'] = [
         'class' => \yii\debug\Module::class,
         'panels' => [
-            'config' => false,
-            'request' => [
-                'class' => \yii\debug\panels\RequestPanel::class,
-                'displayVars' => ['_GET', '_POST', '_COOKIE', '_SESSION', '_FILES'],
-            ],
-            'log' => [
-                'class' => \yii\debug\panels\LogPanel::class,
-            ],
-            'profiling' => [
-                'class' => \yii\debug\panels\ProfilingPanel::class,
-            ],
-            'db' => [
-                'class' => \yii\debug\panels\DbPanel::class,
-            ],
-            'assets' => [
-                'class' => \yii\debug\panels\AssetPanel::class,
-            ],
-            'mail' => [
-                'class' => \yii\debug\panels\MailPanel::class,
-            ],
-            'timeline' => [
-                'class' => \yii\debug\panels\TimelinePanel::class,
-            ],
-            'user' => [
-                'class' => \yii\debug\panels\UserPanel::class,
-            ],
-            'router' => [
-                'class' => \yii\debug\panels\RouterPanel::class,
-            ],
             'queue' => [
                 'class' => \yii\queue\debug\Panel::class,
             ],

@@ -2,9 +2,9 @@
 
 return [
     'class' => \yii\db\Connection::class,
-    'dsn' => 'mysql:host=' . getenv('MYSQL_HOST') . ';dbname=' . getenv('MYSQL_DATABASE') . ';port=' . getenv('MYSQL_PORT'),
-    'username' => getenv('MYSQL_USER'),
-    'password' => getenv('MYSQL_PASSWORD'),
+    'dsn' => 'mysql:host=' . env('MYSQL_HOST') . ';dbname=' . env('MYSQL_DATABASE') . ';port=' . env('MYSQL_PORT'),
+    'username' => env('MYSQL_USER'),
+    'password' => env('MYSQL_PASSWORD'),
     'charset' => 'utf8',
     'tablePrefix' => 'cmf2_',
     'enableQueryCache' => true,

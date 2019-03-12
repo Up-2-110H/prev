@@ -15,5 +15,5 @@ return [
     ],
     'rules' => require('rules.php'),
     'baseUrl' => '/cp',
-    'hostInfo' => getenv('YII_HOST_INFO'),
+    'hostInfo' => env('YII_HOST_INFO'),
 ];

@@ -8,9 +8,9 @@
 
 return [
     'class' => \yii\db\Connection::class,
-    'dsn' => 'mysql:host=' . getenv('MYSQL_HOST') . ';dbname=codeception', // MySQL, MariaDB
+    'dsn' => 'mysql:host=' . env('MYSQL_HOST') . ';dbname=codeception', // MySQL, MariaDB
     'username' => 'root',
-    'password' => getenv('MYSQL_ROOT_PASSWORD'),
+    'password' => env('MYSQL_ROOT_PASSWORD'),
     'charset' => 'utf8',
     'tablePrefix' => 'codeception_',
     'enableQueryCache' => true,

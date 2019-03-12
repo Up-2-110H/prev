@@ -3,3 +3,4 @@
 
 # envelopment
 /framework/config/local.php
+/.env.local

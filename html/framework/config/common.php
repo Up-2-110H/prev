@@ -22,7 +22,7 @@ return \yii\helpers\ArrayHelper::merge([
     'container' => [
         'singletons' => [
             \krok\sentry\Sentry::class => [
-                'dsn' => filter_var(getenv('SENTRY_DSN'), FILTER_VALIDATE_URL) ? getenv('SENTRY_DSN') : null,
+                'dsn' => filter_var(env('SENTRY_DSN'), FILTER_VALIDATE_URL) ? env('SENTRY_DSN') : null,
             ],
             \krok\configure\ConfigureInterface::class => function () {
                 $configurable = [
@@ -187,8 +187,8 @@ return \yii\helpers\ArrayHelper::merge([
                 'defaultDuration' => 0,
                 'keyPrefix' => hash('crc32', __FILE__),
                 'redis' => [
-                    'hostname' => getenv('REDIS_HOST'),
-                    'port' => getenv('REDIS_PORT'),
+                    'hostname' => env('REDIS_HOST'),
+                    'port' => env('REDIS_PORT'),
                     'database' => 1,
                 ],
             ],
@@ -198,8 +198,8 @@ return \yii\helpers\ArrayHelper::merge([
             'defaultDuration' => 24 * 60 * 60,
             'keyPrefix' => hash('crc32', __FILE__),
             'redis' => [
-                'hostname' => getenv('REDIS_HOST'),
-                'port' => getenv('REDIS_PORT'),
+                'hostname' => env('REDIS_HOST'),
+                'port' => env('REDIS_PORT'),
                 'database' => 0,
             ],
         ],
@@ -255,8 +255,8 @@ return \yii\helpers\ArrayHelper::merge([
             'class' => \yii\queue\redis\Queue::class,
             'channel' => hash('crc32', __FILE__),
             'redis' => [
-                'hostname' => getenv('REDIS_HOST'),
-                'port' => getenv('REDIS_PORT'),
+                'hostname' => env('REDIS_HOST'),
+                'port' => env('REDIS_PORT'),
                 'database' => 2,
             ],
         ],
