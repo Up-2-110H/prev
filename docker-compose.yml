@@ -2,7 +2,7 @@ version: '3'
 services:
     application:
         image: ${IMAGE_APPLICATION}
-        container_name: ${CONTAINER_NAME}
+        container_name: ${CONTAINER_NAME}-application
         environment:
             APACHE_RUN_ID: ${APACHE_RUN_ID}
             APACHE_RUN_USER: ${APACHE_RUN_USER}
