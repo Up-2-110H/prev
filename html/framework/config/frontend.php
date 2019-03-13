@@ -76,9 +76,8 @@ $config = [
             'cookieValidationKey' => env('YII_COOKIE_VALIDATION_KEY'),
         ],
         'errorHandler' => [
-            'class' => \krok\sentry\web\SentryErrorHandler::class,
+            'class' => \yii\web\ErrorHandler::class,
             'errorAction' => 'content/default/error',
-            'sentry' => \krok\sentry\Sentry::class,
         ],
     ],
 ];

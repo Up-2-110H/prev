@@ -245,9 +245,24 @@ return \yii\helpers\ArrayHelper::merge([
                     ],
                     'except' => [
                         'yii\web\HttpException:404',
-                        //'yii\web\HttpException:403',
+                        'yii\web\HttpException:403',
                     ],
                     'enabled' => YII_ENV_PROD,
+                ],
+                'sentry' => [
+                    'class' => \krok\sentry\SentryTarget::class,
+                    'sentry' => [
+                        'class' => \krok\sentry\Sentry::class,
+                        'install' => false,
+                    ],
+                    'levels' => [
+                        'error',
+                        'warning',
+                    ],
+                    'except' => [
+                        'yii\web\HttpException:404',
+                        'yii\web\HttpException:403',
+                    ],
                 ],
             ],
         ],

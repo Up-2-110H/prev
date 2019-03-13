@@ -53,7 +53,7 @@
         "yii2-developer/yii2-queue": "~0.2.0",
         "yii2-developer/yii2-robots": "~1.2.0",
         "yii2-developer/yii2-select2": "~0.0.1",
-        "yii2-developer/yii2-sentry": "~1.0.0",
+        "yii2-developer/yii2-sentry": "~1.1.0",
         "yii2-developer/yii2-sms": "~0.0.1",
         "yii2-developer/yii2-system": "~1.0.0",
         "yii2-developer/yii2-tinymce": "~2.0.0",

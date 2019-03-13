@@ -425,9 +425,8 @@ $config = [
             ],
         ],
         'errorHandler' => [
-            'class' => \krok\sentry\web\SentryErrorHandler::class,
+            'class' => \yii\web\ErrorHandler::class,
             'errorAction' => 'system/default/error',
-            'sentry' => \krok\sentry\Sentry::class,
         ],
     ],
 ];

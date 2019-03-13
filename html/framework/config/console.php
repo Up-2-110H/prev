@@ -155,8 +155,7 @@ $config = [
             'cache' => 'cache',
         ],
         'errorHandler' => [
-            'class' => \krok\sentry\console\SentryErrorHandler::class,
-            'sentry' => \krok\sentry\Sentry::class,
+            'class' => \yii\console\ErrorHandler::class,
         ],
     ],
 ];
