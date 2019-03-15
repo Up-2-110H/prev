@@ -14,6 +14,7 @@ AddDefaultCharset utf-8
 
     # Redirect to https protocol
     # RewriteCond %{HTTPS} off
+    # RewriteCond %{HTTP_HOST} !172.72.7.2
     # RewriteCond %{HTTP:X-Forwarded-Proto} !https
     # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
