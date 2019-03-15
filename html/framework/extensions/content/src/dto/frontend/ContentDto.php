@@ -18,6 +18,11 @@ use krok\content\models\Content;
 class ContentDto
 {
     /**
+     * @var int
+     */
+    protected $id;
+
+    /**
      * @var string
      */
     protected $alias;
@@ -59,6 +64,7 @@ class ContentDto
      */
     public function __construct(Content $model)
     {
+        $this->id = $model->id;
         $this->alias = $model->alias;
         $this->title = $model->title;
         $this->text = $model->text;
@@ -66,6 +72,14 @@ class ContentDto
         $this->view = $model->view;
         $this->createdAt = $model->createdAt;
         $this->updatedAt = $model->updatedAt;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
     }
 
     /**
