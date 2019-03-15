@@ -177,12 +177,12 @@
             "version": "v3.2.5",
             "source": {
                 "type": "git",
-                "url": "git@github.com:fancyapps/fancyBox.git",
+                "url": "https://github.com/fancyapps/fancybox.git",
                 "reference": "e68489e6f29334f85b6b98d995469f6be5a13b19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fancyapps/fancyBox/zipball/e68489e6f29334f85b6b98d995469f6be5a13b19",
+                "url": "https://api.github.com/repos/fancyapps/fancybox/zipball/e68489e6f29334f85b6b98d995469f6be5a13b19",
                 "reference": "e68489e6f29334f85b6b98d995469f6be5a13b19",
                 "shasum": null
             },
@@ -852,10 +852,10 @@
         },
         {
             "name": "npm-asset/flatpickr",
-            "version": "4.5.6",
+            "version": "4.5.7",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/flatpickr/-/flatpickr-4.5.6.tgz",
+                "url": "https://registry.npmjs.org/flatpickr/-/flatpickr-4.5.7.tgz",
                 "reference": null,
                 "shasum": null
             },
@@ -2064,11 +2064,11 @@
         },
         {
             "name": "yii2-developer/yii2-extend",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-extend.git",
-                "reference": "8badd1f0a74a7b65d4ad37752e8446280ae44273"
+                "reference": "c8099f484a2f3a6f02f3fad6bc3a64359a07633e"
             },
             "require": {
                 "bower-asset/fancybox": "~2.1.0 | ~3.2.5",
@@ -2100,7 +2100,7 @@
                 "extension",
                 "yii2"
             ],
-            "time": "2018-11-26T04:46:04+00:00"
+            "time": "2019-03-15T10:44:00+00:00"
         },
         {
             "name": "yii2-developer/yii2-filesystem",
