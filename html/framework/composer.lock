@@ -4,26 +4,26 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "212e5dfcb96e897d9af734951fc55f7d",
+    "content-hash": "8f86b6032f07c5ff4347ecc2e79f7521",
     "packages": [
         {
             "name": "backup-manager/backup-manager",
-            "version": "1.1.3",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/backup-manager/backup-manager.git",
-                "reference": "9e53714a993135f57fe2bff001203b6f75c2387c"
+                "reference": "2176c335e0a3a3f65da4f3966a5336856206a86b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/backup-manager/backup-manager/zipball/9e53714a993135f57fe2bff001203b6f75c2387c",
-                "reference": "9e53714a993135f57fe2bff001203b6f75c2387c",
+                "url": "https://api.github.com/repos/backup-manager/backup-manager/zipball/2176c335e0a3a3f65da4f3966a5336856206a86b",
+                "reference": "2176c335e0a3a3f65da4f3966a5336856206a86b",
                 "shasum": ""
             },
             "require": {
-                "league/flysystem": "~1.0",
-                "php": ">=5.5.9",
-                "symfony/process": "~2.1|~3.0"
+                "league/flysystem": "^1.0",
+                "php": "^5.5.9 || ^7.0",
+                "symfony/process": "^2.1 || ^3.0 || ^4.0"
             },
             "require-dev": {
                 "aws/aws-sdk-php": "~3.0",
@@ -32,15 +32,20 @@
                 "league/flysystem-dropbox": "~1.0",
                 "league/flysystem-rackspace": "~1.0",
                 "league/flysystem-sftp": "~1.0",
+                "mhetreramesh/flysystem-backblaze": "~1.0",
                 "mockery/mockery": "~0.9",
                 "phpspec/phpspec": "~2.1",
-                "satooshi/php-coveralls": "~0.6"
+                "satooshi/php-coveralls": "~0.6",
+                "srmklive/flysystem-dropbox-v2": "~1.0",
+                "superbalist/flysystem-google-storage": "^7.0"
             },
             "suggest": {
-                "league/flysystem-aws-s3-v3": "AwsS3 and GoogleCS adapter support.",
-                "league/flysystem-dropbox": "Dropbox adapter support.",
+                "league/flysystem-aws-s3-v3": "AWS S3 adapter support.",
                 "league/flysystem-rackspace": "Rackspace adapter support.",
-                "league/flysystem-sftp": "Sftp adapter support."
+                "league/flysystem-sftp": "SFTP adapter support.",
+                "mhetreramesh/flysystem-backblaze": "B2 adapter support.",
+                "srmklive/flysystem-dropbox-v2": "Dropbox API v2 adapter support.",
+                "superbalist/flysystem-google-storage": "Google Cloud Storage adapter support."
             },
             "type": "library",
             "extra": {
@@ -70,7 +75,7 @@
                 }
             ],
             "description": "A framework agnostic database backup manager with user-definable procedures and support for S3, Dropbox, FTP, SFTP, and more with drivers for popular frameworks.",
-            "time": "2017-01-05T12:10:13+00:00"
+            "time": "2018-10-16T19:36:05+00:00"
         },
         {
             "name": "bootstrap-select/bootstrap-select",
@@ -1263,25 +1268,25 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.3.18",
+            "version": "v4.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "03da5d9bac613d2095373df9ca8697b9fa571789"
+                "reference": "267b7002c1b70ea80db0833c3afe05f0fbde580a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/03da5d9bac613d2095373df9ca8697b9fa571789",
-                "reference": "03da5d9bac613d2095373df9ca8697b9fa571789",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/267b7002c1b70ea80db0833c3afe05f0fbde580a",
+                "reference": "267b7002c1b70ea80db0833c3afe05f0fbde580a",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8"
+                "php": "^7.1.3"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.3-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -1308,7 +1313,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-03T07:37:11+00:00"
+            "time": "2019-02-23T15:42:05+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -1370,25 +1375,25 @@
         },
         {
             "name": "symfony/process",
-            "version": "v3.4.23",
+            "version": "v4.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "009f8dda80930e89e8344a4e310b08f9ff07dd2e"
+                "reference": "6c05edb11fbeff9e2b324b4270ecb17911a8b7ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/009f8dda80930e89e8344a4e310b08f9ff07dd2e",
-                "reference": "009f8dda80930e89e8344a4e310b08f9ff07dd2e",
+                "url": "https://api.github.com/repos/symfony/process/zipball/6c05edb11fbeff9e2b324b4270ecb17911a8b7ad",
+                "reference": "6c05edb11fbeff9e2b324b4270ecb17911a8b7ad",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8"
+                "php": "^7.1.3"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -1415,7 +1420,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-16T13:27:11+00:00"
+            "time": "2019-01-24T22:05:03+00:00"
         },
         {
             "name": "tinymce/tinymce",
@@ -1517,16 +1522,16 @@
         },
         {
             "name": "yii2-developer/backup-manager",
-            "version": "0.0.1",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/extension/backup-manager.git",
-                "reference": "3f7428fd0f14ae5f7b46154adf1d82eb2340e6a6"
+                "reference": "994ef095d6f62c78c0d63e429dfb8aa55bb1ea1e"
             },
             "require": {
-                "backup-manager/backup-manager": "~1.1.0",
+                "backup-manager/backup-manager": "~1.3.0",
                 "php": ">=7.1.0",
-                "symfony/finder": "~3.3.0"
+                "symfony/finder": "~4.2.0"
             },
             "type": "library",
             "extra": {
@@ -1536,7 +1541,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "krok\\BackupManager\\": ""
+                    "krok\\BackupManager\\": "src"
                 }
             },
             "license": [
@@ -1553,7 +1558,7 @@
                 "backup-manager",
                 "library"
             ],
-            "time": "2018-05-29T03:48:09+00:00"
+            "time": "2019-03-18T08:59:39+00:00"
         },
         {
             "name": "yii2-developer/env",
@@ -1744,18 +1749,18 @@
         },
         {
             "name": "yii2-developer/yii2-backup",
-            "version": "0.0.3",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-backup.git",
-                "reference": "ba98cb2e4008603aa49ca87cce30e52a1dace999"
+                "reference": "c81b8ff26bdf076404a457d5ec2af0b9bdcd7b67"
             },
             "require": {
                 "php": ">=7.1.0",
-                "yii2-developer/backup-manager": "~0.0.1",
+                "yii2-developer/backup-manager": "~1.1.0",
+                "yii2-developer/yii2-queue": "~1.0.0",
                 "yii2-developer/yii2-system": "~1.0.0",
-                "yiisoft/yii2": "~2.0.12",
-                "yiisoft/yii2-queue": "~2.0.0"
+                "yiisoft/yii2": "~2.0.12"
             },
             "type": "yii2-extension",
             "extra": {
@@ -1765,7 +1770,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "krok\\backup\\": ""
+                    "krok\\backup\\": "src"
                 }
             },
             "license": [
@@ -1783,7 +1788,7 @@
                 "extension",
                 "yii2"
             ],
-            "time": "2018-06-02T07:21:44+00:00"
+            "time": "2019-03-18T14:15:58+00:00"
         },
         {
             "name": "yii2-developer/yii2-bootbox",
@@ -2521,16 +2526,16 @@
         },
         {
             "name": "yii2-developer/yii2-queue",
-            "version": "0.2.0",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-queue.git",
-                "reference": "0ccf9f3b54e97951c75bbc866e9297913481105f"
+                "reference": "fd65d85ed2394b7ad6b1cf6fa13fdd867bdb2a40"
             },
             "require": {
                 "php": ">=7.1.0",
                 "yii2-developer/yii2-sms": "~0.0.1",
-                "yiisoft/yii2-queue": "~2.0.0",
+                "yiisoft/yii2-queue": "~2.1.0",
                 "yiisoft/yii2-swiftmailer": "~2.0.0"
             },
             "type": "yii2-extension",
@@ -2559,7 +2564,7 @@
                 "queue",
                 "yii2"
             ],
-            "time": "2019-03-08T05:29:38+00:00"
+            "time": "2019-03-18T06:43:05+00:00"
         },
         {
             "name": "yii2-developer/yii2-robots",
@@ -3289,24 +3294,25 @@
         },
         {
             "name": "yiisoft/yii2-queue",
-            "version": "2.0.2",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-queue.git",
-                "reference": "8c2b337f7d9ea934c2affdfc21c9fb387d0a0773"
+                "reference": "d04b4b3c932081200876a351cc6c3502e89e11b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-queue/zipball/8c2b337f7d9ea934c2affdfc21c9fb387d0a0773",
-                "reference": "8c2b337f7d9ea934c2affdfc21c9fb387d0a0773",
+                "url": "https://api.github.com/repos/yiisoft/yii2-queue/zipball/d04b4b3c932081200876a351cc6c3502e89e11b8",
+                "reference": "d04b4b3c932081200876a351cc6c3502e89e11b8",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.5.0",
                 "symfony/process": "*",
-                "yiisoft/yii2": "~2.0.13"
+                "yiisoft/yii2": "~2.0.14"
             },
             "require-dev": {
+                "aws/aws-sdk-php": ">=2.4",
                 "enqueue/amqp-lib": "^0.8",
                 "jeremeamia/superclosure": "*",
                 "pda/pheanstalk": "*",
@@ -3317,6 +3323,7 @@
                 "yiisoft/yii2-redis": "*"
             },
             "suggest": {
+                "aws/aws-sdk-php": "Need for aws SQS.",
                 "enqueue/amqp-lib": "Need for AMQP interop queue.",
                 "ext-gearman": "Need for Gearman queue.",
                 "ext-pcntl": "Need for process signals.",
@@ -3340,7 +3347,8 @@
                     "yii\\queue\\file\\": "src/drivers/file",
                     "yii\\queue\\gearman\\": "src/drivers/gearman",
                     "yii\\queue\\redis\\": "src/drivers/redis",
-                    "yii\\queue\\sync\\": "src/drivers/sync"
+                    "yii\\queue\\sync\\": "src/drivers/sync",
+                    "yii\\queue\\sqs\\": "src/drivers/sqs"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -3353,7 +3361,7 @@
                     "email": "zhuravljov@gmail.com"
                 }
             ],
-            "description": "Yii2 Queue Extension which supported DB, Redis, RabbitMQ, Beanstalk and Gearman",
+            "description": "Yii2 Queue Extension which supported DB, Redis, RabbitMQ, Beanstalk, SQS and Gearman",
             "keywords": [
                 "async",
                 "beanstalk",
@@ -3363,9 +3371,10 @@
                 "queue",
                 "rabbitmq",
                 "redis",
+                "sqs",
                 "yii"
             ],
-            "time": "2017-12-26T17:16:14+00:00"
+            "time": "2018-05-23T21:04:57+00:00"
         },
         {
             "name": "yiisoft/yii2-redis",
