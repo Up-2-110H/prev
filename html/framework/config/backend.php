@@ -3,7 +3,7 @@
 $config = [
     'id' => 'web',
     'defaultRoute' => 'system',
-    'as beforeRequest' => [
+    'as accessControl' => [
         'class' => \krok\system\components\backend\AccessControl::class,
         'except' => [
             'gii/*',
