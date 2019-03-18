@@ -1629,11 +1629,11 @@
         },
         {
             "name": "yii2-developer/yii2-analytics",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-analytics.git",
-                "reference": "331c6a5c7fc58f058107c1142c8fa7f6a6a94de8"
+                "reference": "fbf708b50d0378392b2aaa393f973d05679df3d9"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -1654,13 +1654,13 @@
                     "email": "yii2.developer@gmail.com"
                 }
             ],
-            "description": "Analytics,OS,Space,PHP,Database",
+            "description": "Статистика: ОС, место на жестком диске, информация о PHP, информация о database",
             "keywords": [
                 "analytics",
                 "extension",
                 "yii2"
             ],
-            "time": "2018-02-03T12:13:59+00:00"
+            "time": "2019-03-15T13:34:14+00:00"
         },
         {
             "name": "yii2-developer/yii2-application",
