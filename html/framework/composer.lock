@@ -2682,11 +2682,11 @@
         },
         {
             "name": "yii2-developer/yii2-sms",
-            "version": "0.0.3",
+            "version": "0.0.4",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-sms.git",
-                "reference": "0b5e15805d8aa61bac94aec25afb47266ee7fb94"
+                "reference": "7d37733f67a27efff0d3bbf04987890fb5cb1c56"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -2716,7 +2716,7 @@
                 "gate",
                 "yii2"
             ],
-            "time": "2019-03-08T04:46:55+00:00"
+            "time": "2019-03-18T08:12:33+00:00"
         },
         {
             "name": "yii2-developer/yii2-system",
