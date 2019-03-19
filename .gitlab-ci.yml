@@ -25,8 +25,8 @@ tests:
         # Configure application
         - cp html/.env.gitlab html/.env.local
 
-        - ./docker.sh exec cat html/.env
-        - ./docker.sh exec cat html/.env.local
+        - ./docker.sh exec cat .env
+        - ./docker.sh exec cat .env.local
 
         # Try tests
         - ./docker.sh tests wait
