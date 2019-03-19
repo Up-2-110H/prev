@@ -22,6 +22,9 @@ tests:
         # Composer install
         - ./docker.sh exec composer --working-dir=framework install
 
+        # Configure application
+        - cp html/.env.gitlab html/.env.local
+
         # Try tests
         - ./docker.sh tests wait
     tags:
