@@ -1,5 +1,5 @@
 .git
-.env
+/.env
 /docker/containers/application/var/log/*/
 /docker/containers/mysql/var/lib/mysql/
 /docker/backup/*/
