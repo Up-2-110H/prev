@@ -9,7 +9,6 @@ services:
             APACHE_RUN_GROUP: ${APACHE_RUN_GROUP}
             CRON_FILE: /var/spool/cron/config/crontab
         volumes:
-            - ./.env:/var/www/.env
             - ./html:/var/www/html
             - ./docker/.composer:/var/www/.composer
             - ./docker/containers/application/var/log/apache2:/var/log/apache2
