@@ -3,6 +3,7 @@
 /docker/containers/application/var/log/*/
 /docker/containers/mysql/var/lib/mysql/
 /docker/backup/*/
+/html/.env.local
 /html/web/html/
 /html/web/.well-known/
 /html/backup/*/
