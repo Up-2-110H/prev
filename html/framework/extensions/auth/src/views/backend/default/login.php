@@ -29,7 +29,8 @@ $this->title = 'Авторизация';
                         <div class="col-lg-12">
                             <div class="card-login__title">
                                 <a href="<?= Url::to() ?>" class="logo-big">
-                                    <?= Html::img($configure->get(\krok\paperdashboard\Configurable::class, 'logoLogin'),
+                                    <?= Html::img($configure->get(\krok\paperdashboard\Configurable::class,
+                                        'logoLogin'),
                                         ['alt' => 'Лого']) ?>
                                 </a>
                                 <span class="name">
@@ -58,7 +59,7 @@ $this->title = 'Авторизация';
                                 <div class="form-group">
                                     <?= $form->field($model, 'verifyCode')->widget(
                                         Captcha::class, [
-                                        'captchaAction' => ['captcha'],
+                                        'captchaAction' => '/auth/default/captcha',
                                     ]) ?>
                                 </div>
                             </div>
