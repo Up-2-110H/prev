@@ -9,6 +9,7 @@ use krok\auth\models\OAuth;
 use krok\configure\ConfigureInterface;
 use krok\system\components\backend\Controller;
 use Yii;
+use yii\authclient\AuthAction;
 use yii\authclient\ClientInterface;
 use yii\base\Module;
 use yii\captcha\CaptchaAction;
@@ -63,7 +64,7 @@ class DefaultController extends Controller
             $actions = array_merge($actions, [
                 'oauth' => ArrayHelper::merge(
                     [
-                        'class' => 'yii\authclient\AuthAction',
+                        'class' => AuthAction::class,
                         'successCallback' => [$this, 'OAuthCallback'],
                     ],
                     Yii::$app->getUser()->getIsGuest() ? [] : [
