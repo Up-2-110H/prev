@@ -1,6 +1,7 @@
 .git
 /.env
 /docker/containers/application/var/log/*/
+/docker/containers/application/var/run/*/
 /docker/containers/mysql/var/lib/mysql/
 /docker/backup/*/
 /html/.env.local
