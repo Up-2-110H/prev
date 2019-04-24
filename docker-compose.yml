@@ -15,6 +15,7 @@ services:
             - ./docker/containers/application/var/log/supervisor:/var/log/supervisor
             - ./docker/containers/application/var/spool/cron/config:/var/spool/cron/config
             - ./docker/containers/application/usr/log/supervisor:/usr/log/supervisor
+            - ./docker/containers/application/var/run:/var/run
             - ./docker/containers/application/usr/local/etc/php/php.ini:/usr/local/etc/php/php.ini
             - ./docker/containers/application/etc/supervisor/application.conf:/etc/supervisor/application.conf
         expose:

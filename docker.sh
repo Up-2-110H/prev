@@ -28,6 +28,11 @@ do_exec() {
     do_watch
 }
 
+do_supervisor() {
+    docker-compose exec -T "$CONTAINER_APPLICATION" supervisorctl --configuration=/etc/supervisor/application.conf "$@"
+    do_watch
+}
+
 do_mysql_backup() {
 
     DIRECTORY="docker/backup"
@@ -169,6 +174,11 @@ case "$1" in
         do_exec $@
         ;;
 
+    supervisor)
+        shift
+        do_supervisor $@
+        ;;
+
     mysql-backup)
         shift
         do_mysql_backup $@
@@ -209,7 +219,7 @@ case "$1" in
         do_make_test $@
         ;;
     *)
-    echo "Usage: docker.sh [exec|mysql-backup|mysql-restore|mysql-drop-table|mysql-truncate-database|tests|install|update|g:cest|g:test]"
+    echo "Usage: docker.sh [exec|supervisor|mysql-backup|mysql-restore|mysql-drop-table|mysql-truncate-database|tests|install|update|g:cest|g:test]"
     ;;
 
 esac
