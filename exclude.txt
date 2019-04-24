@@ -1,7 +1,7 @@
 .git
 /.env
-/docker/containers/application/var/log/*/
-/docker/containers/application/var/run/*/
+/docker/containers/application/var/log/
+/docker/containers/application/var/run/
 /docker/containers/mysql/var/lib/mysql/
 /docker/backup/*/
 /html/.env.local
@@ -9,5 +9,5 @@
 /html/web/.well-known/
 /html/backup/*/
 /html/storage/*/
-/html/framework/runtime/*/
+/html/framework/runtime/
 /html/framework/config/local.php
