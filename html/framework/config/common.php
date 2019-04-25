@@ -126,6 +126,16 @@ return \yii\helpers\ArrayHelper::merge([
 
                 return $servers;
             },
+            \League\Tactician\CommandBus::class => function () {
+                $lockingMiddleware = new \League\Tactician\Plugins\LockingMiddleware();
+                $commandMiddleware = new \League\Tactician\Handler\CommandHandlerMiddleware(
+                    new \League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor(),
+                    new \League\Tactician\Handler\Locator\InMemoryLocator([]),
+                    new \League\Tactician\Handler\MethodNameInflector\InvokeInflector()
+                );
+
+                return new \League\Tactician\CommandBus([$lockingMiddleware, $commandMiddleware]);
+            },
             \krok\language\LanguageInterface::class => function () {
                 $list = [
                     [
