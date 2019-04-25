@@ -1992,11 +1992,11 @@
         },
         {
             "name": "yii2-developer/yii2-datetime-formatter",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-datetime-formatter.git",
-                "reference": "dbe946b21a89081079d9994b7d7e3f24de35ac6d"
+                "reference": "500625c2ca88a1ce74491730d583883c4871ad62"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -2011,7 +2011,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "krok\\datetimeFormatter\\": ""
+                    "krok\\datetimeFormatter\\": "src"
                 }
             },
             "license": [
@@ -2030,7 +2030,7 @@
                 "formatter",
                 "yii2"
             ],
-            "time": "2018-08-20T10:30:40+00:00"
+            "time": "2019-04-25T06:01:07+00:00"
         },
         {
             "name": "yii2-developer/yii2-editor",
@@ -2151,11 +2151,11 @@
         },
         {
             "name": "yii2-developer/yii2-flatpickr",
-            "version": "0.0.4",
+            "version": "0.0.5",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-flatpickr.git",
-                "reference": "59eb0da06bf3472458be96aab83eb64ea9bf7247"
+                "reference": "f0e0d722ef986ac278b2755a636e4163c69522c0"
             },
             "require": {
                 "npm-asset/flatpickr": "~4.5.0",
@@ -2170,7 +2170,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "krok\\flatpickr\\": ""
+                    "krok\\flatpickr\\": "src"
                 }
             },
             "license": [
@@ -2188,7 +2188,7 @@
                 "flatpickr",
                 "yii2"
             ],
-            "time": "2018-08-28T11:20:17+00:00"
+            "time": "2019-04-25T05:02:07+00:00"
         },
         {
             "name": "yii2-developer/yii2-glide",
@@ -3565,16 +3565,16 @@
         },
         {
             "name": "codeception/base",
-            "version": "2.5.5",
+            "version": "2.5.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/base.git",
-                "reference": "17c3e2fc627b18dceec393b4b42e47c45be31ac2"
+                "reference": "aace5bab5593c93d8473b620f70754135a1eb4f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/base/zipball/17c3e2fc627b18dceec393b4b42e47c45be31ac2",
-                "reference": "17c3e2fc627b18dceec393b4b42e47c45be31ac2",
+                "url": "https://api.github.com/repos/Codeception/base/zipball/aace5bab5593c93d8473b620f70754135a1eb4f0",
+                "reference": "aace5bab5593c93d8473b620f70754135a1eb4f0",
                 "shasum": ""
             },
             "require": {
@@ -3651,7 +3651,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2019-03-23T18:30:45+00:00"
+            "time": "2019-04-24T11:36:34+00:00"
         },
         {
             "name": "codeception/phpunit-wrapper",
