@@ -129,12 +129,12 @@ do_tests() {
     docker-compose exec -T --env="MYSQL_PWD=$MYSQL_ROOT_PASSWORD" "$CONTAINER_MYSQL" mysql --user=root -e "CREATE DATABASE $DB;"
     do_watch wait
 
-    docker-compose exec -T --env="YII_ENV=test" --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii migrate/up --appconfig=framework/tests/config/console.php
+    docker-compose exec -T --env="YII_ENV=test" --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" php framework/yii migrate/up --appconfig=framework/tests/config/console.php
     do_watch wait
-    docker-compose exec -T --env="YII_ENV=test" --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/yii access/install --appconfig=framework/tests/config/console.php
+    docker-compose exec -T --env="YII_ENV=test" --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" php framework/yii access/install --appconfig=framework/tests/config/console.php
     do_watch wait
 
-    docker-compose exec -T --env="YII_ENV=test" --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" framework/vendor/bin/codecept run --config=framework/codeception.yml
+    docker-compose exec -T --env="YII_ENV=test" --user="$APACHE_RUN_USER:$APACHE_RUN_GROUP" "$CONTAINER_APPLICATION" php framework/vendor/bin/codecept run --config=framework/codeception.yml
     do_watch wait
 
     docker-compose exec -T --env="MYSQL_PWD=$MYSQL_ROOT_PASSWORD" "$CONTAINER_MYSQL" mysql --user=root -e "DROP DATABASE $DB;"
@@ -146,25 +146,25 @@ do_tests() {
 do_install() {
     do_exec composer install --working-dir=framework
 
-    do_exec framework/yii migrate/up
-    do_exec framework/yii access/install
-    do_exec framework/yii cache/flush-all
+    do_exec php framework/yii migrate/up
+    do_exec php framework/yii access/install
+    do_exec php framework/yii cache/flush-all
 }
 
 do_update() {
     do_exec composer update --working-dir=framework
 
-    do_exec framework/yii migrate/up
-    do_exec framework/yii access/install
-    do_exec framework/yii cache/flush-all
+    do_exec php framework/yii migrate/up
+    do_exec php framework/yii access/install
+    do_exec php framework/yii cache/flush-all
 }
 
 do_make_cest() {
-    do_exec framework/vendor/bin/codecept g:cest functional "$@" --config=framework/codeception.yml
+    do_exec php framework/vendor/bin/codecept g:cest functional "$@" --config=framework/codeception.yml
 }
 
 do_make_test() {
-    do_exec framework/vendor/bin/codecept g:test unit "$@" --config=framework/codeception.yml
+    do_exec php framework/vendor/bin/codecept g:test unit "$@" --config=framework/codeception.yml
 }
 
 case "$1" in
