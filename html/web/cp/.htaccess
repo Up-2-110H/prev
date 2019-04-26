@@ -9,15 +9,6 @@ AddDefaultCharset utf-8
 
     RewriteEngine on
 
-    RewriteCond %{HTTP_HOST} ^www\.(.*)$
-    RewriteRule ^(.*)$ http://%1/cp/$1 [L,R=301]
-
-    # Redirect to https protocol
-    # RewriteCond %{HTTPS} off
-    # RewriteCond %{HTTP_HOST} !172.72.7.2
-    # RewriteCond %{HTTP:X-Forwarded-Proto} !https
-    # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
     # If a directory or a file exists, use it directly
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
