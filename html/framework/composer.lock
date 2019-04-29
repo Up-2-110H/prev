@@ -2401,11 +2401,11 @@
         },
         {
             "name": "yii2-developer/yii2-meta",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://gitlab.dev-vps.ru/yii2-extension/yii2-meta.git",
-                "reference": "f6923d4fb5b6003b87fb528c9bf4340f98c145f4"
+                "reference": "02b716d903da998e110cd5ef34e32fac62afc687"
             },
             "require": {
                 "php": ">=7.1.0",
@@ -2439,7 +2439,7 @@
                 "meta",
                 "yii2"
             ],
-            "time": "2019-02-16T05:59:38+00:00"
+            "time": "2019-04-26T11:29:18+00:00"
         },
         {
             "name": "yii2-developer/yii2-oauth",
