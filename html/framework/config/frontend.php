@@ -8,8 +8,8 @@ $config = [
         /**
          * see. https://content-security-policy.com/
          */
-        Yii::$app->getResponse()->getHeaders()->add('Content-Security-Policy',
-            'default-src \'none\'; script-src \'self\' \'unsafe-inline\'; connect-src \'self\'; child-src \'self\'; img-src * data:; style-src * \'unsafe-inline\'; font-src *;');
+        // Yii::$app->getResponse()->getHeaders()->add('Content-Security-Policy',
+        //    'default-src \'none\'; script-src \'self\' \'unsafe-inline\'; connect-src \'self\'; child-src \'self\'; img-src * data:; style-src * \'unsafe-inline\'; font-src *;');
     },
     'container' => [
         'definitions' => [
