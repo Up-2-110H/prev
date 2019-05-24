@@ -11,7 +11,7 @@ return \yii\helpers\ArrayHelper::merge([
     'timeZone' => 'UTC',
     'language' => 'ru-RU',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log', 'redirect'],
     'aliases' => [
         '@root' => dirname(dirname(__DIR__)),
         '@bower' => '@vendor/bower-asset',
@@ -173,6 +173,7 @@ return \yii\helpers\ArrayHelper::merge([
             'class' => \yii\base\Module::class,
             'controllerNamespace' => 'krok\filesystem\controllers',
         ],
+        'redirect' => 'app\modules\redirect\Module',
     ],
     'components' => [
         'formatter' => [
