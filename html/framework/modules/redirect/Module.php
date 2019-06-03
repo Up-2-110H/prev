@@ -2,9 +2,9 @@
 
 namespace app\modules\redirect;
 
-use Yii;
 use yii\base\Application;
 use yii\base\BootstrapInterface;
+use app\modules\redirect\components\CSVHandler;
 
 /**
  * Class Module
@@ -12,6 +12,7 @@ use yii\base\BootstrapInterface;
  */
 class Module extends \yii\base\Module implements BootstrapInterface
 {
+
     public function init()
     {
         parent::init();
@@ -24,16 +25,12 @@ class Module extends \yii\base\Module implements BootstrapInterface
      */
     public function bootstrap($app)
     {
-        if (file_exists(Yii::getAlias('@app/modules/redirect/web/redirect.csv'))) {
-            $csv = fopen(Yii::getAlias('@app/modules/redirect/web/redirect.csv'), 'r');
-            $url = $app->getRequest()->getUrl();
+        $url = $app->getRequest()->getUrl();
+        $csvHandler = new CSVHandler('@app/modules/redirect/web/redirect.csv');
+        $csvHandler->url = $url;
 
-            while ($row = fgetcsv($csv)) {
-                if ($url == trim($row[0])) {
-                    header('Location: ' . $row[1], true, $row[2]);
-                    die();
-                }
-            }
+        if ($csvHandler->redirect()) {
+            die();
         }
     }
 }
