@@ -2,9 +2,11 @@
 
 namespace app\modules\redirect;
 
+use app\modules\redirect\components\CSVHandler;
+use app\modules\redirect\components\CSVRedirect;
+use app\modules\redirect\components\CSVSearch;
 use yii\base\Application;
 use yii\base\BootstrapInterface;
-use app\modules\redirect\components\CSVHandler;
 
 /**
  * Class Module
@@ -25,11 +27,11 @@ class Module extends \yii\base\Module implements BootstrapInterface
      */
     public function bootstrap($app)
     {
-        $url = $app->getRequest()->getUrl();
         $csvHandler = new CSVHandler('@app/modules/redirect/web/redirect.csv');
-        $csvHandler->url = $url;
+        $csvSearch = new CSVSearch($csvHandler);
+        $csvRedirect = new CSVRedirect($csvSearch);
 
-        if ($csvHandler->redirect()) {
+        if ($csvRedirect->redirect()) {
             die();
         }
     }
