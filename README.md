@@ -20,7 +20,7 @@ Yandex Robots component files:
     * RobotsCleanParam
     * RobotsCrawlDelay
     
-##Example:
+## Example:
 ```
 /** @var \app\components\Robots $robots */
 $robots = Yii::$app->robots; // or $robots = new \app\components\Robots();
@@ -34,7 +34,7 @@ $robots->crawlDelay->add('2.0');
 $robots->file->text(); // or $robots->file->append();
 ```
 
-#####robots.txt:
+##### robots.txt:
 ```
 User-agent: Yandex
 Allow: /site
@@ -44,9 +44,10 @@ Clean-param: query /site
 Crawl-delay: 2.0
 ```
 
-##API
+## API
 
-###\app\components\Robots:
+### \app\components\Robots:
+
 |Property  |Type                            |Description                        |
 |----------|--------------------------------|-----------------------------------|
 |file      |\app\components\RobotsFile      |Для записи в файл robots.txt       |
@@ -70,7 +71,7 @@ Crawl-delay: 2.0
 |clear()        |void                       |Удаляет все параметры                                    |
 |disableAll()   |void                       |Добавляет параметр, запрещающий ботам доступ к сайту     |
 
-###\app\components\RobotsFile:
+### \app\components\RobotsFile:
 
 |Method  |Returns|Description                                                                           |
 |--------|-------|--------------------------------------------------------------------------------------|
@@ -78,7 +79,7 @@ Crawl-delay: 2.0
 |append()|bool   |Записивает параметры и их значения Robots в конец файла robots.txt                    |
 |clear() |bool   |Очищает файл robots.txt                                                               |
 
-###\app\components\RobotsUserAgent:
+### \app\components\RobotsUserAgent:
 
 |Method                           |Returns|Description                                                                                                           |
 |---------------------------------|-------|----------------------------------------------------------------------------------------------------------------------|
@@ -99,7 +100,7 @@ Crawl-delay: 2.0
 |addYandexNews()                  |int    |Добавляет параметр User-agent со значением YandexNews, возвращает количество параметров Robots                        |
 |addYandexPageChecker()           |int    |Добавляет параметр User-agent со значением YandexPageChecker, возвращает количество параметров Robots                 |
 
-###\app\components\RobotsAllow:
+### \app\components\RobotsAllow:
 
 |Method                           |Returns|Description                                                                                                      |
 |---------------------------------|-------|-----------------------------------------------------------------------------------------------------------------|
@@ -107,7 +108,7 @@ Crawl-delay: 2.0
 |remove(int $index)               |bool   |Удаляет параметр Allow под индексом $index, индекс параметра можно получить с помощью метода list() класса Robots|
 |change(int $index, string $value)|bool   |Поменяет значение параметра Allow под индексом $index на $value                                                  |
 
-###\app\components\RobotsDisallow:
+### \app\components\RobotsDisallow:
 
 |Method                           |Returns|Description                                                                                                         |
 |---------------------------------|-------|--------------------------------------------------------------------------------------------------------------------|
@@ -116,7 +117,7 @@ Crawl-delay: 2.0
 |change(int $index, string $value)|bool   |Поменяет значение параметра Disallow под индексом $index на $value                                                  |
 |all()                            |void   |Добавляет параметр Disallow со значением /                                                                          |
 
-###\app\components\RobotsSitemap:
+### \app\components\RobotsSitemap:
 
 |Method                           |Returns|Description                                                                                                        |
 |---------------------------------|-------|-------------------------------------------------------------------------------------------------------------------|
@@ -124,7 +125,7 @@ Crawl-delay: 2.0
 |remove(int $index)               |bool   |Удаляет параметр Sitemap под индексом $index, индекс параметра можно получить с помощью метода list() класса Robots|
 |change(int $index, string $value)|bool   |Поменяет значение параметра Sitemap под индексом $index на $value                                                  |
 
-###\app\components\RobotsCleanParam:
+### \app\components\RobotsCleanParam:
 
 |Method                                          |Returns|Description                                                                                                      |
 |------------------------------------------------|-------|-----------------------------------------------------------------------------------------------------------------|
@@ -132,7 +133,7 @@ Crawl-delay: 2.0
 |remove(int $index)                              |bool   |Удаляет параметр Allow под индексом $index, индекс параметра можно получить с помощью метода list() класса Robots|
 |change(string $param, int $index, string $value)|bool   |Поменяет значение параметра Allow под индексом $index на "$param $value"                                         |
 
-###\app\components\RobotsCrawlDelay:
+### \app\components\RobotsCrawlDelay:
 
 |Method                           |Returns|Description                                                                                                      |
 |---------------------------------|-------|-----------------------------------------------------------------------------------------------------------------|
