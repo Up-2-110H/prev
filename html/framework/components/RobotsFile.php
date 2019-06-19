@@ -16,12 +16,14 @@ class RobotsFile extends BaseObject
     /**
      * @var resource
      */
+    private $_data;
     private $_file;
 
     private const FILENAME = 'robots.txt';
 
-    public function __construct($config = [])
+    public function __construct(?IArrayData $data = null, $config = [])
     {
+        $this->_data = $data;
         parent::__construct($config);
     }
 
@@ -60,18 +62,9 @@ class RobotsFile extends BaseObject
         return fclose($this->_file);
     }
 
-    /**
-     * Записывает содержимое $data в файл robots.txt
-     * @param IArrayData $data
-     * @return bool
-     */
-    public function text(IArrayData $data): bool
+    private function write(): bool
     {
-        if (!$this->open('w')) {
-            return false;
-        }
-
-        foreach ($data->getData() as $param) {
+        foreach ($this->_data->getData() as $param) {
             $fw = fwrite($this->_file, $param[0] . ': ' . $param[1] . PHP_EOL);
 
             if ($fw === false) {
@@ -79,7 +72,17 @@ class RobotsFile extends BaseObject
             }
         }
 
-        if (!$this->close()) {
+        return true;
+    }
+
+    /**
+     * Записывает содержимое $data в файл robots.txt
+     * @return bool
+     */
+    public function text(): bool
+    {
+        if ($this->_data == null || !$this->open('w') ||
+            !$this->write() || $this->close()) {
             return false;
         }
 
@@ -88,24 +91,12 @@ class RobotsFile extends BaseObject
 
     /**
      * Записывает содержимое $data в конец файла robots.txt
-     * @param IArrayData $data
      * @return bool
      */
-    public function append(IArrayData $data): bool
+    public function append(): bool
     {
-        if (!$this->open('a')) {
-            return false;
-        }
-
-        foreach ($data as $param) {
-            $fw = fwrite($this->_file, $param[0] . ': ' . $param[1] . '\n');
-
-            if ($fw === false) {
-                return false;
-            }
-        }
-
-        if (!$this->close()) {
+        if ($this->_data == null || !$this->open('a') ||
+            !$this->write() || $this->close()) {
             return false;
         }
 

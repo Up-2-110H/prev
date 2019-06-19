@@ -10,7 +10,6 @@ use yii\base\Component;
 
 /**
  * Class Robots
- * @property ArrayData data
  * @property RobotsFile file
  * @property RobotsUserAgent userAgent
  * @property RobotsAllow allow
@@ -59,7 +58,7 @@ class Robots extends Component implements IRobots
     public function __construct(array $config = [])
     {
         $this->_data = new ArrayData();
-        $this->_file = new RobotsFile();
+        $this->_file = new RobotsFile($this->_data);
         $this->_userAgent = new RobotsUserAgent($this->_data);
         $this->_allow = new RobotsAllow($this->_data);
         $this->_disallow = new RobotsDisallow($this->_data);
@@ -74,11 +73,6 @@ class Robots extends Component implements IRobots
     public function getFile(): RobotsFile
     {
         return $this->_file;
-    }
-
-    public function getData(): ArrayData
-    {
-        return $this->_data;
     }
 
     public function getUserAgent(): RobotsUserAgent

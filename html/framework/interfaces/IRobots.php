@@ -19,11 +19,6 @@ use app\models\ArrayData;
 interface IRobots
 {
     /**
-     * @return ArrayData
-     */
-    public function getData(): ArrayData;
-
-    /**
      * @return RobotsUserAgent
      */
     public function getUserAgent(): RobotsUserAgent;
