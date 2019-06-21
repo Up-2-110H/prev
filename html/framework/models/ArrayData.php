@@ -9,7 +9,6 @@ use yii\base\Model;
 
 /**
  * Class ArrayData
- * @param array data
  * @package app\models
  */
 class ArrayData extends Model implements IArrayData

@@ -8,16 +8,28 @@ use app\components\RobotsAllow;
 use app\components\RobotsCleanParam;
 use app\components\RobotsCrawlDelay;
 use app\components\RobotsDisallow;
+use app\components\RobotsFile;
 use app\components\RobotsSitemap;
 use app\components\RobotsUserAgent;
-use app\models\ArrayData;
 
 /**
  * Interface IRobots
+ * @property RobotsFile file
+ * @property RobotsUserAgent userAgent
+ * @property RobotsAllow allow
+ * @property RobotsDisallow disallow
+ * @property RobotsSitemap sitemap
+ * @property RobotsCleanParam cleanParam
+ * @property RobotsCrawlDelay crawlDelay
  * @package app\interfaces
  */
 interface IRobots
 {
+    /**
+     * @return RobotsFile
+     */
+    public function getFile(): RobotsFile;
+
     /**
      * @return RobotsUserAgent
      */

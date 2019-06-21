@@ -10,13 +10,6 @@ use yii\base\Component;
 
 /**
  * Class Robots
- * @property RobotsFile file
- * @property RobotsUserAgent userAgent
- * @property RobotsAllow allow
- * @property RobotsDisallow disallow
- * @property RobotsSitemap sitemap
- * @property RobotsCleanParam cleanParam
- * @property RobotsCrawlDelay crawlDelay
  * @package app\components
  */
 class Robots extends Component implements IRobots

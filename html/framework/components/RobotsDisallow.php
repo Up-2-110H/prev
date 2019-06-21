@@ -5,6 +5,7 @@ namespace app\components;
 
 
 use app\interfaces\IArrayData;
+use app\interfaces\IRobotsDisallow;
 use app\interfaces\IRobotsParam;
 use app\interfaces\IRobotsParamRemove;
 use yii\base\BaseObject;
@@ -13,7 +14,7 @@ use yii\base\BaseObject;
  * Class RobotsDisallow
  * @package app\components
  */
-class RobotsDisallow extends BaseObject implements IRobotsParam, IRobotsParamRemove
+class RobotsDisallow extends BaseObject implements IRobotsParam, IRobotsDisallow, IRobotsParamRemove
 {
     private $_data;
 
@@ -40,9 +41,6 @@ class RobotsDisallow extends BaseObject implements IRobotsParam, IRobotsParamRem
         return $this->_data->change($index, self::PARAM_NAME, $value);
     }
 
-    /**
-     * Добавляет параметр типа Disallow со значением '/'
-     */
     public function all(): void
     {
         $this->_data->add(self::PARAM_NAME, '/');

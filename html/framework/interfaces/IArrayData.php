@@ -6,6 +6,7 @@ namespace app\interfaces;
 
 /**
  * Interface IArrayData
+ * @param array data
  * @package app\interfaces
  */
 interface IArrayData

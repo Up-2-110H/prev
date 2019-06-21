@@ -4,6 +4,7 @@
 namespace app\components;
 
 use app\interfaces\IArrayData;
+use app\interfaces\IRobotsFile;
 use Yii;
 use yii\base\BaseObject;
 
@@ -11,7 +12,7 @@ use yii\base\BaseObject;
  * Class RobotsFile
  * @package app\components
  */
-class RobotsFile extends BaseObject
+class RobotsFile extends BaseObject implements IRobotsFile
 {
     /**
      * @var resource
@@ -75,10 +76,6 @@ class RobotsFile extends BaseObject
         return true;
     }
 
-    /**
-     * Записывает содержимое $data в файл robots.txt
-     * @return bool
-     */
     public function text(): bool
     {
         if ($this->_data == null || !$this->open('w') ||
@@ -89,10 +86,6 @@ class RobotsFile extends BaseObject
         return true;
     }
 
-    /**
-     * Записывает содержимое $data в конец файла robots.txt
-     * @return bool
-     */
     public function append(): bool
     {
         if ($this->_data == null || !$this->open('a') ||
@@ -103,10 +96,6 @@ class RobotsFile extends BaseObject
         return true;
     }
 
-    /**
-     * очищает содержимое файла robots.txt
-     * @return bool
-     */
     public function clear(): bool
     {
         if (!$this->open('w') || !$this->close()) {
