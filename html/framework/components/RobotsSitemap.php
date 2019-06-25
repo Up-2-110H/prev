@@ -5,15 +5,14 @@ namespace app\components;
 
 
 use app\interfaces\IArrayData;
-use app\interfaces\IRobotsParam;
-use app\interfaces\IRobotsParamRemove;
+use app\interfaces\IRobotsSitemap;
 use yii\base\BaseObject;
 
 /**
  * Class RobotsSitemap
  * @package app\components
  */
-class RobotsSitemap extends BaseObject implements IRobotsParam, IRobotsParamRemove
+class RobotsSitemap extends BaseObject implements IRobotsSitemap
 {
     private $_data;
 

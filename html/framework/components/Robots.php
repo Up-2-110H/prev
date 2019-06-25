@@ -5,6 +5,13 @@ namespace app\components;
 
 
 use app\interfaces\IRobots;
+use app\interfaces\IRobotsAllow;
+use app\interfaces\IRobotsCleanParam;
+use app\interfaces\IRobotsCrawlDelay;
+use app\interfaces\IRobotsDisallow;
+use app\interfaces\IRobotsFile;
+use app\interfaces\IRobotsSitemap;
+use app\interfaces\IRobotsUserAgent;
 use app\models\ArrayData;
 use yii\base\Component;
 
@@ -19,31 +26,31 @@ class Robots extends Component implements IRobots
      */
     private $_data;
     /**
-     * @var RobotsFile
+     * @var IRobotsFile
      */
     private $_file;
     /**
-     * @var RobotsUserAgent
+     * @var IRobotsUserAgent
      */
     private $_userAgent;
     /**
-     * @var RobotsAllow
+     * @var IRobotsAllow
      */
     private $_allow;
     /**
-     * @var RobotsDisallow
+     * @var IRobotsDisallow
      */
     private $_disallow;
     /**
-     * @var RobotsSitemap
+     * @var IRobotsSitemap
      */
     private $_sitemap;
     /**
-     * @var RobotsCleanParam
+     * @var IRobotsCleanParam
      */
     private $_cleanParam;
     /**
-     * @var RobotsCrawlDelay
+     * @var IRobotsCrawlDelay
      */
     private $_crawlDelay;
 
@@ -63,42 +70,42 @@ class Robots extends Component implements IRobots
     }
 
 
-    public function getFile(): RobotsFile
+    public function getFile(): IRobotsFile
     {
         return $this->_file;
     }
 
-    public function getUserAgent(): RobotsUserAgent
+    public function getUserAgent(): IRobotsUserAgent
     {
         return $this->_userAgent;
     }
 
 
-    public function getAllow(): RobotsAllow
+    public function getAllow(): IRobotsAllow
     {
         return $this->_allow;
     }
 
 
-    public function getDisallow(): RobotsDisallow
+    public function getDisallow(): IRobotsDisallow
     {
         return $this->_disallow;
     }
 
 
-    public function getSitemap(): RobotsSitemap
+    public function getSitemap(): IRobotsSitemap
     {
         return $this->_sitemap;
     }
 
 
-    public function getCleanParam(): RobotsCleanParam
+    public function getCleanParam(): IRobotsCleanParam
     {
         return $this->_cleanParam;
     }
 
 
-    public function getCrawlDelay(): RobotsCrawlDelay
+    public function getCrawlDelay(): IRobotsCrawlDelay
     {
         return $this->_crawlDelay;
     }

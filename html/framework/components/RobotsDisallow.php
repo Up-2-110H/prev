@@ -6,15 +6,13 @@ namespace app\components;
 
 use app\interfaces\IArrayData;
 use app\interfaces\IRobotsDisallow;
-use app\interfaces\IRobotsParam;
-use app\interfaces\IRobotsParamRemove;
 use yii\base\BaseObject;
 
 /**
  * Class RobotsDisallow
  * @package app\components
  */
-class RobotsDisallow extends BaseObject implements IRobotsParam, IRobotsDisallow, IRobotsParamRemove
+class RobotsDisallow extends BaseObject implements IRobotsDisallow
 {
     private $_data;
 

@@ -6,14 +6,13 @@ namespace app\components;
 
 use app\interfaces\IArrayData;
 use app\interfaces\IRobotsCleanParam;
-use app\interfaces\IRobotsParamRemove;
 use yii\base\BaseObject;
 
 /**
  * Class RobotsCleanParam
  * @package app\components
  */
-class RobotsCleanParam extends BaseObject implements IRobotsCleanParam, IRobotsParamRemove
+class RobotsCleanParam extends BaseObject implements IRobotsCleanParam
 {
     private $_data;
 

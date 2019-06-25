@@ -8,7 +8,7 @@ namespace app\interfaces;
  * Interface IRobotsDisallow
  * @package app\interfaces
  */
-interface IRobotsDisallow
+interface IRobotsDisallow extends IRobotsParam, IRobotsParamRemove
 {
     /**
      * Добавляет параметр типа Disallow со значением '/'

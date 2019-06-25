@@ -8,7 +8,7 @@ namespace app\interfaces;
  * Interface IRobotsParam
  * @package app\interfaces
  */
-interface IRobotsCleanParam
+interface IRobotsCleanParam extends IRobotsParamRemove
 {
     /**
      * Добавляет новый параметр соответствующего типа со значением $value

@@ -8,7 +8,7 @@ namespace app\interfaces;
  * Interface IRobotsUserAgent
  * @package app\interfaces
  */
-interface IRobotsUserAgent
+interface IRobotsUserAgent extends IRobotsParam, IRobotsParamRemove
 {
     /**
      * Добавляет параметр типа User-agent со значением '*'

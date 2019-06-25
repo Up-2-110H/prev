@@ -5,8 +5,6 @@ namespace app\components;
 
 
 use app\interfaces\IArrayData;
-use app\interfaces\IRobotsParam;
-use app\interfaces\IRobotsParamRemove;
 use app\interfaces\IRobotsUserAgent;
 use yii\base\BaseObject;
 
@@ -14,7 +12,7 @@ use yii\base\BaseObject;
  * Class RobotsUserAgent
  * @package app\components
  */
-class RobotsUserAgent extends BaseObject implements IRobotsParam, IRobotsUserAgent, IRobotsParamRemove
+class RobotsUserAgent extends BaseObject implements IRobotsUserAgent
 {
     private $_data;
 

@@ -5,15 +5,14 @@ namespace app\components;
 
 
 use app\interfaces\IArrayData;
-use app\interfaces\IRobotsParam;
-use app\interfaces\IRobotsParamRemove;
+use app\interfaces\IRobotsCrawlDelay;
 use yii\base\BaseObject;
 
 /**
  * Class RobotsCrawlDelay
  * @package app\components
  */
-class RobotsCrawlDelay extends BaseObject implements IRobotsParam, IRobotsParamRemove
+class RobotsCrawlDelay extends BaseObject implements IRobotsCrawlDelay
 {
     private $_data;
 

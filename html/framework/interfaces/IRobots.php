@@ -26,39 +26,39 @@ use app\components\RobotsUserAgent;
 interface IRobots
 {
     /**
-     * @return RobotsFile
+     * @return IRobotsFile
      */
-    public function getFile(): RobotsFile;
+    public function getFile(): IRobotsFile;
 
     /**
-     * @return RobotsUserAgent
+     * @return IRobotsUserAgent
      */
-    public function getUserAgent(): RobotsUserAgent;
+    public function getUserAgent(): IRobotsUserAgent;
 
     /**
-     * @return RobotsAllow
+     * @return IRobotsAllow
      */
-    public function getAllow(): RobotsAllow;
+    public function getAllow(): IRobotsAllow;
 
     /**
-     * @return RobotsDisallow
+     * @return IRobotsDisallow
      */
-    public function getDisallow(): RobotsDisallow;
+    public function getDisallow(): IRobotsDisallow;
 
     /**
-     * @return RobotsSitemap
+     * @return IRobotsSitemap
      */
-    public function getSitemap(): RobotsSitemap;
+    public function getSitemap(): IRobotsSitemap;
 
     /**
-     * @return RobotsCleanParam
+     * @return IRobotsCleanParam
      */
-    public function getCleanParam(): RobotsCleanParam;
+    public function getCleanParam(): IRobotsCleanParam;
 
     /**
-     * @return RobotsCrawlDelay
+     * @return IRobotsCrawlDelay
      */
-    public function getCrawlDelay(): RobotsCrawlDelay;
+    public function getCrawlDelay(): IRobotsCrawlDelay;
 
     /**
      * возвращает содержимое data
