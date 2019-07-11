@@ -287,6 +287,9 @@ return \yii\helpers\ArrayHelper::merge([
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
+        'robots' => [
+            'class' => 'app\components\Robots',
+        ],
     ],
     'params' => require(__DIR__ . '/params.php'),
 ],
